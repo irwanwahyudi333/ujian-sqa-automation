@@ -28,7 +28,7 @@ Fitur: Validasi Format dan Nilai NIK pada Formulir Pendaftaran
     Dan pengguna menekan tombol Daftar
     Maka sistem menampilkan notifikasi pendaftaran berhasil atau respon sukses
 
-  @positive @nik-017
+  @positive @nik-017 @lean
   Skenario: Pendaftaran orang berbeda menggunakan NIK yang sama (Alur Pending Approval Admin)
     Ketika pengguna mengisi NIK "D6240005"
     Dan pengguna mengisi nama lengkap "Pengguna Baru NIK Sama"

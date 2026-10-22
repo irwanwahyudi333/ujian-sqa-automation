@@ -8,7 +8,7 @@ Fitur: Pengujian Elemen UI dan Tampilan Halaman Pendaftaran
   Latar Belakang:
     Dengan pengguna membuka halaman pendaftaran
 
-  @ui-001
+  @ui-001 @lean
   Skenario: Membuka halaman pendaftaran melalui URL yang benar
     Maka seluruh elemen utama input pendaftaran terlihat
 
@@ -33,7 +33,7 @@ Fitur: Pengujian Elemen UI dan Tampilan Halaman Pendaftaran
     Ketika pengguna mengisi password "Rahasia123!"
     Maka karakter password dalam keadaan tersembunyi
 
-  @ui-007 @pass-011
+  @ui-007 @pass-011 @lean
   Skenario: Menampilkan password menggunakan toggle ikon mata
     Ketika pengguna mengisi password "Rahasia123!"
     Dan pengguna menekan tombol lihat password
@@ -61,7 +61,7 @@ Fitur: Pengujian Elemen UI dan Tampilan Halaman Pendaftaran
   Skenario: Memeriksa konsol browser saat membuka halaman
     Maka log konsol browser tidak memuat kesalahan javascript kritis
 
-  @ui-005 @nav-001
+  @ui-005 @nav-001 @lean
   Skenario: Navigasi ke halaman login melalui tautan masuk disini
     Ketika pengguna menekan tautan masuk disini
     Maka pengguna dialihkan ke halaman login

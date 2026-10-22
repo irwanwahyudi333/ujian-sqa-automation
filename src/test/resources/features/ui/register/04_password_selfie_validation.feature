@@ -37,7 +37,7 @@ Fitur: Validasi Password dan Berkas Upload Foto Selfie
     Dan pengguna menekan tombol Daftar
     Maka sistem menahan submit atau menampilkan respon kesalahan
 
-  @negative @file-005
+  @negative @file-005 @lean
   Skenario: Validasi upload berkas format bukan gambar TXT
     Ketika pengguna mengisi data pendaftaran dengan NIK dari file excel
     Dan pengguna mengisi nama lengkap "SQA Test Invalid File"

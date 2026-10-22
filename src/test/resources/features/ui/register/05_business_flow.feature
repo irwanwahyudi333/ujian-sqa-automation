@@ -8,7 +8,7 @@ Fitur: Pengujian Alur Bisnis dan Submit Formulir Pendaftaran
   Latar Belakang:
     Dengan pengguna membuka halaman pendaftaran
 
-  @positive @reg-006 @reg-021
+  @positive @reg-006 @reg-021 @lean
   Skenario: Pendaftaran berhasil dengan seluruh field lengkap dan valid
     Ketika pengguna mengisi data pendaftaran dengan NIK dari file excel
     Dan pengguna mengisi nama lengkap "SQA Test User"
@@ -18,7 +18,7 @@ Fitur: Pengujian Alur Bisnis dan Submit Formulir Pendaftaran
     Dan pengguna menekan tombol Daftar
     Maka sistem menampilkan notifikasi pendaftaran berhasil atau respon sukses
 
-  @negative @reg-001
+  @negative @reg-001 @lean
   Skenario: Pengiriman formulir pendaftaran saat seluruh field kosong
     Ketika pengguna menekan tombol Daftar
     Maka sistem menahan pengiriman formulir dengan validasi field wajib
