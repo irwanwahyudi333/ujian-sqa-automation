@@ -237,7 +237,7 @@ public class RegisterApiSteps {
         payload.put("company_code", "DIKA");
         payload.put("is_mobile", true);
 
-        logger.info("Mengirim request registrasi tanpa foto selfie (opsional) ke API: {}", uniqueEmail);
+        logger.info("Mengirim request registrasi tanpa foto selfie (verifikasi field wajib) ke API: {}", uniqueEmail);
         lastResponse = RestAssured.given()
                 .contentType(ContentType.JSON)
                 .body(payload)
@@ -247,6 +247,16 @@ public class RegisterApiSteps {
                 .extract().response();
 
         logger.info("Respons pendaftaran tanpa selfie status: {}", lastResponse.getStatusCode());
+    }
+
+    @Maka("response API wajib menolak pendaftaran tanpa foto selfie sebagai validasi wajib")
+    public void responseApiWajibMenolakPendaftaranTanpaFotoSelfieSebagaiValidasiWajib() {
+        int statusCode = lastResponse.getStatusCode();
+        logger.info("Status respons API registrasi tanpa foto selfie: {}", statusCode);
+        Assert.assertTrue(statusCode >= 400,
+                "BUG BACKEND DITEMUKAN: Backend meloloskan pendaftaran tanpa menyertakan foto selfie dengan status HTTP "
+                + statusCode + "! Berdasarkan spesifikasi pengujian, upload foto selfie bersifat wajib (mandatory) "
+                + "dan backend seharusnya menolak request tanpa foto dengan status 4xx.");
     }
 
     @Ketika("client mengirim request registrasi dengan payload JSON tambahan mass-assignment")

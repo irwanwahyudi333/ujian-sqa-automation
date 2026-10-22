@@ -15,10 +15,10 @@ Fitur: Pengujian Endpoint REST API Registrasi Pengguna Baru
     Ketika client mengirim request registrasi akun baru dengan NIK yang sudah terdaftar "D6240005"
     Maka response API menerima pendaftaran akun baru dalam antrean approval
 
-  @positive @api-010
-  Skenario: Registrasi user baru via API tanpa menyertakan foto selfie (field selfie opsional)
+  @negative @api-010
+  Skenario: Validasi API wajib menolak registrasi user baru tanpa menyertakan foto selfie (field foto wajib)
     Ketika client mengirim request registrasi tanpa menyertakan foto selfie
-    Maka response API registrasi mengembalikan status sukses atau respon server
+    Maka response API wajib menolak pendaftaran tanpa foto selfie sebagai validasi wajib
 
   @negative @api-matrix
   Skenario konsep: Validasi variasi payload registrasi tidak valid melalui API (<test_id> - <keterangan>)

@@ -28,8 +28,8 @@ Fitur: Validasi Password dan Berkas Upload Foto Selfie
     Dan pengguna menekan tombol Daftar
     Maka sistem menampilkan notifikasi pendaftaran berhasil atau respon sukses
 
-  @file-001
-  Skenario: Pendaftaran tanpa memilih berkas selfie (pemeriksaan perilaku field selfie opsional)
+  @negative @file-001
+  Skenario: Validasi penolakan pendaftaran tanpa memilih berkas selfie (field selfie wajib)
     Ketika pengguna mengisi data pendaftaran dengan NIK dari file excel
     Dan pengguna mengisi nama lengkap "SQA Test No File"
     Dan pengguna mengisi email pendaftaran
