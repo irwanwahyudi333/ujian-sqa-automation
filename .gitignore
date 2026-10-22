@@ -42,3 +42,6 @@ PANDUAN_ARSITEKTUR_SRC.md
 ### MCP Playwright ###
 .playwright-mcp/
 
+### Allure Test ###
+.allure
+
