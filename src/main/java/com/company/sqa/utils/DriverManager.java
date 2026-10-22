@@ -27,7 +27,7 @@ public class DriverManager {
         }
 
         WebDriver driver;
-        String selectedBrowser = (browser == null) ? "chrome" : browser.toLowerCase().trim();
+        String selectedBrowser = (browser == null) ? "firefox" : browser.toLowerCase().trim();
         logger.info("Initializing WebDriver for browser: {} (headless: {})", selectedBrowser, headless);
 
         switch (selectedBrowser) {

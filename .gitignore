@@ -39,3 +39,6 @@ cucumber-reports/
 AGENTS.md
 PANDUAN_ARSITEKTUR_SRC.md
 
+### MCP Playwright ###
+.playwright-mcp/
+

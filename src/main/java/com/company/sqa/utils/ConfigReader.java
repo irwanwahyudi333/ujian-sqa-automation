@@ -61,26 +61,12 @@ public class ConfigReader {
         return getProperty("api.base.url", "https://magang.dikahadir.com");
     }
 
-    public static String getApiKey() {
-        String key = getProperty("api.key");
-        if (key != null && !key.isEmpty()) {
-            return key;
-        }
-        String env = getActiveEnvironment();
-        return getProperty(env + ".api.key", "d461265dd7323fef9755bb3257275d67");
-    }
-
-    public static String getLicenseKey() {
-        String key = getProperty("license.key");
-        if (key != null && !key.isEmpty()) {
-            return key;
-        }
-        String env = getActiveEnvironment();
-        return getProperty(env + ".license.key", "d461265dd7323fef9755bb3257275d67");
+    public static String getRegisterEmail() {
+        return getProperty("register.email", "raxaf58877@backyr.com");
     }
 
     public static String getBrowser() {
-        return getProperty("browser", "chrome");
+        return getProperty("browser", "firefox");
     }
 
     public static boolean isHeadless() {

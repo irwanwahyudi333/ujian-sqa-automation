@@ -78,6 +78,46 @@ public class ExcelUtil {
     }
 
     /**
+     * Reads all values from a specific column in an Excel sheet (0-indexed).
+     * Skips empty values and trims each entry.
+     */
+    public static List<String> getColumnData(String filePath, String sheetName, int columnIndex) {
+        List<String> list = new ArrayList<>();
+        File file = new File(filePath);
+        if (!file.exists()) {
+            logger.error("Excel file does not exist at path: {}", filePath);
+            throw new IllegalArgumentException("Excel file not found at " + filePath);
+        }
+
+        try (FileInputStream fis = new FileInputStream(file);
+             Workbook workbook = WorkbookFactory.create(fis)) {
+
+            Sheet sheet = workbook.getSheet(sheetName);
+            if (sheet == null) {
+                logger.error("Sheet '{}' not found in file: {}", sheetName, filePath);
+                throw new IllegalArgumentException("Sheet " + sheetName + " not found");
+            }
+
+            int rowCount = sheet.getLastRowNum();
+            for (int r = 0; r <= rowCount; r++) {
+                Row row = sheet.getRow(r);
+                if (row == null) continue;
+                Cell cell = row.getCell(columnIndex, Row.MissingCellPolicy.RETURN_BLANK_AS_NULL);
+                if (cell != null) {
+                    String val = sanitizeString(getCellValueAsString(cell));
+                    if (!val.isEmpty()) {
+                        list.add(val);
+                    }
+                }
+            }
+        } catch (IOException e) {
+            logger.error("Error reading column data from Excel: {}", filePath, e);
+            throw new RuntimeException("Error reading column data: " + filePath, e);
+        }
+        return list;
+    }
+
+    /**
      * Converts cell content to string.
      */
     private static String getCellValueAsString(Cell cell) {

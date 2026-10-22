@@ -54,6 +54,16 @@ public abstract class BasePage {
         return waitForVisibility(locator).getText().trim();
     }
 
+    protected void uploadFile(By locator, String filePath) {
+        logger.info("Uploading file '{}' to element: {}", filePath, locator);
+        java.io.File file = new java.io.File(filePath);
+        if (!file.exists()) {
+            throw new IllegalArgumentException("File to upload not found: " + file.getAbsolutePath());
+        }
+        WebElement element = driver.findElement(locator);
+        element.sendKeys(file.getAbsolutePath());
+    }
+
     protected boolean isElementDisplayed(By locator) {
         try {
             return waitForVisibility(locator).isDisplayed();

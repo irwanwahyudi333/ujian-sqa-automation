@@ -28,7 +28,6 @@ public class BaseApiTest {
                 .setBaseUri(baseUrl)
                 .setContentType(ContentType.JSON)
                 .setAccept(ContentType.JSON)
-                .addHeader("X-API-KEY", ConfigReader.getApiKey())
                 .log(LogDetail.URI)
                 .log(LogDetail.METHOD)
                 .build();
@@ -43,5 +42,27 @@ public class BaseApiTest {
             setupApiSpecs();
         }
         return requestSpec;
+    }
+
+    /**
+     * Membuat RequestSpecification dengan base URI kustom secara dinamis.
+     * Sangat berguna ketika endpoint berada di host/subdomain yang berbeda
+     * (misal: https://api-dev.dikahadir.com atau https://magang.dikahadir.com/api).
+     *
+     * Catatan: Jika memanggil endpoint dengan URL absolut langsung
+     * (misal: get("https://api-dev.dikahadir.com/uploads/..."))
+     * REST Assured akan otomatis mengabaikan base URI dan memakai URL absolut tersebut.
+     */
+    public static RequestSpecification getRequestSpec(String customBaseUri) {
+        if (customBaseUri == null || customBaseUri.trim().isEmpty()) {
+            return getRequestSpec();
+        }
+        return new RequestSpecBuilder()
+                .setBaseUri(customBaseUri.trim())
+                .setContentType(ContentType.JSON)
+                .setAccept(ContentType.JSON)
+                .log(LogDetail.URI)
+                .log(LogDetail.METHOD)
+                .build();
     }
 }
