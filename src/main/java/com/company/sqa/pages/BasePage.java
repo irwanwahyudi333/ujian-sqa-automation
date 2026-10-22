@@ -35,10 +35,10 @@ public abstract class BasePage {
         logger.info("Clicking on element: {}", locator);
         WebElement element = waitForClickable(locator);
         try {
-            element.click();
-        } catch (org.openqa.selenium.ElementClickInterceptedException e) {
-            logger.warn("Standard click intercepted for {}, falling back to JavaScript click", locator);
             ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", element);
+            element.click();
+        } catch (Exception e) {
+            logger.warn("Standard click failed for {}, falling back to JavaScript click: {}", locator, e.getMessage());
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
         }
     }
@@ -68,6 +68,15 @@ public abstract class BasePage {
         try {
             return waitForVisibility(locator).isDisplayed();
         } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean waitForUrlContains(String partialUrl) {
+        try {
+            return wait.until(ExpectedConditions.urlContains(partialUrl));
+        } catch (Exception e) {
+            logger.warn("Timeout waiting for URL to contain '{}'. Current URL: {}", partialUrl, driver.getCurrentUrl());
             return false;
         }
     }
