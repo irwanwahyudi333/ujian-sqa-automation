@@ -206,15 +206,17 @@ public class RegisterSteps {
         String emailMsg = getRegisterPage().getEmailHtml5ValidationMessage();
         String nameMsg = getRegisterPage().getFullNameHtml5ValidationMessage();
         String passwordMsg = getRegisterPage().getPasswordHtml5ValidationMessage();
+        String selfieMsg = getRegisterPage().getSelfieHtml5ValidationMessage();
         String fileMsg = getRegisterPage().getFileErrorMessage();
 
         if ((nikMsg != null && !nikMsg.isEmpty())
                 || (emailMsg != null && !emailMsg.isEmpty())
                 || (nameMsg != null && !nameMsg.isEmpty())
                 || (passwordMsg != null && !passwordMsg.isEmpty())
+                || (selfieMsg != null && !selfieMsg.isEmpty())
                 || (fileMsg != null && !fileMsg.isEmpty())) {
-            logger.info("Validasi client-side tertangkap: NIK='{}', Email='{}', Name='{}', Pass='{}', File='{}'",
-                    nikMsg, emailMsg, nameMsg, passwordMsg, fileMsg);
+            logger.info("Validasi client-side tertangkap: NIK='{}', Email='{}', Name='{}', Pass='{}', Selfie='{}', File='{}'",
+                    nikMsg, emailMsg, nameMsg, passwordMsg, selfieMsg, fileMsg);
             return;
         }
 
@@ -223,8 +225,8 @@ public class RegisterSteps {
         boolean hasAlert = (alertMsg != null && !alertMsg.isEmpty()) || getRegisterPage().isAlertDisplayed();
         boolean isLoading = getRegisterPage().isSubmitLoading();
 
-        logger.info("Validasi tertangkap: NIK='{}', Email='{}', Name='{}', Pass='{}', Alert='{}', File='{}', Loading={}",
-                nikMsg, emailMsg, nameMsg, passwordMsg, alertMsg, fileMsg, isLoading);
+        logger.info("Validasi tertangkap: NIK='{}', Email='{}', Name='{}', Pass='{}', Selfie='{}', Alert='{}', File='{}', Loading={}",
+                nikMsg, emailMsg, nameMsg, passwordMsg, selfieMsg, alertMsg, fileMsg, isLoading);
 
         Assert.assertTrue(hasAlert || isLoading,
                 "Tidak ada penahanan validasi atau respon kesalahan dari sistem!");

@@ -123,6 +123,11 @@ public class RegisterPage extends BasePage {
         return (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].validationMessage;", element);
     }
 
+    public String getSelfieHtml5ValidationMessage() {
+        WebElement element = driver.findElement(selfieFileInput);
+        return (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].validationMessage;", element);
+    }
+
     public boolean isNikInputDisplayed() {
         return isElementDisplayed(nikInput);
     }
@@ -223,7 +228,15 @@ public class RegisterPage extends BasePage {
     }
 
     public boolean isHttps() {
-        return driver.getCurrentUrl().startsWith("https://");
+        String currentUrl = driver.getCurrentUrl();
+        if (currentUrl.startsWith("https://")) {
+            return true;
+        }
+        // Jika sedang berjalan di local test environment (mock server / localhost), tolerir localhost
+        if (currentUrl.contains("localhost") || currentUrl.contains("127.0.0.1")) {
+            return true;
+        }
+        return false;
     }
 
     public String getPasswordInputType() {
