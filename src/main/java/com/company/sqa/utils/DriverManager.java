@@ -36,6 +36,8 @@ public class DriverManager {
                 firefoxOptions.setPageLoadStrategy(org.openqa.selenium.PageLoadStrategy.EAGER);
                 if (headless) {
                     firefoxOptions.addArguments("-headless");
+                    firefoxOptions.addArguments("--width=1920");
+                    firefoxOptions.addArguments("--height=1080");
                 }
                 driver = new FirefoxDriver(firefoxOptions);
             }
@@ -57,7 +59,11 @@ public class DriverManager {
         int implicitWait = ConfigReader.getImplicitWait();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitWait));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
-        driver.manage().window().maximize();
+        try {
+            driver.manage().window().maximize();
+        } catch (Exception e) {
+            logger.warn("Could not maximize window in headless mode: {}", e.getMessage());
+        }
 
         driverThreadLocal.set(driver);
         logger.info("WebDriver initialized successfully for thread: {}", Thread.currentThread().getId());
