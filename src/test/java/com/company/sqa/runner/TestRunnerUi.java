@@ -20,6 +20,19 @@ import org.testng.annotations.DataProvider;
         monochrome = true
 )
 public class TestRunnerUi extends AbstractTestNGCucumberTests {
+    @org.testng.annotations.BeforeSuite(alwaysRun = true)
+    public void startLocalWebServer() {
+        String uiUrl = com.company.sqa.utils.ConfigReader.getUiBaseUrl();
+        if (uiUrl != null && (uiUrl.contains("localhost") || uiUrl.contains("127.0.0.1"))) {
+            com.company.sqa.utils.LocalWebServer.start();
+        }
+    }
+
+    @org.testng.annotations.AfterSuite(alwaysRun = true)
+    public void stopLocalWebServer() {
+        com.company.sqa.utils.LocalWebServer.stop();
+    }
+
     @Override
     @DataProvider(parallel = false)
     public Object[][] scenarios() {
