@@ -1,0 +1,544 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid","94554","Pengiriman formulir pendaftaran saat berkas selfie gagal diunggah","","2026-10-22","failed","2026-10-22","","Validasi Password dan Berkas Upload Foto Selfie","Pengiriman formulir pendaftaran saat berkas selfie gagal diunggah",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan NIK yang diinput sesuai aturan 8 karakter alfanumerik
+  Agar integritas data identitas pengguna magang terjamin","6409","Pendaftaran menggunakan NIK valid resmi dari berkas Excel","","2026-10-22","passed","2026-10-22","","Validasi Format dan Nilai NIK pada Formulir Pendaftaran","Pendaftaran menggunakan NIK valid resmi dari berkas Excel",""
+"  Sebagai calon pengguna magang
+  Saya ingin memastikan seluruh elemen antarmuka pendaftaran tersedia dan berfungsi
+  Agar proses pendaftaran dapat dilakukan dengan lancar","2785","Navigasi ke halaman login melalui tautan masuk disini","","2026-10-22","passed","2026-10-22","","Pengujian Elemen UI dan Tampilan Halaman Pendaftaran","Navigasi ke halaman login melalui tautan masuk disini",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","1377","Validasi variasi payload registrasi tidak valid melalui API (API-006 - NIK 9 karakter)","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Validasi variasi payload registrasi tidak valid melalui API (API-006 - NIK 9 karakter)",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan format nama lengkap dan alamat email yang diinput valid
+  Agar komunikasi dan verifikasi akun dapat berjalan dengan baik","33649","Validasi variasi input nama lengkap tidak valid (NAME-002 - Nama kosong)","","2026-10-22","passed","2026-10-22","","Validasi Field Nama Lengkap dan Email pada Formulir Pendaftaran","Validasi variasi input nama lengkap tidak valid (NAME-002 - Nama kosong)",""
+"  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid","2653","Interaksi visual dan konfirmasi berkas selfie pada antarmuka pendaftaran","","2026-10-22","passed","2026-10-22","","Validasi Password dan Berkas Upload Foto Selfie","Interaksi visual dan konfirmasi berkas selfie pada antarmuka pendaftaran",""
+"  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid","43865","Validasi variasi input password (PASS-018 - Password seluruhnya karakter simbol)","","2026-10-22","passed","2026-10-22","","Validasi Password dan Berkas Upload Foto Selfie","Validasi variasi input password (PASS-018 - Password seluruhnya karakter simbol)",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan format nama lengkap dan alamat email yang diinput valid
+  Agar komunikasi dan verifikasi akun dapat berjalan dengan baik","5715","Pendaftaran dengan variasi nama yang sah (NAME-006 - Nama dengan tanda apostrof/tanda hubung)","","2026-10-22","passed","2026-10-22","","Validasi Field Nama Lengkap dan Email pada Formulir Pendaftaran","Pendaftaran dengan variasi nama yang sah (NAME-006 - Nama dengan tanda apostrof/tanda hubung)",""
+"  Sebagai tim Quality Assurance dan Keamanan Sistem
+  Saya ingin memastikan antarmuka pendaftaran tangguh menghadapi error dan menerapkan standar keamanan
+  Agar sistem andal dan data pendaftar aman dari ancaman siber","2402","Memeriksa transmisi halaman pendaftaran menggunakan koneksi HTTPS aman","","2026-10-22","failed","2026-10-22","","Pengujian Ketahanan (Resilience) dan Keamanan Antarmuka Pendaftaran","Memeriksa transmisi halaman pendaftaran menggunakan koneksi HTTPS aman",""
+"  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid","6492","Mengganti pilihan berkas upload berkali-kali","","2026-10-22","passed","2026-10-22","","Validasi Password dan Berkas Upload Foto Selfie","Mengganti pilihan berkas upload berkali-kali",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan NIK yang diinput sesuai aturan 8 karakter alfanumerik
+  Agar integritas data identitas pengguna magang terjamin","44037","Pengujian variasi format NIK tidak valid (NIK-019 - NIK payload SQL injection)","","2026-10-22","passed","2026-10-22","","Validasi Format dan Nilai NIK pada Formulir Pendaftaran","Pengujian variasi format NIK tidak valid (NIK-019 - NIK payload SQL injection)",""
+"  Sebagai calon pengguna magang
+  Saya ingin mengirimkan formulir registrasi
+  Agar sistem memproses pembuatan akun sesuai aturan bisnis pendaftaran","33735","Pengiriman formulir hanya mengisi email valid","","2026-10-22","passed","2026-10-22","","Pengujian Alur Bisnis dan Submit Formulir Pendaftaran","Pengiriman formulir hanya mengisi email valid",""
+"  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid","5767","Upload berkas foto selfie format PNG valid dengan password kombinasi kompleks","","2026-10-22","passed","2026-10-22","","Validasi Password dan Berkas Upload Foto Selfie","Upload berkas foto selfie format PNG valid dengan password kombinasi kompleks",""
+"  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid","33788","Validasi variasi input password (PASS-001 - Password kosong)","","2026-10-22","passed","2026-10-22","","Validasi Password dan Berkas Upload Foto Selfie","Validasi variasi input password (PASS-001 - Password kosong)",""
+"  Sebagai pengguna aplikasi di berbagai perangkat
+  Saya ingin memastikan formulir pendaftaran tampil responsif dan tautan navigasi berfungsi
+  Agar aplikasi dapat diakses dengan baik di seluruh resolusi layar","2495","Aksesibilitas keyboard pada seluruh elemen formulir pendaftaran","","2026-10-22","passed","2026-10-22","","Pengujian Navigasi Lanjutan dan Tampilan Responsif (UX/Compatibility)","Aksesibilitas keyboard pada seluruh elemen formulir pendaftaran",""
+"  Sebagai calon pengguna magang
+  Saya ingin memastikan seluruh elemen antarmuka pendaftaran tersedia dan berfungsi
+  Agar proses pendaftaran dapat dilakukan dengan lancar","2546","Buka halaman pendaftaran dengan zoom browser 200 persen","","2026-10-22","passed","2026-10-22","","Pengujian Elemen UI dan Tampilan Halaman Pendaftaran","Buka halaman pendaftaran dengan zoom browser 200 persen",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","1359","Validasi variasi payload registrasi tidak valid melalui API (SEC-002 - Nama payload script XSS)","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Validasi variasi payload registrasi tidak valid melalui API (SEC-002 - Nama payload script XSS)",""
+"  Sebagai pengguna aplikasi di berbagai perangkat
+  Saya ingin memastikan formulir pendaftaran tampil responsif dan tautan navigasi berfungsi
+  Agar aplikasi dapat diakses dengan baik di seluruh resolusi layar","2601","Kompatibilitas responsivitas pada resolusi perangkat laptop (1366x768)","","2026-10-22","passed","2026-10-22","","Pengujian Navigasi Lanjutan dan Tampilan Responsif (UX/Compatibility)","Kompatibilitas responsivitas pada resolusi perangkat laptop (1366x768)",""
+"  Sebagai pengguna aplikasi di berbagai perangkat
+  Saya ingin memastikan formulir pendaftaran tampil responsif dan tautan navigasi berfungsi
+  Agar aplikasi dapat diakses dengan baik di seluruh resolusi layar","2749","Memeriksa URL route halaman login setelah navigasi","","2026-10-22","passed","2026-10-22","","Pengujian Navigasi Lanjutan dan Tampilan Responsif (UX/Compatibility)","Memeriksa URL route halaman login setelah navigasi",""
+"  Sebagai pengguna aplikasi di berbagai perangkat
+  Saya ingin memastikan formulir pendaftaran tampil responsif dan tautan navigasi berfungsi
+  Agar aplikasi dapat diakses dengan baik di seluruh resolusi layar","33535","Tampilan formulir pendaftaran saat menerima pesan validasi error","","2026-10-22","passed","2026-10-22","","Pengujian Navigasi Lanjutan dan Tampilan Responsif (UX/Compatibility)","Tampilan formulir pendaftaran saat menerima pesan validasi error",""
+"  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid","43819","Validasi variasi input password (PASS-017 - Password diawali spasi)","","2026-10-22","passed","2026-10-22","","Validasi Password dan Berkas Upload Foto Selfie","Validasi variasi input password (PASS-017 - Password diawali spasi)",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","1511","Pengiriman dua request pendaftaran simultan dengan NIK yang sama","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Pengiriman dua request pendaftaran simultan dengan NIK yang sama",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan NIK yang diinput sesuai aturan 8 karakter alfanumerik
+  Agar integritas data identitas pengguna magang terjamin","43966","Pengujian variasi format NIK tidak valid (NIK-012 - NIK kombinasi huruf besar dan kecil)","","2026-10-22","passed","2026-10-22","","Validasi Format dan Nilai NIK pada Formulir Pendaftaran","Pengujian variasi format NIK tidak valid (NIK-012 - NIK kombinasi huruf besar dan kecil)",""
+"  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid","43712","Validasi upload berkas variasi khusus (FILE-008 - Berkas resolusi tinggi)","","2026-10-22","passed","2026-10-22","","Validasi Password dan Berkas Upload Foto Selfie","Validasi upload berkas variasi khusus (FILE-008 - Berkas resolusi tinggi)",""
+"  Sebagai calon pengguna magang
+  Saya ingin mengirimkan formulir registrasi
+  Agar sistem memproses pembuatan akun sesuai aturan bisnis pendaftaran","44036","Pendaftaran dengan data NIK dan Nama diapit spasi (auto-trimming)","","2026-10-22","passed","2026-10-22","","Pengujian Alur Bisnis dan Submit Formulir Pendaftaran","Pendaftaran dengan data NIK dan Nama diapit spasi (auto-trimming)",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","1416","Response registrasi API tidak mengembalikan password plaintext","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Response registrasi API tidak mengembalikan password plaintext",""
+"  Sebagai calon pengguna magang
+  Saya ingin mengirimkan formulir registrasi
+  Agar sistem memproses pembuatan akun sesuai aturan bisnis pendaftaran","5717","Pendaftaran menggunakan kombinasi karakter huruf besar dan kecil pada input","","2026-10-22","passed","2026-10-22","","Pengujian Alur Bisnis dan Submit Formulir Pendaftaran","Pendaftaran menggunakan kombinasi karakter huruf besar dan kecil pada input",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan format nama lengkap dan alamat email yang diinput valid
+  Agar komunikasi dan verifikasi akun dapat berjalan dengan baik","5763","Pendaftaran dengan variasi nama yang sah (NAME-005 - Nama hanya satu kata)","","2026-10-22","passed","2026-10-22","","Validasi Field Nama Lengkap dan Email pada Formulir Pendaftaran","Pendaftaran dengan variasi nama yang sah (NAME-005 - Nama hanya satu kata)",""
+"  Sebagai tim Quality Assurance dan Keamanan Sistem
+  Saya ingin memastikan antarmuka pendaftaran tangguh menghadapi error dan menerapkan standar keamanan
+  Agar sistem andal dan data pendaftar aman dari ancaman siber","33476","Konsistensi aturan validasi antara antarmuka dan backend pendaftaran","","2026-10-22","passed","2026-10-22","","Pengujian Ketahanan (Resilience) dan Keamanan Antarmuka Pendaftaran","Konsistensi aturan validasi antara antarmuka dan backend pendaftaran",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan NIK yang diinput sesuai aturan 8 karakter alfanumerik
+  Agar integritas data identitas pengguna magang terjamin","44089","Pengujian variasi format NIK tidak valid (NIK-011 - NIK seluruhnya huruf kecil)","","2026-10-22","passed","2026-10-22","","Validasi Format dan Nilai NIK pada Formulir Pendaftaran","Pengujian variasi format NIK tidak valid (NIK-011 - NIK seluruhnya huruf kecil)",""
+"  Sebagai calon pengguna magang
+  Saya ingin memastikan seluruh elemen antarmuka pendaftaran tersedia dan berfungsi
+  Agar proses pendaftaran dapat dilakukan dengan lancar","2611","Menempel teks ke dalam field formulir dari clipboard","","2026-10-22","passed","2026-10-22","","Pengujian Elemen UI dan Tampilan Halaman Pendaftaran","Menempel teks ke dalam field formulir dari clipboard",""
+"  Sebagai calon pengguna magang
+  Saya ingin memastikan seluruh elemen antarmuka pendaftaran tersedia dan berfungsi
+  Agar proses pendaftaran dapat dilakukan dengan lancar","26999","Membuka halaman pendaftaran melalui URL yang benar","","2026-10-22","passed","2026-10-22","","Pengujian Elemen UI dan Tampilan Halaman Pendaftaran","Membuka halaman pendaftaran melalui URL yang benar",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan format nama lengkap dan alamat email yang diinput valid
+  Agar komunikasi dan verifikasi akun dapat berjalan dengan baik","43892","Validasi variasi input nama lengkap tidak valid (NAME-009 - Nama berisi simbol liar)","","2026-10-22","passed","2026-10-22","","Validasi Field Nama Lengkap dan Email pada Formulir Pendaftaran","Validasi variasi input nama lengkap tidak valid (NAME-009 - Nama berisi simbol liar)",""
+"  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid","43963","Validasi upload berkas variasi khusus (FILE-010 - Berkas nama berspasi)","","2026-10-22","passed","2026-10-22","","Validasi Password dan Berkas Upload Foto Selfie","Validasi upload berkas variasi khusus (FILE-010 - Berkas nama berspasi)",""
+"  Sebagai tim Quality Assurance dan Keamanan Sistem
+  Saya ingin memastikan antarmuka pendaftaran tangguh menghadapi error dan menerapkan standar keamanan
+  Agar sistem andal dan data pendaftar aman dari ancaman siber","36802","Pengiriman formulir berulang kali setelah penolakan validasi tidak mengunci form","","2026-10-22","passed","2026-10-22","","Pengujian Ketahanan (Resilience) dan Keamanan Antarmuka Pendaftaran","Pengiriman formulir berulang kali setelah penolakan validasi tidak mengunci form",""
+"  Sebagai pengguna aplikasi di berbagai perangkat
+  Saya ingin memastikan formulir pendaftaran tampil responsif dan tautan navigasi berfungsi
+  Agar aplikasi dapat diakses dengan baik di seluruh resolusi layar","2619","Konsistensi state formulir pendaftaran saat navigasi browser Back dan Forward","","2026-10-22","passed","2026-10-22","","Pengujian Navigasi Lanjutan dan Tampilan Responsif (UX/Compatibility)","Konsistensi state formulir pendaftaran saat navigasi browser Back dan Forward",""
+"  Sebagai calon pengguna magang
+  Saya ingin mengirimkan formulir registrasi
+  Agar sistem memproses pembuatan akun sesuai aturan bisnis pendaftaran","2829","Pengiriman formulir dengan satu field tidak valid","","2026-10-22","passed","2026-10-22","","Pengujian Alur Bisnis dan Submit Formulir Pendaftaran","Pengiriman formulir dengan satu field tidak valid",""
+"  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid","43777","Validasi variasi input password (PASS-004 - Password hanya huruf tanpa angka)","","2026-10-22","passed","2026-10-22","","Validasi Password dan Berkas Upload Foto Selfie","Validasi variasi input password (PASS-004 - Password hanya huruf tanpa angka)",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan format nama lengkap dan alamat email yang diinput valid
+  Agar komunikasi dan verifikasi akun dapat berjalan dengan baik","5805","Pendaftaran menggunakan nama lengkap dan email valid","","2026-10-22","passed","2026-10-22","","Validasi Field Nama Lengkap dan Email pada Formulir Pendaftaran","Pendaftaran menggunakan nama lengkap dan email valid",""
+"  Sebagai calon pengguna magang
+  Saya ingin mengirimkan formulir registrasi
+  Agar sistem memproses pembuatan akun sesuai aturan bisnis pendaftaran","33583","Pengiriman formulir hanya mengisi NIK valid","","2026-10-22","passed","2026-10-22","","Pengujian Alur Bisnis dan Submit Formulir Pendaftaran","Pengiriman formulir hanya mengisi NIK valid",""
+"  Sebagai calon pengguna magang
+  Saya ingin memastikan seluruh elemen antarmuka pendaftaran tersedia dan berfungsi
+  Agar proses pendaftaran dapat dilakukan dengan lancar","2875","Memuat ulang halaman pendaftaran","","2026-10-22","passed","2026-10-22","","Pengujian Elemen UI dan Tampilan Halaman Pendaftaran","Memuat ulang halaman pendaftaran",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan format nama lengkap dan alamat email yang diinput valid
+  Agar komunikasi dan verifikasi akun dapat berjalan dengan baik","43851","Validasi variasi format email tidak valid (EMAIL-018 - Email diawali tanda titik)","","2026-10-22","passed","2026-10-22","","Validasi Field Nama Lengkap dan Email pada Formulir Pendaftaran","Validasi variasi format email tidak valid (EMAIL-018 - Email diawali tanda titik)",""
+"  Sebagai pengguna aplikasi di berbagai perangkat
+  Saya ingin memastikan formulir pendaftaran tampil responsif dan tautan navigasi berfungsi
+  Agar aplikasi dapat diakses dengan baik di seluruh resolusi layar","2640","Aksesibilitas tampilan pendaftaran saat zoom browser 200 persen","","2026-10-22","passed","2026-10-22","","Pengujian Navigasi Lanjutan dan Tampilan Responsif (UX/Compatibility)","Aksesibilitas tampilan pendaftaran saat zoom browser 200 persen",""
+"  Sebagai pengguna aplikasi di berbagai perangkat
+  Saya ingin memastikan formulir pendaftaran tampil responsif dan tautan navigasi berfungsi
+  Agar aplikasi dapat diakses dengan baik di seluruh resolusi layar","2794","Menampilkan formulir pendaftaran pada resolusi layar Desktop (1920x1080)","","2026-10-22","passed","2026-10-22","","Pengujian Navigasi Lanjutan dan Tampilan Responsif (UX/Compatibility)","Menampilkan formulir pendaftaran pada resolusi layar Desktop (1920x1080)",""
+"  Sebagai pengguna aplikasi di berbagai perangkat
+  Saya ingin memastikan formulir pendaftaran tampil responsif dan tautan navigasi berfungsi
+  Agar aplikasi dapat diakses dengan baik di seluruh resolusi layar","2550","Aksesibilitas label elemen formulir pendaftaran","","2026-10-22","passed","2026-10-22","","Pengujian Navigasi Lanjutan dan Tampilan Responsif (UX/Compatibility)","Aksesibilitas label elemen formulir pendaftaran",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan format nama lengkap dan alamat email yang diinput valid
+  Agar komunikasi dan verifikasi akun dapat berjalan dengan baik","43900","Validasi variasi format email tidak valid (EMAIL-011 - Email panjang melebihi batas wajar)","","2026-10-22","passed","2026-10-22","","Validasi Field Nama Lengkap dan Email pada Formulir Pendaftaran","Validasi variasi format email tidak valid (EMAIL-011 - Email panjang melebihi batas wajar)",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","1226","Pemeriksaan konfigurasi header keamanan respons API","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Pemeriksaan konfigurasi header keamanan respons API",""
+"  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid","5845","Upload berkas foto selfie format JPG valid dengan password standar 8 karakter","","2026-10-22","passed","2026-10-22","","Validasi Password dan Berkas Upload Foto Selfie","Upload berkas foto selfie format JPG valid dengan password standar 8 karakter",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan NIK yang diinput sesuai aturan 8 karakter alfanumerik
+  Agar integritas data identitas pengguna magang terjamin","43979","Pengujian variasi format NIK tidak valid (NIK-015 - NIK mengandung whitespace karakter khusus)","","2026-10-22","passed","2026-10-22","","Validasi Format dan Nilai NIK pada Formulir Pendaftaran","Pengujian variasi format NIK tidak valid (NIK-015 - NIK mengandung whitespace karakter khusus)",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","1854","Validasi variasi payload registrasi tidak valid melalui API (SEC-001 - NIK payload SQL injection)","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Validasi variasi payload registrasi tidak valid melalui API (SEC-001 - NIK payload SQL injection)",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan format nama lengkap dan alamat email yang diinput valid
+  Agar komunikasi dan verifikasi akun dapat berjalan dengan baik","34263","Validasi variasi format email tidak valid (EMAIL-003 - Email tanpa simbol @)","","2026-10-22","passed","2026-10-22","","Validasi Field Nama Lengkap dan Email pada Formulir Pendaftaran","Validasi variasi format email tidak valid (EMAIL-003 - Email tanpa simbol @)",""
+"  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid","43851","Validasi upload berkas variasi khusus (FILE-014 - Berkas format SVG)","","2026-10-22","passed","2026-10-22","","Validasi Password dan Berkas Upload Foto Selfie","Validasi upload berkas variasi khusus (FILE-014 - Berkas format SVG)",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","1421","Pengiriman request pendaftaran langsung ke API tanpa melewati browser","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Pengiriman request pendaftaran langsung ke API tanpa melewati browser",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","1405","Perlindungan Mass Assignment terhadap injeksi hak akses admin melalui payload API","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Perlindungan Mass Assignment terhadap injeksi hak akses admin melalui payload API",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","1379","Validasi variasi payload registrasi tidak valid melalui API (API-014 - Foto ID kosong)","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Validasi variasi payload registrasi tidak valid melalui API (API-014 - Foto ID kosong)",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan format nama lengkap dan alamat email yang diinput valid
+  Agar komunikasi dan verifikasi akun dapat berjalan dengan baik","5842","Pendaftaran dengan variasi alamat email yang sah (EMAIL-010 - Email dengan kombinasi huruf besar)","","2026-10-22","passed","2026-10-22","","Validasi Field Nama Lengkap dan Email pada Formulir Pendaftaran","Pendaftaran dengan variasi alamat email yang sah (EMAIL-010 - Email dengan kombinasi huruf besar)",""
+"  Sebagai calon pengguna magang
+  Saya ingin memastikan seluruh elemen antarmuka pendaftaran tersedia dan berfungsi
+  Agar proses pendaftaran dapat dilakukan dengan lancar","2614","Navigasi elemen formulir pendaftaran menggunakan tombol Tab keyboard","","2026-10-22","passed","2026-10-22","","Pengujian Elemen UI dan Tampilan Halaman Pendaftaran","Navigasi elemen formulir pendaftaran menggunakan tombol Tab keyboard",""
+"  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid","5815","Integritas berkas selfie saat dikirimkan bersama formulir pendaftaran","","2026-10-22","passed","2026-10-22","","Validasi Password dan Berkas Upload Foto Selfie","Integritas berkas selfie saat dikirimkan bersama formulir pendaftaran",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint unggah foto selfie
+  Agar hanya berkas gambar yang sah yang dapat disimpan di server","1148","Upload file dengan nama mengandung path traversal","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Upload Berkas Foto Selfie","Upload file dengan nama mengandung path traversal",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","1546","Request ke endpoint pendaftaran menggunakan metode HTTP GET ditolak","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Request ke endpoint pendaftaran menggunakan metode HTTP GET ditolak",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","2241","Pengiriman payload registrasi raksasa tidak menyebabkan server crash","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Pengiriman payload registrasi raksasa tidak menyebabkan server crash",""
+"  Sebagai calon pengguna magang
+  Saya ingin mengirimkan formulir registrasi
+  Agar sistem memproses pembuatan akun sesuai aturan bisnis pendaftaran","33974","Pengiriman formulir hanya mengisi password valid","","2026-10-22","passed","2026-10-22","","Pengujian Alur Bisnis dan Submit Formulir Pendaftaran","Pengiriman formulir hanya mengisi password valid",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan format nama lengkap dan alamat email yang diinput valid
+  Agar komunikasi dan verifikasi akun dapat berjalan dengan baik","5821","Pendaftaran dengan variasi alamat email yang sah (EMAIL-009 - Email dengan tag karakter plus (+))","","2026-10-22","passed","2026-10-22","","Validasi Field Nama Lengkap dan Email pada Formulir Pendaftaran","Pendaftaran dengan variasi alamat email yang sah (EMAIL-009 - Email dengan tag karakter plus (+))",""
+"  Sebagai pengguna aplikasi di berbagai perangkat
+  Saya ingin memastikan formulir pendaftaran tampil responsif dan tautan navigasi berfungsi
+  Agar aplikasi dapat diakses dengan baik di seluruh resolusi layar","2789","Akses tautan login menggunakan tombol keyboard Enter","","2026-10-22","passed","2026-10-22","","Pengujian Navigasi Lanjutan dan Tampilan Responsif (UX/Compatibility)","Akses tautan login menggunakan tombol keyboard Enter",""
+"  Sebagai calon pengguna magang
+  Saya ingin memastikan seluruh elemen antarmuka pendaftaran tersedia dan berfungsi
+  Agar proses pendaftaran dapat dilakukan dengan lancar","2390","Memastikan label formulir terhubung dengan field input yang tepat","","2026-10-22","passed","2026-10-22","","Pengujian Elemen UI dan Tampilan Halaman Pendaftaran","Memastikan label formulir terhubung dengan field input yang tepat",""
+"  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid","44137","Validasi upload berkas variasi khusus (FILE-012 - Berkas traversal path)","","2026-10-22","passed","2026-10-22","","Validasi Password dan Berkas Upload Foto Selfie","Validasi upload berkas variasi khusus (FILE-012 - Berkas traversal path)",""
+"  Sebagai pengguna aplikasi di berbagai perangkat
+  Saya ingin memastikan formulir pendaftaran tampil responsif dan tautan navigasi berfungsi
+  Agar aplikasi dapat diakses dengan baik di seluruh resolusi layar","2861","Menampilkan formulir pendaftaran pada resolusi layar Tablet (768x1024)","","2026-10-22","passed","2026-10-22","","Pengujian Navigasi Lanjutan dan Tampilan Responsif (UX/Compatibility)","Menampilkan formulir pendaftaran pada resolusi layar Tablet (768x1024)",""
+"  Sebagai pengguna aplikasi di berbagai perangkat
+  Saya ingin memastikan formulir pendaftaran tampil responsif dan tautan navigasi berfungsi
+  Agar aplikasi dapat diakses dengan baik di seluruh resolusi layar","33539","Keterbacaan dan asosiasi pesan kesalahan formulir pada field yang sesuai","","2026-10-22","passed","2026-10-22","","Pengujian Navigasi Lanjutan dan Tampilan Responsif (UX/Compatibility)","Keterbacaan dan asosiasi pesan kesalahan formulir pada field yang sesuai",""
+"  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid","43864","Validasi upload berkas variasi khusus (FILE-006 - Berkas gambar 0 byte)","","2026-10-22","passed","2026-10-22","","Validasi Password dan Berkas Upload Foto Selfie","Validasi upload berkas variasi khusus (FILE-006 - Berkas gambar 0 byte)",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","1423","Pendaftaran via API menggunakan NIK yang sudah terdaftar dengan email berbeda (Alur Pending Approval Admin)","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Pendaftaran via API menggunakan NIK yang sudah terdaftar dengan email berbeda (Alur Pending Approval Admin)",""
+"  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid","43822","Validasi upload berkas variasi khusus (FILE-007 - Berkas melebihi batas ukuran)","","2026-10-22","passed","2026-10-22","","Validasi Password dan Berkas Upload Foto Selfie","Validasi upload berkas variasi khusus (FILE-007 - Berkas melebihi batas ukuran)",""
+"  Sebagai tim Quality Assurance dan Keamanan Sistem
+  Saya ingin memastikan antarmuka pendaftaran tangguh menghadapi error dan menerapkan standar keamanan
+  Agar sistem andal dan data pendaftar aman dari ancaman siber","33578","Ketahanan UI dalam menangani respon lambat atau abnormal dari backend","","2026-10-22","passed","2026-10-22","","Pengujian Ketahanan (Resilience) dan Keamanan Antarmuka Pendaftaran","Ketahanan UI dalam menangani respon lambat atau abnormal dari backend",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan NIK yang diinput sesuai aturan 8 karakter alfanumerik
+  Agar integritas data identitas pengguna magang terjamin","43884","Pengujian variasi format NIK tidak valid (NIK-002 - NIK 7 karakter (kurang dari 8 char))","","2026-10-22","passed","2026-10-22","","Validasi Format dan Nilai NIK pada Formulir Pendaftaran","Pengujian variasi format NIK tidak valid (NIK-002 - NIK 7 karakter (kurang dari 8 char))",""
+"  Sebagai calon pengguna magang
+  Saya ingin mengirimkan formulir registrasi
+  Agar sistem memproses pembuatan akun sesuai aturan bisnis pendaftaran","5806","Pendaftaran menggunakan NIK yang sudah terdaftar tetapi email baru (Alur Pending Approval Admin)","","2026-10-22","passed","2026-10-22","","Pengujian Alur Bisnis dan Submit Formulir Pendaftaran","Pendaftaran menggunakan NIK yang sudah terdaftar tetapi email baru (Alur Pending Approval Admin)",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan format nama lengkap dan alamat email yang diinput valid
+  Agar komunikasi dan verifikasi akun dapat berjalan dengan baik","33784","Validasi variasi format email tidak valid (EMAIL-006 - Email dengan dua simbol @)","","2026-10-22","passed","2026-10-22","","Validasi Field Nama Lengkap dan Email pada Formulir Pendaftaran","Validasi variasi format email tidak valid (EMAIL-006 - Email dengan dua simbol @)",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan NIK yang diinput sesuai aturan 8 karakter alfanumerik
+  Agar integritas data identitas pengguna magang terjamin","43797","Pengujian variasi format NIK tidak valid (NIK-007 - NIK mengandung simbol tanda hubung)","","2026-10-22","passed","2026-10-22","","Validasi Format dan Nilai NIK pada Formulir Pendaftaran","Pengujian variasi format NIK tidak valid (NIK-007 - NIK mengandung simbol tanda hubung)",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","1515","Kontrol batas laju pengiriman request pendaftaran secara beruntun","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Kontrol batas laju pengiriman request pendaftaran secara beruntun",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","2070","Respons error API tidak membocorkan stack trace atau query internal","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Respons error API tidak membocorkan stack trace atau query internal",""
+"  Sebagai calon pengguna magang
+  Saya ingin mengirimkan formulir registrasi
+  Agar sistem memproses pembuatan akun sesuai aturan bisnis pendaftaran","33824","Formulir mempertahankan nilai input data non-sensitif setelah submit gagal","","2026-10-22","passed","2026-10-22","","Pengujian Alur Bisnis dan Submit Formulir Pendaftaran","Formulir mempertahankan nilai input data non-sensitif setelah submit gagal",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan format nama lengkap dan alamat email yang diinput valid
+  Agar komunikasi dan verifikasi akun dapat berjalan dengan baik","43875","Validasi variasi input nama lengkap tidak valid (NAME-008 - Nama mengandung angka)","","2026-10-22","passed","2026-10-22","","Validasi Field Nama Lengkap dan Email pada Formulir Pendaftaran","Validasi variasi input nama lengkap tidak valid (NAME-008 - Nama mengandung angka)",""
+"  Sebagai pengguna aplikasi di berbagai perangkat
+  Saya ingin memastikan formulir pendaftaran tampil responsif dan tautan navigasi berfungsi
+  Agar aplikasi dapat diakses dengan baik di seluruh resolusi layar","2511","Kompatibilitas tampilan formulir pendaftaran pada browser target","","2026-10-22","passed","2026-10-22","","Pengujian Navigasi Lanjutan dan Tampilan Responsif (UX/Compatibility)","Kompatibilitas tampilan formulir pendaftaran pada browser target",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","1373","Validasi variasi payload registrasi tidak valid melalui API (API-007 - NIK mengandung simbol)","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Validasi variasi payload registrasi tidak valid melalui API (API-007 - NIK mengandung simbol)",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan format nama lengkap dan alamat email yang diinput valid
+  Agar komunikasi dan verifikasi akun dapat berjalan dengan baik","43943","Validasi variasi input nama lengkap tidak valid (NAME-011 - Nama payload script XSS)","","2026-10-22","passed","2026-10-22","","Validasi Field Nama Lengkap dan Email pada Formulir Pendaftaran","Validasi variasi input nama lengkap tidak valid (NAME-011 - Nama payload script XSS)",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","1423","Registrasi user baru via API tanpa menyertakan foto selfie (field selfie opsional)","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Registrasi user baru via API tanpa menyertakan foto selfie (field selfie opsional)",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan NIK yang diinput sesuai aturan 8 karakter alfanumerik
+  Agar integritas data identitas pengguna magang terjamin","43950","Pengujian variasi format NIK tidak valid (NIK-003 - NIK 9 karakter (melebihi 8 char))","","2026-10-22","passed","2026-10-22","","Validasi Format dan Nilai NIK pada Formulir Pendaftaran","Pengujian variasi format NIK tidak valid (NIK-003 - NIK 9 karakter (melebihi 8 char))",""
+"  Sebagai calon pengguna magang
+  Saya ingin mengirimkan formulir registrasi
+  Agar sistem memproses pembuatan akun sesuai aturan bisnis pendaftaran","5867","Pendaftaran akun baru lalu navigasi menuju proses autentikasi","","2026-10-22","passed","2026-10-22","","Pengujian Alur Bisnis dan Submit Formulir Pendaftaran","Pendaftaran akun baru lalu navigasi menuju proses autentikasi",""
+"  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid","43822","Validasi variasi input password (PASS-009 - Password mengandung karakter nonASCII)","","2026-10-22","passed","2026-10-22","","Validasi Password dan Berkas Upload Foto Selfie","Validasi variasi input password (PASS-009 - Password mengandung karakter nonASCII)",""
+"  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid","3632","Validasi upload berkas format bukan gambar TXT","","2026-10-22","passed","2026-10-22","","Validasi Password dan Berkas Upload Foto Selfie","Validasi upload berkas format bukan gambar TXT",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan NIK yang diinput sesuai aturan 8 karakter alfanumerik
+  Agar integritas data identitas pengguna magang terjamin","5881","Pendaftaran menggunakan NIK valid 8 karakter lainnya dari berkas Excel","","2026-10-22","passed","2026-10-22","","Validasi Format dan Nilai NIK pada Formulir Pendaftaran","Pendaftaran menggunakan NIK valid 8 karakter lainnya dari berkas Excel",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan format nama lengkap dan alamat email yang diinput valid
+  Agar komunikasi dan verifikasi akun dapat berjalan dengan baik","33635","Validasi variasi format email tidak valid (EMAIL-017 - Email payload SQL injection)","","2026-10-22","passed","2026-10-22","","Validasi Field Nama Lengkap dan Email pada Formulir Pendaftaran","Validasi variasi format email tidak valid (EMAIL-017 - Email payload SQL injection)",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan format nama lengkap dan alamat email yang diinput valid
+  Agar komunikasi dan verifikasi akun dapat berjalan dengan baik","43730","Validasi variasi input nama lengkap tidak valid (NAME-010 - Nama panjang melebihi batas wajar)","","2026-10-22","passed","2026-10-22","","Validasi Field Nama Lengkap dan Email pada Formulir Pendaftaran","Validasi variasi input nama lengkap tidak valid (NAME-010 - Nama panjang melebihi batas wajar)",""
+"  Sebagai calon pengguna magang
+  Saya ingin mengirimkan formulir registrasi
+  Agar sistem memproses pembuatan akun sesuai aturan bisnis pendaftaran","43979","Pendaftaran menggunakan kombinasi NIK dan email yang keduanya sudah terdaftar","","2026-10-22","passed","2026-10-22","","Pengujian Alur Bisnis dan Submit Formulir Pendaftaran","Pendaftaran menggunakan kombinasi NIK dan email yang keduanya sudah terdaftar",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan format nama lengkap dan alamat email yang diinput valid
+  Agar komunikasi dan verifikasi akun dapat berjalan dengan baik","33741","Validasi variasi format email tidak valid (EMAIL-002 - Email kosong)","","2026-10-22","passed","2026-10-22","","Validasi Field Nama Lengkap dan Email pada Formulir Pendaftaran","Validasi variasi format email tidak valid (EMAIL-002 - Email kosong)",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","2034","Request ke endpoint pendaftaran dengan header Content-Type bukan JSON","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Request ke endpoint pendaftaran dengan header Content-Type bukan JSON",""
+"  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid","94394","Pendaftaran tanpa memilih berkas selfie (pemeriksaan perilaku field selfie opsional)","","2026-10-22","failed","2026-10-22","","Validasi Password dan Berkas Upload Foto Selfie","Pendaftaran tanpa memilih berkas selfie (pemeriksaan perilaku field selfie opsional)",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan format nama lengkap dan alamat email yang diinput valid
+  Agar komunikasi dan verifikasi akun dapat berjalan dengan baik","43862","Validasi variasi input nama lengkap tidak valid (NAME-012 - Nama karakter non-Latin / RTL)","","2026-10-22","passed","2026-10-22","","Validasi Field Nama Lengkap dan Email pada Formulir Pendaftaran","Validasi variasi input nama lengkap tidak valid (NAME-012 - Nama karakter non-Latin / RTL)",""
+"  Sebagai calon pengguna magang
+  Saya ingin mengirimkan formulir registrasi
+  Agar sistem memproses pembuatan akun sesuai aturan bisnis pendaftaran","2455","Pengiriman formulir pendaftaran saat seluruh field kosong","","2026-10-22","passed","2026-10-22","","Pengujian Alur Bisnis dan Submit Formulir Pendaftaran","Pengiriman formulir pendaftaran saat seluruh field kosong",""
+"  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid","43872","Validasi upload berkas variasi khusus (FILE-009 - Berkas nama sangat panjang)","","2026-10-22","passed","2026-10-22","","Validasi Password dan Berkas Upload Foto Selfie","Validasi upload berkas variasi khusus (FILE-009 - Berkas nama sangat panjang)",""
+"  Sebagai pengguna aplikasi di berbagai perangkat
+  Saya ingin memastikan formulir pendaftaran tampil responsif dan tautan navigasi berfungsi
+  Agar aplikasi dapat diakses dengan baik di seluruh resolusi layar","2500","Kontras visual dan keterbacaan elemen kontrol formulir pendaftaran","","2026-10-22","passed","2026-10-22","","Pengujian Navigasi Lanjutan dan Tampilan Responsif (UX/Compatibility)","Kontras visual dan keterbacaan elemen kontrol formulir pendaftaran",""
+"  Sebagai calon pengguna magang
+  Saya ingin memastikan seluruh elemen antarmuka pendaftaran tersedia dan berfungsi
+  Agar proses pendaftaran dapat dilakukan dengan lancar","2586","Memverifikasi keberadaan tautan masuk disini pada formulir","","2026-10-22","passed","2026-10-22","","Pengujian Elemen UI dan Tampilan Halaman Pendaftaran","Memverifikasi keberadaan tautan masuk disini pada formulir",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan format nama lengkap dan alamat email yang diinput valid
+  Agar komunikasi dan verifikasi akun dapat berjalan dengan baik","5787","Pendaftaran dengan variasi alamat email yang sah (EMAIL-008 - Email dengan subdomain korporat)","","2026-10-22","passed","2026-10-22","","Validasi Field Nama Lengkap dan Email pada Formulir Pendaftaran","Pendaftaran dengan variasi alamat email yang sah (EMAIL-008 - Email dengan subdomain korporat)",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","1335","Respons penolakan akun duplikat tidak membocorkan informasi pribadi pengguna lain","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Respons penolakan akun duplikat tidak membocorkan informasi pribadi pengguna lain",""
+"  Sebagai calon pengguna magang
+  Saya ingin memastikan seluruh elemen antarmuka pendaftaran tersedia dan berfungsi
+  Agar proses pendaftaran dapat dilakukan dengan lancar","2996","Navigasi kembali ke halaman daftar dari halaman login","","2026-10-22","passed","2026-10-22","","Pengujian Elemen UI dan Tampilan Halaman Pendaftaran","Navigasi kembali ke halaman daftar dari halaman login",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","1378","Validasi variasi payload registrasi tidak valid melalui API (API-013 - Password kosong)","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Validasi variasi payload registrasi tidak valid melalui API (API-013 - Password kosong)",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","2241","Registrasi user baru via API dengan payload valid","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Registrasi user baru via API dengan payload valid",""
+"  Sebagai calon pengguna magang
+  Saya ingin mengirimkan formulir registrasi
+  Agar sistem memproses pembuatan akun sesuai aturan bisnis pendaftaran","2566","Menekan tombol kembali setelah proses submit","","2026-10-22","passed","2026-10-22","","Pengujian Alur Bisnis dan Submit Formulir Pendaftaran","Menekan tombol kembali setelah proses submit",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","1376","Validasi variasi payload registrasi tidak valid melalui API (API-008 - NIK hanya angka)","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Validasi variasi payload registrasi tidak valid melalui API (API-008 - NIK hanya angka)",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan NIK yang diinput sesuai aturan 8 karakter alfanumerik
+  Agar integritas data identitas pengguna magang terjamin","44161","Pengujian variasi format NIK tidak valid (NIK-010 - NIK diakhiri spasi)","","2026-10-22","passed","2026-10-22","","Validasi Format dan Nilai NIK pada Formulir Pendaftaran","Pengujian variasi format NIK tidak valid (NIK-010 - NIK diakhiri spasi)",""
+"  Sebagai calon pengguna magang
+  Saya ingin mengirimkan formulir registrasi
+  Agar sistem memproses pembuatan akun sesuai aturan bisnis pendaftaran","2781","Memuat ulang halaman setelah mengisi sebagian field formulir","","2026-10-22","passed","2026-10-22","","Pengujian Alur Bisnis dan Submit Formulir Pendaftaran","Memuat ulang halaman setelah mengisi sebagian field formulir",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan NIK yang diinput sesuai aturan 8 karakter alfanumerik
+  Agar integritas data identitas pengguna magang terjamin","44079","Pengujian variasi format NIK tidak valid (NIK-013 - NIK mengandung karakter non-ASCII)","","2026-10-22","passed","2026-10-22","","Validasi Format dan Nilai NIK pada Formulir Pendaftaran","Pengujian variasi format NIK tidak valid (NIK-013 - NIK mengandung karakter non-ASCII)",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","1394","Validasi variasi payload registrasi tidak valid melalui API (API-009 - Email tanpa @)","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Validasi variasi payload registrasi tidak valid melalui API (API-009 - Email tanpa @)",""
+"  Sebagai calon pengguna magang
+  Saya ingin mengirimkan formulir registrasi
+  Agar sistem memproses pembuatan akun sesuai aturan bisnis pendaftaran","2656","Membuka formulir pendaftaran di beberapa tab browser secara paralel","","2026-10-22","passed","2026-10-22","","Pengujian Alur Bisnis dan Submit Formulir Pendaftaran","Membuka formulir pendaftaran di beberapa tab browser secara paralel",""
+"  Sebagai calon pengguna magang
+  Saya ingin memastikan seluruh elemen antarmuka pendaftaran tersedia dan berfungsi
+  Agar proses pendaftaran dapat dilakukan dengan lancar","2764","Memeriksa kondisi karakter password saat awal halaman dibuka","","2026-10-22","passed","2026-10-22","","Pengujian Elemen UI dan Tampilan Halaman Pendaftaran","Memeriksa kondisi karakter password saat awal halaman dibuka",""
+"  Sebagai calon pengguna magang
+  Saya ingin mengirimkan formulir registrasi
+  Agar sistem memproses pembuatan akun sesuai aturan bisnis pendaftaran","43853","Pendaftaran menggunakan email yang sudah terdaftar tetapi NIK baru","","2026-10-22","passed","2026-10-22","","Pengujian Alur Bisnis dan Submit Formulir Pendaftaran","Pendaftaran menggunakan email yang sudah terdaftar tetapi NIK baru",""
+"  Sebagai calon pengguna magang
+  Saya ingin memastikan seluruh elemen antarmuka pendaftaran tersedia dan berfungsi
+  Agar proses pendaftaran dapat dilakukan dengan lancar","2558","Memeriksa konsol browser saat membuka halaman","","2026-10-22","passed","2026-10-22","","Pengujian Elemen UI dan Tampilan Halaman Pendaftaran","Memeriksa konsol browser saat membuka halaman",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","1361","Pengiriman dua request pendaftaran simultan dengan email yang sama","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Pengiriman dua request pendaftaran simultan dengan email yang sama",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan NIK yang diinput sesuai aturan 8 karakter alfanumerik
+  Agar integritas data identitas pengguna magang terjamin","43898","Pengujian variasi format NIK tidak valid (NIK-006 - NIK hanya huruf 8 char)","","2026-10-22","passed","2026-10-22","","Validasi Format dan Nilai NIK pada Formulir Pendaftaran","Pengujian variasi format NIK tidak valid (NIK-006 - NIK hanya huruf 8 char)",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","1426","Verifikasi struktur data respon sukses registrasi API sesuai kontrak","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Verifikasi struktur data respon sukses registrasi API sesuai kontrak",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan format nama lengkap dan alamat email yang diinput valid
+  Agar komunikasi dan verifikasi akun dapat berjalan dengan baik","33785","Validasi variasi format email tidak valid (EMAIL-016 - Email dengan tanda kutip ganda)","","2026-10-22","passed","2026-10-22","","Validasi Field Nama Lengkap dan Email pada Formulir Pendaftaran","Validasi variasi format email tidak valid (EMAIL-016 - Email dengan tanda kutip ganda)",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan NIK yang diinput sesuai aturan 8 karakter alfanumerik
+  Agar integritas data identitas pengguna magang terjamin","44161","Pengujian variasi format NIK tidak valid (NIK-014 - NIK mengandung karakter emoji)","","2026-10-22","passed","2026-10-22","","Validasi Format dan Nilai NIK pada Formulir Pendaftaran","Pengujian variasi format NIK tidak valid (NIK-014 - NIK mengandung karakter emoji)",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan format nama lengkap dan alamat email yang diinput valid
+  Agar komunikasi dan verifikasi akun dapat berjalan dengan baik","33871","Validasi variasi format email tidak valid (EMAIL-005 - Email tanpa username (local-part))","","2026-10-22","passed","2026-10-22","","Validasi Field Nama Lengkap dan Email pada Formulir Pendaftaran","Validasi variasi format email tidak valid (EMAIL-005 - Email tanpa username (local-part))",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","1451","Pengiriman ulang (retry) request pendaftaran yang identik","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Pengiriman ulang (retry) request pendaftaran yang identik",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint unggah foto selfie
+  Agar hanya berkas gambar yang sah yang dapat disimpan di server","1127","Upload file dengan ekstensi dimanipulasi","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Upload Berkas Foto Selfie","Upload file dengan ekstensi dimanipulasi",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan format nama lengkap dan alamat email yang diinput valid
+  Agar komunikasi dan verifikasi akun dapat berjalan dengan baik","43926","Validasi variasi format email tidak valid (EMAIL-012 - Email domain lokal tanpa titik)","","2026-10-22","passed","2026-10-22","","Validasi Field Nama Lengkap dan Email pada Formulir Pendaftaran","Validasi variasi format email tidak valid (EMAIL-012 - Email domain lokal tanpa titik)",""
+"  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid","43880","Validasi variasi input password (PASS-003 - Password terlalu pendek)","","2026-10-22","passed","2026-10-22","","Validasi Password dan Berkas Upload Foto Selfie","Validasi variasi input password (PASS-003 - Password terlalu pendek)",""
+"  Sebagai pengguna aplikasi di berbagai perangkat
+  Saya ingin memastikan formulir pendaftaran tampil responsif dan tautan navigasi berfungsi
+  Agar aplikasi dapat diakses dengan baik di seluruh resolusi layar","2654","Penanganan input teks nama dan email panjang pada tampilan formulir","","2026-10-22","passed","2026-10-22","","Pengujian Navigasi Lanjutan dan Tampilan Responsif (UX/Compatibility)","Penanganan input teks nama dan email panjang pada tampilan formulir",""
+"  Sebagai calon pengguna magang
+  Saya ingin mengirimkan formulir registrasi
+  Agar sistem memproses pembuatan akun sesuai aturan bisnis pendaftaran","33615","Pengiriman formulir hanya mengisi nama lengkap valid","","2026-10-22","passed","2026-10-22","","Pengujian Alur Bisnis dan Submit Formulir Pendaftaran","Pengiriman formulir hanya mengisi nama lengkap valid",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan format nama lengkap dan alamat email yang diinput valid
+  Agar komunikasi dan verifikasi akun dapat berjalan dengan baik","33778","Validasi variasi format email tidak valid (EMAIL-015 - Email mengandung karakter beraksen)","","2026-10-22","passed","2026-10-22","","Validasi Field Nama Lengkap dan Email pada Formulir Pendaftaran","Validasi variasi format email tidak valid (EMAIL-015 - Email mengandung karakter beraksen)",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","1391","Validasi variasi payload registrasi tidak valid melalui API (API-011 - Email spasi di tengah)","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Validasi variasi payload registrasi tidak valid melalui API (API-011 - Email spasi di tengah)",""
+"  Sebagai calon pengguna magang
+  Saya ingin mengirimkan formulir registrasi
+  Agar sistem memproses pembuatan akun sesuai aturan bisnis pendaftaran","5724","Pendaftaran berhasil dengan seluruh field lengkap dan valid","","2026-10-22","passed","2026-10-22","","Pengujian Alur Bisnis dan Submit Formulir Pendaftaran","Pendaftaran berhasil dengan seluruh field lengkap dan valid",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan format nama lengkap dan alamat email yang diinput valid
+  Agar komunikasi dan verifikasi akun dapat berjalan dengan baik","33809","Validasi variasi input nama lengkap tidak valid (NAME-003 - Nama spasi saja)","","2026-10-22","passed","2026-10-22","","Validasi Field Nama Lengkap dan Email pada Formulir Pendaftaran","Validasi variasi input nama lengkap tidak valid (NAME-003 - Nama spasi saja)",""
+"  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid","2441","Memeriksa elemen password di DOM memiliki atribut type password","","2026-10-22","passed","2026-10-22","","Validasi Password dan Berkas Upload Foto Selfie","Memeriksa elemen password di DOM memiliki atribut type password",""
+"  Sebagai calon pengguna magang
+  Saya ingin memastikan seluruh elemen antarmuka pendaftaran tersedia dan berfungsi
+  Agar proses pendaftaran dapat dilakukan dengan lancar","2766","Mengganti visibilitas password berulang kali secara konsisten","","2026-10-22","passed","2026-10-22","","Pengujian Elemen UI dan Tampilan Halaman Pendaftaran","Mengganti visibilitas password berulang kali secara konsisten",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint unggah foto selfie
+  Agar hanya berkas gambar yang sah yang dapat disimpan di server","1197","Request JSON ke endpoint upload multipart FormData","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Upload Berkas Foto Selfie","Request JSON ke endpoint upload multipart FormData",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan format nama lengkap dan alamat email yang diinput valid
+  Agar komunikasi dan verifikasi akun dapat berjalan dengan baik","43854","Validasi variasi format email tidak valid (EMAIL-014 - Email duplikat yang sudah terdaftar)","","2026-10-22","passed","2026-10-22","","Validasi Field Nama Lengkap dan Email pada Formulir Pendaftaran","Validasi variasi format email tidak valid (EMAIL-014 - Email duplikat yang sudah terdaftar)",""
+"  Sebagai calon pengguna magang
+  Saya ingin memastikan seluruh elemen antarmuka pendaftaran tersedia dan berfungsi
+  Agar proses pendaftaran dapat dilakukan dengan lancar","2635","Menampilkan password menggunakan toggle ikon mata","","2026-10-22","passed","2026-10-22","","Pengujian Elemen UI dan Tampilan Halaman Pendaftaran","Menampilkan password menggunakan toggle ikon mata",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan NIK yang diinput sesuai aturan 8 karakter alfanumerik
+  Agar integritas data identitas pengguna magang terjamin","44030","Pengujian variasi format NIK tidak valid (NIK-005 - NIK hanya angka 8 digit)","","2026-10-22","passed","2026-10-22","","Validasi Format dan Nilai NIK pada Formulir Pendaftaran","Pengujian variasi format NIK tidak valid (NIK-005 - NIK hanya angka 8 digit)",""
+"  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid","3582","Validasi upload dokumen format PDF ditolak","","2026-10-22","passed","2026-10-22","","Validasi Password dan Berkas Upload Foto Selfie","Validasi upload dokumen format PDF ditolak",""
+"  Sebagai calon pengguna magang
+  Saya ingin mengirimkan formulir registrasi
+  Agar sistem memproses pembuatan akun sesuai aturan bisnis pendaftaran","43840","Pengiriman formulir saat server merespons lambat atau timeout","","2026-10-22","passed","2026-10-22","","Pengujian Alur Bisnis dan Submit Formulir Pendaftaran","Pengiriman formulir saat server merespons lambat atau timeout",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan format nama lengkap dan alamat email yang diinput valid
+  Agar komunikasi dan verifikasi akun dapat berjalan dengan baik","43730","Validasi variasi format email tidak valid (EMAIL-013 - Email tanpa top level domain)","","2026-10-22","passed","2026-10-22","","Validasi Field Nama Lengkap dan Email pada Formulir Pendaftaran","Validasi variasi format email tidak valid (EMAIL-013 - Email tanpa top level domain)",""
+"  Sebagai calon pengguna magang
+  Saya ingin mengirimkan formulir registrasi
+  Agar sistem memproses pembuatan akun sesuai aturan bisnis pendaftaran","33526","Pemeriksaan keterkaitan pesan kesalahan pada field formulir tertentu","","2026-10-22","passed","2026-10-22","","Pengujian Alur Bisnis dan Submit Formulir Pendaftaran","Pemeriksaan keterkaitan pesan kesalahan pada field formulir tertentu",""
+"  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid","2504","Menempel teks ke dalam input password","","2026-10-22","passed","2026-10-22","","Validasi Password dan Berkas Upload Foto Selfie","Menempel teks ke dalam input password",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint unggah foto selfie
+  Agar hanya berkas gambar yang sah yang dapat disimpan di server","1230","Upload dokumen PDF ditolak oleh endpoint upload","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Upload Berkas Foto Selfie","Upload dokumen PDF ditolak oleh endpoint upload",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint unggah foto selfie
+  Agar hanya berkas gambar yang sah yang dapat disimpan di server","1143","Verifikasi otorisasi akses file selfie yang telah terunggah","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Upload Berkas Foto Selfie","Verifikasi otorisasi akses file selfie yang telah terunggah",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint unggah foto selfie
+  Agar hanya berkas gambar yang sah yang dapat disimpan di server","1222","Upload berkas foto selfie format PNG valid melalui API","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Upload Berkas Foto Selfie","Upload berkas foto selfie format PNG valid melalui API",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","1804","Validasi variasi payload registrasi tidak valid melalui API (NIK-020 - NIK panjang ekstrem via API)","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Validasi variasi payload registrasi tidak valid melalui API (NIK-020 - NIK panjang ekstrem via API)",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","1494","Validasi variasi payload registrasi tidak valid melalui API (API-005 - NIK 7 karakter)","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Validasi variasi payload registrasi tidak valid melalui API (API-005 - NIK 7 karakter)",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","2039","Validasi variasi payload registrasi tidak valid melalui API (API-017 - Nama panjang ekstrem)","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Validasi variasi payload registrasi tidak valid melalui API (API-017 - Nama panjang ekstrem)",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","1375","Validasi variasi payload registrasi tidak valid melalui API (API-010 - Email tanpa domain)","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Validasi variasi payload registrasi tidak valid melalui API (API-010 - Email tanpa domain)",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan NIK yang diinput sesuai aturan 8 karakter alfanumerik
+  Agar integritas data identitas pengguna magang terjamin","44184","Pengujian variasi format NIK tidak valid (NIK-008 - NIK mengandung spasi di tengah)","","2026-10-22","passed","2026-10-22","","Validasi Format dan Nilai NIK pada Formulir Pendaftaran","Pengujian variasi format NIK tidak valid (NIK-008 - NIK mengandung spasi di tengah)",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan NIK yang diinput sesuai aturan 8 karakter alfanumerik
+  Agar integritas data identitas pengguna magang terjamin","44108","Pengujian variasi format NIK tidak valid (NIK-018 - NIK case sensitivity duplikasi)","","2026-10-22","passed","2026-10-22","","Validasi Format dan Nilai NIK pada Formulir Pendaftaran","Pengujian variasi format NIK tidak valid (NIK-018 - NIK case sensitivity duplikasi)",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","1385","Validasi variasi payload registrasi tidak valid melalui API (API-012 - Nama lengkap kosong)","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Validasi variasi payload registrasi tidak valid melalui API (API-012 - Nama lengkap kosong)",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan format nama lengkap dan alamat email yang diinput valid
+  Agar komunikasi dan verifikasi akun dapat berjalan dengan baik","43923","Validasi variasi input nama lengkap tidak valid (NAME-004 - Nama diawali spasi)","","2026-10-22","passed","2026-10-22","","Validasi Field Nama Lengkap dan Email pada Formulir Pendaftaran","Validasi variasi input nama lengkap tidak valid (NAME-004 - Nama diawali spasi)",""
+"  Sebagai calon pengguna magang
+  Saya ingin mengirimkan formulir registrasi
+  Agar sistem memproses pembuatan akun sesuai aturan bisnis pendaftaran","43925","Pengiriman formulir pendaftaran saat koneksi internet terputus","","2026-10-22","passed","2026-10-22","","Pengujian Alur Bisnis dan Submit Formulir Pendaftaran","Pengiriman formulir pendaftaran saat koneksi internet terputus",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan format nama lengkap dan alamat email yang diinput valid
+  Agar komunikasi dan verifikasi akun dapat berjalan dengan baik","33859","Validasi variasi format email tidak valid (EMAIL-007 - Email dengan spasi di tengah)","","2026-10-22","passed","2026-10-22","","Validasi Field Nama Lengkap dan Email pada Formulir Pendaftaran","Validasi variasi format email tidak valid (EMAIL-007 - Email dengan spasi di tengah)",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan NIK yang diinput sesuai aturan 8 karakter alfanumerik
+  Agar integritas data identitas pengguna magang terjamin","5707","Pendaftaran orang berbeda menggunakan NIK yang sama (Alur Pending Approval Admin)","","2026-10-22","passed","2026-10-22","","Validasi Format dan Nilai NIK pada Formulir Pendaftaran","Pendaftaran orang berbeda menggunakan NIK yang sama (Alur Pending Approval Admin)",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga","1424","Validasi variasi payload registrasi tidak valid melalui API (API-004 - NIK kosong)","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Registrasi Pengguna Baru","Validasi variasi payload registrasi tidak valid melalui API (API-004 - NIK kosong)",""
+"  Sebagai calon pengguna magang
+  Saya ingin memastikan seluruh elemen antarmuka pendaftaran tersedia dan berfungsi
+  Agar proses pendaftaran dapat dilakukan dengan lancar","2973","Memverifikasi ketersediaan seluruh field input utama formulir pendaftaran","","2026-10-22","passed","2026-10-22","","Pengujian Elemen UI dan Tampilan Halaman Pendaftaran","Memverifikasi ketersediaan seluruh field input utama formulir pendaftaran",""
+"  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid","43926","Validasi variasi input password (PASS-005 - Password hanya angka)","","2026-10-22","passed","2026-10-22","","Validasi Password dan Berkas Upload Foto Selfie","Validasi variasi input password (PASS-005 - Password hanya angka)",""
+"  Sebagai tim Quality Assurance dan Keamanan Sistem
+  Saya ingin memastikan antarmuka pendaftaran tangguh menghadapi error dan menerapkan standar keamanan
+  Agar sistem andal dan data pendaftar aman dari ancaman siber","5872","Pendaftaran independen untuk menjamin repeatability suite pengujian","","2026-10-22","passed","2026-10-22","","Pengujian Ketahanan (Resilience) dan Keamanan Antarmuka Pendaftaran","Pendaftaran independen untuk menjamin repeatability suite pengujian",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan NIK yang diinput sesuai aturan 8 karakter alfanumerik
+  Agar integritas data identitas pengguna magang terjamin","34034","Pengujian variasi format NIK tidak valid (NIK-004 - NIK kosong)","","2026-10-22","passed","2026-10-22","","Validasi Format dan Nilai NIK pada Formulir Pendaftaran","Pengujian variasi format NIK tidak valid (NIK-004 - NIK kosong)",""
+"  Sebagai calon pengguna magang
+  Saya ingin memastikan seluruh elemen antarmuka pendaftaran tersedia dan berfungsi
+  Agar proses pendaftaran dapat dilakukan dengan lancar","2454","Memeriksa label dan placeholder pada seluruh field formulir pendaftaran","","2026-10-22","passed","2026-10-22","","Pengujian Elemen UI dan Tampilan Halaman Pendaftaran","Memeriksa label dan placeholder pada seluruh field formulir pendaftaran",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan format nama lengkap dan alamat email yang diinput valid
+  Agar komunikasi dan verifikasi akun dapat berjalan dengan baik","33689","Validasi variasi format email tidak valid (EMAIL-004 - Email tanpa domain)","","2026-10-22","passed","2026-10-22","","Validasi Field Nama Lengkap dan Email pada Formulir Pendaftaran","Validasi variasi format email tidak valid (EMAIL-004 - Email tanpa domain)",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint unggah foto selfie
+  Agar hanya berkas gambar yang sah yang dapat disimpan di server","1181","Upload berkas teks TXT ditolak oleh endpoint upload","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Upload Berkas Foto Selfie","Upload berkas teks TXT ditolak oleh endpoint upload",""
+"  Sebagai pengguna aplikasi di berbagai perangkat
+  Saya ingin memastikan formulir pendaftaran tampil responsif dan tautan navigasi berfungsi
+  Agar aplikasi dapat diakses dengan baik di seluruh resolusi layar","3043","Menampilkan formulir pendaftaran pada resolusi layar Ponsel (375x667)","","2026-10-22","passed","2026-10-22","","Pengujian Navigasi Lanjutan dan Tampilan Responsif (UX/Compatibility)","Menampilkan formulir pendaftaran pada resolusi layar Ponsel (375x667)",""
+"  Sebagai tim Quality Assurance dan Keamanan Sistem
+  Saya ingin memastikan antarmuka pendaftaran tangguh menghadapi error dan menerapkan standar keamanan
+  Agar sistem andal dan data pendaftar aman dari ancaman siber","5926","Isolasi data uji dan verifikasi kebersihan data pengujian","","2026-10-22","passed","2026-10-22","","Pengujian Ketahanan (Resilience) dan Keamanan Antarmuka Pendaftaran","Isolasi data uji dan verifikasi kebersihan data pengujian",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan NIK yang diinput sesuai aturan 8 karakter alfanumerik
+  Agar integritas data identitas pengguna magang terjamin","43917","Pengujian variasi format NIK tidak valid (NIK-009 - NIK diawali spasi)","","2026-10-22","passed","2026-10-22","","Validasi Format dan Nilai NIK pada Formulir Pendaftaran","Pengujian variasi format NIK tidak valid (NIK-009 - NIK diawali spasi)",""
+"  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid","43877","Validasi upload berkas variasi khusus (FILE-011 - Berkas ekstensi ganda)","","2026-10-22","passed","2026-10-22","","Validasi Password dan Berkas Upload Foto Selfie","Validasi upload berkas variasi khusus (FILE-011 - Berkas ekstensi ganda)",""
+"  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan format nama lengkap dan alamat email yang diinput valid
+  Agar komunikasi dan verifikasi akun dapat berjalan dengan baik","5821","Pendaftaran dengan variasi nama yang sah (NAME-007 - Nama dengan karakter aksen non-ASCII)","","2026-10-22","passed","2026-10-22","","Validasi Field Nama Lengkap dan Email pada Formulir Pendaftaran","Pendaftaran dengan variasi nama yang sah (NAME-007 - Nama dengan karakter aksen non-ASCII)",""
+"  Sebagai calon pengguna magang
+  Saya ingin mengirimkan formulir registrasi
+  Agar sistem memproses pembuatan akun sesuai aturan bisnis pendaftaran","5667","Pengiriman formulir dengan menekan tombol Enter pada field password","","2026-10-22","passed","2026-10-22","","Pengujian Alur Bisnis dan Submit Formulir Pendaftaran","Pengiriman formulir dengan menekan tombol Enter pada field password",""
+"  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid","2629","Karakter password tidak terhapus ketika fokus berpindah elemen","","2026-10-22","passed","2026-10-22","","Validasi Password dan Berkas Upload Foto Selfie","Karakter password tidak terhapus ketika fokus berpindah elemen",""
+"  Sebagai pengguna aplikasi di berbagai perangkat
+  Saya ingin memastikan formulir pendaftaran tampil responsif dan tautan navigasi berfungsi
+  Agar aplikasi dapat diakses dengan baik di seluruh resolusi layar","2741","Akses halaman pendaftaran langsung melalui URL","","2026-10-22","passed","2026-10-22","","Pengujian Navigasi Lanjutan dan Tampilan Responsif (UX/Compatibility)","Akses halaman pendaftaran langsung melalui URL",""
+"  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid","44004","Validasi variasi input password (PASS-006 - Password sangat panjang)","","2026-10-22","passed","2026-10-22","","Validasi Password dan Berkas Upload Foto Selfie","Validasi variasi input password (PASS-006 - Password sangat panjang)",""
+"  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint unggah foto selfie
+  Agar hanya berkas gambar yang sah yang dapat disimpan di server","3033","Upload berkas foto selfie format JPG valid melalui API","","2026-10-22","passed","2026-10-22","","Pengujian Endpoint REST API Upload Berkas Foto Selfie","Upload berkas foto selfie format JPG valid melalui API",""
+"  Sebagai tim Quality Assurance dan Keamanan Sistem
+  Saya ingin memastikan antarmuka pendaftaran tangguh menghadapi error dan menerapkan standar keamanan
+  Agar sistem andal dan data pendaftar aman dari ancaman siber","2699","Penanganan UI saat terjadi gangguan koneksi jaringan pada form registrasi","","2026-10-22","passed","2026-10-22","","Pengujian Ketahanan (Resilience) dan Keamanan Antarmuka Pendaftaran","Penanganan UI saat terjadi gangguan koneksi jaringan pada form registrasi",""
+"  Sebagai calon pengguna magang
+  Saya ingin mengirimkan formulir registrasi
+  Agar sistem memproses pembuatan akun sesuai aturan bisnis pendaftaran","7906","Pengiriman formulir dengan menekan tombol submit dua kali cepat","","2026-10-22","passed","2026-10-22","","Pengujian Alur Bisnis dan Submit Formulir Pendaftaran","Pengiriman formulir dengan menekan tombol submit dua kali cepat",""
+"  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid","43589","Validasi variasi input password (PASS-008 - Password mengandung spasi)","","2026-10-22","passed","2026-10-22","","Validasi Password dan Berkas Upload Foto Selfie","Validasi variasi input password (PASS-008 - Password mengandung spasi)",""
+"  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid","43846","Validasi upload berkas variasi khusus (FILE-013 - Berkas format GIF)","","2026-10-22","passed","2026-10-22","","Validasi Password dan Berkas Upload Foto Selfie","Validasi upload berkas variasi khusus (FILE-013 - Berkas format GIF)",""
+"  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid","43857","Validasi variasi input password (PASS-016 - Password payload SQL injection)","","2026-10-22","passed","2026-10-22","","Validasi Password dan Berkas Upload Foto Selfie","Validasi variasi input password (PASS-016 - Password payload SQL injection)",""
+"  Sebagai tim Quality Assurance dan Keamanan Sistem
+  Saya ingin memastikan antarmuka pendaftaran tangguh menghadapi error dan menerapkan standar keamanan
+  Agar sistem andal dan data pendaftar aman dari ancaman siber","2535","Pemeriksaan keamanan log dan laporan pengujian tidak mengekspos password plaintext","","2026-10-22","passed","2026-10-22","","Pengujian Ketahanan (Resilience) dan Keamanan Antarmuka Pendaftaran","Pemeriksaan keamanan log dan laporan pengujian tidak mengekspos password plaintext",""
+"  Sebagai calon pengguna magang
+  Saya ingin memastikan seluruh elemen antarmuka pendaftaran tersedia dan berfungsi
+  Agar proses pendaftaran dapat dilakukan dengan lancar","2614","Memverifikasi ketersediaan dan fungsi visual tombol Daftar","","2026-10-22","passed","2026-10-22","","Pengujian Elemen UI dan Tampilan Halaman Pendaftaran","Memverifikasi ketersediaan dan fungsi visual tombol Daftar",""
