@@ -139,6 +139,14 @@ public class LocalWebServer {
                 serveFile(exchange, "/absen/register.html");
                 return;
             }
+            if (uriPath.equals("/login") || uriPath.equals("/authentication/login") || uriPath.equals("/absen/login")) {
+                serveFile(exchange, "/authentication/login.html");
+                return;
+            }
+            if (uriPath.equals("/dashboard") || uriPath.equals("/absen/dashboard")) {
+                serveFile(exchange, "/absen/dashboard.html");
+                return;
+            }
 
             serveFile(exchange, uriPath);
         }
@@ -152,6 +160,8 @@ public class LocalWebServer {
                 // If register page without .html extension requested
                 if (cleanPath.equals("absen/register")) {
                     filePath = staticWebRoot.resolve("absen/register.html");
+                } else if (cleanPath.equals("authentication/login") || cleanPath.equals("login") || cleanPath.equals("absen/login")) {
+                    filePath = staticWebRoot.resolve("authentication/login.html");
                 }
             }
 

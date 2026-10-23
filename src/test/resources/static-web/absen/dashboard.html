@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Dashboard — HADIR</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      background-color: #00A3EF;
+      color: white;
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .btn-logout {
+      background: white;
+      color: #00A3EF;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    main {
+      padding: 32px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Dashboard HADIR</h1>
+    <button id="logout-btn" class="btn-logout" onclick="logout()">Keluar</button>
+  </header>
+  <main>
+    <h2>Selamat datang di Dashboard Magang</h2>
+    <p>Sesi login Anda aktif.</p>
+  </main>
+  <script>
+    // Cek otentikasi sederhana
+    const token = sessionStorage.getItem('token');
+    const urlParams = new URLSearchParams(window.location.search);
+    if (!token && !urlParams.has('unprotected')) {
+      // Jika diakses tanpa login, redirect kembali ke login
+      window.location.href = '/authentication/login';
+    }
+
+    function logout() {
+      sessionStorage.removeItem('token');
+      window.location.href = '/authentication/login';
+    }
+  </script>
+</body>
+</html>
