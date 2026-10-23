@@ -1,0 +1,142 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Fri Oct 23 07:17:10 GMT 2026","Fri Oct 23 07:17:13 GMT 2026","2760","","Pengujian Elemen UI dan Tampilan Halaman Pendaftaran","","Navigasi ke halaman login melalui tautan masuk disini","","Navigasi ke halaman login melalui tautan masuk disini","  Sebagai calon pengguna magang
+  Saya ingin memastikan seluruh elemen antarmuka pendaftaran tersedia dan berfungsi
+  Agar proses pendaftaran dapat dilakukan dengan lancar"
+"passed","Fri Oct 23 07:15:14 GMT 2026","Fri Oct 23 07:15:16 GMT 2026","1292","","Pengujian Endpoint REST API Upload Berkas Foto Selfie","","Upload berkas foto selfie format PNG valid melalui API","","Upload berkas foto selfie format PNG valid melalui API","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint unggah foto selfie
+  Agar hanya berkas gambar yang sah yang dapat disimpan di server"
+"passed","Fri Oct 23 07:15:51 GMT 2026","Fri Oct 23 07:15:54 GMT 2026","2516","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Validasi variasi payload registrasi tidak valid melalui API (API-009 - Email tanpa @)","","Validasi variasi payload registrasi tidak valid melalui API (API-009 - Email tanpa @)","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:17:18 GMT 2026","Fri Oct 23 07:17:22 GMT 2026","3945","","Validasi Password dan Berkas Upload Foto Selfie","","Validasi upload berkas format bukan gambar TXT","","Validasi upload berkas format bukan gambar TXT","  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid"
+"passed","Fri Oct 23 07:15:16 GMT 2026","Fri Oct 23 07:15:17 GMT 2026","1155","","Pengujian Endpoint REST API Upload Berkas Foto Selfie","","Upload berkas teks TXT ditolak oleh endpoint upload","","Upload berkas teks TXT ditolak oleh endpoint upload","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint unggah foto selfie
+  Agar hanya berkas gambar yang sah yang dapat disimpan di server"
+"passed","Fri Oct 23 07:15:19 GMT 2026","Fri Oct 23 07:15:20 GMT 2026","1106","","Pengujian Endpoint REST API Upload Berkas Foto Selfie","","Upload file dengan ekstensi dimanipulasi","","Upload file dengan ekstensi dimanipulasi","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint unggah foto selfie
+  Agar hanya berkas gambar yang sah yang dapat disimpan di server"
+"passed","Fri Oct 23 07:16:24 GMT 2026","Fri Oct 23 07:16:27 GMT 2026","2602","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Perlindungan Mass Assignment terhadap injeksi hak akses admin melalui payload API","","Perlindungan Mass Assignment terhadap injeksi hak akses admin melalui payload API","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:16:23 GMT 2026","Fri Oct 23 07:16:24 GMT 2026","1600","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Response registrasi API tidak mengembalikan password plaintext","","Response registrasi API tidak mengembalikan password plaintext","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:16:20 GMT 2026","Fri Oct 23 07:16:23 GMT 2026","2557","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Validasi variasi payload registrasi tidak valid melalui API (SEC-002 - Nama payload script XSS)","","Validasi variasi payload registrasi tidak valid melalui API (SEC-002 - Nama payload script XSS)","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:15:11 GMT 2026","Fri Oct 23 07:15:14 GMT 2026","3024","","Pengujian Endpoint REST API Upload Berkas Foto Selfie","","Upload berkas foto selfie format JPG valid melalui API","","Upload berkas foto selfie format JPG valid melalui API","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint unggah foto selfie
+  Agar hanya berkas gambar yang sah yang dapat disimpan di server"
+"passed","Fri Oct 23 07:15:49 GMT 2026","Fri Oct 23 07:15:51 GMT 2026","1503","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Validasi variasi payload registrasi tidak valid melalui API (API-008 - NIK hanya angka)","","Validasi variasi payload registrasi tidak valid melalui API (API-008 - NIK hanya angka)","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:16:28 GMT 2026","Fri Oct 23 07:16:30 GMT 2026","1500","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Request ke endpoint pendaftaran dengan header Content-Type bukan JSON","","Request ke endpoint pendaftaran dengan header Content-Type bukan JSON","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:15:45 GMT 2026","Fri Oct 23 07:15:49 GMT 2026","4583","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Validasi variasi payload registrasi tidak valid melalui API (API-007 - NIK mengandung simbol)","","Validasi variasi payload registrasi tidak valid melalui API (API-007 - NIK mengandung simbol)","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:16:15 GMT 2026","Fri Oct 23 07:16:16 GMT 2026","1803","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Validasi variasi payload registrasi tidak valid melalui API (NIK-020 - NIK panjang ekstrem via API)","","Validasi variasi payload registrasi tidak valid melalui API (NIK-020 - NIK panjang ekstrem via API)","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:15:18 GMT 2026","Fri Oct 23 07:15:19 GMT 2026","1155","","Pengujian Endpoint REST API Upload Berkas Foto Selfie","","Request JSON ke endpoint upload multipart FormData","","Request JSON ke endpoint upload multipart FormData","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint unggah foto selfie
+  Agar hanya berkas gambar yang sah yang dapat disimpan di server"
+"passed","Fri Oct 23 07:16:55 GMT 2026","Fri Oct 23 07:17:07 GMT 2026","12276","","Pengujian Elemen UI dan Tampilan Halaman Pendaftaran","","Membuka halaman pendaftaran melalui URL yang benar","","Membuka halaman pendaftaran melalui URL yang benar","  Sebagai calon pengguna magang
+  Saya ingin memastikan seluruh elemen antarmuka pendaftaran tersedia dan berfungsi
+  Agar proses pendaftaran dapat dilakukan dengan lancar"
+"passed","Fri Oct 23 07:16:03 GMT 2026","Fri Oct 23 07:16:11 GMT 2026","8015","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Validasi variasi payload registrasi tidak valid melalui API (API-014 - Foto ID kosong)","","Validasi variasi payload registrasi tidak valid melalui API (API-014 - Foto ID kosong)","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:17:13 GMT 2026","Fri Oct 23 07:17:18 GMT 2026","5759","","Validasi Format dan Nilai NIK pada Formulir Pendaftaran","","Pendaftaran orang berbeda menggunakan NIK yang sama (Alur Pending Approval Admin)","","Pendaftaran orang berbeda menggunakan NIK yang sama (Alur Pending Approval Admin)","  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan NIK yang diinput sesuai aturan 8 karakter alfanumerik
+  Agar integritas data identitas pengguna magang terjamin"
+"passed","Fri Oct 23 07:17:22 GMT 2026","Fri Oct 23 07:17:28 GMT 2026","5915","","Pengujian Alur Bisnis dan Submit Formulir Pendaftaran","","Pendaftaran berhasil dengan seluruh field lengkap dan valid","","Pendaftaran berhasil dengan seluruh field lengkap dan valid","  Sebagai calon pengguna magang
+  Saya ingin mengirimkan formulir registrasi
+  Agar sistem memproses pembuatan akun sesuai aturan bisnis pendaftaran"
+"passed","Fri Oct 23 07:16:50 GMT 2026","Fri Oct 23 07:16:52 GMT 2026","1554","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Pengiriman request pendaftaran langsung ke API tanpa melewati browser","","Pengiriman request pendaftaran langsung ke API tanpa melewati browser","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:16:45 GMT 2026","Fri Oct 23 07:16:47 GMT 2026","2493","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Pengiriman ulang (retry) request pendaftaran yang identik","","Pengiriman ulang (retry) request pendaftaran yang identik","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:15:27 GMT 2026","Fri Oct 23 07:15:35 GMT 2026","7550","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Pendaftaran via API menggunakan NIK yang sudah terdaftar dengan email berbeda (Alur Pending Approval Admin)","","Pendaftaran via API menggunakan NIK yang sudah terdaftar dengan email berbeda (Alur Pending Approval Admin)","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:16:16 GMT 2026","Fri Oct 23 07:16:20 GMT 2026","3712","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Validasi variasi payload registrasi tidak valid melalui API (SEC-001 - NIK payload SQL injection)","","Validasi variasi payload registrasi tidak valid melalui API (SEC-001 - NIK payload SQL injection)","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:15:56 GMT 2026","Fri Oct 23 07:15:59 GMT 2026","2959","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Validasi variasi payload registrasi tidak valid melalui API (API-011 - Email spasi di tengah)","","Validasi variasi payload registrasi tidak valid melalui API (API-011 - Email spasi di tengah)","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:15:59 GMT 2026","Fri Oct 23 07:16:00 GMT 2026","1527","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Validasi variasi payload registrasi tidak valid melalui API (API-012 - Nama lengkap kosong)","","Validasi variasi payload registrasi tidak valid melalui API (API-012 - Nama lengkap kosong)","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:16:11 GMT 2026","Fri Oct 23 07:16:15 GMT 2026","3122","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Validasi variasi payload registrasi tidak valid melalui API (API-017 - Nama panjang ekstrem)","","Validasi variasi payload registrasi tidak valid melalui API (API-017 - Nama panjang ekstrem)","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:16:35 GMT 2026","Fri Oct 23 07:16:38 GMT 2026","2692","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Pengiriman dua request pendaftaran simultan dengan NIK yang sama","","Pengiriman dua request pendaftaran simultan dengan NIK yang sama","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:16:30 GMT 2026","Fri Oct 23 07:16:31 GMT 2026","1748","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Respons error API tidak membocorkan stack trace atau query internal","","Respons error API tidak membocorkan stack trace atau query internal","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:16:52 GMT 2026","Fri Oct 23 07:16:55 GMT 2026","3023","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Kontrol batas laju pengiriman request pendaftaran secara beruntun","","Kontrol batas laju pengiriman request pendaftaran secara beruntun","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:15:40 GMT 2026","Fri Oct 23 07:15:42 GMT 2026","1594","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Validasi variasi payload registrasi tidak valid melalui API (API-005 - NIK 7 karakter)","","Validasi variasi payload registrasi tidak valid melalui API (API-005 - NIK 7 karakter)","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:16:42 GMT 2026","Fri Oct 23 07:16:45 GMT 2026","2947","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Pengiriman dua request pendaftaran simultan dengan email yang sama","","Pengiriman dua request pendaftaran simultan dengan email yang sama","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:16:27 GMT 2026","Fri Oct 23 07:16:28 GMT 2026","1309","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Request ke endpoint pendaftaran menggunakan metode HTTP GET ditolak","","Request ke endpoint pendaftaran menggunakan metode HTTP GET ditolak","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:16:00 GMT 2026","Fri Oct 23 07:16:03 GMT 2026","2924","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Validasi variasi payload registrasi tidak valid melalui API (API-013 - Password kosong)","","Validasi variasi payload registrasi tidak valid melalui API (API-013 - Password kosong)","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:15:24 GMT 2026","Fri Oct 23 07:15:27 GMT 2026","3721","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Registrasi user baru via API dengan payload valid","","Registrasi user baru via API dengan payload valid","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:15:22 GMT 2026","Fri Oct 23 07:15:24 GMT 2026","1103","","Pengujian Endpoint REST API Upload Berkas Foto Selfie","","Verifikasi otorisasi akses file selfie yang telah terunggah","","Verifikasi otorisasi akses file selfie yang telah terunggah","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint unggah foto selfie
+  Agar hanya berkas gambar yang sah yang dapat disimpan di server"
+"passed","Fri Oct 23 07:15:17 GMT 2026","Fri Oct 23 07:15:18 GMT 2026","1221","","Pengujian Endpoint REST API Upload Berkas Foto Selfie","","Upload dokumen PDF ditolak oleh endpoint upload","","Upload dokumen PDF ditolak oleh endpoint upload","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint unggah foto selfie
+  Agar hanya berkas gambar yang sah yang dapat disimpan di server"
+"passed","Fri Oct 23 07:15:20 GMT 2026","Fri Oct 23 07:15:22 GMT 2026","2171","","Pengujian Endpoint REST API Upload Berkas Foto Selfie","","Upload file dengan nama mengandung path traversal","","Upload file dengan nama mengandung path traversal","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint unggah foto selfie
+  Agar hanya berkas gambar yang sah yang dapat disimpan di server"
+"failed","Fri Oct 23 07:15:37 GMT 2026","Fri Oct 23 07:15:39 GMT 2026","1545","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Validasi API wajib menolak registrasi user baru tanpa menyertakan foto selfie (field foto wajib)","","Validasi API wajib menolak registrasi user baru tanpa menyertakan foto selfie (field foto wajib)","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:17:07 GMT 2026","Fri Oct 23 07:17:10 GMT 2026","2782","","Pengujian Elemen UI dan Tampilan Halaman Pendaftaran","","Menampilkan password menggunakan toggle ikon mata","","Menampilkan password menggunakan toggle ikon mata","  Sebagai calon pengguna magang
+  Saya ingin memastikan seluruh elemen antarmuka pendaftaran tersedia dan berfungsi
+  Agar proses pendaftaran dapat dilakukan dengan lancar"
+"passed","Fri Oct 23 07:15:54 GMT 2026","Fri Oct 23 07:15:56 GMT 2026","2484","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Validasi variasi payload registrasi tidak valid melalui API (API-010 - Email tanpa domain)","","Validasi variasi payload registrasi tidak valid melalui API (API-010 - Email tanpa domain)","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:16:39 GMT 2026","Fri Oct 23 07:16:42 GMT 2026","3072","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Verifikasi struktur data respon sukses registrasi API sesuai kontrak","","Verifikasi struktur data respon sukses registrasi API sesuai kontrak","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:15:39 GMT 2026","Fri Oct 23 07:15:40 GMT 2026","1349","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Validasi variasi payload registrasi tidak valid melalui API (API-004 - NIK kosong)","","Validasi variasi payload registrasi tidak valid melalui API (API-004 - NIK kosong)","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:16:47 GMT 2026","Fri Oct 23 07:16:50 GMT 2026","2894","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Respons penolakan akun duplikat tidak membocorkan informasi pribadi pengguna lain","","Respons penolakan akun duplikat tidak membocorkan informasi pribadi pengguna lain","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:15:42 GMT 2026","Fri Oct 23 07:15:45 GMT 2026","2984","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Validasi variasi payload registrasi tidak valid melalui API (API-006 - NIK 9 karakter)","","Validasi variasi payload registrasi tidak valid melalui API (API-006 - NIK 9 karakter)","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:16:38 GMT 2026","Fri Oct 23 07:16:39 GMT 2026","1078","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Pemeriksaan konfigurasi header keamanan respons API","","Pemeriksaan konfigurasi header keamanan respons API","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:16:31 GMT 2026","Fri Oct 23 07:16:35 GMT 2026","3497","","Pengujian Endpoint REST API Registrasi Pengguna Baru","","Pengiriman payload registrasi raksasa tidak menyebabkan server crash","","Pengiriman payload registrasi raksasa tidak menyebabkan server crash","  Sebagai sistem backend HADIR
+  Saya ingin memvalidasi endpoint pendaftaran akun pengguna
+  Agar integritas data dan keamanan sistem terjaga"
+"passed","Fri Oct 23 07:17:28 GMT 2026","Fri Oct 23 07:17:31 GMT 2026","2781","","Pengujian Alur Bisnis dan Submit Formulir Pendaftaran","","Pengiriman formulir pendaftaran saat seluruh field kosong","","Pengiriman formulir pendaftaran saat seluruh field kosong","  Sebagai calon pengguna magang
+  Saya ingin mengirimkan formulir registrasi
+  Agar sistem memproses pembuatan akun sesuai aturan bisnis pendaftaran"
