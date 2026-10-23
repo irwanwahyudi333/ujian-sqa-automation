@@ -26,7 +26,7 @@ import java.util.concurrent.Executors;
 public class LocalWebServer {
     private static final Logger logger = LogManager.getLogger(LocalWebServer.class);
 
-    private static final int DEFAULT_PORT = 8080;
+    private static final int DEFAULT_PORT = 8085;
     private static HttpServer server;
     private static int activePort = DEFAULT_PORT;
     private static Path staticWebRoot;
@@ -46,7 +46,18 @@ public class LocalWebServer {
      * Start the local web server on the default port.
      */
     public static synchronized void start() {
-        start(DEFAULT_PORT);
+        int port = DEFAULT_PORT;
+        try {
+            String uiUrl = ConfigReader.getUiBaseUrl();
+            if (uiUrl != null && uiUrl.contains(":")) {
+                String[] parts = uiUrl.split(":");
+                String portPart = parts[parts.length - 1].replaceAll("[^0-9]", "");
+                if (!portPart.isEmpty()) {
+                    port = Integer.parseInt(portPart);
+                }
+            }
+        } catch (Exception ignored) {}
+        start(port);
     }
 
     /**
@@ -71,6 +82,7 @@ public class LocalWebServer {
             logger.info("==========================================================");
             logger.info("Local Web Server started successfully!");
             logger.info("URL Register Page: http://localhost:{}/absen/register", activePort);
+            logger.info("URL Self-Registration: http://localhost:{}/management/self-registration", activePort);
             logger.info("Serving files from: {}", staticWebRoot);
             logger.info("==========================================================");
         } catch (IOException e) {
@@ -147,6 +159,10 @@ public class LocalWebServer {
                 serveFile(exchange, "/absen/dashboard.html");
                 return;
             }
+            if (uriPath.equals("/management/self-registration") || uriPath.equals("/management/self-registration/")) {
+                serveFile(exchange, "/management/self-registration.html");
+                return;
+            }
 
             serveFile(exchange, uriPath);
         }
@@ -162,6 +178,10 @@ public class LocalWebServer {
                     filePath = staticWebRoot.resolve("absen/register.html");
                 } else if (cleanPath.equals("authentication/login") || cleanPath.equals("login") || cleanPath.equals("absen/login")) {
                     filePath = staticWebRoot.resolve("authentication/login.html");
+                } else if (cleanPath.equals("dashboard") || cleanPath.equals("absen/dashboard")) {
+                    filePath = staticWebRoot.resolve("absen/dashboard.html");
+                } else if (cleanPath.equals("management/self-registration")) {
+                    filePath = staticWebRoot.resolve("management/self-registration.html");
                 }
             }
 
