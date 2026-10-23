@@ -28,8 +28,8 @@ target/
 ### Logs & Reports ###
 logs/
 *.log
-allure-results/
-allure-report/
+/allure-results/
+/allure-report/
 test-output/
 cucumber-reports/
 .DS_Store

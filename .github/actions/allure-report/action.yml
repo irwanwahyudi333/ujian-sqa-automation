@@ -1,0 +1,35 @@
+name: 'Allure Report Action (Stable)'
+description: 'Generate Allure Report with history using stable Eclipse Temurin base image'
+author: 'SQA Automation Team'
+inputs:
+  allure_results:
+    description: 'Path folder allure-results'
+    required: false
+    default: 'target/allure-results'
+  gh_pages:
+    description: 'Path folder gh-pages'
+    required: false
+    default: 'gh-pages'
+  allure_report:
+    description: 'Path output folder allure-report'
+    required: false
+    default: 'allure-report'
+  allure_history:
+    description: 'Path output folder allure-history'
+    required: false
+    default: 'allure-history'
+  keep_reports:
+    description: 'Jumlah laporan historis yang disimpan'
+    required: false
+    default: '25'
+  subfolder:
+    description: 'Subfolder di dalam history (opsional)'
+    required: false
+    default: ''
+  report_url:
+    description: 'Custom report URL (opsional)'
+    required: false
+    default: ''
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

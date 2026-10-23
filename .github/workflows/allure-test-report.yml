@@ -31,6 +31,9 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
 
       - name: Set up Java 21 (Temurin)
         uses: actions/setup-java@v4
@@ -72,10 +75,24 @@ jobs:
         id: check_gh_pages
         if: always()
         run: |
-          if git ls-remote --exit-code --heads origin gh-pages; then
-            echo "exists=true" >> $GITHUB_OUTPUT
+          has_origin=false
+          if git remote | grep -q "^origin$"; then
+            if git remote get-url origin >/dev/null 2>&1; then
+              has_origin=true
+            fi
+          fi
+
+          if [ "$has_origin" = "true" ]; then
+            if git ls-remote --exit-code --heads origin gh-pages >/dev/null 2>&1; then
+              echo "exists=true" >> $GITHUB_OUTPUT
+              echo "Branch 'gh-pages' ditemukan di remote origin."
+            else
+              echo "exists=false" >> $GITHUB_OUTPUT
+              echo "Branch 'gh-pages' belum ada di remote origin."
+            fi
           else
             echo "exists=false" >> $GITHUB_OUTPUT
+            echo "Remote 'origin' tidak terdeteksi. Melewati pengecekan remote gh-pages."
           fi
 
       - name: Load Allure History from GitHub Pages
@@ -93,9 +110,10 @@ jobs:
           mkdir -p gh-pages
 
       - name: Generate Allure Report
-        uses: simple-elf/allure-report-action@master
+        uses: ./.github/actions/allure-report
         if: always()
         id: allure-report
+        continue-on-error: true
         with:
           allure_results: target/allure-results
           gh_pages: gh-pages
@@ -103,13 +121,44 @@ jobs:
           allure_history: allure-history
           keep_reports: 25
 
-      - name: Deploy Allure Report to GitHub Pages
+      - name: Fallback Native Allure Report Generation
+        if: always() && steps.allure-report.outcome == 'failure'
+        run: |
+          echo "Docker-based Allure action gagal atau dilewati. Menjalankan fallback native runner Allure CLI..."
+          if ! command -v allure &> /dev/null; then
+            ALLURE_VERSION="2.29.0"
+            for i in 1 2 3; do
+              curl -sL "https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/${ALLURE_VERSION}/allure-commandline-${ALLURE_VERSION}.tgz" -o /tmp/allure.tgz && break || sleep 2
+            done
+            sudo tar -zxvf /tmp/allure.tgz -C /opt/
+            sudo ln -sf /opt/allure-${ALLURE_VERSION}/bin/allure /usr/local/bin/allure
+          fi
+          export INPUT_ALLURE_RESULTS="target/allure-results"
+          export INPUT_GH_PAGES="gh-pages"
+          export INPUT_ALLURE_REPORT="allure-report"
+          export INPUT_ALLURE_HISTORY="allure-history"
+          export INPUT_KEEP_REPORTS="25"
+          bash ./.github/actions/allure-report/entrypoint.sh
+
+      - name: Prepare Clean gh-pages Branch State
         if: always()
+        run: |
+          # Membersihkan branch gh-pages lokal jika ada untuk mencegah collision "fatal: a branch named 'gh-pages' already exists"
+          if git show-ref --verify --quiet refs/heads/gh-pages; then
+            echo "Membersihkan branch lokal gh-pages sebelum proses deploy..."
+            git branch -D gh-pages || true
+          fi
+          rm -f .git/index.lock || true
+
+      - name: Deploy Allure Report to GitHub Pages
+        if: always() && hashFiles('allure-history/**') != ''
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: allure-history
+          keep_files: false
+          force_orphan: false
 
       - name: Upload Test Results Artifact
         if: always()
