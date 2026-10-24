@@ -163,6 +163,10 @@ public class LocalWebServer {
                 serveFile(exchange, "/management/self-registration.html");
                 return;
             }
+            if (uriPath.startsWith("/management/user-v2/edit")) {
+                serveFile(exchange, "/management/user-v2-edit.html");
+                return;
+            }
 
             serveFile(exchange, uriPath);
         }
@@ -182,6 +186,8 @@ public class LocalWebServer {
                     filePath = staticWebRoot.resolve("absen/dashboard.html");
                 } else if (cleanPath.equals("management/self-registration")) {
                     filePath = staticWebRoot.resolve("management/self-registration.html");
+                } else if (cleanPath.startsWith("management/user-v2/edit")) {
+                    filePath = staticWebRoot.resolve("management/user-v2-edit.html");
                 }
             }
 
