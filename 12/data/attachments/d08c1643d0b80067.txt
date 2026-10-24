@@ -1,0 +1,9 @@
+{
+    "name": "NotAuthenticated",
+    "message": "Not authenticated",
+    "code": 401,
+    "className": "not-authenticated",
+    "errors": {
+        
+    }
+}
