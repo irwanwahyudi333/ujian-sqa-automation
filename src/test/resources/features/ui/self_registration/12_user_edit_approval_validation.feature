@@ -26,3 +26,17 @@ Fitur: Validasi Halaman Edit User dan Integritas Approval Pendaftar Mandiri
     Ketika admin mengisi email pada halaman edit dengan email akun lain "ahmad.subagyo@example.com"
     Dan admin menekan tombol submit edit user
     Maka sistem menolak pelolosan dan menampilkan notifikasi kesalahan duplikasi email
+
+  @BUG-U2-004 @validation @nik-length-validation
+  Skenario: Verifikasi field NIK pada form edit menolak input terlalu pendek kurang dari panjang standar
+    Ketika admin mengisi NIK pada halaman edit dengan format tidak valid "AB"
+    Dan admin menekan tombol submit edit user
+    Maka sistem menolak pelolosan dan memvalidasi batas panjang minimum NIK
+
+  @BUG-UI-BATCH-001 @bulk-action @algorithm-defect
+  Skenario: Verifikasi integritas pemilihan baris non-kontigu pada aksi batch edit tabel
+    Ketika admin mencentang baris tabel non-kontigu baris ke 2 dan ke 4
+    Dan admin menekan tombol Update dichecklist
+    Maka modal ubah data user dichecklist terbuka
+    Dan sistem memproses seluruh baris terpilih tanpa menghasilkan payload undefined
+
