@@ -1,0 +1,27 @@
+Status: 200
+Body: {
+    "total": 5459,
+    "limit": 10,
+    "skip": 0,
+    "data": [
+        {
+            "verifyChanges": {
+                
+            },
+            "id": "e9a0da89-7651-44f3-b4a4-929ff469351c",
+            "nik": "D6240005",
+            "upliner_id": null,
+            "upliner2_id": null,
+            "upliner3_id": null,
+            "photo": null,
+            "fullname": "Probe User BOLA",
+            "email": "probe_1792851711022@dikahadir.com",
+            "email_2": null,
+            "role_id": null,
+            "division_name": "MIS",
+            "department_name": "Operational - Kp",
+            "unit_name": "IT Programmer",
+            "employee_type_name": "pkwt",
+            "position_name": "IT MIS Staff",
+            "googleId": null,
+            "employee_type_id": "93ead3fc... [truncated]
