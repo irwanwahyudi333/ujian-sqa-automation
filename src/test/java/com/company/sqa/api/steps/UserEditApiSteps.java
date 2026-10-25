@@ -118,6 +118,9 @@ public class UserEditApiSteps {
     private String registeredUserId;
     private String userAuthToken;
     private long jwtLifespanSeconds;
+    private String escalatedUserId;
+    private String escalatedUserToken;
+    private Response patchRoleResponse;
 
     @Ketika("client mengirim request registrasi dengan menyisipkan atribut {string} bernilai true")
     public void clientMengirimRequestRegistrasiDenganMenyisipkanAtributBernilaiTrue(String attributeName) {
@@ -362,6 +365,158 @@ public class UserEditApiSteps {
             Assert.fail("API CONTRACT DEFECT TERDETEKSI: Backend mengembalikan HTTP 500 Internal Server Error untuk penolakan format berkas, seharusnya HTTP 400/415!");
         }
         Assert.assertTrue(status == 400 || status == 415, "Status code seharusnya 400 atau 415! Aktual: " + status);
+    }
+
+    @Ketika("client pengguna biasa mencoba melakukan eskalasi peran menjadi admin dengan payload {string} dan {string}")
+    public void clientPenggunaBiasaMencobaMelakukanEskalasiPeranMenjadiAdminDenganPayloadDan(String roleField, String isAdminField) {
+        // 1. Registrasi akun pendaftar baru dengan isVerified: true (temuan mass-assignment pendaftaran)
+        String uniqueEmail = "priv_esc_" + System.currentTimeMillis() + "@dikahadir.com";
+        Map<String, Object> regPayload = new HashMap<>();
+        regPayload.put("nik", "D6240005");
+        regPayload.put("fullname", "Audit Mass Assignment QA");
+        regPayload.put("email", uniqueEmail);
+        regPayload.put("password", "P@ssw0rdAudit123!");
+        regPayload.put("company_code", "DIKA");
+        regPayload.put("is_mobile", true);
+        regPayload.put("isVerified", true);
+
+        Allure.addAttachment("1. Registrasi User Payload", regPayload.toString());
+        logger.info("Mengirim request registrasi user uji eskalasi role: {}", uniqueEmail);
+
+        Response regResponse = RestAssured.given()
+                .contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
+                .body(regPayload)
+                .when()
+                .post(USERS_ENDPOINT)
+                .then()
+                .extract().response();
+
+        escalatedUserId = regResponse.jsonPath().getString("id");
+        Allure.addAttachment("1. Response Registrasi User",
+                "Status: " + regResponse.getStatusCode() + "\nBody: " + regResponse.asPrettyString());
+
+        // 2. Login untuk memperoleh token autentikasi pengguna biasa
+        Map<String, Object> loginPayload = new HashMap<>();
+        loginPayload.put("strategy", "local");
+        loginPayload.put("email", uniqueEmail);
+        loginPayload.put("password", "P@ssw0rdAudit123!");
+
+        Response loginResponse = RestAssured.given()
+                .contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
+                .body(loginPayload)
+                .when()
+                .post("https://api-dev.dikahadir.com/hadir-api-magang/authentication")
+                .then()
+                .extract().response();
+
+        escalatedUserToken = loginResponse.jsonPath().getString("accessToken");
+        Allure.addAttachment("2. Response Login Pengguna Biasa",
+                "Status: " + loginResponse.getStatusCode() + "\nAccess Token: " + (escalatedUserToken != null ? "Diperoleh" : "Null"));
+
+        // 3. Mengirim PATCH untuk mengubah role_id menjadi admin dan is_admin menjadi true
+        Map<String, Object> patchPayload = new HashMap<>();
+        patchPayload.put(roleField, "admin");
+        patchPayload.put(isAdminField, true);
+
+        Allure.addAttachment("3. Payload Injeksi Eskalasi Hak Akses", patchPayload.toString());
+        logger.info("Mengirim request PATCH update role ke {}/{}", USERS_ENDPOINT, escalatedUserId);
+
+        if (escalatedUserId != null && escalatedUserToken != null) {
+            patchRoleResponse = RestAssured.given()
+                    .header("Authorization", "Bearer " + escalatedUserToken)
+                    .contentType(ContentType.JSON)
+                    .accept(ContentType.JSON)
+                    .body(patchPayload)
+                    .when()
+                    .patch(USERS_ENDPOINT + "/" + escalatedUserId)
+                    .then()
+                    .extract().response();
+
+            Allure.addAttachment("4. Response PATCH Eskalasi Hak Akses",
+                    "HTTP Status: " + patchRoleResponse.getStatusCode() + "\nBody: " + patchRoleResponse.asPrettyString());
+            lastResponse = patchRoleResponse;
+        }
+    }
+
+    @Maka("response API menolak eskalasi hak akses 403 atau tidak mengubah peran menjadi admin")
+    public void responseApiMenolakEskalasiHakAkses403AtauTidakMengubahPeranMenjadiAdmin() {
+        try {
+            Assert.assertNotNull(patchRoleResponse, "Response PATCH eskalasi role tidak boleh null!");
+            int statusCode = patchRoleResponse.getStatusCode();
+            String responseBody = patchRoleResponse.asPrettyString();
+            logger.info("PATCH Response Status: {}, Body: {}", statusCode, responseBody);
+
+            String roleId = null;
+            String role = null;
+            Object isAdminObj = null;
+            try {
+                roleId = patchRoleResponse.jsonPath().getString("role_id");
+            } catch (Exception ignored) {}
+            try {
+                role = patchRoleResponse.jsonPath().getString("role");
+            } catch (Exception ignored) {}
+            try {
+                isAdminObj = patchRoleResponse.jsonPath().get("is_admin");
+            } catch (Exception ignored) {}
+
+            boolean isAdmin = Boolean.TRUE.equals(isAdminObj) || "true".equalsIgnoreCase(String.valueOf(isAdminObj));
+
+            logger.info("Parsed fields: role_id={}, role={}, is_admin={}", roleId, role, isAdmin);
+
+            boolean isPrivilegeEscalated = (statusCode == 200 || statusCode == 201)
+                    && ("admin".equalsIgnoreCase(roleId) || "admin".equalsIgnoreCase(role) || isAdmin
+                    || responseBody.contains("\"role_id\":\"admin\"") || responseBody.contains("\"role_id\": \"admin\""));
+
+            if (isPrivilegeEscalated) {
+                String report = """
+                        ======================================================================
+                        TEMUAN DEFECT KEAMANAN KRITIS: VERTICAL PRIVILEGE ESCALATION (CWE-269)
+                        ======================================================================
+                        Endpoint: PATCH /hadir-api-magang/users/{id}
+                        Metode: PATCH
+                        Header: Authorization: Bearer <token_pengguna_biasa>
+                        Payload Injeksi: {"role_id": "admin", "is_admin": true}
+                        Status Respons Aktual: %d OK
+                        Nilai role_id Aktual: %s
+                        Nilai role Aktual: %s
+                        Nilai is_admin Aktual: %s
+
+                        Dampak Bisnis & Keamanan:
+                        Pengguna biasa/karyawan baru dapat menaikkan hak akses dirinya sendiri
+                        menjadi ADMINISTRATOR tanpa persetujuan Superadmin (Vertical Privilege Escalation).
+                        Penyerang mendapatkan otoritas penuh untuk mengelola, mengubah, atau menghapus
+                        data seluruh pengguna pada sistem HADIR.
+
+                        Rekomendasi Remediasi:
+                        1. Terapkan DTO whitelisting ketat pada endpoint update profile pengguna.
+                        2. Larang pembaruan atribut sensitif seperti 'role', 'role_id', dan 'is_admin'
+                           oleh pengguna biasa (Non-Admin).
+                        3. Perubahan peran hanya boleh diakses melalui endpoint internal admin terpisah
+                           yang diproteksi middleware otorisasi berbasis hak akses (RBAC).
+                        """.formatted(statusCode, roleId, role, isAdmin);
+
+                Allure.addAttachment("Defect Audit Report - Vertical Privilege Escalation", report);
+                Assert.fail("CRITICAL BUG TERDETEKSI: Pengguna biasa berhasil mengubah status menjadi admin via PATCH /users/{id} (HTTP "
+                        + statusCode + ", role_id: " + roleId + ", is_admin: " + isAdmin + ")!");
+            }
+
+            Assert.assertTrue(statusCode == 403 || statusCode == 400,
+                    "Sistem seharusnya menolak perubahan hak akses dengan status 403 Forbidden atau 400 Bad Request! Aktual: " + statusCode);
+        } finally {
+            // Bersihkan akun uji agar database testing tetap higienis
+            if (escalatedUserId != null && escalatedUserToken != null) {
+                try {
+                    RestAssured.given()
+                            .header("Authorization", "Bearer " + escalatedUserToken)
+                            .delete(USERS_ENDPOINT + "/" + escalatedUserId);
+                    logger.info("Pembersihan akun uji eskalasi selesai: {}", escalatedUserId);
+                } catch (Exception e) {
+                    logger.warn("Gagal membersihkan akun uji: {}", e.getMessage());
+                }
+            }
+        }
     }
 }
 

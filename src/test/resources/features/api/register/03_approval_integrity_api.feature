@@ -40,3 +40,9 @@ Fitur: Pengujian Integritas Endpoint REST API Approval dan Pembaharuan Pengguna
     Ketika client mengunggah berkas tidak diizinkan "test.html" ke endpoint upload
     Maka response API mengembalikan status kontrak kesalahan klien 400 atau 415 dan bukan 500
 
+  @API-SEC-004 @api @security @privilege-escalation
+  Skenario: Backend wajib menolak perubahan peran menjadi admin oleh pengguna biasa melalui request PATCH
+    Ketika client pengguna biasa mencoba melakukan eskalasi peran menjadi admin dengan payload "role_id" dan "is_admin"
+    Maka response API menolak eskalasi hak akses 403 atau tidak mengubah peran menjadi admin
+
+
