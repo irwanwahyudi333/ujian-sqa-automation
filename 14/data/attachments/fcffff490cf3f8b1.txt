@@ -1,0 +1,6 @@
+=== LAPORAN TEMUAN DEFECT: BUG-U2-001 ===
+Komponen: pages/management/user-v2/edit/[id]
+Akar Masalah: URL gambar menggunakan 'https://api-dev.dikahadir.com/uploads/'
+Seharusnya: 'https://api-dev.dikahadir.com/hadir-api-magang/uploads/'
+Dampak: Foto pendaftar tidak muncul / menghasilkan HTTP 404 Not Found.
+URL Aktual: https://api-dev.dikahadir.com/uploads/sample-selfie.jpg
