@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="theme-color" content="Flexy Next js Admin Template"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <title>HADIR - Divisi</title>
+  <meta name="viewport" content="initial-scale=1, width=device-width"/>
+  <meta name="next-head-count" content="3"/>
+  <link rel="preload" href="/_next/static/css/59a98a28abd5dd7d.css" as="style"/>
+  <link rel="stylesheet" href="/_next/static/css/59a98a28abd5dd7d.css" data-n-g=""/>
+  <noscript data-n-css=""></noscript>
+  <script defer="" nomodule="" src="/_next/static/chunks/polyfills-5cd94c89d3acac5f.js"></script>
+  <script src="/_next/static/chunks/webpack-dea3711d822548b5.js" defer=""></script>
+  <script src="/_next/static/chunks/framework-e106e9292f6c6407.js" defer=""></script>
+  <script src="/_next/static/chunks/main-e7e93353c7fa0f3d.js" defer=""></script>
+  <script src="/_next/static/chunks/pages/_app-2ad6ec1cd5a42c22.js" defer=""></script>
+  <script src="/_next/static/chunks/75fc9c18-0ccd8f555e7034c2.js" defer=""></script>
+  <script src="/_next/static/chunks/6886-322180864c9907f2.js" defer=""></script>
+  <script src="/_next/static/chunks/7709-d60f04bb4c118197.js" defer=""></script>
+  <script src="/_next/static/chunks/8360-bbf8c8be52eea981.js" defer=""></script>
+  <script src="/_next/static/chunks/1238-e6753dc39629cf47.js" defer=""></script>
+  <script src="/_next/static/chunks/135-faccceafe88b7fd2.js" defer=""></script>
+  <script src="/_next/static/chunks/6745-96d178404a6dd2aa.js" defer=""></script>
+  <script src="/_next/static/chunks/3911-fa110fd5d4d681ce.js" defer=""></script>
+  <script src="/_next/static/chunks/1260-0be3c872efc04971.js" defer=""></script>
+  <script src="/_next/static/chunks/3457-7d98ff9b4c5f60ce.js" defer=""></script>
+  <script src="/_next/static/chunks/848-db047b83fd5075c8.js" defer=""></script>
+  <script src="/_next/static/chunks/pages/management/divisi-8a158dfa0e346947.js" defer=""></script>
+  <script src="/_next/static/ZVAidYGiBj2MRxCexFsVP/_buildManifest.js" defer=""></script>
+  <script src="/_next/static/ZVAidYGiBj2MRxCexFsVP/_ssgManifest.js" defer=""></script>
+  <script src="/_next/static/ZVAidYGiBj2MRxCexFsVP/_middlewareManifest.js" defer=""></script>
+  <style>
+    body {
+      margin: 0;
+      color: rgba(0, 0, 0, 0.87);
+      font-weight: 400;
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 1.5;
+      background-color: #fafbfb;
+    }
+    .page-container {
+      padding: 24px 32px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .page-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #111827;
+      margin: 0;
+    }
+    .breadcrumbs {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      color: #64748b;
+      margin-top: 4px;
+    }
+    .breadcrumbs a {
+      color: #1ba0e2;
+      text-decoration: none;
+    }
+    .filter-card, .table-card {
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+      padding: 20px 24px;
+      margin-bottom: 24px;
+    }
+    .filter-search-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .form-search {
+      display: flex;
+      flex: 1;
+      max-width: 650px;
+      margin: 0;
+    }
+    .filter-search {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+    }
+    .input-search-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      flex: 1;
+      background: #f4f6f8;
+      border: 1px solid #dee3e9;
+      border-radius: 6px;
+      padding: 0 12px;
+      transition: border-color 0.2s;
+    }
+    .input-search-wrapper:focus-within {
+      border-color: #1ba0e2;
+      background: #ffffff;
+    }
+    .input-search {
+      border: none;
+      background: transparent;
+      outline: none;
+      padding: 10px 8px;
+      width: 100%;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: #333;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 18px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      font-family: inherit;
+      border-radius: 6px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      box-sizing: border-box;
+      white-space: nowrap;
+    }
+    .btn-primary, .button-add, .btn-search {
+      background: #1ba0e2;
+      color: #ffffff;
+    }
+    .btn-primary:hover, .button-add:hover, .btn-search:hover {
+      background: #1480b5;
+    }
+    .btn-reset {
+      background: transparent;
+      color: #eab308;
+      border: 1px solid #eab308;
+    }
+    .btn-reset:hover {
+      background: #fefce8;
+      color: #ca8a04;
+    }
+    .btn-secondary {
+      background: #f4f6f8;
+      color: #4b5563;
+      border: 1px solid #dee3e9;
+    }
+    .btn-secondary:hover {
+      background: #e5e7eb;
+    }
+    .btn-danger {
+      background: #ef4444;
+      color: #ffffff;
+    }
+    .btn-danger:hover {
+      background: #dc2626;
+    }
+    /* Material UI Table Styles */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      border-radius: 8px 8px 0 0;
+    }
+    .table_base {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    .table_base th {
+      background: #3D3D3D;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.78rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 14px 16px;
+      white-space: nowrap;
+      border: none;
+    }
+    .table_base td {
+      padding: 16px 16px;
+      font-size: 0.92rem;
+      border-bottom: 1px solid #eef2f6;
+      color: #4b5563;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+    .table_base tr:hover td {
+      background-color: #f8fafc;
+    }
+    .cell-title {
+      font-weight: 600;
+      color: #111827;
+      font-size: 0.95rem;
+    }
+    .cell-date-main {
+      font-weight: 600;
+      color: #1f2937;
+      font-size: 0.9rem;
+    }
+    .cell-date-sub {
+      color: #64748b;
+      font-size: 0.82rem;
+      margin-top: 2px;
+    }
+    /* Action Dropdown & Buttons */
+    .action-cell {
+      position: relative;
+      text-align: center;
+      width: 120px;
+    }
+    .action-container {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .icon-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 50%;
+      width: 34px;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #64748b;
+      transition: background-color 0.15s, color 0.15s;
+    }
+    .icon-btn:hover {
+      background-color: #f1f5f9;
+      color: #1e293b;
+    }
+    .btn-edit-direct {
+      color: #1ba0e2;
+    }
+    .btn-edit-direct:hover {
+      background-color: #e0f2fe;
+    }
+    .btn-delete-direct {
+      color: #ef4444;
+    }
+    .btn-delete-direct:hover {
+      background-color: #fee2e2;
+    }
+    .action-menu {
+      display: none;
+      position: absolute;
+      right: 16px;
+      top: 45px;
+      background: #ffffff;
+      min-width: 130px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      border-radius: 6px;
+      z-index: 100;
+      border: 1px solid #eef2f6;
+      padding: 4px 0;
+    }
+    .action-menu.show {
+      display: block;
+    }
+    .menu-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      padding: 8px 16px;
+      border: none;
+      background: transparent;
+      color: #374151;
+      font-size: 0.9rem;
+      text-align: left;
+      cursor: pointer;
+      transition: background-color 0.15s;
+    }
+    .menu-item:hover {
+      background-color: #f3f4f6;
+    }
+    .menu-item.delete {
+      color: #ef4444;
+    }
+    .menu-item.delete:hover {
+      background-color: #fee2e2;
+    }
+    /* Pagination Bar */
+    .pagination-bar {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+      padding: 12px 20px;
+      background: #3D3D3D;
+      color: #ffffff;
+      border-radius: 0 0 16px 16px;
+      font-size: 0.85rem;
+    }
+    .pagination-bar label {
+      color: #d1d5db;
+    }
+    .pagination-bar select {
+      background: #2b2b2b;
+      color: #ffffff;
+      border: 1px solid #4b5563;
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-family: inherit;
+      outline: none;
+      cursor: pointer;
+    }
+    .displayed-rows {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+    .pagination-actions {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .page-nav-btn {
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      width: 32px;
+      height: 32px;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.15s;
+    }
+    .page-nav-btn:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.15);
+    }
+    .page-nav-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+    /* Modals */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1300;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-overlay.open {
+      display: flex;
+    }
+    .modal-dialog {
+      background: #ffffff;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      animation: modalSlide 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes modalSlide {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .modal-header {
+      padding: 20px 24px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .modal-title {
+      margin: 0;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #111827;
+    }
+    .modal-close-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #9ca3af;
+      padding: 4px;
+      border-radius: 4px;
+      display: flex;
+    }
+    .modal-close-btn:hover {
+      color: #4b5563;
+      background: #f3f4f6;
+    }
+    .modal-body {
+      padding: 12px 24px 24px;
+      font-size: 0.95rem;
+      color: #374151;
+    }
+    .form-group {
+      margin-top: 12px;
+      margin-bottom: 8px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #374151;
+    }
+    .form-control {
+      width: 100%;
+      border: 1px solid #dee3e9;
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      box-sizing: border-box;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-control:focus {
+      border-color: #1ba0e2;
+      box-shadow: 0 0 0 2px rgba(27, 160, 226, 0.15);
+    }
+    .modal-footer {
+      padding: 16px 24px;
+      border-top: 1px solid #f1f5f9;
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      background: #fafbfb;
+    }
+    /* Toast Snackbar */
+    .snackbar {
+      display: none;
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      background: #1e293b;
+      color: #ffffff;
+      padding: 14px 22px;
+      border-radius: 8px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+      z-index: 1500;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.92rem;
+      font-weight: 500;
+    }
+    .snackbar.open {
+      display: flex;
+      animation: snackbarSlide 0.2s ease-out;
+    }
+    @keyframes snackbarSlide {
+      from { transform: translateY(15px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .snackbar-close {
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+    }
+    .snackbar-close:hover {
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <div id="__next">
+    <div class="page-container">
+      <!-- Breadcrumbs & Title -->
+      <div class="page-header">
+        <div>
+          <h1 class="page-title MuiTypography-root MuiTypography-h4">Divisi</h1>
+          <div class="breadcrumbs">
+            <a href="/dashboard">Dashboard</a>
+            <span>/</span>
+            <span>Management</span>
+            <span>/</span>
+            <span style="color: #1e293b; font-weight: 500;">Divisi</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search & Add Bar Card -->
+      <div class="filter-card">
+        <div class="filter-search-container">
+          <form class="form-search" id="form-search" onsubmit="event.preventDefault(); handleSearch();">
+            <div class="filter-search">
+              <div class="input-search-wrapper">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input
+                  type="search"
+                  id="search"
+                  name="search"
+                  class="input-search"
+                  placeholder="cari berdasarkan nama"
+                  aria-label="cari berdasarkan nama"
+                />
+              </div>
+              <button type="button" id="btn-reset" class="btn btn-reset" onclick="handleReset()">Reset</button>
+              <button type="submit" id="btn-search" class="btn btn-search">Search</button>
+            </div>
+          </form>
+          <div>
+            <button type="button" id="btn-tambah-divisi" class="btn button-add" onclick="openAddModal()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+              Tambahkan
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Data Table Card -->
+      <div class="table-card" style="padding: 0; overflow: hidden;">
+        <div class="table-container">
+          <table class="table_base MuiTable-root" aria-label="sticky table">
+            <thead>
+              <tr class="MuiTableRow-root MuiTableRow-head">
+                <th style="width: 35%;">NAMA Divisi</th>
+                <th style="width: 25%;">TANGGAL BUAT</th>
+                <th style="width: 25%;">TANGGAL UPDATE</th>
+                <th style="width: 15%; text-align: center;">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="divisi-table-body">
+              <!-- Rendered dynamically by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Table Pagination Footer -->
+        <div class="pagination-bar MuiTablePagination-root">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <label for="rows-per-page">Rows per page:</label>
+            <select id="rows-per-page" class="MuiTablePagination-select" onchange="changeRowsPerPage(this.value)">
+              <option value="5">5</option>
+              <option value="10" selected>10</option>
+              <option value="25">25</option>
+            </select>
+          </div>
+          <div id="displayed-rows" class="displayed-rows MuiTablePagination-displayedRows">
+            1-10 of 10
+          </div>
+          <div class="pagination-actions">
+            <button id="btn-first-page" class="page-nav-btn" title="First Page" onclick="goToPage(1)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="11 17 6 12 11 7"></polyline>
+                <polyline points="18 17 13 12 18 7"></polyline>
+              </svg>
+            </button>
+            <button id="btn-prev-page" class="page-nav-btn" title="Previous Page" onclick="prevPage()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <button id="btn-next-page" class="page-nav-btn" title="Next Page" onclick="nextPage()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+            <button id="btn-last-page" class="page-nav-btn" title="Last Page" onclick="goToPage(totalPages)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="13 17 18 12 13 7"></polyline>
+                <polyline points="6 17 11 12 6 7"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Tambah Divisi -->
+  <div id="modal-tambah-divisi" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="alert-dialog-title">
+    <div class="modal-dialog">
+      <form id="form-tambah-divisi" onsubmit="event.preventDefault(); handleAddSubmit();">
+        <div class="modal-header">
+          <h2 id="alert-dialog-title" class="modal-title MuiTypography-root MuiTypography-h4">Tambah Divisi</h2>
+          <button type="button" class="modal-close-btn" aria-label="close" onclick="closeModal('modal-tambah-divisi')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="modal-body" id="alert-slide-description">
+          <div class="form-group">
+            <label for="name">Nama Divisi</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="form-control"
+              placeholder="Nama Divisi"
+              required
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-batal-tambah" class="btn btn-secondary" onclick="closeModal('modal-tambah-divisi')">Batal</button>
+          <button type="submit" id="btn-simpan-tambah" class="btn btn-primary">Tambah</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Edit Divisi -->
+  <div id="modal-edit-divisi" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="alert-dialog-title-edit">
+    <div class="modal-dialog">
+      <form id="form-edit-divisi" onsubmit="event.preventDefault(); handleEditSubmit();">
+        <input type="hidden" id="edit-id" name="id"/>
+        <div class="modal-header">
+          <h2 id="alert-dialog-title-edit" class="modal-title MuiTypography-root MuiTypography-h4">Edit Divisi</h2>
+          <button type="button" class="modal-close-btn" aria-label="close" onclick="closeModal('modal-edit-divisi')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="edit-name">Nama Divisi</label>
+            <input
+              type="text"
+              id="edit-name"
+              name="name"
+              class="form-control"
+              placeholder="Nama Divisi"
+              required
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-batal-edit" class="btn btn-secondary" onclick="closeModal('modal-edit-divisi')">Batal</button>
+          <button type="submit" id="btn-simpan-edit" class="btn btn-primary">Simpan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Hapus Divisi -->
+  <div id="modal-delete-divisi" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="alert-dialog-slide-title">
+    <div class="modal-dialog">
+      <form id="form-delete-divisi" onsubmit="event.preventDefault(); handleDeleteSubmit();">
+        <input type="hidden" id="delete-id" name="id"/>
+        <div class="modal-header">
+          <h2 id="alert-dialog-slide-title" class="modal-title MuiTypography-root MuiTypography-h4">Hapus Divisi</h2>
+          <button type="button" class="modal-close-btn" aria-label="close" onclick="closeModal('modal-delete-divisi')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="modal-body" id="alert-dialog-slide-description">
+          <p id="delete-confirm-text" style="margin: 0; font-size: 1rem; color: #374151;">
+            Apakah anda ingin menghapus Divisi <span id="delete-division-name" style="margin-left: 5px; font-weight: 700; color: #111827;"></span>?
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-batal-delete" class="btn btn-secondary" onclick="closeModal('modal-delete-divisi')">Batal</button>
+          <button type="submit" id="btn-confirm-delete" class="btn btn-danger">Hapus</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Snackbar -->
+  <div id="alert-snackbar" class="snackbar" role="alert">
+    <span id="alert-message">Notifikasi</span>
+    <button type="button" class="snackbar-close" aria-label="close" onclick="closeSnackbar()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Client-side Logic for Divisi Management -->
+  <script>
+    let divisions = [
+      { id: "1", name: "Technology", created_at: "2026-10-20T08:30:00.000Z", updated_at: "2026-10-21T09:15:00.000Z" },
+      { id: "2", name: "Human Resources", created_at: "2026-10-19T09:00:00.000Z", updated_at: "2026-10-20T10:20:00.000Z" },
+      { id: "3", name: "Finance & Accounting", created_at: "2026-10-18T11:15:00.000Z", updated_at: "2026-10-19T14:00:00.000Z" },
+      { id: "4", name: "Marketing & Communication", created_at: "2026-10-17T13:45:00.000Z", updated_at: "2026-10-18T16:30:00.000Z" },
+      { id: "5", name: "Operations", created_at: "2026-10-16T10:00:00.000Z", updated_at: "2026-10-17T11:20:00.000Z" },
+      { id: "6", name: "Quality Assurance", created_at: "2026-10-15T08:00:00.000Z", updated_at: "2026-10-16T08:45:00.000Z" },
+      { id: "7", name: "Customer Support", created_at: "2026-10-14T14:10:00.000Z", updated_at: "2026-10-15T15:30:00.000Z" },
+      { id: "8", name: "Product Management", created_at: "2026-10-13T09:30:00.000Z", updated_at: "2026-10-14T10:15:00.000Z" }
+    ];
+
+    let currentPage = 1;
+    let rowsPerPage = 10;
+    let filteredDivisions = [...divisions];
+    let totalPages = 1;
+
+    function formatDate(isoStr) {
+      if (!isoStr) return { date: "-", time: "" };
+      const d = new Date(isoStr);
+      if (isNaN(d.getTime())) return { date: "-", time: "" };
+      const months = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"];
+      const day = String(d.getDate()).padStart(2, '0');
+      const month = months[d.getMonth()];
+      const year = d.getFullYear();
+      const hours = String(d.getHours()).padStart(2, '0');
+      const minutes = String(d.getMinutes()).padStart(2, '0');
+      const seconds = String(d.getSeconds()).padStart(2, '0');
+      return {
+        date: `${day} ${month} ${year}`,
+        time: `${hours}:${minutes}:${seconds}`
+      };
+    }
+
+    function renderTable() {
+      const tbody = document.getElementById("divisi-table-body");
+      tbody.innerHTML = "";
+
+      const total = filteredDivisions.length;
+      totalPages = Math.ceil(total / rowsPerPage) || 1;
+      if (currentPage > totalPages) currentPage = totalPages;
+      if (currentPage < 1) currentPage = 1;
+
+      const startIndex = (currentPage - 1) * rowsPerPage;
+      const endIndex = Math.min(startIndex + rowsPerPage, total);
+      const pageData = filteredDivisions.slice(startIndex, endIndex);
+
+      if (pageData.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="4" style="text-align: center; padding: 32px; color: #94a3b8;">
+              Tidak ada data divisi ditemukan
+            </td>
+          </tr>
+        `;
+      } else {
+        pageData.forEach((item, idx) => {
+          const created = formatDate(item.created_at);
+          const updated = formatDate(item.updated_at);
+          const tr = document.createElement("tr");
+          tr.className = "MuiTableRow-root";
+          tr.setAttribute("data-id", item.id);
+          tr.innerHTML = `
+            <td>
+              <div class="cell-title">${escapeHtml(item.name)}</div>
+            </td>
+            <td>
+              <div class="cell-date-main">${created.date}</div>
+              <div class="cell-date-sub">${created.time}</div>
+            </td>
+            <td>
+              <div class="cell-date-main">${updated.date}</div>
+              <div class="cell-date-sub">${updated.time}</div>
+            </td>
+            <td class="action-cell">
+              <div class="action-container">
+                <button type="button" class="icon-btn btn-edit-direct btn-edit" title="Edit" onclick="openEditModal('${item.id}')">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                  </svg>
+                </button>
+                <button type="button" class="icon-btn btn-delete-direct btn-delete" title="Hapus" onclick="openDeleteModal('${item.id}')">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="3 6 5 6 21 6"></polyline>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                  </svg>
+                </button>
+                <button type="button" class="icon-btn" aria-label="action" aria-haspopup="true" onclick="toggleActionMenu(event, '${item.id}')">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="1"></circle>
+                    <circle cx="12" cy="5" r="1"></circle>
+                    <circle cx="12" cy="19" r="1"></circle>
+                  </svg>
+                </button>
+              </div>
+              <div id="action-menu-${item.id}" class="action-menu">
+                <button type="button" class="menu-item" onclick="openEditModal('${item.id}')">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                  Edit
+                </button>
+                <button type="button" class="menu-item delete" onclick="openDeleteModal('${item.id}')">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                  Delete
+                </button>
+              </div>
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      // Update Pagination Text
+      const from = total === 0 ? 0 : startIndex + 1;
+      const to = endIndex;
+      document.getElementById("displayed-rows").textContent = `${from}-${to} of ${total}`;
+
+      // Update Pagination Button States
+      document.getElementById("btn-first-page").disabled = currentPage <= 1;
+      document.getElementById("btn-prev-page").disabled = currentPage <= 1;
+      document.getElementById("btn-next-page").disabled = currentPage >= totalPages;
+      document.getElementById("btn-last-page").disabled = currentPage >= totalPages;
+    }
+
+    function toggleActionMenu(event, id) {
+      event.stopPropagation();
+      document.querySelectorAll('.action-menu').forEach(m => {
+        if (m.id !== `action-menu-${id}`) m.classList.remove('show');
+      });
+      const menu = document.getElementById(`action-menu-${id}`);
+      if (menu) menu.classList.toggle('show');
+    }
+
+    window.addEventListener('click', () => {
+      document.querySelectorAll('.action-menu').forEach(m => m.classList.remove('show'));
+    });
+
+    function escapeHtml(text) {
+      if (!text) return "";
+      return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+
+    function handleSearch() {
+      const query = document.getElementById("search").value.trim().toLowerCase();
+      if (!query) {
+        filteredDivisions = [...divisions];
+      } else {
+        filteredDivisions = divisions.filter(d => d.name.toLowerCase().includes(query));
+      }
+      currentPage = 1;
+      renderTable();
+    }
+
+    function handleReset() {
+      document.getElementById("search").value = "";
+      filteredDivisions = [...divisions];
+      currentPage = 1;
+      renderTable();
+    }
+
+    function changeRowsPerPage(val) {
+      rowsPerPage = parseInt(val, 10);
+      currentPage = 1;
+      renderTable();
+    }
+
+    function prevPage() {
+      if (currentPage > 1) {
+        currentPage--;
+        renderTable();
+      }
+    }
+
+    function nextPage() {
+      if (currentPage < totalPages) {
+        currentPage++;
+        renderTable();
+      }
+    }
+
+    function goToPage(page) {
+      currentPage = page;
+      renderTable();
+    }
+
+    // Modal Control
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) modal.classList.add("open");
+    }
+
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) modal.classList.remove("open");
+    }
+
+    function openAddModal() {
+      document.getElementById("form-tambah-divisi").reset();
+      openModal("modal-tambah-divisi");
+      setTimeout(() => document.getElementById("name").focus(), 100);
+    }
+
+    function handleAddSubmit() {
+      const nameInput = document.getElementById("name");
+      const name = nameInput.value.trim();
+      if (!name) return;
+
+      const newId = String(Date.now());
+      const now = new Date().toISOString();
+      const newDiv = { id: newId, name: name, created_at: now, updated_at: now };
+
+      divisions.unshift(newDiv);
+      closeModal("modal-tambah-divisi");
+      handleSearch();
+      showSnackbar("Berhasil Menambahkan Divisi");
+    }
+
+    function openEditModal(id) {
+      const div = divisions.find(d => d.id === id);
+      if (!div) return;
+      document.getElementById("edit-id").value = div.id;
+      document.getElementById("edit-name").value = div.name;
+      openModal("modal-edit-divisi");
+      setTimeout(() => document.getElementById("edit-name").focus(), 100);
+    }
+
+    function handleEditSubmit() {
+      const id = document.getElementById("edit-id").value;
+      const name = document.getElementById("edit-name").value.trim();
+      if (!name) return;
+
+      const div = divisions.find(d => d.id === id);
+      if (div) {
+        div.name = name;
+        div.updated_at = new Date().toISOString();
+        closeModal("modal-edit-divisi");
+        renderTable();
+        showSnackbar("Berhasil Edit Divisi");
+      } else {
+        showSnackbar("Gagal Edit Divisi");
+      }
+    }
+
+    function openDeleteModal(id) {
+      const div = divisions.find(d => d.id === id);
+      if (!div) return;
+      document.getElementById("delete-id").value = div.id;
+      document.getElementById("delete-division-name").textContent = div.name;
+      openModal("modal-delete-divisi");
+    }
+
+    function handleDeleteSubmit() {
+      const id = document.getElementById("delete-id").value;
+      const index = divisions.findIndex(d => d.id === id);
+      if (index !== -1) {
+        divisions.splice(index, 1);
+        closeModal("modal-delete-divisi");
+        handleSearch();
+        showSnackbar("Berhasil Delete Divisi");
+      } else {
+        showSnackbar("Gagal Delete Divisi");
+      }
+    }
+
+    let snackbarTimer = null;
+    function showSnackbar(msg) {
+      const snackbar = document.getElementById("alert-snackbar");
+      const msgElem = document.getElementById("alert-message");
+      if (snackbar && msgElem) {
+        msgElem.textContent = msg;
+        snackbar.classList.add("open");
+        if (snackbarTimer) clearTimeout(snackbarTimer);
+        snackbarTimer = setTimeout(() => {
+          snackbar.classList.remove("open");
+        }, 4000);
+      }
+    }
+
+    function closeSnackbar() {
+      const snackbar = document.getElementById("alert-snackbar");
+      if (snackbar) snackbar.classList.remove("open");
+    }
+
+    // Initialize table on DOM load
+    document.addEventListener("DOMContentLoaded", () => {
+      renderTable();
+    });
+  </script>
+
+  <!-- Next.js hydration payload -->
+  <script id="__NEXT_DATA__" type="application/json">
+    {
+      "props": {
+        "pageProps": {
+          "division": {
+            "data": [
+              { "id": "1", "name": "Technology", "created_at": "2026-10-20T08:30:00.000Z", "updated_at": "2026-10-21T09:15:00.000Z" },
+              { "id": "2", "name": "Human Resources", "created_at": "2026-10-19T09:00:00.000Z", "updated_at": "2026-10-20T10:20:00.000Z" },
+              { "id": "3", "name": "Finance & Accounting", "created_at": "2026-10-18T11:15:00.000Z", "updated_at": "2026-10-19T14:00:00.000Z" },
+              { "id": "4", "name": "Marketing & Communication", "created_at": "2026-10-17T13:45:00.000Z", "updated_at": "2026-10-18T16:30:00.000Z" },
+              { "id": "5", "name": "Operations", "created_at": "2026-10-16T10:00:00.000Z", "updated_at": "2026-10-17T11:20:00.000Z" },
+              { "id": "6", "name": "Quality Assurance", "created_at": "2026-10-15T08:00:00.000Z", "updated_at": "2026-10-16T08:45:00.000Z" },
+              { "id": "7", "name": "Customer Support", "created_at": "2026-10-14T14:10:00.000Z", "updated_at": "2026-10-15T15:30:00.000Z" },
+              { "id": "8", "name": "Product Management", "created_at": "2026-10-13T09:30:00.000Z", "updated_at": "2026-10-14T10:15:00.000Z" }
+            ],
+            "total": 8
+          },
+          "session": {
+            "user": {
+              "id": "100",
+              "name": "Admin SQA",
+              "email": "admin@dikahadir.com",
+              "role": "admin"
+            }
+          }
+        }
+      },
+      "page": "/management/divisi",
+      "query": {},
+      "buildId": "ZVAidYGiBj2MRxCexFsVP",
+      "nextExport": true,
+      "autoExport": true,
+      "isFallback": false,
+      "scriptLoader": []
+    }
+  </script>
+</body>
+</html>
