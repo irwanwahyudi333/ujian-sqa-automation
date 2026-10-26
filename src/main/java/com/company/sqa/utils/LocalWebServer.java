@@ -172,6 +172,10 @@ public class LocalWebServer {
                 serveFile(exchange, "/management/user-v2-edit.html");
                 return;
             }
+            if (uriPath.equals("/laporan/all") || uriPath.equals("/laporan/all/")) {
+                serveFile(exchange, "/laporan/all.html");
+                return;
+            }
 
             serveFile(exchange, uriPath);
         }
