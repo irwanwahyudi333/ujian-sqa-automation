@@ -46,37 +46,54 @@ public class LocalWebServer {
      * Start the local web server on the default port.
      */
     public static synchronized void start() {
-        start(DEFAULT_PORT);
+        int port = DEFAULT_PORT;
+        try {
+            String uiUrl = ConfigReader.getUiBaseUrl();
+            if (uiUrl != null && !uiUrl.isEmpty()) {
+                java.net.URI uri = java.net.URI.create(uiUrl);
+                if (uri.getPort() > 0) {
+                    port = uri.getPort();
+                }
+            }
+        } catch (Exception ignored) {}
+        start(port);
     }
 
-    /**
-     * Start the local web server on a specific port.
-     *
-     * @param port the TCP port to bind to
-     */
     public static synchronized void start(int port) {
         if (server != null) {
             logger.info("LocalWebServer is already running on port {}", activePort);
             return;
         }
 
-        try {
-            activePort = port;
-            server = HttpServer.create(new InetSocketAddress(activePort), 0);
-            server.setExecutor(Executors.newVirtualThreadPerTaskExecutor());
+        int targetPort = port;
+        HttpServer createdServer = null;
+        int maxAttempts = 5;
 
-            server.createContext("/", new StaticFileHandler());
-            server.start();
-
-            logger.info("==========================================================");
-            logger.info("Local Web Server started successfully!");
-            logger.info("URL Register Page: http://localhost:{}/absen/register", activePort);
-            logger.info("Serving files from: {}", staticWebRoot);
-            logger.info("==========================================================");
-        } catch (IOException e) {
-            logger.error("Failed to start LocalWebServer on port {}: {}", port, e.getMessage());
-            throw new RuntimeException("Could not start local web server", e);
+        for (int i = 0; i < maxAttempts; i++) {
+            try {
+                createdServer = HttpServer.create(new InetSocketAddress(targetPort), 0);
+                activePort = targetPort;
+                break;
+            } catch (IOException e) {
+                logger.warn("Port {} is in use, trying next port {}...", targetPort, targetPort + 1);
+                targetPort++;
+            }
         }
+
+        if (createdServer == null) {
+            throw new RuntimeException("Could not start local web server on any port starting from " + port);
+        }
+
+        server = createdServer;
+        server.setExecutor(Executors.newVirtualThreadPerTaskExecutor());
+        server.createContext("/", new StaticFileHandler());
+        server.start();
+
+        logger.info("==========================================================");
+        logger.info("Local Web Server started successfully on port {}!", activePort);
+        logger.info("URL Register Page v2: http://localhost:{}/management/user-v2/register", activePort);
+        logger.info("Serving files from: {}", staticWebRoot);
+        logger.info("==========================================================");
     }
 
     /**
@@ -139,6 +156,14 @@ public class LocalWebServer {
                 serveFile(exchange, "/absen/register.html");
                 return;
             }
+            if (uriPath.equals("/management/user-v2/register") || uriPath.equals("/management/user-v2/register.html")) {
+                serveFile(exchange, "/management/user-v2/register.html");
+                return;
+            }
+            if (uriPath.equals("/management/user")) {
+                serveFile(exchange, "/management/user-v2/register.html");
+                return;
+            }
             if (uriPath.equals("/login") || uriPath.equals("/authentication/login") || uriPath.equals("/absen/login")) {
                 serveFile(exchange, "/authentication/login.html");
                 return;
@@ -160,6 +185,8 @@ public class LocalWebServer {
                 // If register page without .html extension requested
                 if (cleanPath.equals("absen/register")) {
                     filePath = staticWebRoot.resolve("absen/register.html");
+                } else if (cleanPath.equals("management/user-v2/register") || cleanPath.equals("management/user")) {
+                    filePath = staticWebRoot.resolve("management/user-v2/register.html");
                 } else if (cleanPath.equals("authentication/login") || cleanPath.equals("login") || cleanPath.equals("absen/login")) {
                     filePath = staticWebRoot.resolve("authentication/login.html");
                 }
