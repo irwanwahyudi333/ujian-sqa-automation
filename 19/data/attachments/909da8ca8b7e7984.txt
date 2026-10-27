@@ -1,0 +1,4 @@
+iat (Issued At): 1793103221
+exp (Expiration): 1793106821
+Durasi (Detik): 3600
+Durasi (Jam): 1.0 jam

@@ -1,0 +1,1 @@
+Perbaikan BUG-UI-BATCH-001 terverifikasi: Algoritma filter baris non-kontigu berhasil memfilter baris terpilih tanpa menghasilkan payload undefined.

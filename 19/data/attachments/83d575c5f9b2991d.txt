@@ -1,0 +1,11 @@
+HTTP Status: 201
+Body: {
+    "id": "user-1793103221261",
+    "nik": "D6240005",
+    "fullname": "SQA Mass Assignment Auditor",
+    "email": "mass_assign_1793103221255@dikahadir.com",
+    "isVerified": false,
+    "role": "user",
+    "is_admin": false,
+    "company_code": "DIKA"
+}

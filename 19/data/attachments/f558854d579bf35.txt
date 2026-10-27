@@ -1,0 +1,10 @@
+HTTP Status: 400
+Body: {
+    "name": "BadRequest",
+    "message": "file is not allowed",
+    "code": 400,
+    "className": "bad-request",
+    "errors": {
+        
+    }
+}

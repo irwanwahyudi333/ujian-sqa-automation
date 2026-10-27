@@ -1,0 +1,10 @@
+Status: 400
+Body: {
+    "name": "BadRequest",
+    "message": "Field photo (selfie) wajib disertakan",
+    "code": 400,
+    "className": "bad-request",
+    "errors": {
+        "photo": "Field is required"
+    }
+}
