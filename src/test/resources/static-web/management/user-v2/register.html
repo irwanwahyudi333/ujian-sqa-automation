@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HADIR - Registrasi User</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/images/hadir-logo.svg">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Application Layout Shell -->
+  <div class="app-container">
+
+    <!-- Sidebar Navigation -->
+    <aside class="app-sidebar">
+      <div class="sidebar-header">
+        <img src="/assets/images/hadir-logo.svg" alt="HADIR Logo" class="sidebar-logo">
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Menu Utama</div>
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          <span>Dashboard</span>
+        </a>
+
+        <div class="nav-section-title">Manajemen Karyawan</div>
+        <a href="#" class="nav-item active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          <span>User Management</span>
+        </a>
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+          <span>Divisi & Unit</span>
+        </a>
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          <span>Jabatan & Posisi</span>
+        </a>
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span>Jadwal & Shifting</span>
+        </a>
+
+        <div class="nav-section-title">Laporan & Pengaturan</div>
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          <span>Laporan Presensi</span>
+        </a>
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span>Pengaturan Sistem</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Viewport -->
+    <main class="app-main">
+      
+      <!-- Topbar Header -->
+      <header class="app-topbar">
+        <div class="topbar-left">
+          <nav class="breadcrumb">
+            <a href="#">Management</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="#">User</a>
+            <span class="breadcrumb-separator">/</span>
+            <span>Register</span>
+          </nav>
+        </div>
+
+        <div class="topbar-right">
+          <div class="user-badge">
+            <div class="user-avatar">SA</div>
+            <div class="user-info">
+              <span class="user-name">Super Admin</span>
+              <span class="user-role">Administrator</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Page Content -->
+      <div class="content-body">
+        
+        <!-- Page Header -->
+        <div class="page-header-container">
+          <h1 class="page-title">Registrasi User</h1>
+          <a href="/management/user" id="btn-back" class="btn-back-link">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Kembali ke Daftar User
+          </a>
+        </div>
+
+        <!-- Registration Form -->
+        <form id="register-form" novalidate>
+
+          <!-- ========================================================
+               SEKSI 1: ACCOUNT INFORMATION
+               ======================================================== -->
+          <div class="form-card">
+            <div class="section-banner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              <span>Account Information</span>
+            </div>
+
+            <div class="section-body">
+              <div class="grid-container">
+
+                <!-- Upload Foto Karyawan -->
+                <div class="form-group col-12">
+                  <label class="form-label" for="photo-upload">Upload Foto Karyawan</label>
+                  <div class="upload-container">
+                    <label class="btn-upload-label" id="btn-upload-photo" for="logo">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                      <span>Upload</span>
+                      <input type="file" id="logo" name="logo" accept="image/*" style="display: none;">
+                    </label>
+
+                    <div class="preview-container" id="preview-container">
+                      <img id="preview-image" class="preview-image" alt="Preview Foto Karyawan" src="">
+                      <button type="button" id="remove-photo-btn" class="preview-remove-btn" title="Hapus Foto">&times;</button>
+                    </div>
+
+                    <span class="file-hint">* File harus dibawah 2 MB</span>
+                  </div>
+                </div>
+
+                <!-- NIK -->
+                <div class="form-group col-6">
+                  <label class="form-label" for="nik">NIK</label>
+                  <div class="input-container">
+                    <input type="text" id="nik" name="nik" class="form-control" placeholder="NIK" required autocomplete="off">
+                  </div>
+                </div>
+
+                <!-- Nama Karyawan -->
+                <div class="form-group col-6">
+                  <label class="form-label" for="fullname">Nama Karyawan</label>
+                  <div class="input-container">
+                    <input type="text" id="fullname" name="fullname" class="form-control" placeholder="Nama Karyawan" required autocomplete="off">
+                  </div>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group col-6">
+                  <label class="form-label" for="email">Email</label>
+                  <div class="input-container">
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Email" required autocomplete="off">
+                  </div>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group col-6">
+                  <label class="form-label" for="password">Password</label>
+                  <div class="input-container">
+                    <input type="password" id="password" name="password" class="form-control input-password" placeholder="Password" required autocomplete="new-password">
+                    <button type="button" id="toggle-password" class="input-adornment-btn" title="Lihat Password">
+                      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                        <line x1="1" y1="1" x2="23" y2="23"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- ========================================================
+               SEKSI 2: WORK INFORMATION
+               ======================================================== -->
+          <div class="form-card">
+            <div class="section-banner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              <span>Work Information</span>
+            </div>
+
+            <div class="section-body">
+              <div class="grid-container">
+
+                <!-- Divisi -->
+                <div class="form-group col-4">
+                  <label class="form-label" for="divisi">Divisi</label>
+                  <div class="autocomplete-wrapper">
+                    <input type="text" id="divisi" class="form-control" placeholder="Pilih Divisi" readonly autocomplete="off">
+                    <div class="autocomplete-indicators">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                    <div class="autocomplete-dropdown" id="divisi-dropdown"></div>
+                  </div>
+                </div>
+
+                <!-- Unit -->
+                <div class="form-group col-4">
+                  <label class="form-label" for="unit">Unit</label>
+                  <div class="autocomplete-wrapper">
+                    <input type="text" id="unit" class="form-control" placeholder="Pilih Unit" readonly autocomplete="off">
+                    <div class="autocomplete-indicators">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                    <div class="autocomplete-dropdown" id="unit-dropdown"></div>
+                  </div>
+                </div>
+
+                <!-- Posisi Kerja -->
+                <div class="form-group col-4">
+                  <label class="form-label" for="posisi-kerja">Posisi Kerja</label>
+                  <div class="autocomplete-wrapper">
+                    <input type="text" id="posisi-kerja" class="form-control" placeholder="Pilih Posisi Kerja" readonly autocomplete="off">
+                    <div class="autocomplete-indicators">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                    <div class="autocomplete-dropdown" id="posisi-dropdown"></div>
+                  </div>
+                </div>
+
+                <!-- Jabatan -->
+                <div class="form-group col-4">
+                  <label class="form-label" for="jabatan">Jabatan</label>
+                  <div class="autocomplete-wrapper">
+                    <input type="text" id="jabatan" class="form-control" placeholder="Pilih Jabatan" readonly autocomplete="off">
+                    <div class="autocomplete-indicators">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                    <div class="autocomplete-dropdown" id="jabatan-dropdown"></div>
+                  </div>
+                </div>
+
+                <!-- Atasan (Disabled until Jabatan is chosen) -->
+                <div class="form-group col-4">
+                  <label class="form-label" for="atasan">Atasan</label>
+                  <div class="autocomplete-wrapper">
+                    <input type="text" id="atasan" class="form-control" placeholder="Pilih Jabatan Dulu" disabled autocomplete="off">
+                    <div class="autocomplete-indicators">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                    <div class="autocomplete-dropdown" id="atasan-dropdown"></div>
+                  </div>
+                </div>
+
+                <!-- Atasan Client V2 -->
+                <div class="form-group col-4">
+                  <label class="form-label" for="atasan-v2">Atasan Client V2</label>
+                  <div class="autocomplete-wrapper">
+                    <input type="text" id="atasan-v2" class="form-control" placeholder="Pilih Atasan Client V2 (Optional)" readonly autocomplete="off">
+                    <div class="autocomplete-indicators">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                    <div class="autocomplete-dropdown" id="atasan-v2-dropdown"></div>
+                  </div>
+                </div>
+
+                <!-- Atasan Client V3 -->
+                <div class="form-group col-4">
+                  <label class="form-label" for="atasan-v3">Atasan Client V3</label>
+                  <div class="autocomplete-wrapper">
+                    <input type="text" id="atasan-v3" class="form-control" placeholder="Pilih Atasan Client V3 (Optional)" readonly autocomplete="off">
+                    <div class="autocomplete-indicators">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                    <div class="autocomplete-dropdown" id="atasan-v3-dropdown"></div>
+                  </div>
+                </div>
+
+                <!-- Tipe Kontrak -->
+                <div class="form-group col-4">
+                  <label class="form-label" for="tipe-kontrak">Tipe Kontrak</label>
+                  <div class="autocomplete-wrapper">
+                    <input type="text" id="tipe-kontrak" class="form-control" placeholder="Pilih Tipe Kontrak" readonly autocomplete="off">
+                    <div class="autocomplete-indicators">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                    <div class="autocomplete-dropdown" id="tipe-kontrak-dropdown"></div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- ========================================================
+               SEKSI 3: PENGATURAN ABSENSI
+               ======================================================== -->
+          <div class="form-card">
+            <div class="section-banner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              <span>Pengaturan Absensi</span>
+            </div>
+
+            <div class="section-body">
+              <div class="grid-container">
+
+                <!-- Lokasi Kerja -->
+                <div class="form-group col-4">
+                  <label class="form-label" for="lokasi-kerja">Lokasi Kerja</label>
+                  <div class="autocomplete-wrapper">
+                    <input type="text" id="lokasi-kerja" class="form-control" placeholder="Pilih Lokasi Kerja" readonly autocomplete="off">
+                    <div class="autocomplete-indicators">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                    <div class="autocomplete-dropdown" id="lokasi-kerja-dropdown"></div>
+                  </div>
+                </div>
+
+                <!-- Tipe Shift -->
+                <div class="form-group col-4">
+                  <label class="form-label" for="shift_type">Tipe Shift</label>
+                  <div class="input-container">
+                    <select id="shift_type" name="shift_type" class="form-control" required>
+                      <option value="NON_SHIFT" selected>Non Shift</option>
+                      <option value="SHIFT">Shift</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Jadwal Kerja -->
+                <div class="form-group col-4">
+                  <label class="form-label" for="jadwal-kerja">Jadwal Kerja</label>
+                  <div class="autocomplete-wrapper">
+                    <input type="text" id="jadwal-kerja" class="form-control" placeholder="Pilih Jadwal Kerja" readonly autocomplete="off">
+                    <div class="autocomplete-indicators">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                    <div class="autocomplete-dropdown" id="jadwal-kerja-dropdown"></div>
+                  </div>
+                </div>
+
+                <!-- Selfie -->
+                <div class="form-group col-4">
+                  <label class="form-label" for="required_selfie">Selfie</label>
+                  <div class="input-container">
+                    <select id="required_selfie" name="required_selfie" class="form-control" required>
+                      <option value="" disabled selected>Pilih Tipe Selfie</option>
+                      <option value="true">Selfie</option>
+                      <option value="false">No Selfie</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Jumlah Cuti -->
+                <div class="form-group col-4">
+                  <label class="form-label" for="jumlah-cuti">Jumlah Cuti</label>
+                  <div class="input-container">
+                    <input type="number" id="jumlah-cuti" name="title" class="form-control" placeholder="Jumlah Cuti" value="0" min="0" max="99">
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- ========================================================
+               FORM ACTIONS (SUBMIT)
+               ======================================================== -->
+          <div class="form-card">
+            <div class="action-bar">
+              <button type="submit" id="submit" class="btn-primary-submit">
+                <div class="spinner"></div>
+                <span>Submit</span>
+              </button>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Global Snackbar Alert Banner -->
+  <div id="snackbar-alert" class="snackbar-alert" role="alert">
+    <div class="snackbar-content">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+      <span id="snackbar-message">Pesan notifikasi</span>
+    </div>
+    <button type="button" id="snackbar-close" class="snackbar-close-btn" aria-label="Tutup Notifikasi">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+  </div>
+
+  <!-- Script Libraries -->
+  <script src="/js/mock-data.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
