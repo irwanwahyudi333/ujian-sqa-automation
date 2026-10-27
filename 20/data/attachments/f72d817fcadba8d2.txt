@@ -1,0 +1,6 @@
+{
+    "name": "BadRequest",
+    "message": "NIK sudah terdaftar dalam sistem",
+    "code": 400,
+    "className": "bad-request"
+}

@@ -1,0 +1,7 @@
+HTTP Status: 403
+Body: {
+    "name": "Forbidden",
+    "message": "Eskalasi hak akses ke peran administrator dilarang",
+    "code": 403,
+    "className": "forbidden"
+}

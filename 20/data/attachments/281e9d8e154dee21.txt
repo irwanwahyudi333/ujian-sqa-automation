@@ -1,0 +1,7 @@
+Status: 403
+Body: {
+    "name": "Forbidden",
+    "message": "Akses ditolak: Hanya administrator yang berhak melihat daftar pengguna",
+    "code": 403,
+    "className": "forbidden"
+}
