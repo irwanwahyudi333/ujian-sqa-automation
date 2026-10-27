@@ -1,4 +1,4 @@
-﻿package com.company.sqa.pages;
+package com.company.sqa.pages;
 
 import com.company.sqa.utils.ConfigReader;
 import org.openqa.selenium.By;

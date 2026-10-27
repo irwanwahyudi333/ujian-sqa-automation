@@ -1,4 +1,4 @@
-﻿package com.company.sqa.ui.steps;
+package com.company.sqa.ui.steps;
 
 import com.company.sqa.pages.DivisiPage;
 import com.company.sqa.utils.DriverManager;
