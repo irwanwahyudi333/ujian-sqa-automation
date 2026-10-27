@@ -30,6 +30,7 @@ public class TestRunnerUi extends AbstractTestNGCucumberTests {
 
     @org.testng.annotations.AfterSuite(alwaysRun = true)
     public void stopLocalWebServer() {
+        com.company.sqa.utils.DriverManager.quitDriver();
         com.company.sqa.utils.LocalWebServer.stop();
     }
 
