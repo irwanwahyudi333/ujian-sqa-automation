@@ -1,0 +1,6 @@
+=== LAPORAN TEMUAN DEFECT: BUG-U2-004 ===
+Komponen: /management/user-v2/edit/{id} (Field NIK)
+Akar Masalah: Validasi frontend hanya menetapkan minLength: 2 tanpa regex format NIK 16 digit.
+Perilaku Aktual: Sistem meloloskan NIK pendek 2 karakter ("AB") ke database.
+Dampak: Integritas identitas kependudukan/karyawan rusak, format NIK tidak terstandardisasi.
+Notifikasi Sistem: Berhasil edit user
