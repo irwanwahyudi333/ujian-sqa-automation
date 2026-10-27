@@ -35,11 +35,10 @@ public class UiHooks {
                     byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
                     scenario.attach(screenshot, "image/png", "failure-screenshot");
                     Allure.addAttachment("Scenario Failure Screenshot", new ByteArrayInputStream(screenshot));
+                    DriverManager.quitDriver();
                 }
             } catch (Exception e) {
                 logger.error("Failed to capture screenshot during scenario teardown", e);
-            } finally {
-                logger.info("Quitting WebDriver for scenario '{}' to prevent browser leaks", scenario.getName());
                 DriverManager.quitDriver();
             }
         }
