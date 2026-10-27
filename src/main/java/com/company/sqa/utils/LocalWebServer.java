@@ -26,7 +26,7 @@ import java.util.concurrent.Executors;
 public class LocalWebServer {
     private static final Logger logger = LogManager.getLogger(LocalWebServer.class);
 
-    private static final int DEFAULT_PORT = 8080;
+    private static final int DEFAULT_PORT = 8085;
     private static HttpServer server;
     private static int activePort = DEFAULT_PORT;
     private static Path staticWebRoot;
@@ -91,7 +91,10 @@ public class LocalWebServer {
 
         logger.info("==========================================================");
         logger.info("Local Web Server started successfully on port {}!", activePort);
+        logger.info("URL Register Page: http://localhost:{}/absen/register", activePort);
         logger.info("URL Register Page v2: http://localhost:{}/management/user-v2/register", activePort);
+        logger.info("URL Self-Registration: http://localhost:{}/management/self-registration", activePort);
+        logger.info("URL Management User: http://localhost:{}/management/user", activePort);
         logger.info("Serving files from: {}", staticWebRoot);
         logger.info("==========================================================");
     }
@@ -172,6 +175,22 @@ public class LocalWebServer {
                 serveFile(exchange, "/absen/dashboard.html");
                 return;
             }
+            if (uriPath.equals("/management/self-registration") || uriPath.equals("/management/self-registration/")) {
+                serveFile(exchange, "/management/self-registration.html");
+                return;
+            }
+            if (uriPath.equals("/management/user") || uriPath.equals("/management/user/")) {
+                serveFile(exchange, "/management/user.html");
+                return;
+            }
+            if (uriPath.startsWith("/management/user-v2/edit")) {
+                serveFile(exchange, "/management/user-v2-edit.html");
+                return;
+            }
+            if (uriPath.equals("/laporan/all") || uriPath.equals("/laporan/all/")) {
+                serveFile(exchange, "/laporan/all.html");
+                return;
+            }
 
             serveFile(exchange, uriPath);
         }
@@ -189,6 +208,14 @@ public class LocalWebServer {
                     filePath = staticWebRoot.resolve("management/user-v2/register.html");
                 } else if (cleanPath.equals("authentication/login") || cleanPath.equals("login") || cleanPath.equals("absen/login")) {
                     filePath = staticWebRoot.resolve("authentication/login.html");
+                } else if (cleanPath.equals("dashboard") || cleanPath.equals("absen/dashboard")) {
+                    filePath = staticWebRoot.resolve("absen/dashboard.html");
+                } else if (cleanPath.equals("management/self-registration")) {
+                    filePath = staticWebRoot.resolve("management/self-registration.html");
+                } else if (cleanPath.equals("management/user") || cleanPath.equals("management/user/")) {
+                    filePath = staticWebRoot.resolve("management/user.html");
+                } else if (cleanPath.startsWith("management/user-v2/edit")) {
+                    filePath = staticWebRoot.resolve("management/user-v2-edit.html");
                 }
             }
 

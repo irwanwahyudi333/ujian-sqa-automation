@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="theme-color" content="#1ba0e2"/>
+  <title>HADIR - Laporan Semua</title>
+  <meta name="viewport" content="initial-scale=1, width=device-width"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      color: rgba(0, 0, 0, 0.87);
+      font-weight: 400;
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      background-color: #fafbfb;
+      min-height: 100vh;
+    }
+    .page-container {
+      padding: 24px 32px;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+    .page-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #2b3674;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.04);
+      padding: 20px 24px;
+      margin-bottom: 24px;
+    }
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .filter-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      flex: 1;
+    }
+    .date-range-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #f4f6f8;
+      border: 1px solid #dee3e9;
+      border-radius: 8px;
+      padding: 6px 12px;
+    }
+    .date-input-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+    .date-label {
+      font-size: 0.75rem;
+      color: #767e89;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .date-input {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-family: inherit;
+      font-size: 0.875rem;
+      color: #2b3674;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .date-separator {
+      color: #a0aec0;
+      font-weight: 600;
+    }
+    .search-input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      background: #f4f6f8;
+      border: 1px solid #dee3e9;
+      border-radius: 8px;
+      padding: 0 12px;
+      min-width: 240px;
+      flex: 1;
+      max-width: 360px;
+    }
+    .search-input-wrapper svg {
+      width: 18px;
+      height: 18px;
+      stroke: #767e89;
+      stroke-width: 2;
+      fill: none;
+      margin-right: 8px;
+    }
+    .search-input {
+      border: none;
+      background: transparent;
+      outline: none;
+      padding: 10px 0;
+      width: 100%;
+      font-family: inherit;
+      font-size: 0.9rem;
+      color: #333333;
+    }
+    .btn-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 18px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      font-family: inherit;
+      border-radius: 8px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .btn svg {
+      width: 16px;
+      height: 16px;
+      stroke-width: 2;
+      stroke: currentColor;
+      fill: none;
+    }
+    .btn-primary {
+      background: #1ba0e2;
+      color: #ffffff;
+    }
+    .btn-primary:hover {
+      background: #1480b5;
+    }
+    .btn-outline {
+      background: #ffffff;
+      color: #1ba0e2;
+      border: 1.5px solid #1ba0e2;
+    }
+    .btn-outline:hover {
+      background: #f0f9ff;
+    }
+    .btn-success {
+      background: #2e7d32;
+      color: #ffffff;
+    }
+    .btn-success:hover {
+      background: #1b5e20;
+    }
+    .btn-secondary {
+      background: #f4f6f8;
+      color: #555555;
+      border: 1px solid #dee3e9;
+    }
+    .btn-secondary:hover {
+      background: #e2e8f0;
+    }
+    .table-container {
+      overflow-x: auto;
+      border-radius: 8px;
+      border: 1px solid #edf2f7;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.875rem;
+      background: #ffffff;
+      white-space: nowrap;
+    }
+    .data-table thead th {
+      background-color: #f8fafc;
+      color: #4a5568;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.6px;
+      padding: 14px 16px;
+      border-bottom: 2px solid #edf2f7;
+    }
+    .data-table tbody tr {
+      border-bottom: 1px solid #edf2f7;
+      transition: background-color 0.15s;
+    }
+    .data-table tbody tr:hover {
+      background-color: #f7fafc;
+    }
+    .data-table td {
+      padding: 12px 16px;
+      vertical-align: middle;
+      color: #2d3748;
+    }
+    .avatar-wrapper {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #edf2f7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: 2px solid #e2e8f0;
+      transition: transform 0.15s, border-color 0.15s;
+    }
+    .avatar-wrapper:hover {
+      transform: scale(1.08);
+      border-color: #1ba0e2;
+    }
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .avatar-fallback {
+      font-weight: 700;
+      color: #1ba0e2;
+      font-size: 0.95rem;
+    }
+    .user-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .user-fullname {
+      font-weight: 600;
+      color: #1ba0e2;
+      font-size: 0.925rem;
+    }
+    .user-nik {
+      font-size: 0.775rem;
+      color: #718096;
+      font-weight: 500;
+    }
+    .dept-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #edf8fd;
+      color: #0b72a6;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    .time-badge {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .time-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      width: fit-content;
+    }
+    .time-tag.in {
+      background: #e6fffa;
+      color: #234e52;
+    }
+    .time-tag.out {
+      background: #feebc8;
+      color: #744210;
+    }
+    .time-value {
+      font-weight: 600;
+      color: #2d3748;
+    }
+    .location-cell {
+      max-width: 220px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .location-link {
+      color: #1ba0e2;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      font-size: 0.825rem;
+      font-weight: 500;
+    }
+    .location-link:hover {
+      text-decoration: underline;
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 0.775rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .status-masuk, .status-hadir {
+      background-color: #def7ec;
+      color: #03543f;
+    }
+    .status-terlambat {
+      background-color: #fef08a;
+      color: #854d0e;
+    }
+    .status-wfh {
+      background-color: #e0f2fe;
+      color: #0369a1;
+    }
+    .status-pulang-cepat {
+      background-color: #fed7aa;
+      color: #9a3412;
+    }
+    .status-izin, .status-cuti {
+      background-color: #ede9fe;
+      color: #5b21b6;
+    }
+    .status-sakit {
+      background-color: #fce7f3;
+      color: #9d174d;
+    }
+    .status-alpha {
+      background-color: #fee2e2;
+      color: #991b1b;
+    }
+    .notes-cell {
+      max-width: 180px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #4a5568;
+      font-style: italic;
+    }
+    .empty-state {
+      text-align: center;
+      padding: 48px 16px;
+      color: #718096;
+    }
+    .empty-state svg {
+      width: 48px;
+      height: 48px;
+      stroke: #a0aec0;
+      margin-bottom: 12px;
+    }
+    .pagination-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: 16px;
+    }
+    .pagination-info {
+      font-size: 0.875rem;
+      color: #718096;
+    }
+    .pagination-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .rows-select {
+      border: 1px solid #dee3e9;
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-family: inherit;
+      font-size: 0.85rem;
+      background: #ffffff;
+      color: #2d3748;
+      cursor: pointer;
+    }
+    .page-btn {
+      width: 32px;
+      height: 32px;
+      border: 1px solid #dee3e9;
+      border-radius: 6px;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #4a5568;
+      transition: all 0.15s;
+    }
+    .page-btn:hover:not(:disabled) {
+      background: #f7fafc;
+      border-color: #cbd5e0;
+      color: #1ba0e2;
+    }
+    .page-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    /* Modal Styles */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(2px);
+      animation: fadeIn 0.2s ease;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-content {
+      background: #ffffff;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      overflow: hidden;
+      animation: slideUp 0.2s ease;
+    }
+    .modal-header {
+      padding: 18px 24px;
+      border-bottom: 1px solid #edf2f7;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .modal-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #2d3748;
+    }
+    .modal-close-btn {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: #a0aec0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      border-radius: 6px;
+    }
+    .modal-close-btn:hover {
+      color: #4a5568;
+      background: #edf2f7;
+    }
+    .modal-body {
+      padding: 20px 24px;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+    .modal-footer {
+      padding: 16px 24px;
+      border-top: 1px solid #edf2f7;
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      background: #f8fafc;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #4a5568;
+      margin-bottom: 6px;
+    }
+    .form-select, .form-input-text {
+      width: 100%;
+      border: 1px solid #dee3e9;
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      background: #ffffff;
+      color: #2d3748;
+    }
+    .form-select:focus, .form-input-text:focus {
+      border-color: #1ba0e2;
+      box-shadow: 0 0 0 3px rgba(27, 160, 226, 0.15);
+    }
+    /* Photo preview modal */
+    .photo-preview-img {
+      width: 100%;
+      max-height: 420px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: #000;
+    }
+    /* Map modal */
+    .map-preview-box {
+      width: 100%;
+      height: 260px;
+      background: #e2e8f0;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #4a5568;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #cbd5e0;
+    }
+    .map-coords {
+      margin-top: 12px;
+      font-family: monospace;
+      font-size: 0.875rem;
+      background: #ffffff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid #dee3e9;
+    }
+    /* Snackbar Toast */
+    .snackbar {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      background: #2d3748;
+      color: #ffffff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 2000;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(16px);
+      transition: all 0.25s ease;
+    }
+    .snackbar.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .snackbar.success {
+      background: #2e7d32;
+    }
+    .snackbar.error {
+      background: #d32f2f;
+    }
+    .snackbar.info {
+      background: #0288d1;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(16px); }
+      to { transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-container">
+    <div class="page-header">
+      <h1 class="page-title" id="page-title">Laporan Semua</h1>
+      <div class="btn-group">
+        <button id="btn-export" class="btn btn-primary" title="Export Laporan Excel">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Export
+        </button>
+      </div>
+    </div>
+
+    <!-- Filter & Search Card -->
+    <div class="card filter-card">
+      <div class="filter-bar">
+        <div class="filter-controls">
+          <!-- Date Range Picker -->
+          <div class="date-range-group" id="date-range-container">
+            <div class="date-input-wrapper">
+              <label class="date-label" for="start-date">Start Date</label>
+              <input type="date" id="start-date" class="date-input"/>
+            </div>
+            <span class="date-separator">—</span>
+            <div class="date-input-wrapper">
+              <label class="date-label" for="end-date">End Date</label>
+              <input type="date" id="end-date" class="date-input"/>
+            </div>
+          </div>
+
+          <!-- Search Input -->
+          <div class="search-input-wrapper">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="search" class="search-input" placeholder="Search nama atau NIK..."/>
+          </div>
+
+          <!-- Buttons -->
+          <div class="btn-group">
+            <button id="btn-search" class="btn btn-primary" title="Cari Data">
+              Search
+            </button>
+            <button id="btn-reset" class="btn btn-outline" title="Reset Filter">
+              Reset
+            </button>
+            <button id="btn-filter" class="btn btn-secondary" title="Filter Lanjutan">
+              <svg viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+              Filter
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data Table Card -->
+    <div class="card table-card">
+      <div class="table-container">
+        <table class="data-table" id="table-laporan">
+          <thead>
+            <tr>
+              <th id="th-foto">Foto</th>
+              <th id="th-nama">Nama Karyawan</th>
+              <th id="th-departemen">Unit / Departemen</th>
+              <th id="th-jam-masuk">Jam Masuk</th>
+              <th id="th-jam-keluar">Jam Keluar</th>
+              <th id="th-lokasi-masuk">Lokasi Masuk</th>
+              <th id="th-lokasi-keluar">Lokasi Keluar</th>
+              <th id="th-status">Status</th>
+              <th id="th-notes-masuk">Notes Masuk</th>
+              <th id="th-notes-keluar">Notes Keluar</th>
+              <th id="th-aksi">Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <!-- Data dynamically populated by JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination-bar">
+        <div class="pagination-info" id="pagination-info">
+          Menampilkan 1-10 dari 15 data
+        </div>
+        <div class="pagination-controls">
+          <label for="rows-per-page" style="font-size:0.85rem; color:#718096; margin-right:4px;">Baris per halaman:</label>
+          <select id="rows-per-page" class="rows-select">
+            <option value="5">5</option>
+            <option value="10" selected>10</option>
+            <option value="25">25</option>
+          </select>
+          <button id="btn-first-page" class="page-btn" title="Halaman Pertama">&laquo;</button>
+          <button id="btn-prev-page" class="page-btn" title="Halaman Sebelumnya">&lsaquo;</button>
+          <button id="btn-next-page" class="page-btn" title="Halaman Berikutnya">&rsaquo;</button>
+          <button id="btn-last-page" class="page-btn" title="Halaman Terakhir">&raquo;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Filter Dialog -->
+  <div class="modal-overlay" id="filter-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Filter Laporan</h3>
+        <button class="modal-close-btn" id="btn-close-filter-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label" for="filter-departemen">Unit / Departemen</label>
+          <select id="filter-departemen" class="form-select">
+            <option value="">Semua Departemen</option>
+            <option value="IT Development">IT Development</option>
+            <option value="Quality Assurance">Quality Assurance</option>
+            <option value="Human Resources">Human Resources</option>
+            <option value="Finance & Accounting">Finance & Accounting</option>
+            <option value="Marketing & Sales">Marketing & Sales</option>
+            <option value="Operations">Operations</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="filter-status">Status Kehadiran</label>
+          <select id="filter-status" class="form-select">
+            <option value="">Semua Status</option>
+            <option value="Masuk">Masuk / Hadir</option>
+            <option value="Terlambat">Terlambat</option>
+            <option value="WFH">WFH (Work From Home)</option>
+            <option value="Pulang Cepat">Pulang Cepat</option>
+            <option value="Izin">Izin</option>
+            <option value="Sakit">Sakit</option>
+            <option value="Cuti">Cuti</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="btn-cancel-filter" class="btn btn-secondary">Batal</button>
+        <button id="btn-apply-filter" class="btn btn-primary">Terapkan</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Foto Preview -->
+  <div class="modal-overlay" id="photo-modal">
+    <div class="modal-content" style="max-width: 440px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="photo-modal-title">Foto Selfie Check-in</h3>
+        <button class="modal-close-btn" id="btn-close-photo-modal">&times;</button>
+      </div>
+      <div class="modal-body" style="text-align: center;">
+        <img id="photo-modal-img" class="photo-preview-img" src="" alt="Selfie Absensi"/>
+      </div>
+      <div class="modal-footer">
+        <button id="btn-close-photo" class="btn btn-secondary">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Lokasi GPS Peta -->
+  <div class="modal-overlay" id="map-modal">
+    <div class="modal-content" style="max-width: 560px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="map-modal-title">Titik Lokasi Presisi</h3>
+        <button class="modal-close-btn" id="btn-close-map-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="map-preview-box">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#1ba0e2" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <p style="margin-top:8px; font-weight:600;" id="map-address-text">Gedung Wisma DIKA, Bendungan Hilir, Jakarta Pusat</p>
+          <div class="map-coords" id="map-coords-text">Lat: -6.2146, Long: 106.8189</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="btn-close-map" class="btn btn-secondary">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification / Snackbar -->
+  <div id="snackbar" class="snackbar">
+    <span id="snackbar-message">Pesan notifikasi</span>
+  </div>
+
+  <!-- Script Logika & Mock Data -->
+  <script>
+    // Data dummy terstruktur untuk pengujian Laporan Semua
+    const attendanceData = [
+      {
+        id: 1,
+        fullname: "Irwan Wahyudi",
+        nik: "D6240005",
+        departement: "Quality Assurance",
+        time_in: "2026-10-26 07:55:12",
+        time_out: "2026-10-26 17:02:40",
+        check_in_photo: "https://api-dev.dikahadir.com/uploads/sample-selfie-1.jpg",
+        check_in_address: "Wisma DIKA Lt. 5, Jl. Bendungan Hilir No. 31, Jakarta Pusat",
+        check_in_coords: "-6.2146, 106.8189",
+        check_out_address: "Wisma DIKA Lt. 5, Jl. Bendungan Hilir No. 31, Jakarta Pusat",
+        check_out_coords: "-6.2146, 106.8189",
+        status: "Masuk",
+        is_wfh: false,
+        notes_in: "Tugas automasi testing pengujian modul laporan",
+        notes_out: "Daily report submitted"
+      },
+      {
+        id: 2,
+        fullname: "Ahmad Subagyo",
+        nik: "D6240001",
+        departement: "IT Development",
+        time_in: "2026-10-26 08:35:00",
+        time_out: "2026-10-26 17:30:15",
+        check_in_photo: "https://api-dev.dikahadir.com/uploads/sample-selfie-2.jpg",
+        check_in_address: "Graha Mandiri, Jl. Imam Bonjol No. 61, Menteng, Jakarta Pusat",
+        check_in_coords: "-6.1982, 106.8234",
+        check_out_address: "Graha Mandiri, Jl. Imam Bonjol No. 61, Menteng, Jakarta Pusat",
+        check_out_coords: "-6.1982, 106.8234",
+        status: "Terlambat",
+        is_wfh: false,
+        notes_in: "Keterlambatan 35 menit karena kemacetan KRL jalur Tanah Abang",
+        notes_out: "Selesai sprint review"
+      },
+      {
+        id: 3,
+        fullname: "Siti Nurhaliza",
+        nik: "D6240002",
+        departement: "Human Resources",
+        time_in: "2026-10-26 07:48:22",
+        time_out: "-",
+        check_in_photo: "https://api-dev.dikahadir.com/uploads/sample-selfie-3.jpg",
+        check_in_address: "Rumah Karyawan (WFH Approved), Kebayoran Baru, Jakarta Selatan",
+        check_in_coords: "-6.2415, 106.7978",
+        check_out_address: "-",
+        check_out_coords: "-",
+        status: "WFH",
+        is_wfh: true,
+        notes_in: "Work From Home jadwal bergilir tim HR",
+        notes_out: "-"
+      },
+      {
+        id: 4,
+        fullname: "Dewi Sartika",
+        nik: "D6240003",
+        departement: "Finance & Accounting",
+        time_in: "2026-10-26 07:50:11",
+        time_out: "2026-10-26 15:00:20",
+        check_in_photo: "https://api-dev.dikahadir.com/uploads/sample-selfie-4.jpg",
+        check_in_address: "Wisma DIKA Lt. 3, Jl. Bendungan Hilir, Jakarta Pusat",
+        check_in_coords: "-6.2146, 106.8189",
+        check_out_address: "Wisma DIKA Lt. 3, Jl. Bendungan Hilir, Jakarta Pusat",
+        check_out_coords: "-6.2146, 106.8189",
+        status: "Pulang Cepat",
+        is_wfh: false,
+        notes_in: "Reguler check-in",
+        notes_out: "Izin pulang cepat keperluan keluarga mendesak (approved by leader)"
+      },
+      {
+        id: 5,
+        fullname: "Budi Santoso",
+        nik: "D6240004",
+        departement: "IT Development",
+        time_in: "2026-10-25 08:00:19",
+        time_out: "2026-10-25 17:05:44",
+        check_in_photo: "https://api-dev.dikahadir.com/uploads/sample-selfie-5.jpg",
+        check_in_address: "Alamat tidak ditemukan, click disini untuk lihat lokasi",
+        check_in_coords: "-6.2297, 106.8295",
+        check_out_address: "Alamat tidak ditemukan, click disini untuk lihat lokasi",
+        check_out_coords: "-6.2297, 106.8295",
+        status: "Masuk",
+        is_wfh: false,
+        notes_in: "Deploy hotfix absensi microservice",
+        notes_out: "Monitoring selesai"
+      },
+      {
+        id: 6,
+        fullname: "Rian Hidayat",
+        nik: "D6240006",
+        departement: "Quality Assurance",
+        time_in: "2026-10-25 08:45:00",
+        time_out: "2026-10-25 18:00:00",
+        check_in_photo: "",
+        check_in_address: "Wisma DIKA Lt. 5, Jl. Bendungan Hilir, Jakarta Pusat",
+        check_in_coords: "-6.2146, 106.8189",
+        check_out_address: "Wisma DIKA Lt. 5, Jl. Bendungan Hilir, Jakarta Pusat",
+        check_out_coords: "-6.2146, 106.8189",
+        status: "Terlambat",
+        is_wfh: false,
+        notes_in: "Terlambat - trouble kendaraan pribadi",
+        notes_out: "Semua test pass"
+      },
+      {
+        id: 7,
+        fullname: "Citra Kirana",
+        nik: "D6240007",
+        departement: "Marketing & Sales",
+        time_in: "2026-10-24 07:58:30",
+        time_out: "2026-10-24 17:10:00",
+        check_in_photo: "https://api-dev.dikahadir.com/uploads/sample-selfie-7.jpg",
+        check_in_address: "Mall Kota Kasablanka, Tebet, Jakarta Selatan",
+        check_in_coords: "-6.2241, 106.8428",
+        check_out_address: "Mall Kota Kasablanka, Tebet, Jakarta Selatan",
+        check_out_coords: "-6.2241, 106.8428",
+        status: "Masuk",
+        is_wfh: false,
+        notes_in: "Kunjungan client expo perbankan",
+        notes_out: "Client presentation done"
+      },
+      {
+        id: 8,
+        fullname: "Dimas Anggara",
+        nik: "D6240008",
+        departement: "Operations",
+        time_in: "2026-10-24 07:45:10",
+        time_out: "2026-10-24 16:45:10",
+        check_in_photo: "https://api-dev.dikahadir.com/uploads/sample-selfie-8.jpg",
+        check_in_address: "Wisma DIKA Lt. 1, Jl. Bendungan Hilir, Jakarta Pusat",
+        check_in_coords: "-6.2146, 106.8189",
+        check_out_address: "Wisma DIKA Lt. 1, Jl. Bendungan Hilir, Jakarta Pusat",
+        check_out_coords: "-6.2146, 106.8189",
+        status: "Masuk",
+        is_wfh: false,
+        notes_in: "Operational briefing",
+        notes_out: "Handover shift shift pagi"
+      },
+      {
+        id: 9,
+        fullname: "Eka Prasetya",
+        nik: "D6240009",
+        departement: "IT Development",
+        time_in: "2026-10-23 09:15:00",
+        time_out: "2026-10-23 18:30:00",
+        check_in_photo: "https://api-dev.dikahadir.com/uploads/sample-selfie-9.jpg",
+        check_in_address: "Wisma DIKA Lt. 5, Jl. Bendungan Hilir, Jakarta Pusat",
+        check_in_coords: "-6.2146, 106.8189",
+        check_out_address: "Wisma DIKA Lt. 5, Jl. Bendungan Hilir, Jakarta Pusat",
+        check_out_coords: "-6.2146, 106.8189",
+        status: "Terlambat",
+        is_wfh: false,
+        notes_in: "Terlambat bangun",
+        notes_out: "Bug fixing auth service"
+      },
+      {
+        id: 10,
+        fullname: "Fajar Nugraha",
+        nik: "D6240010",
+        departement: "Human Resources",
+        time_in: "2026-10-23 07:59:00",
+        time_out: "2026-10-23 17:01:00",
+        check_in_photo: "https://api-dev.dikahadir.com/uploads/sample-selfie-10.jpg",
+        check_in_address: "Wisma DIKA Lt. 2, Jl. Bendungan Hilir, Jakarta Pusat",
+        check_in_coords: "-6.2146, 106.8189",
+        check_out_address: "Wisma DIKA Lt. 2, Jl. Bendungan Hilir, Jakarta Pusat",
+        check_out_coords: "-6.2146, 106.8189",
+        status: "Masuk",
+        is_wfh: false,
+        notes_in: "Interview calon peserta magang",
+        notes_out: "Rekap nilai wawancara"
+      },
+      {
+        id: 11,
+        fullname: "Gita Gutawa",
+        nik: "D6240011",
+        departement: "Finance & Accounting",
+        time_in: "2026-10-22 07:50:00",
+        time_out: "2026-10-22 17:15:00",
+        check_in_photo: "https://api-dev.dikahadir.com/uploads/sample-selfie-11.jpg",
+        check_in_address: "Wisma DIKA Lt. 3, Jl. Bendungan Hilir, Jakarta Pusat",
+        check_in_coords: "-6.2146, 106.8189",
+        check_out_address: "Wisma DIKA Lt. 3, Jl. Bendungan Hilir, Jakarta Pusat",
+        check_out_coords: "-6.2146, 106.8189",
+        status: "Masuk",
+        is_wfh: false,
+        notes_in: "Penyusunan laporan bulanan",
+        notes_out: "Audit intern keuangan"
+      },
+      {
+        id: 12,
+        fullname: "Hadi Pranoto",
+        nik: "D6240012",
+        departement: "Quality Assurance",
+        time_in: "2026-10-22 07:45:00",
+        time_out: "2026-10-22 17:00:00",
+        check_in_photo: "https://api-dev.dikahadir.com/uploads/sample-selfie-12.jpg",
+        check_in_address: "Wisma DIKA Lt. 5, Jl. Bendungan Hilir, Jakarta Pusat",
+        check_in_coords: "-6.2146, 106.8189",
+        check_out_address: "Wisma DIKA Lt. 5, Jl. Bendungan Hilir, Jakarta Pusat",
+        check_out_coords: "-6.2146, 106.8189",
+        status: "Masuk",
+        is_wfh: false,
+        notes_in: "Regression test execution",
+        notes_out: "All test cases passed"
+      },
+      {
+        id: 13,
+        fullname: "Indah Permata",
+        nik: "D6240013",
+        departement: "Marketing & Sales",
+        time_in: "2026-10-21 07:55:00",
+        time_out: "2026-10-21 17:05:00",
+        check_in_photo: "https://api-dev.dikahadir.com/uploads/sample-selfie-13.jpg",
+        check_in_address: "Central Park Mall, Tanjung Duren, Jakarta Barat",
+        check_in_coords: "-6.1774, 106.7906",
+        check_out_address: "Central Park Mall, Tanjung Duren, Jakarta Barat",
+        check_out_coords: "-6.1774, 106.7906",
+        status: "Masuk",
+        is_wfh: false,
+        notes_in: "Meeting bersama merchant partner",
+        notes_out: "MoU signed"
+      },
+      {
+        id: 14,
+        fullname: "Joko Widodo",
+        nik: "D6240014",
+        departement: "Operations",
+        time_in: "2026-10-21 08:31:00",
+        time_out: "2026-10-21 17:40:00",
+        check_in_photo: "https://api-dev.dikahadir.com/uploads/sample-selfie-14.jpg",
+        check_in_address: "Wisma DIKA Lt. 1, Jl. Bendungan Hilir, Jakarta Pusat",
+        check_in_coords: "-6.2146, 106.8189",
+        check_out_address: "Wisma DIKA Lt. 1, Jl. Bendungan Hilir, Jakarta Pusat",
+        check_out_coords: "-6.2146, 106.8189",
+        status: "Terlambat",
+        is_wfh: false,
+        notes_in: "Terlambat hadir",
+        notes_out: "Shift selesai"
+      },
+      {
+        id: 15,
+        fullname: "Kurnia Sandi",
+        nik: "D6240015",
+        departement: "IT Development",
+        time_in: "2026-10-20 07:52:00",
+        time_out: "2026-10-20 17:02:00",
+        check_in_photo: "https://api-dev.dikahadir.com/uploads/sample-selfie-15.jpg",
+        check_in_address: "Wisma DIKA Lt. 5, Jl. Bendungan Hilir, Jakarta Pusat",
+        check_in_coords: "-6.2146, 106.8189",
+        check_out_address: "Wisma DIKA Lt. 5, Jl. Bendungan Hilir, Jakarta Pusat",
+        check_out_coords: "-6.2146, 106.8189",
+        status: "Masuk",
+        is_wfh: false,
+        notes_in: "Code refactoring Next.js pages",
+        notes_out: "PR merged"
+      }
+    ];
+
+    // State Aplikasi
+    let filteredData = [...attendanceData];
+    let currentPage = 1;
+    let rowsPerPage = 10;
+    let selectedDepartment = "";
+    let selectedStatus = "";
+
+    // DOM Elements
+    const tableBody = document.getElementById('table-body');
+    const paginationInfo = document.getElementById('pagination-info');
+    const rowsPerPageSelect = document.getElementById('rows-per-page');
+    const btnFirstPage = document.getElementById('btn-first-page');
+    const btnPrevPage = document.getElementById('btn-prev-page');
+    const btnNextPage = document.getElementById('btn-next-page');
+    const btnLastPage = document.getElementById('btn-last-page');
+    const searchInput = document.getElementById('search');
+    const startDateInput = document.getElementById('start-date');
+    const endDateInput = document.getElementById('end-date');
+    const btnSearch = document.getElementById('btn-search');
+    const btnReset = document.getElementById('btn-reset');
+    const btnExport = document.getElementById('btn-export');
+    const btnFilter = document.getElementById('btn-filter');
+
+    // Modals
+    const filterModal = document.getElementById('filter-modal');
+    const btnCloseFilterModal = document.getElementById('btn-close-filter-modal');
+    const btnCancelFilter = document.getElementById('btn-cancel-filter');
+    const btnApplyFilter = document.getElementById('btn-apply-filter');
+    const filterDepartemenSelect = document.getElementById('filter-departemen');
+    const filterStatusSelect = document.getElementById('filter-status');
+
+    const photoModal = document.getElementById('photo-modal');
+    const photoModalImg = document.getElementById('photo-modal-img');
+    const photoModalTitle = document.getElementById('photo-modal-title');
+    const btnClosePhotoModal = document.getElementById('btn-close-photo-modal');
+    const btnClosePhoto = document.getElementById('btn-close-photo');
+
+    const mapModal = document.getElementById('map-modal');
+    const mapAddressText = document.getElementById('map-address-text');
+    const mapCoordsText = document.getElementById('map-coords-text');
+    const btnCloseMapModal = document.getElementById('btn-close-map-modal');
+    const btnCloseMap = document.getElementById('btn-close-map');
+
+    const snackbar = document.getElementById('snackbar');
+    const snackbarMessage = document.getElementById('snackbar-message');
+
+    function showToast(message, type = "info") {
+      snackbarMessage.textContent = message;
+      snackbar.className = "snackbar " + type + " show";
+      setTimeout(() => {
+        snackbar.classList.remove('show');
+      }, 3500);
+    }
+
+    function getInitials(name) {
+      if (!name) return "U";
+      const parts = name.trim().split(" ");
+      if (parts.length === 1) return parts[0].substring(0, 2).toUpperCase();
+      return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+    }
+
+    function renderTable() {
+      tableBody.innerHTML = "";
+      const total = filteredData.length;
+
+      if (total === 0) {
+        tableBody.innerHTML = `
+          <tr>
+            <td colspan="11" class="empty-state">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+              <p style="font-weight:600; font-size:1rem; color:#4a5568;">Data tidak ditemukan</p>
+              <p style="font-size:0.85rem; color:#a0aec0;">Tidak ada aktivitas absensi yang cocok dengan kriteria pencarian atau filter.</p>
+            </td>
+          </tr>
+        `;
+        paginationInfo.textContent = "Menampilkan 0-0 dari 0 data";
+        btnFirstPage.disabled = true;
+        btnPrevPage.disabled = true;
+        btnNextPage.disabled = true;
+        btnLastPage.disabled = true;
+        return;
+      }
+
+      const totalPages = Math.ceil(total / rowsPerPage);
+      if (currentPage > totalPages) currentPage = totalPages;
+      if (currentPage < 1) currentPage = 1;
+
+      const startIndex = (currentPage - 1) * rowsPerPage;
+      const endIndex = Math.min(startIndex + rowsPerPage, total);
+      const pageData = filteredData.slice(startIndex, endIndex);
+
+      pageData.forEach((row) => {
+        const tr = document.createElement('tr');
+        tr.setAttribute('data-id', row.id);
+
+        // Status badge class mapping
+        const statusClass = "status-" + row.status.toLowerCase().replace(/\s+/g, '-');
+
+        // Avatar HTML
+        const avatarHtml = row.check_in_photo 
+          ? `<img src="${row.check_in_photo}" alt="${row.fullname}" class="avatar-img" onerror="this.outerHTML='<span class=\\'avatar-fallback\\'>${getInitials(row.fullname)}</span>'"/>`
+          : `<span class="avatar-fallback">${getInitials(row.fullname)}</span>`;
+
+        tr.innerHTML = `
+          <td>
+            <div class="avatar-wrapper" onclick="openPhotoModal('${row.fullname}', '${row.check_in_photo}')" title="Klik untuk perbesar foto">
+              ${avatarHtml}
+            </div>
+          </td>
+          <td>
+            <div class="user-info">
+              <span class="user-fullname">${row.fullname}</span>
+              <span class="user-nik">${row.nik}</span>
+            </div>
+          </td>
+          <td>
+            <span class="dept-badge">${row.departement}</span>
+          </td>
+          <td>
+            <div class="time-badge">
+              <span class="time-tag in">IN</span>
+              <span class="time-value">${row.time_in}</span>
+            </div>
+          </td>
+          <td>
+            <div class="time-badge">
+              <span class="time-tag out">OUT</span>
+              <span class="time-value">${row.time_out}</span>
+            </div>
+          </td>
+          <td>
+            <div class="location-cell" title="${row.check_in_address}">
+              <a class="location-link" onclick="openMapModal('${row.check_in_address}', '${row.check_in_coords}', 'Lokasi Masuk')">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                ${row.check_in_address}
+              </a>
+            </div>
+          </td>
+          <td>
+            <div class="location-cell" title="${row.check_out_address}">
+              ${row.time_out !== '-' ? `
+                <a class="location-link" onclick="openMapModal('${row.check_out_address}', '${row.check_out_coords}', 'Lokasi Keluar')">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  ${row.check_out_address}
+                </a>` : '-'}
+            </div>
+          </td>
+          <td>
+            <span class="status-badge ${statusClass}">${row.status}</span>
+          </td>
+          <td class="notes-cell" title="${row.notes_in || '-'}">${row.notes_in || '-'}</td>
+          <td class="notes-cell" title="${row.notes_out || '-'}">${row.notes_out || '-'}</td>
+          <td>
+            <button class="btn btn-secondary" style="padding:6px 10px; font-size:0.775rem;" onclick="showToast('Detail ID: ${row.id} - ${row.fullname}', 'info')" title="Lihat Rincian">
+              Detail
+            </button>
+          </td>
+        `;
+        tableBody.appendChild(tr);
+      });
+
+      // Update Pagination Info
+      paginationInfo.textContent = `Menampilkan ${startIndex + 1}-${endIndex} dari ${total} data`;
+      btnFirstPage.disabled = currentPage === 1;
+      btnPrevPage.disabled = currentPage === 1;
+      btnNextPage.disabled = currentPage === totalPages;
+      btnLastPage.disabled = currentPage === totalPages;
+    }
+
+    function applyFilters() {
+      const keyword = searchInput.value.trim().toLowerCase();
+      const startDate = startDateInput.value;
+      const endDate = endDateInput.value;
+
+      // Validasi invert date
+      if (startDate && endDate && startDate > endDate) {
+        showToast("Start date tidak boleh melebihi end date!", "error");
+        return;
+      }
+
+      filteredData = attendanceData.filter((item) => {
+        // Keyword Search (fullname or NIK)
+        if (keyword) {
+          const matchName = item.fullname.toLowerCase().includes(keyword);
+          const matchNik = item.nik.toLowerCase().includes(keyword);
+          if (!matchName && !matchNik) return false;
+        }
+
+        // Department Filter
+        if (selectedDepartment && item.departement !== selectedDepartment) {
+          return false;
+        }
+
+        // Status Filter
+        if (selectedStatus && item.status !== selectedStatus) {
+          return false;
+        }
+
+        // Date Filter
+        if (startDate || endDate) {
+          const itemDate = item.time_in.split(" ")[0];
+          if (startDate && itemDate < startDate) return false;
+          if (endDate && itemDate > endDate) return false;
+        }
+
+        return true;
+      });
+
+      currentPage = 1;
+      renderTable();
+      showToast(`Filter berhasil diterapkan (${filteredData.length} data ditemukan)`, "success");
+    }
+
+    function resetFilters() {
+      searchInput.value = "";
+      startDateInput.value = "";
+      endDateInput.value = "";
+      selectedDepartment = "";
+      selectedStatus = "";
+      filterDepartemenSelect.value = "";
+      filterStatusSelect.value = "";
+      filteredData = [...attendanceData];
+      currentPage = 1;
+      renderTable();
+      showToast("Filter berhasil direset ke tampilan semula", "info");
+    }
+
+    // Modal Helpers
+    window.openPhotoModal = function(name, photoUrl) {
+      photoModalTitle.textContent = "Foto Selfie: " + name;
+      photoModalImg.src = photoUrl || "https://api-dev.dikahadir.com/uploads/sample-selfie-1.jpg";
+      photoModal.classList.add('active');
+    };
+
+    window.openMapModal = function(address, coords, type) {
+      document.getElementById('map-modal-title').textContent = type + " - Titik Presisi";
+      mapAddressText.textContent = address;
+      mapCoordsText.textContent = "Koordinat: " + coords;
+      mapModal.classList.add('active');
+    };
+
+    function exportToCSV() {
+      if (filteredData.length === 0) {
+        showToast("Tidak ada data untuk diekspor!", "error");
+        return;
+      }
+      let csv = "ID,Nama Lengkap,NIK,Departemen,Jam Masuk,Jam Keluar,Lokasi Masuk,Lokasi Keluar,Status,Notes Masuk,Notes Keluar\n";
+      filteredData.forEach(item => {
+        csv += `"${item.id}","${item.fullname}","${item.nik}","${item.departement}","${item.time_in}","${item.time_out}","${item.check_in_address}","${item.check_out_address}","${item.status}","${item.notes_in}","${item.notes_out}"\n`;
+      });
+      const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.setAttribute("href", url);
+      link.setAttribute("download", `laporan_kehadiran_${new Date().toISOString().slice(0,10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      showToast("Laporan kehadiran berhasil diunduh!", "success");
+    }
+
+    // Event Listeners
+    btnSearch.addEventListener('click', applyFilters);
+    searchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') applyFilters();
+    });
+    btnReset.addEventListener('click', resetFilters);
+    btnExport.addEventListener('click', exportToCSV);
+
+    rowsPerPageSelect.addEventListener('change', (e) => {
+      rowsPerPage = parseInt(e.target.value, 10);
+      currentPage = 1;
+      renderTable();
+    });
+
+    btnFirstPage.addEventListener('click', () => { currentPage = 1; renderTable(); });
+    btnPrevPage.addEventListener('click', () => { if (currentPage > 1) { currentPage--; renderTable(); } });
+    btnNextPage.addEventListener('click', () => {
+      const totalPages = Math.ceil(filteredData.length / rowsPerPage);
+      if (currentPage < totalPages) { currentPage++; renderTable(); }
+    });
+    btnLastPage.addEventListener('click', () => {
+      currentPage = Math.ceil(filteredData.length / rowsPerPage);
+      renderTable();
+    });
+
+    // Filter Modal Listeners
+    btnFilter.addEventListener('click', () => { filterModal.classList.add('active'); });
+    btnCloseFilterModal.addEventListener('click', () => { filterModal.classList.remove('active'); });
+    btnCancelFilter.addEventListener('click', () => { filterModal.classList.remove('active'); });
+    btnApplyFilter.addEventListener('click', () => {
+      selectedDepartment = filterDepartemenSelect.value;
+      selectedStatus = filterStatusSelect.value;
+      filterModal.classList.remove('active');
+      applyFilters();
+    });
+
+    // Photo Modal Listeners
+    btnClosePhotoModal.addEventListener('click', () => { photoModal.classList.remove('active'); });
+    btnClosePhoto.addEventListener('click', () => { photoModal.classList.remove('active'); });
+
+    // Map Modal Listeners
+    btnCloseMapModal.addEventListener('click', () => { mapModal.classList.remove('active'); });
+    btnCloseMap.addEventListener('click', () => { mapModal.classList.remove('active'); });
+
+    // Close on overlay click
+    [filterModal, photoModal, mapModal].forEach(modal => {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) modal.classList.remove('active');
+      });
+    });
+
+    // Initial render
+    document.addEventListener('DOMContentLoaded', () => {
+      renderTable();
+    });
+  </script>
+</body>
+</html>

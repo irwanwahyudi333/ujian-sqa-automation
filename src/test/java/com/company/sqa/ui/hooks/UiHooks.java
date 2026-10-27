@@ -43,4 +43,10 @@ public class UiHooks {
             }
         }
     }
+
+    @io.cucumber.java.AfterAll
+    public static void afterAllUiScenarios() {
+        logger.info("All UI scenarios completed. Quitting WebDriver...");
+        DriverManager.quitDriver();
+    }
 }
