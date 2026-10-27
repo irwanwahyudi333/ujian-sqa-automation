@@ -1,4 +1,4 @@
-package com.company.sqa.pages;
+﻿package com.company.sqa.pages;
 
 import com.company.sqa.utils.ConfigReader;
 import org.apache.logging.log4j.LogManager;
@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public abstract class BasePage {
     protected final Logger logger = LogManager.getLogger(getClass());

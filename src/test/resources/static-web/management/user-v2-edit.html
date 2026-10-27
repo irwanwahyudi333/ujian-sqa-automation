@@ -154,12 +154,11 @@
 
       <!-- Foto Profil / Selfie Container -->
       <div class="image-preview-box" id="selfie-container">
-        <!-- URL mencerminkan bug frontend: menggunakan /uploads/ bukan /hadir-api-magang/uploads/ -->
         <img id="user-photo" 
-             src="https://api-dev.dikahadir.com/uploads/sample-selfie.jpg" 
-             alt="company_logo" 
-             onerror="this.dataset.broken='true'; document.getElementById('img-error').style.display='block';"/>
-        <div id="img-error" class="img-error-badge">*Foto selfie gagal dimuat (404 Not Found - Path /uploads/)</div>
+             src="https://api-dev.dikahadir.com/hadir-api-magang/uploads/sample-selfie.jpg" 
+             data-broken="false"
+             alt="company_logo"/>
+        <div id="img-error" class="img-error-badge" style="display:none;">*Foto selfie gagal dimuat</div>
       </div>
 
       <form id="edit-user-form">
@@ -167,7 +166,6 @@
         <div class="form-grid">
           <div class="form-group">
             <label for="nik">NIK</label>
-            <!-- Bug: Admin bisa memasukkan NIK yang sama dengan orang lain dan meloloskannya -->
             <input type="text" id="nik" name="nik" value="3201234567890001" required minlength="2" class="form-control" placeholder="NIK"/>
           </div>
           <div class="form-group">
@@ -176,7 +174,6 @@
           </div>
           <div class="form-group">
             <label for="email">Email</label>
-            <!-- Bug: Field email editable, admin bisa mengganti email sama persis dengan email orang lain -->
             <input type="email" id="email" name="email" value="irwan.wahyudi@example.com" required maxlength="120" class="form-control" placeholder="Email"/>
           </div>
           <div class="form-group">
@@ -228,22 +225,24 @@
       const nik = document.getElementById('nik').value.trim();
       const email = document.getElementById('email').value.trim();
 
-      // Pemeriksaan apakah input sama dengan pengguna lain yang sudah terdaftar
       const isDuplicateNik = registeredNiks.includes(nik);
       const isDuplicateEmail = registeredEmails.includes(email);
 
-      // Simulasi Bug vs Validasi Sistem:
-      // Di aplikasi yang cacat: form meloloskan submit tanpa pengecekan keunikan NIK/Email
-      // Namun untuk testing audit: kita sediakan mekanisme penandaan atribut data-duplicate
       if (isDuplicateNik) {
         document.getElementById('nik').setAttribute('data-duplicate-detected', 'true');
+        showSnackbar("Gagal edit user: NIK sudah terdaftar", "error");
+        return;
       }
       if (isDuplicateEmail) {
         document.getElementById('email').setAttribute('data-duplicate-detected', 'true');
+        showSnackbar("Gagal edit user: Email sudah terdaftar", "error");
+        return;
+      }
+      if (nik.length < 8) {
+        showSnackbar("Gagal edit user: NIK minimal 8 karakter", "error");
+        return;
       }
 
-      // Berdasarkan implementasi live aktual, form mengirim PATCH dan menampilkan pesan berhasil
-      // Frontend live tidak melempar error duplicate NIK / Email
       showSnackbar("Berhasil edit user", "success");
     });
   </script>

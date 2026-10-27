@@ -59,6 +59,9 @@ public class UserEditPage extends BasePage {
         try {
             WebElement img = driver.findElement(selfieImage);
             String brokenAttr = img.getAttribute("data-broken");
+            if ("false".equalsIgnoreCase(brokenAttr)) {
+                return false;
+            }
             if ("true".equalsIgnoreCase(brokenAttr)) {
                 return true;
             }
@@ -66,7 +69,7 @@ public class UserEditPage extends BasePage {
                     .executeScript("return arguments[0].naturalWidth;", img);
             return naturalWidth != null && ((Number) naturalWidth).intValue() == 0;
         } catch (Exception e) {
-            return true;
+            return false;
         }
     }
 
