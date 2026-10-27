@@ -1,4 +1,4 @@
-﻿package com.company.sqa.ui.steps;
+package com.company.sqa.ui.steps;
 
 import com.company.sqa.pages.SelfRegistrationPage;
 import com.company.sqa.pages.UserEditPage;
@@ -236,14 +236,8 @@ public class UserEditSteps {
         Allure.addAttachment("Verifikasi Algoritma Batch Selection",
                 "Perbaikan BUG-UI-BATCH-001 terverifikasi: Algoritma filter baris non-kontigu berhasil memfilter baris terpilih tanpa menghasilkan payload undefined.");
 
-<<<<<<< HEAD
-        int selectedCount = getSelfRegistrationPage().getSelectedCount();
-        Assert.assertTrue(selectedCount >= 2, "Jumlah baris terpilih harus minimal 2 baris!");
-        logger.info("Verifikasi baris non-kontigu berhasil diproses tanpa payload undefined. Baris terpilih: {}", selectedCount);
-=======
         Assert.assertTrue(filterValid != null && filterValid,
                 "Algoritma batch filter baris non-kontigu gagal memproses data baris terpilih!");
->>>>>>> origin/main
     }
 }
 

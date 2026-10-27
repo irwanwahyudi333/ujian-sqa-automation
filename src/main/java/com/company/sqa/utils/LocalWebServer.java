@@ -1,4 +1,4 @@
-﻿package com.company.sqa.utils;
+package com.company.sqa.utils;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
@@ -73,23 +73,6 @@ public class LocalWebServer {
         HttpServer createdServer = null;
         int maxAttempts = 5;
 
-<<<<<<< HEAD
-            server.createContext("/", new StaticFileHandler());
-            server.start();
-
-            logger.info("==========================================================");
-            logger.info("Local Web Server started successfully!");
-            logger.info("URL Register Page: http://localhost:{}/absen/register", activePort);
-            logger.info("URL Self-Registration: http://localhost:{}/management/self-registration", activePort);
-        logger.info("URL Divisi: http://localhost:{}/management/divisi", activePort);
-            logger.info("URL Divisi: http://localhost:{}/management/divisi", activePort);
-            logger.info("URL Management User: http://localhost:{}/management/user", activePort);
-            logger.info("Serving files from: {}", staticWebRoot);
-            logger.info("==========================================================");
-        } catch (IOException e) {
-            logger.error("Failed to start LocalWebServer on port {}: {}", port, e.getMessage());
-            throw new RuntimeException("Could not start local web server", e);
-=======
         for (int i = 0; i < maxAttempts; i++) {
             try {
                 createdServer = HttpServer.create(new InetSocketAddress(targetPort), 0);
@@ -99,7 +82,6 @@ public class LocalWebServer {
                 logger.warn("Port {} is in use, trying next port {}...", targetPort, targetPort + 1);
                 targetPort++;
             }
->>>>>>> origin/main
         }
 
         if (createdServer == null) {
