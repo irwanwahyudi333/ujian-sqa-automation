@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"/>
+  <title>HADIR - Edit User</title>
+  <meta name="viewport" content="initial-scale=1, width=device-width"/>
+  <link rel="stylesheet" href="/_next/static/css/59a98a28abd5dd7d.css"/>
+  <style>
+    body {
+      margin: 0;
+      color: rgba(0, 0, 0, 0.87);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      background-color: #fafbfb;
+    }
+    .page-container {
+      padding: 24px 32px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+      padding: 24px 30px;
+      margin-bottom: 24px;
+    }
+    .page-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 20px;
+    }
+    .section-title {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      background-color: #e0f2fe;
+      color: #0284c7;
+      font-weight: 700;
+      border-radius: 6px;
+      margin: 20px 0 16px;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 12px;
+    }
+    .form-group.full-width {
+      grid-column: span 2;
+    }
+    .form-group label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 6px;
+    }
+    .form-control {
+      border: 1px solid #dee3e9;
+      border-radius: 6px;
+      padding: 10px 12px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      outline: none;
+      background: #ffffff;
+    }
+    .form-control:focus {
+      border-color: #1ba0e2;
+    }
+    .image-preview-box {
+      border: 2px dashed #cbd5e1;
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+      background: #f8fafc;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .image-preview-box img {
+      max-width: 200px;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .img-error-badge {
+      display: none;
+      margin-top: 8px;
+      color: #ef4444;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .btn-group {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .btn {
+      padding: 10px 24px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.95rem;
+      border: none;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: #1ba0e2;
+      color: #ffffff;
+    }
+    .btn-primary:hover {
+      background: #1488c2;
+    }
+    .btn-secondary {
+      background: #f1f5f9;
+      color: #475569;
+    }
+    .snackbar {
+      display: none;
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      background: #1e293b;
+      color: #ffffff;
+      padding: 14px 20px;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      z-index: 1500;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.92rem;
+    }
+    .snackbar.open {
+      display: flex;
+    }
+    .snackbar.error {
+      background: #dc2626;
+    }
+    .snackbar.success {
+      background: #16a34a;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-container">
+    <div class="card">
+      <h1 id="page-title" class="page-title">Edit User</h1>
+
+      <!-- Foto Profil / Selfie Container -->
+      <div class="image-preview-box" id="selfie-container">
+        <!-- URL mencerminkan bug frontend: menggunakan /uploads/ bukan /hadir-api-magang/uploads/ -->
+        <img id="user-photo" 
+             src="https://api-dev.dikahadir.com/uploads/sample-selfie.jpg" 
+             alt="company_logo" 
+             onerror="this.dataset.broken='true'; document.getElementById('img-error').style.display='block';"/>
+        <div id="img-error" class="img-error-badge">*Foto selfie gagal dimuat (404 Not Found - Path /uploads/)</div>
+      </div>
+
+      <form id="edit-user-form">
+        <div class="section-title">Informasi Pribadi</div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="nik">NIK</label>
+            <!-- Bug: Admin bisa memasukkan NIK yang sama dengan orang lain dan meloloskannya -->
+            <input type="text" id="nik" name="nik" value="3201234567890001" required minlength="2" class="form-control" placeholder="NIK"/>
+          </div>
+          <div class="form-group">
+            <label for="fullname">Nama Karyawan</label>
+            <input type="text" id="fullname" name="fullname" value="Irwan Wahyudi" required class="form-control" placeholder="Nama Lengkap"/>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <!-- Bug: Field email editable, admin bisa mengganti email sama persis dengan email orang lain -->
+            <input type="email" id="email" name="email" value="irwan.wahyudi@example.com" required maxlength="120" class="form-control" placeholder="Email"/>
+          </div>
+          <div class="form-group">
+            <label for="role">Role</label>
+            <input type="text" id="role" name="role" value="Karyawan" readonly class="form-control" style="background:#f1f5f9;"/>
+          </div>
+        </div>
+
+        <div class="section-title">Informasi Penugasan & Absensi</div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="division">Divisi</label>
+            <input type="text" id="division" name="division" value="Technology" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label for="position">Posisi Kerja</label>
+            <input type="text" id="position" name="position" value="Quality Assurance" class="form-control"/>
+          </div>
+        </div>
+
+        <div class="btn-group">
+          <button type="button" id="btn-cancel" class="btn btn-secondary" onclick="window.history.back()">Batal</button>
+          <button type="submit" id="btn-submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="alert-snackbar" class="snackbar">
+    <span id="alert-message"></span>
+  </div>
+
+  <script>
+    const registeredNiks = ["3201234567890002", "3201234567890003", "D6240005"];
+    const registeredEmails = ["ahmad.subagyo@example.com", "siti.nurhaliza@example.com", "qa.approved.user@dikahadir.com"];
+
+    function showSnackbar(msg, type = "success") {
+      const sb = document.getElementById('alert-snackbar');
+      const msgElem = document.getElementById('alert-message');
+      msgElem.textContent = msg;
+      sb.className = 'snackbar open ' + type;
+      setTimeout(() => {
+        sb.className = 'snackbar';
+      }, 5000);
+    }
+
+    document.getElementById('edit-user-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nik = document.getElementById('nik').value.trim();
+      const email = document.getElementById('email').value.trim();
+
+      // Pemeriksaan apakah input sama dengan pengguna lain yang sudah terdaftar
+      const isDuplicateNik = registeredNiks.includes(nik);
+      const isDuplicateEmail = registeredEmails.includes(email);
+
+      // Simulasi Bug vs Validasi Sistem:
+      // Di aplikasi yang cacat: form meloloskan submit tanpa pengecekan keunikan NIK/Email
+      // Namun untuk testing audit: kita sediakan mekanisme penandaan atribut data-duplicate
+      if (isDuplicateNik) {
+        document.getElementById('nik').setAttribute('data-duplicate-detected', 'true');
+      }
+      if (isDuplicateEmail) {
+        document.getElementById('email').setAttribute('data-duplicate-detected', 'true');
+      }
+
+      // Berdasarkan implementasi live aktual, form mengirim PATCH dan menampilkan pesan berhasil
+      // Frontend live tidak melempar error duplicate NIK / Email
+      showSnackbar("Berhasil edit user", "success");
+    });
+  </script>
+</body>
+</html>
