@@ -17,7 +17,16 @@ import java.util.Map;
 
 public class LoginApiSteps {
     private static final Logger logger = LogManager.getLogger(LoginApiSteps.class);
-    private static final String LOGIN_ENDPOINT = "https://api-dev.dikahadir.com/hadir-api-magang/authentication";
+
+    private static String getApiBaseUrl() {
+        String base = com.company.sqa.utils.ConfigReader.getApiBaseUrl();
+        if (base != null && !base.isEmpty()) {
+            return base.replaceAll("/+$", "");
+        }
+        return "http://localhost:8085";
+    }
+
+    private static final String LOGIN_ENDPOINT = getApiBaseUrl() + "/hadir-api-magang/authentication";
 
     private Response lastResponse;
     private long responseDurationMs = 0;

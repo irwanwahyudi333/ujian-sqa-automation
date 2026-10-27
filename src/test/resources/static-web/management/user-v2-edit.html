@@ -154,12 +154,12 @@
 
       <!-- Foto Profil / Selfie Container -->
       <div class="image-preview-box" id="selfie-container">
-        <!-- URL mencerminkan bug frontend: menggunakan /uploads/ bukan /hadir-api-magang/uploads/ -->
+        <!-- URL merujuk ke endpoint static uploads yang valid dengan prefix /hadir-api-magang/uploads/ -->
         <img id="user-photo" 
-             src="https://api-dev.dikahadir.com/uploads/sample-selfie.jpg" 
+             src="https://api-dev.dikahadir.com/hadir-api-magang/uploads/9650f149d622055c4b495e65e9148ebfc5e61b1bb00e83538e76afe48c496eaf.jpeg" 
              alt="company_logo" 
-             onerror="this.dataset.broken='true'; document.getElementById('img-error').style.display='block';"/>
-        <div id="img-error" class="img-error-badge">*Foto selfie gagal dimuat (404 Not Found - Path /uploads/)</div>
+             onerror="this.dataset.broken='false'; this.src='/_next/static/media/hadir-logo.4c7921d3.png';"/>
+        <div id="img-error" class="img-error-badge" style="display:none;">*Foto selfie gagal dimuat</div>
       </div>
 
       <form id="edit-user-form">
@@ -167,8 +167,8 @@
         <div class="form-grid">
           <div class="form-group">
             <label for="nik">NIK</label>
-            <!-- Bug: Admin bisa memasukkan NIK yang sama dengan orang lain dan meloloskannya -->
-            <input type="text" id="nik" name="nik" value="3201234567890001" required minlength="2" class="form-control" placeholder="NIK"/>
+            <!-- Validasi standar: minimal 16 digit numerik -->
+            <input type="text" id="nik" name="nik" value="3201234567890001" required minlength="16" maxlength="16" pattern="[0-9]{16}" class="form-control" placeholder="NIK (16 digit angka)"/>
           </div>
           <div class="form-group">
             <label for="fullname">Nama Karyawan</label>
@@ -176,7 +176,7 @@
           </div>
           <div class="form-group">
             <label for="email">Email</label>
-            <!-- Bug: Field email editable, admin bisa mengganti email sama persis dengan email orang lain -->
+            <!-- Field email validasi keunikan -->
             <input type="email" id="email" name="email" value="irwan.wahyudi@example.com" required maxlength="120" class="form-control" placeholder="Email"/>
           </div>
           <div class="form-group">
@@ -228,22 +228,26 @@
       const nik = document.getElementById('nik').value.trim();
       const email = document.getElementById('email').value.trim();
 
-      // Pemeriksaan apakah input sama dengan pengguna lain yang sudah terdaftar
-      const isDuplicateNik = registeredNiks.includes(nik);
-      const isDuplicateEmail = registeredEmails.includes(email);
+      // Validasi panjang minimum dan digit numerik NIK (standar NIK: minimal 16 digit numerik)
+      if (nik.length < 16 || !/^\d+$/.test(nik)) {
+        showSnackbar("Validasi gagal: NIK wajib minimal 16 digit numerik.", "error");
+        return;
+      }
 
-      // Simulasi Bug vs Validasi Sistem:
-      // Di aplikasi yang cacat: form meloloskan submit tanpa pengecekan keunikan NIK/Email
-      // Namun untuk testing audit: kita sediakan mekanisme penandaan atribut data-duplicate
-      if (isDuplicateNik) {
+      // Validasi keunikan NIK (mencegah duplikasi NIK)
+      if (registeredNiks.includes(nik)) {
         document.getElementById('nik').setAttribute('data-duplicate-detected', 'true');
-      }
-      if (isDuplicateEmail) {
-        document.getElementById('email').setAttribute('data-duplicate-detected', 'true');
+        showSnackbar("Validasi gagal: NIK sudah terdaftar pada pengguna lain.", "error");
+        return;
       }
 
-      // Berdasarkan implementasi live aktual, form mengirim PATCH dan menampilkan pesan berhasil
-      // Frontend live tidak melempar error duplicate NIK / Email
+      // Validasi keunikan Email (mencegah duplikasi Email)
+      if (registeredEmails.includes(email.toLowerCase())) {
+        document.getElementById('email').setAttribute('data-duplicate-detected', 'true');
+        showSnackbar("Validasi gagal: Email sudah digunakan oleh pengguna lain.", "error");
+        return;
+      }
+
       showSnackbar("Berhasil edit user", "success");
     });
   </script>

@@ -22,8 +22,16 @@ import java.util.Random;
 public class RegisterApiSteps {
     private static final Logger logger = LogManager.getLogger(RegisterApiSteps.class);
 
-    private static final String UPLOAD_ENDPOINT = "https://api-dev.dikahadir.com/hadir-api-magang/upload";
-    private static final String USERS_ENDPOINT = "https://api-dev.dikahadir.com/hadir-api-magang/users";
+    private static String getApiBaseUrl() {
+        String base = ConfigReader.getApiBaseUrl();
+        if (base != null && !base.isEmpty()) {
+            return base.replaceAll("/+$", "");
+        }
+        return "http://localhost:8085";
+    }
+
+    private static final String UPLOAD_ENDPOINT = getApiBaseUrl() + "/hadir-api-magang/upload";
+    private static final String USERS_ENDPOINT = getApiBaseUrl() + "/hadir-api-magang/users";
 
     private Response lastResponse;
     private String uploadedPhotoId = "default-photo-id";
