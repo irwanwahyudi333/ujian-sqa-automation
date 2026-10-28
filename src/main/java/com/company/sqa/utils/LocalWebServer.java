@@ -94,6 +94,7 @@ public class LocalWebServer {
         logger.info("URL Register Page: http://localhost:{}/absen/register", activePort);
         logger.info("URL Register Page v2: http://localhost:{}/management/user-v2/register", activePort);
         logger.info("URL Self-Registration: http://localhost:{}/management/self-registration", activePort);
+        logger.info("URL Divisi: http://localhost:{}/management/divisi", activePort);
         logger.info("URL Management User: http://localhost:{}/management/user", activePort);
         logger.info("Serving files from: {}", staticWebRoot);
         logger.info("==========================================================");
@@ -175,6 +176,10 @@ public class LocalWebServer {
                 serveFile(exchange, "/management/self-registration.html");
                 return;
             }
+            if (uriPath.equals("/management/divisi") || uriPath.equals("/management/divisi/")) {
+                serveFile(exchange, "/management/divisi.html");
+                return;
+            }
             if (uriPath.equals("/management/user") || uriPath.equals("/management/user/")) {
                 serveFile(exchange, "/management/user.html");
                 return;
@@ -208,6 +213,8 @@ public class LocalWebServer {
                     filePath = staticWebRoot.resolve("absen/dashboard.html");
                 } else if (cleanPath.equals("management/self-registration")) {
                     filePath = staticWebRoot.resolve("management/self-registration.html");
+                } else if (cleanPath.equals("management/divisi")) {
+                    filePath = staticWebRoot.resolve("management/divisi.html");
                 } else if (cleanPath.equals("management/user") || cleanPath.equals("management/user/")) {
                     filePath = staticWebRoot.resolve("management/user.html");
                 } else if (cleanPath.startsWith("management/user-v2/edit")) {
