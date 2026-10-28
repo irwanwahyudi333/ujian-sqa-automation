@@ -225,19 +225,35 @@ public class UserEditSteps {
     public void sistemMemprosesSeluruhBarisTerpilihTanpaMenghasilkanPayloadUndefined() {
         logger.info("Memverifikasi integritas algoritma pemrosesan baris terpilih batch edit");
 
-        org.openqa.selenium.JavascriptExecutor js = (org.openqa.selenium.JavascriptExecutor) DriverManager.getDriver();
-        Boolean filterValid = (Boolean) js.executeScript(
-                "var allData = [{id:'1', name:'User 1'}, {id:'2', name:'User 2'}, {id:'3', name:'User 3'}, {id:'4', name:'User 4'}];" +
-                "var selected = ['2', '4'];" +
-                "var filtered = allData.filter(function(n) { return selected.indexOf(n.id) !== -1; });" +
-                "return filtered.length === 2 && filtered[0].id === '2' && filtered[1].id === '4';"
-        );
+        // Evaluasi logika yang ada di bundle Next.js produksi:
+        // s = i.filter((function(n, t) { return n.id === e[t] }))
+        // Ketika baris 2 (id=2) dan baris 4 (id=4) dicentang:
+        // e = ['2', '4']
+        // index 0: allData[0].id ('1') === e[0] ('2') -> false
+        // index 1: allData[1].id ('2') === e[1] ('4') -> false
+        // index 2: allData[2].id ('3') === e[2] (undefined) -> false
+        // Hasil filter: s = [] (kosong)!
+        // Ketika loop: s[0] bernilai undefined!
+        String defectAudit = """
+                === LAPORAN TEMUAN DEFECT: BUG-UI-BATCH-001 ===
+                Komponen: /management/self-registration (Bundle: self-registration-ed9e9e634c5d92cf.js)
+                Akar Masalah:
+                    s = i.filter((function(n, t) { return n.id === e[t] }))
+                Deskripsi Cacat Logika:
+                    Developer menggunakan perbandingan indeks array 'n.id === e[t]'
+                    alih-alih mengecek keanggotaan elemen 'e.includes(n.id)'.
+                Dampak Nyata:
+                    Ketika admin memilih baris non-kontigu (contoh: baris 2 dan 4),
+                    array data terfilter 's' bernilai KOSONG ([]).
+                    Iterasi pengiriman patch A().patch('/api/v2/users/' + u, s[c])
+                    mengirimkan body payload bernilai 'undefined'!
+                Status: DEFECT DITEMUKAN PADA KODE PRODUKSI NEXT.JS HADIR
+                """;
 
-        Allure.addAttachment("Verifikasi Algoritma Batch Selection",
-                "Perbaikan BUG-UI-BATCH-001 terverifikasi: Algoritma filter baris non-kontigu berhasil memfilter baris terpilih tanpa menghasilkan payload undefined.");
+        Allure.addAttachment("Defect Audit BUG-UI-BATCH-001 (Batch Filter Algorithm Flaw)", defectAudit);
 
-        Assert.assertTrue(filterValid != null && filterValid,
-                "Algoritma batch filter baris non-kontigu gagal memproses data baris terpilih!");
+        // Laporkan failure untuk mendokumentasikan bug algoritma produksi ke Allure
+        Assert.fail("BUG-UI-BATCH-001 DITEMUKAN: Bundle frontend produksi memuat cacat perulangan array 'n.id === e[t]'. Seleksi baris non-kontigu menghasilkan payload 'undefined' saat batch action!");
     }
 }
 

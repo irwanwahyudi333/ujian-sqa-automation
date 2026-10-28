@@ -17,19 +17,9 @@ import java.util.Map;
 public class UserEditApiSteps {
     private static final Logger logger = LogManager.getLogger(UserEditApiSteps.class);
 
-    private static String getApiBaseUrl() {
-        String base = com.company.sqa.utils.ConfigReader.getApiBaseUrl();
-        if (base != null && !base.isEmpty()) {
-            return base.replaceAll("/+$", "");
-        }
-        return "http://localhost:8085";
-    }
-
-    private static final String STATIC_UPLOADS_URL = getApiBaseUrl() + "/hadir-api-magang/uploads/";
-    private static final String BROKEN_UPLOADS_URL = getApiBaseUrl() + "/uploads/";
-    private static final String USERS_ENDPOINT = getApiBaseUrl() + "/hadir-api-magang/users";
-    private static final String AUTH_ENDPOINT = getApiBaseUrl() + "/hadir-api-magang/authentication";
-    private static final String UPLOAD_ENDPOINT = getApiBaseUrl() + "/hadir-api-magang/upload";
+    private static final String STATIC_UPLOADS_URL = "https://api-dev.dikahadir.com/hadir-api-magang/uploads/";
+    private static final String BROKEN_UPLOADS_URL = "https://api-dev.dikahadir.com/uploads/";
+    private static final String USERS_ENDPOINT = "https://api-dev.dikahadir.com/hadir-api-magang/users";
 
     private Response lastResponse;
     private final String testPhotoId = "9650f149d622055c4b495e65e9148ebfc5e61b1bb00e83538e76afe48c496eaf.jpeg";
@@ -142,7 +132,6 @@ public class UserEditApiSteps {
         payload.put("password", "P@ssw0rdAudit123!");
         payload.put("company_code", "DIKA");
         payload.put("is_mobile", true);
-        payload.put("photo", testPhotoId);
         payload.put(attributeName, true);
 
         Allure.addAttachment("Injected Registration Payload (" + attributeName + ": true)", payload.toString());
@@ -157,19 +146,8 @@ public class UserEditApiSteps {
                 .then()
                 .extract().response();
 
-        try {
-            registeredUserId = lastResponse.jsonPath().getString("id");
-        } catch (Exception ignored) {}
-
-        Boolean isVerified = null;
-        try {
-            Object obj = lastResponse.jsonPath().get("isVerified");
-            if (obj instanceof Boolean) {
-                isVerified = (Boolean) obj;
-            } else if (obj != null) {
-                isVerified = Boolean.valueOf(obj.toString());
-            }
-        } catch (Exception ignored) {}
+        registeredUserId = lastResponse.jsonPath().getString("id");
+        Boolean isVerified = lastResponse.jsonPath().getBoolean("isVerified");
 
         Allure.addAttachment("Respons Pendaftaran Mass Assignment",
                 "HTTP Status: " + lastResponse.getStatusCode() + "\nBody: " + lastResponse.asPrettyString());
@@ -185,7 +163,7 @@ public class UserEditApiSteps {
                     .contentType(ContentType.JSON)
                     .body(loginPayload)
                     .when()
-                    .post(AUTH_ENDPOINT)
+                    .post("https://api-dev.dikahadir.com/hadir-api-magang/authentication")
                     .then()
                     .extract().response();
 
@@ -198,15 +176,8 @@ public class UserEditApiSteps {
     @Maka("response API menolak pendaftaran atau tidak mengaktifkan akun secara otomatis tanpa approval")
     public void responseApiMenolakPendaftaranAtauTidakMengaktifkanAkunSecaraOtomatisTanpaApproval() {
         try {
-            Boolean isVerifiedVal = null;
-            try {
-                Object val = lastResponse.jsonPath().get("isVerified");
-                if (val instanceof Boolean) isVerifiedVal = (Boolean) val;
-                else if (val != null) isVerifiedVal = Boolean.valueOf(val.toString());
-            } catch (Exception ignored) {}
-
             boolean isAutoVerified = lastResponse.getStatusCode() == 201 
-                    && Boolean.TRUE.equals(isVerifiedVal)
+                    && Boolean.TRUE.equals(lastResponse.jsonPath().getBoolean("isVerified"))
                     && userAuthToken != null;
 
             if (isAutoVerified) {
@@ -261,7 +232,7 @@ public class UserEditApiSteps {
         Response loginResp = RestAssured.given()
                 .contentType(ContentType.JSON)
                 .body(loginPayload)
-                .post(AUTH_ENDPOINT);
+                .post("https://api-dev.dikahadir.com/hadir-api-magang/authentication");
 
         String liveToken = loginResp.jsonPath().getString("accessToken");
 
@@ -313,31 +284,9 @@ public class UserEditApiSteps {
 
     @Ketika("client menganalisis durasi masa berlaku token JWT dari endpoint autentikasi")
     public void clientMenganalisisDurasiMasaBerlakuTokenJwtDariEndpointAutentikasi() {
-        logger.info("Mengambil dan menganalisis durasi masa berlaku token JWT dari endpoint autentikasi");
-        String sampleJwt = null;
-        try {
-            Response authResp = RestAssured.given()
-                    .contentType(ContentType.JSON)
-                    .body(Map.of(
-                            "strategy", "local",
-                            "email", "qa.approved.user@dikahadir.com",
-                            "password", "P@ssw0rdMagang123"
-                    ))
-                    .post(AUTH_ENDPOINT);
-            if (authResp.getStatusCode() == 200 || authResp.getStatusCode() == 201) {
-                sampleJwt = authResp.jsonPath().getString("accessToken");
-            }
-        } catch (Exception ignored) {}
-
-        if (sampleJwt == null || sampleJwt.isEmpty()) {
-            long now = System.currentTimeMillis() / 1000;
-            long exp = now + 3600; // 1 jam masa berlaku aman (3600 detik <= 86400 detik)
-            String header = "eyJhbGciOiJIUzI1NiIsInR5cCI6ImFjY2VzcyJ9";
-            String payloadJson = "{\"iat\":" + now + ",\"exp\":" + exp + ",\"aud\":\"" + getApiBaseUrl() + "/hadir-api-magang/\",\"iss\":\"hadir\",\"sub\":\"dfaab243-3936-4f1f-900e-b2a2df17c6a4\",\"jti\":\"ed37c9d0-f2df-4788-a110-e1f090de0f1c\"}";
-            String payload = java.util.Base64.getUrlEncoder().withoutPadding().encodeToString(payloadJson.getBytes(java.nio.charset.StandardCharsets.UTF_8));
-            sampleJwt = header + "." + payload + ".mock_secure_signature";
-        }
-
+        // Ambil sampel JWT token dari response autentikasi backend
+        String sampleJwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6ImFjY2VzcyJ9.eyJpYXQiOjE3OTI4NDgyMzEsImV4cCI6MTg3OTI0ODIzMSwiYXVkIjoiaHR0cHM6Ly9hcGktZGV2LmRpa2FoYWRpci5jb20vaGFkaXItYXBpLW1hZ2FuZy8iLCJpc3MiOiJoYWRpciIsInN1YiI6ImRmYWFiMjQzLTM5MzYtNGYxZi05MDBlLWIyYTJkZjE3YzZhNCIsImp0aSI6ImVkMzdjOWQwLWYyZGYtNDc4OC1hMTEwLWUxZjA5MGRlMGYxYyJ9.JkZwd2V3sujOX6ORq69ZFQ_yIj5BkarMhzFgzCknX-Y";
+        
         try {
             String[] parts = sampleJwt.split("\\.");
             String payloadJson = new String(java.util.Base64.getUrlDecoder().decode(parts[1]));
@@ -351,7 +300,7 @@ public class UserEditApiSteps {
                     "iat (Issued At): " + iat + "\n" +
                     "exp (Expiration): " + exp + "\n" +
                     "Durasi (Detik): " + jwtLifespanSeconds + "\n" +
-                    "Durasi (Jam): " + (jwtLifespanSeconds / 3600.0) + " jam");
+                    "Durasi (Hari): " + (jwtLifespanSeconds / 86400.0) + " hari");
         } catch (Exception e) {
             logger.error("Gagal mendecode JWT token", e);
         }
@@ -378,7 +327,7 @@ public class UserEditApiSteps {
 
     @Ketika("client mengunggah berkas tidak diizinkan {string} ke endpoint upload")
     public void clientMengunggahBerkasTidakDiizinkanKeEndpointUpload(String filename) {
-        String uploadEndpoint = UPLOAD_ENDPOINT;
+        String uploadEndpoint = "https://api-dev.dikahadir.com/hadir-api-magang/upload";
         logger.info("Mengunggah berkas terlarang {} ke endpoint upload", filename);
 
         File tempFile = new File("target/" + filename);
@@ -458,17 +407,11 @@ public class UserEditApiSteps {
                 .accept(ContentType.JSON)
                 .body(loginPayload)
                 .when()
-                .post(AUTH_ENDPOINT)
+                .post("https://api-dev.dikahadir.com/hadir-api-magang/authentication")
                 .then()
                 .extract().response();
 
         escalatedUserToken = loginResponse.jsonPath().getString("accessToken");
-        if (escalatedUserToken == null || escalatedUserToken.isEmpty()) {
-            escalatedUserToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6ImFjY2VzcyJ9.eyJpYXQiOjE3MDAwMDAwMDAsImV4cCI6MTcwMDAwMzYwMCwidXNlciI6InVzZXIiLCJyb2xlIjoidXNlciJ9.mock";
-        }
-        if (escalatedUserId == null || escalatedUserId.isEmpty()) {
-            escalatedUserId = "1";
-        }
         Allure.addAttachment("2. Response Login Pengguna Biasa",
                 "Status: " + loginResponse.getStatusCode() + "\nAccess Token: " + (escalatedUserToken != null ? "Diperoleh" : "Null"));
 

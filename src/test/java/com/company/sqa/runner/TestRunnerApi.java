@@ -17,19 +17,6 @@ import org.testng.annotations.DataProvider;
         monochrome = true
 )
 public class TestRunnerApi extends AbstractTestNGCucumberTests {
-    @org.testng.annotations.BeforeSuite(alwaysRun = true)
-    public void startLocalWebServer() {
-        String apiUrl = com.company.sqa.utils.ConfigReader.getApiBaseUrl();
-        if (apiUrl != null && (apiUrl.contains("localhost") || apiUrl.contains("127.0.0.1"))) {
-            com.company.sqa.utils.LocalWebServer.start();
-        }
-    }
-
-    @org.testng.annotations.AfterSuite(alwaysRun = true)
-    public void stopLocalWebServer() {
-        com.company.sqa.utils.LocalWebServer.stop();
-    }
-
     @Override
     @DataProvider(parallel = false)
     public Object[][] scenarios() {
