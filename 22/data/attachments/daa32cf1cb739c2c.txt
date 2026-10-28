@@ -1,0 +1,9 @@
+=========================================================
+TEMUAN KONTRAK REST API: UNHANDLED EXCEPTION (HTTP 500)
+=========================================================
+Endpoint: POST /hadir-api-magang/upload
+Status Aktual: 500 Internal Server Error (GeneralError: file is not allowed)
+Status Seharusnya: 400 Bad Request atau 415 Unsupported Media Type
+Dampak: Klien yang mengirimkan tipe berkas yang salah menyebabkan
+server mengalami unhandled crash / exception alih-alih validasi klien.
+Rekomendasi: Tangani error multer/file filter dengan HttpException(400).
