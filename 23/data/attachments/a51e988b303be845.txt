@@ -1,0 +1,13 @@
+HTTP Status: 500
+Body: {
+    "name": "GeneralError",
+    "message": "file is not allowed",
+    "code": 500,
+    "className": "general-error",
+    "data": {
+        
+    },
+    "errors": {
+        
+    }
+}

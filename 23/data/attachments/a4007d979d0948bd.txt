@@ -1,0 +1,8 @@
+TEMUAN KEAMANAN KRITIS (CWE-798: Use of Hard-coded Credentials / CWE-312):
+Kata kunci sensitif 'SESSION_PASSWORD' ditemukan di dalam bundel JavaScript sisi klien!
+Komponen Terdampak: _app-2ad6ec1cd5a42c22.js (Modul 98607)
+Nilai Hardcoded: SESSION_PASSWORD: "qPatLEX16rTYBKQuaC1iyZk1RGhyV9q6"
+Dampak: Kunci enkripsi sesi iron-session terkompromi secara publik. Penyerang dapat
+mendekripsi cookie sesi hadir_web dan membuat sesi palsu (Session Forgery / Privilege Escalation).
+Rekomendasi: Pindahkan seluruh konfigurasi sesi ke runtime server Node.js dan jangan pernah
+mengekspor variabel SESSION_PASSWORD ke komponen yang dibundel oleh Webpack ke client.

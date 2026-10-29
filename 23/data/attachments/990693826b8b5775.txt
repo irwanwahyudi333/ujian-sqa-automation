@@ -1,0 +1,32 @@
+HTTP Status: 201
+Body: {
+    "verifyChanges": {
+        
+    },
+    "id": "d8e4c630-9bc4-4985-8080-f920abce8f01",
+    "is_enable_tracking": false,
+    "is_user_project": false,
+    "is_active": true,
+    "shift_type": "NON_SHIFT",
+    "registered_from": null,
+    "nik": "D6240005",
+    "is_mobile": true,
+    "isVerified": true,
+    "fullname": "SQA Mass Assignment Auditor",
+    "email": "mass_assign_1793253142577@dikahadir.com",
+    "division_name": "MIS",
+    "department_name": "Operational - Kp",
+    "unit_name": "IT Programmer",
+    "employee_type_name": "pkwt",
+    "position_name": "IT MIS Staff",
+    "hris_branch": "JAKARTA",
+    "hris_join_date": "2024-12-11",
+    "company_id": "72aafd87-9909-49bc-9e7c-5e6d5c41f437",
+    "division_id": "8f17472b-7dd0-4f7c-92f6-9c37e00dfc1e",
+    "job_departement_id": "72aafd87-9909-49bc-9e7c-5e6d52f1f437",
+    "job_position_id": "b45bc844-5189-4df2-be2e-8c7194417ba2",
+    "employee_type_id": "93ead3fc-6a90-4741-9f89-856a83182225",
+    "updated_at": "2026-10-29T05:52:24.025Z",
+    "created_at": "2026-10-29T05:52:24.025Z",
+    "hierarchy_level": 1
+}
