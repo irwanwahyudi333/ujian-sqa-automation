@@ -1,0 +1,24 @@
+======================================================================
+TEMUAN DEFECT KEAMANAN KRITIS: VERTICAL PRIVILEGE ESCALATION (CWE-269)
+======================================================================
+Endpoint: PATCH /hadir-api-magang/users/{id}
+Metode: PATCH
+Header: Authorization: Bearer <token_pengguna_biasa>
+Payload Injeksi: {"role_id": "admin", "is_admin": true}
+Status Respons Aktual: 200 OK
+Nilai role_id Aktual: admin
+Nilai role Aktual: null
+Nilai is_admin Aktual: false
+
+Dampak Bisnis & Keamanan:
+Pengguna biasa/karyawan baru dapat menaikkan hak akses dirinya sendiri
+menjadi ADMINISTRATOR tanpa persetujuan Superadmin (Vertical Privilege Escalation).
+Penyerang mendapatkan otoritas penuh untuk mengelola, mengubah, atau menghapus
+data seluruh pengguna pada sistem HADIR.
+
+Rekomendasi Remediasi:
+1. Terapkan DTO whitelisting ketat pada endpoint update profile pengguna.
+2. Larang pembaruan atribut sensitif seperti 'role', 'role_id', dan 'is_admin'
+   oleh pengguna biasa (Non-Admin).
+3. Perubahan peran hanya boleh diakses melalui endpoint internal admin terpisah
+   yang diproteksi middleware otorisasi berbasis hak akses (RBAC).
