@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="theme-color" content="Flexy Next js Admin Template"/>
+  <title>HADIR - Monthly Schedule</title>
+  <meta name="viewport" content="initial-scale=1, width=device-width"/>
+  <link rel="stylesheet" href="/_next/static/css/59a98a28abd5dd7d.css"/>
+  <style>
+    body {
+      margin: 0;
+      color: rgba(0, 0, 0, 0.87);
+      font-weight: 400;
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 1.5;
+      background-color: #fafbfb;
+    }
+    .page-container {
+      padding: 24px 32px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .page-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 0 0 8px 0;
+    }
+    .breadcrumbs {
+      display: flex;
+      gap: 8px;
+      font-size: 0.875rem;
+      color: #64748b;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1);
+      margin-bottom: 24px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+    }
+    .card-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid #f1f5f9;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #e0f2fe;
+      color: #0284c7;
+      font-weight: 600;
+    }
+    .card-body {
+      padding: 20px;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      align-items: flex-end;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-label {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #475569;
+    }
+    .form-control {
+      padding: 8px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      outline: none;
+      transition: border-color 0.2s;
+      background: #ffffff;
+      font-family: inherit;
+    }
+    .form-control:focus {
+      border-color: #0ea5e9;
+      box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.2);
+    }
+    .btn {
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      border: none;
+      transition: all 0.2s;
+      font-family: inherit;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background-color: #0ea5e9;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #0284c7;
+    }
+    .btn-secondary {
+      background-color: #64748b;
+      color: white;
+    }
+    .btn-secondary:hover {
+      background-color: #475569;
+    }
+    .btn-success {
+      background-color: #10b981;
+      color: white;
+    }
+    .btn-success:hover {
+      background-color: #059669;
+    }
+    .btn-danger {
+      background-color: #ef4444;
+      color: white;
+    }
+    .btn-danger:hover {
+      background-color: #dc2626;
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #cbd5e1;
+      color: #475569;
+    }
+    .btn-outline:hover {
+      background: #f8fafc;
+    }
+    .table-responsive {
+      overflow-x: auto;
+      width: 100%;
+    }
+    .custom-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      min-width: 1000px;
+    }
+    .custom-table th {
+      background: #f8fafc;
+      padding: 12px 16px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .custom-table td {
+      padding: 14px 16px;
+      font-size: 0.875rem;
+      border-bottom: 1px solid #f1f5f9;
+      color: #334155;
+    }
+    .custom-table tr:hover {
+      background-color: #f8fafc;
+    }
+    .action-cell {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .action-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #e2e8f0;
+      background: white;
+      cursor: pointer;
+      color: #64748b;
+      transition: all 0.2s;
+    }
+    .action-btn:hover {
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+    .action-btn.edit:hover {
+      color: #0ea5e9;
+      border-color: #0ea5e9;
+    }
+    .action-btn.delete:hover {
+      color: #ef4444;
+      border-color: #ef4444;
+    }
+    .pagination-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+      border-top: 1px solid #e2e8f0;
+      background: white;
+      font-size: 0.875rem;
+      color: #64748b;
+    }
+    .pagination-controls {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .pagination-buttons {
+      display: flex;
+      gap: 4px;
+    }
+    .page-nav-btn {
+      width: 32px;
+      height: 32px;
+      border: 1px solid #cbd5e1;
+      background: white;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #475569;
+    }
+    .page-nav-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.5);
+      backdrop-filter: blur(2px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-backdrop.open {
+      display: flex !important;
+    }
+    .modal-card {
+      background: white;
+      border-radius: 12px;
+      max-width: 520px;
+      width: 90%;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      overflow: hidden;
+      animation: modalFadeIn 0.2s ease-out;
+    }
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .modal-header {
+      padding: 18px 24px;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 0;
+    }
+    .modal-body {
+      padding: 24px;
+    }
+    .modal-footer {
+      padding: 16px 24px;
+      background: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+    .snackbar {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      background: #1e293b;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      display: none;
+      align-items: center;
+      gap: 12px;
+      z-index: 2000;
+      font-size: 0.875rem;
+    }
+    .snackbar.open {
+      display: flex !important;
+    }
+    .snackbar.success {
+      background: #065f46;
+      border-left: 4px solid #10b981;
+    }
+    .snackbar.error {
+      background: #881337;
+      border-left: 4px solid #f43f5e;
+    }
+    .snackbar-close {
+      cursor: pointer;
+      opacity: 0.7;
+    }
+    .snackbar-close:hover {
+      opacity: 1;
+    }
+    .helper-error {
+      color: #ef4444;
+      font-size: 0.75rem;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-container">
+    <!-- Header -->
+    <div class="page-header">
+      <div>
+        <h1 id="page-title" class="page-title">Management Monthly Schedule</h1>
+        <div class="breadcrumbs">
+          <span>Dashboard</span> &gt;
+          <span>Management</span> &gt;
+          <span style="color: #0ea5e9; font-weight: 500;">Monthly Schedule</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 1: Import Monthly Schedule Form Card -->
+    <div class="card">
+      <div class="card-header">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+        <span>Import Monthly Schedule</span>
+      </div>
+      <div class="card-body">
+        <form id="form-import-schedule">
+          <div class="form-grid" style="grid-template-columns: 2fr 1fr 1fr;">
+            <div class="form-group">
+              <label for="selfie" class="form-label">Upload File Excel Jadwal Bulanan</label>
+              <input type="file" id="selfie" name="image" accept=".xlsx, .xls" class="form-control" required/>
+              <div id="file-error-msg" class="helper-error" style="display: none;"></div>
+            </div>
+            <div class="form-group">
+              <button type="submit" id="btn-import" class="btn btn-primary" style="height: 38px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                <span id="btn-import-text">Import</span>
+              </button>
+            </div>
+            <div class="form-group">
+              <button type="button" id="btn-download-template" class="btn btn-success" style="height: 38px;" onclick="downloadTemplate()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <span>Download Template</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Section 2: Search & Filter Card -->
+    <div class="card">
+      <div class="card-body">
+        <form id="form-filter-schedule">
+          <div style="font-weight: 600; margin-bottom: 12px; color: #1e293b;">Cari Bedasarkan</div>
+          <div class="form-grid" style="grid-template-columns: 3fr 1fr;">
+            <div class="form-group">
+              <input type="text" id="fullname" name="fullname" placeholder="Nama Karyawan" class="form-control" autocomplete="off"/>
+            </div>
+            <div class="form-group">
+              <button type="submit" id="btn-cari" class="btn btn-primary" style="height: 38px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <span>Cari</span>
+              </button>
+            </div>
+          </div>
+
+          <div style="font-weight: 600; margin-top: 20px; margin-bottom: 12px; color: #1e293b;">Filter Bedasarkan</div>
+          <div class="form-grid" style="grid-template-columns: 2fr 1fr 1fr;">
+            <div class="form-group">
+              <label for="jobDepartement" class="form-label">Unit</label>
+              <select id="jobDepartement" name="jobDepartement" class="form-control" onchange="document.getElementById('form-filter-schedule').dispatchEvent(new Event('submit', { cancelable: true }));">
+                <option value="">Semua Unit</option>
+                <option value="Technology">Technology</option>
+                <option value="Human Resources">Human Resources</option>
+                <option value="Finance & Accounting">Finance & Accounting</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Operations">Operations</option>
+                <option value="Unit Kosong">Unit Kosong</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <button type="button" id="btn-reset" class="btn btn-outline" style="height: 38px;" onclick="resetFilter()">
+                <span>Reset</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Section 3: Data Table Card -->
+    <div class="card">
+      <div class="table-responsive">
+        <table class="custom-table" id="table-monthly-schedule">
+          <thead>
+            <tr>
+              <th id="th-nama">NAMA KARYAWAN</th>
+              <th id="th-unit">NAMA UNIT</th>
+              <th id="th-shift">NAMA SHIFTING</th>
+              <th id="th-jam-mulai">JAM MULAI</th>
+              <th id="th-jam-berakhir">JAM BERAKHIR</th>
+              <th id="th-tanggal">TANGGAL JADWAL</th>
+              <th id="th-aksi" style="text-align: center;">AKSI</th>
+            </tr>
+          </thead>
+          <tbody id="schedule-table-body">
+            <!-- Rendered by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination Bar -->
+      <div class="pagination-bar">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <input type="checkbox" id="dense-padding" onchange="toggleDensePadding(this.checked)"/>
+          <label for="dense-padding" style="cursor: pointer;">Dense padding</label>
+        </div>
+        <div class="pagination-controls">
+          <div>Baris per halaman:</div>
+          <select id="rows-per-page" class="form-control" style="width: auto; padding: 4px 8px;" onchange="changeRowsPerPage(this.value)">
+            <option value="5">5</option>
+            <option value="10" selected>10</option>
+            <option value="25">25</option>
+          </select>
+          <div id="displayed-rows">1-10 of 12</div>
+          <div class="pagination-buttons">
+            <button id="btn-first-page" class="page-nav-btn" onclick="goToPage(1)" title="First Page">&laquo;</button>
+            <button id="btn-prev-page" class="page-nav-btn" onclick="goToPage(currentPage - 1)" title="Previous Page">&lsaquo;</button>
+            <button id="btn-next-page" class="page-nav-btn" onclick="goToPage(currentPage + 1)" title="Next Page">&rsaquo;</button>
+            <button id="btn-last-page" class="page-nav-btn" onclick="goToPage(totalPages)" title="Last Page">&raquo;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Dialog: Edit Data Schedule -->
+  <div id="modal-edit-schedule" class="modal-backdrop">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="alert-dialog-title-edit" class="modal-title">Edit Data schedule</h3>
+        <button type="button" class="action-btn" onclick="closeModal('modal-edit-schedule')" aria-label="close">&times;</button>
+      </div>
+      <form id="form-edit-schedule" onsubmit="handleEditSubmit(event)">
+        <div class="modal-body">
+          <input type="hidden" id="edit-id"/>
+          <div class="form-group" style="margin-bottom: 16px;">
+            <label for="edit-fullname" class="form-label">Nama Lengkap</label>
+            <input type="text" id="edit-fullname" name="fullname" class="form-control" disabled style="background:#f1f5f9;"/>
+          </div>
+          <div class="form-group" style="margin-bottom: 16px;">
+            <label for="edit-shifting" class="form-label">Shifting</label>
+            <select id="edit-shifting" name="shifting" class="form-control" required>
+              <option value="">Pilih Shifting</option>
+              <option value="Regular Pagi">Regular Pagi (08:00 - 17:00)</option>
+              <option value="Regular Siang">Regular Siang (13:00 - 21:00)</option>
+              <option value="Shift Malam">Shift Malam (21:00 - 06:00)</option>
+              <option value="General Office">General Office (09:00 - 18:00)</option>
+            </select>
+          </div>
+          <div class="form-group" style="margin-bottom: 16px;">
+            <label for="edit-schedule-date" class="form-label">Tanggal Jadwal</label>
+            <input type="date" id="edit-schedule-date" name="schedule_date" class="form-control" required/>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-batal-edit" class="btn btn-secondary" onclick="closeModal('modal-edit-schedule')">Cancel</button>
+          <button type="submit" id="btn-simpan-edit" class="btn btn-success">Simpan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Dialog: Konfirmasi Hapus Data -->
+  <div id="modal-delete-schedule" class="modal-backdrop">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="alert-dialog-title-delete" class="modal-title">Hapus Data</h3>
+        <button type="button" class="action-btn" onclick="closeModal('modal-delete-schedule')" aria-label="close">&times;</button>
+      </div>
+      <form id="form-delete-schedule" onsubmit="handleDeleteSubmit(event)">
+        <div class="modal-body">
+          <input type="hidden" id="delete-id"/>
+          <p id="delete-confirm-text" style="font-size: 1rem; color: #475569; margin: 0;">
+            Apakah anda yakin ingin menhapus data ini ?
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-batal-delete" class="btn btn-outline" onclick="closeModal('modal-delete-schedule')">Tidak</button>
+          <button type="submit" id="btn-confirm-delete" class="btn btn-danger">Hapus</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Snackbar -->
+  <div id="alert-snackbar" class="snackbar">
+    <span id="alert-message">Notifikasi</span>
+    <span class="snackbar-close" onclick="closeSnackbar()">&times;</span>
+  </div>
+
+  <!-- Data & Script Logic -->
+  <script>
+    var schedules = window.schedules = [
+      { id: "1", fullname: "Ahmad Subagyo", unit: "Technology", shifting: "Regular Pagi", start_time: "08:00", end_time: "17:00", schedule_date: "2026-11-01" },
+      { id: "2", fullname: "Siti Nurhaliza", unit: "Human Resources", shifting: "General Office", start_time: "09:00", end_time: "18:00", schedule_date: "2026-11-01" },
+      { id: "3", fullname: "Budi Santoso", unit: "Finance & Accounting", shifting: "Regular Pagi", start_time: "08:00", end_time: "17:00", schedule_date: "2026-11-02" },
+      { id: "4", fullname: "Dewi Lestari", unit: "Marketing", shifting: "Regular Siang", start_time: "13:00", end_time: "21:00", schedule_date: "2026-11-02" },
+      { id: "5", fullname: "Eko Prasetyo", unit: "Operations", shifting: "Shift Malam", start_time: "21:00", end_time: "06:00", schedule_date: "2026-11-03" },
+      { id: "6", fullname: "Fani Handayani", unit: "Technology", shifting: "Regular Pagi", start_time: "08:00", end_time: "17:00", schedule_date: "2026-11-03" },
+      { id: "7", fullname: "Guntur Wibowo", unit: "Operations", shifting: "Regular Siang", start_time: "13:00", end_time: "21:00", schedule_date: "2026-11-04" },
+      { id: "8", fullname: "Hesti Purwanti", unit: "Human Resources", shifting: "General Office", start_time: "09:00", end_time: "18:00", schedule_date: "2026-11-04" },
+      { id: "9", fullname: "Indra Kusuma", unit: "Technology", shifting: "Shift Malam", start_time: "21:00", end_time: "06:00", schedule_date: "2026-11-05" },
+      { id: "10", fullname: "Joko Supriyanto", unit: "Finance & Accounting", shifting: "Regular Pagi", start_time: "08:00", end_time: "17:00", schedule_date: "2026-11-05" },
+      { id: "11", fullname: "Kartika Sari", unit: "Marketing", shifting: "Regular Siang", start_time: "13:00", end_time: "21:00", schedule_date: "2026-11-06" },
+      { id: "12", fullname: "Lukman Hakim", unit: "Operations", shifting: "Regular Pagi", start_time: "08:00", end_time: "17:00", schedule_date: "2026-11-06" }
+    ];
+
+    var currentPage = window.currentPage = 1;
+    var rowsPerPage = window.rowsPerPage = 10;
+    var filteredSchedules = window.filteredSchedules = [...schedules];
+    var totalPages = window.totalPages = Math.ceil(filteredSchedules.length / rowsPerPage);
+
+    var snackbarTimer = null;
+    function showSnackbar(msg, type = "success") {
+      const sb = document.getElementById("alert-snackbar");
+      const text = document.getElementById("alert-message");
+      if (sb && text) {
+        text.textContent = msg;
+        sb.className = "snackbar open " + type;
+        if (snackbarTimer) clearTimeout(snackbarTimer);
+        snackbarTimer = setTimeout(() => {
+          sb.classList.remove("open");
+        }, 15000);
+      }
+    }
+
+    function closeSnackbar() {
+      const sb = document.getElementById("alert-snackbar");
+      if (sb) sb.classList.remove("open");
+    }
+
+    window.renderTable = renderTable;
+    function renderTable() {
+      const tbody = document.getElementById("schedule-table-body");
+      tbody.innerHTML = "";
+
+      totalPages = Math.ceil(filteredSchedules.length / rowsPerPage) || 1;
+      if (currentPage > totalPages) currentPage = totalPages;
+      if (currentPage < 1) currentPage = 1;
+
+      const startIdx = (currentPage - 1) * rowsPerPage;
+      const endIdx = Math.min(startIdx + rowsPerPage, filteredSchedules.length);
+      const pageData = filteredSchedules.slice(startIdx, endIdx);
+
+      if (pageData.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td id="empty-table-message" colspan="7" style="text-align: center; padding: 36px; color: #94a3b8;">
+              <b>Tidak Ada Data</b>
+            </td>
+          </tr>
+        `;
+      } else {
+        pageData.forEach((row) => {
+          const tr = document.createElement("tr");
+          tr.id = "schedule-row-" + row.id;
+          tr.innerHTML = `
+            <td class="cell-fullname" style="font-weight: 600;">${row.fullname}</td>
+            <td class="cell-unit">${row.unit}</td>
+            <td class="cell-shift"><span style="background: #e0f2fe; color: #0369a1; padding: 4px 8px; border-radius: 4px; font-weight: 500;">${row.shifting}</span></td>
+            <td class="cell-start-time">${row.start_time}</td>
+            <td class="cell-end-time">${row.end_time}</td>
+            <td class="cell-date">${row.schedule_date}</td>
+            <td style="text-align: center;">
+              <div class="action-cell" style="justify-content: center;">
+                <button type="button" class="action-btn edit btn-edit-schedule" title="Edit" onclick="openEditModal('${row.id}')">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                </button>
+                <button type="button" class="action-btn delete btn-delete-schedule" title="Hapus" onclick="openDeleteModal('${row.id}')">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                </button>
+              </div>
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      document.getElementById("displayed-rows").textContent = 
+        filteredSchedules.length === 0 ? "0-0 of 0" : `${startIdx + 1}-${endIdx} of ${filteredSchedules.length}`;
+      document.getElementById("btn-first-page").disabled = currentPage <= 1;
+      document.getElementById("btn-prev-page").disabled = currentPage <= 1;
+      document.getElementById("btn-next-page").disabled = currentPage >= totalPages;
+      document.getElementById("btn-last-page").disabled = currentPage >= totalPages;
+    }
+
+    function goToPage(page) {
+      currentPage = page;
+      renderTable();
+    }
+
+    function changeRowsPerPage(val) {
+      rowsPerPage = parseInt(val, 10);
+      currentPage = 1;
+      renderTable();
+    }
+
+    function toggleDensePadding(checked) {
+      const table = document.getElementById("table-monthly-schedule");
+      const cells = table.querySelectorAll("th, td");
+      cells.forEach(c => {
+        c.style.padding = checked ? "6px 10px" : "14px 16px";
+      });
+    }
+
+    // Filter and Search
+    document.getElementById("form-filter-schedule").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const query = document.getElementById("fullname").value.trim().toLowerCase();
+      const unit = document.getElementById("jobDepartement").value;
+      
+      filteredSchedules = schedules.filter(item => {
+        const matchName = !query || item.fullname.toLowerCase().includes(query);
+        const matchUnit = !unit || item.unit === unit;
+        return matchName && matchUnit;
+      });
+      currentPage = 1;
+      renderTable();
+    });
+
+    function resetFilter() {
+      document.getElementById("fullname").value = "";
+      document.getElementById("jobDepartement").value = "";
+      filteredSchedules = [...schedules];
+      currentPage = 1;
+      renderTable();
+    }
+
+    // Import Excel File
+    document.getElementById("form-import-schedule").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const fileInput = document.getElementById("selfie");
+      const file = fileInput.files[0];
+      const errBox = document.getElementById("file-error-msg");
+      errBox.style.display = "none";
+
+      if (!file) {
+        errBox.textContent = "*Pilih file Excel terlebih dahulu";
+        errBox.style.display = "block";
+        return;
+      }
+
+      const validExts = [".xlsx", ".xls"];
+      const isExcel = validExts.some(ext => file.name.toLowerCase().endsWith(ext));
+      if (!isExcel) {
+        errBox.textContent = "*File harus berupa file Excel (.xls atau .xlsx)";
+        errBox.style.display = "block";
+        showSnackbar("*File harus berupa file Excel (.xls atau .xlsx)", "error");
+        return;
+      }
+
+      const btnText = document.getElementById("btn-import-text");
+      btnText.textContent = "Memproses...";
+      setTimeout(() => {
+        btnText.textContent = "Import";
+        fileInput.value = "";
+        showSnackbar("Berhasil import excel", "success");
+      }, 1000);
+    });
+
+    function downloadTemplate() {
+      showSnackbar("Mengunduh Template_Monthly_Schedule.xlsx...", "success");
+    }
+
+    // Modal Edit
+    window.openEditModal = openEditModal;
+    function openEditModal(id) {
+      const item = schedules.find(s => s.id === id);
+      if (!item) return;
+      document.getElementById("edit-id").value = item.id;
+      document.getElementById("edit-fullname").value = item.fullname;
+      document.getElementById("edit-shifting").value = item.shifting;
+      document.getElementById("edit-schedule-date").value = item.schedule_date;
+      document.getElementById("modal-edit-schedule").classList.add("open");
+    }
+
+    function handleEditSubmit(e) {
+      e.preventDefault();
+      const id = document.getElementById("edit-id").value;
+      const shifting = document.getElementById("edit-shifting").value;
+      const date = document.getElementById("edit-schedule-date").value;
+      if (!shifting || !date) {
+        showSnackbar("Shift kerja dan tanggal jadwal wajib diisi!", "error");
+        return;
+      }
+      const item = schedules.find(s => s.id === id);
+      if (item) {
+        item.shifting = shifting;
+        item.schedule_date = date;
+        if (shifting.includes("Pagi")) { item.start_time = "08:00"; item.end_time = "17:00"; }
+        if (shifting.includes("Siang")) { item.start_time = "13:00"; item.end_time = "21:00"; }
+        if (shifting.includes("Malam")) { item.start_time = "21:00"; item.end_time = "06:00"; }
+        if (shifting.includes("General")) { item.start_time = "09:00"; item.end_time = "18:00"; }
+      }
+      closeModal("modal-edit-schedule");
+      renderTable();
+      showSnackbar("Berhasil memperbarui data schedule", "success");
+    }
+
+    // Modal Delete
+    window.openDeleteModal = openDeleteModal;
+    function openDeleteModal(id) {
+      document.getElementById("delete-id").value = id;
+      document.getElementById("modal-delete-schedule").classList.add("open");
+    }
+
+    function handleDeleteSubmit(e) {
+      e.preventDefault();
+      const id = document.getElementById("delete-id").value;
+      const idx = schedules.findIndex(s => s.id === id);
+      if (idx !== -1) {
+        schedules.splice(idx, 1);
+        filteredSchedules = filteredSchedules.filter(s => s.id !== id);
+      }
+      closeModal("modal-delete-schedule");
+      renderTable();
+      showSnackbar("Berhasil menghapus data schedule", "success");
+    }
+
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) modal.classList.remove("open");
+    }
+
+    // Global Escape Key Listener
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" || e.keyCode === 27) {
+        closeModal("modal-edit-schedule");
+        closeModal("modal-delete-schedule");
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderTable();
+    });
+  </script>
+</body>
+</html>

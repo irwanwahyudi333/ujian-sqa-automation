@@ -89,4 +89,19 @@ public class LocalWebServerRoutingTest {
         Assert.assertEquals(response.statusCode(), 200, "Chunk 848 should be accessible");
     }
 
+    @Test
+    public void testMonthlyScheduleRouteWithoutExtension() throws IOException, InterruptedException {
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:" + TEST_PORT + "/management/monthly-schedule"))
+                .GET()
+                .build();
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        Assert.assertEquals(response.statusCode(), 200, "Expected HTTP 200 for /management/monthly-schedule");
+        Assert.assertTrue(response.body().contains("HADIR - Monthly Schedule"), "HTML should contain page title");
+        Assert.assertTrue(response.body().contains("Import Monthly Schedule"), "HTML should contain import section");
+        Assert.assertTrue(response.body().contains("modal-edit-schedule"), "HTML should contain edit modal");
+        Assert.assertTrue(response.body().contains("modal-delete-schedule"), "HTML should contain delete modal");
+    }
+
 }
