@@ -1,0 +1,9 @@
+TEMUAN KEAMANAN (CWE-798: Use of Hard-coded Credentials / CWE-259):
+File template frontend 'authentication/login.html' memuat kredensial akun dan password plaintext:
+- Akun Administratif: 'admin@dikahadir.com'
+- Akun QA: 'qa.approved.user@dikahadir.com'
+- Plaintext Password: 'P@ssw0rdMagang123'
+- Mock Auth Token: 'dummy-jwt-token-sqa-approved'
+Dampak: Jika akun ini ada pada lingkungan staging/produksi dengan password yang sama,
+penyerang dapat langsung mengambil alih akun administratif.
+Rekomendasi: Bersihkan seluruh kredensial hardcoded dari kode template frontend.
