@@ -207,8 +207,11 @@ public class LocalWebServer {
 
             // Security check against directory traversal
             if (!filePath.startsWith(staticWebRoot) || !Files.exists(filePath) || Files.isDirectory(filePath)) {
-                // If register page without .html extension requested
-                if (cleanPath.equals("absen/register")) {
+                // Check if adding .html resolves to an existing file in staticWebRoot (e.g. /laporan/activity -> /laporan/activity.html)
+                Path candidateWithHtml = staticWebRoot.resolve(cleanPath + ".html").normalize();
+                if (candidateWithHtml.startsWith(staticWebRoot) && Files.exists(candidateWithHtml) && !Files.isDirectory(candidateWithHtml)) {
+                    filePath = candidateWithHtml;
+                } else if (cleanPath.equals("absen/register")) {
                     filePath = staticWebRoot.resolve("absen/register.html");
                 } else if (cleanPath.equals("management/user-v2/register")) {
                     filePath = staticWebRoot.resolve("management/user-v2/register.html");

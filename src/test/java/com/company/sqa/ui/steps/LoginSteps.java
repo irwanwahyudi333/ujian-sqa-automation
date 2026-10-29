@@ -750,6 +750,26 @@ public class LoginSteps {
         Assert.assertTrue(true);
     }
 
+    @Ketika("pengguna memeriksa Web Storage browser setelah login")
+    public void penggunaMemeriksaWebStorageBrowserSetelahLogin() {
+        logger.info("Memeriksa status Web Storage browser (localStorage dan sessionStorage)");
+    }
+
+    @Maka("browser storage tidak memuat token rahasia yang rentan terhadap eksfiltrasi skrip")
+    public void browserStorageTidakMemuatTokenRahasiaYangRentanTerhadapEksfiltrasiSkrip() {
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        String localToken = (String) js.executeScript("return localStorage.getItem('token');");
+        String sessionToken = (String) js.executeScript("return sessionStorage.getItem('token');");
+
+        if (localToken != null || sessionToken != null) {
+            String msg = "SECURITY DEFECT (CWE-922): Token autentikasi tersimpan di Web Storage! "
+                    + "localStorage: " + localToken + ", sessionStorage: " + sessionToken;
+            logger.error(msg);
+            Assert.fail(msg);
+        }
+    }
+
+
     @Ketika("server autentikasi mengalami keterlambatan respon")
     public void serverAutentikasiMengalamiKeterlambatanRespon() {
         logger.info("Simulasi respon server lambat / timeout.");

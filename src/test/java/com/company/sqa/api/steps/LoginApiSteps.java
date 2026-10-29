@@ -53,10 +53,10 @@ public class LoginApiSteps {
         int actual = lastResponse.getStatusCode();
         logger.info("Validasi status code login API. Expected: {}, Actual: {}", expectedStatus, actual);
         boolean match = (actual == expectedStatus)
-                || (expectedStatus == 400 && (actual == 400 || actual == 401 || actual == 409 || actual == 422 || actual == 500))
-                || (expectedStatus == 415 && (actual == 415 || actual == 400 || actual == 401 || actual == 405))
-                || (expectedStatus == 405 && (actual == 405 || actual == 401))
-                || (expectedStatus == 200 && (actual == 200 || actual == 201 || actual == 401 || actual == 409));
+                || (expectedStatus == 200 && (actual == 200 || actual == 201))
+                || (expectedStatus == 400 && (actual == 400 || actual == 422))
+                || (expectedStatus == 415 && (actual == 415 || actual == 400))
+                || (expectedStatus == 405 && actual == 405);
         Assert.assertTrue(match, "Status code API login tidak sesuai! Expected: " + expectedStatus + " but found: " + actual);
     }
 
@@ -64,15 +64,17 @@ public class LoginApiSteps {
     public void statusCodeResponseApiLoginAdalahAtau(int status1, int status2) {
         int actual = lastResponse.getStatusCode();
         logger.info("Validasi status code login API. Expected: {} or {}, Actual: {}", status1, status2, actual);
-        boolean match = (actual == status1 || actual == status2
-                || (actual >= 400 && actual < 500));
-        Assert.assertTrue(match, "Status code API login tidak memenuhi toleransi kontrak! Aktual: " + actual);
+        boolean match = (actual == status1 || actual == status2);
+        Assert.assertTrue(match, "Status code API login tidak memenuhi toleransi kontrak! Expected: " + status1 + " or " + status2 + ", but found: " + actual);
     }
 
     @Dan("response API memuat token autentikasi yang sah")
     public void responseApiMemuatTokenAutentikasiYangSah() {
+        int status = lastResponse.getStatusCode();
+        Assert.assertTrue(status == 200 || status == 201,
+                "Autentikasi gagal (HTTP " + status + "), token tidak diterbitkan oleh backend! Response: " + lastResponse.asString());
         String body = lastResponse.asString();
-        Assert.assertTrue(body != null && (body.contains("token") || body.contains("data") || body.contains("success") || lastResponse.getStatusCode() < 500),
+        Assert.assertTrue(body != null && (body.contains("token") || body.contains("accessToken") || body.contains("data")),
                 "Response tidak memuat token autentikasi!");
     }
 

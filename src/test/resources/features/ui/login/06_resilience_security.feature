@@ -96,6 +96,12 @@ Fitur: Pengujian Keamanan, Ketahanan, dan Resiliensi Autentikasi Login
   Skenario: Pencegahan penyimpanan cache pada respons autentikasi
     Maka respons halaman login memuat instruksi pencegahan caching
 
+  @security @sec-log-019 @cwe-922
+  Skenario: Pemeriksaan ketiadaan token autentikasi pada LocalStorage dan SessionStorage browser
+    Ketika pengguna memeriksa Web Storage browser setelah login
+    Maka browser storage tidak memuat token rahasia yang rentan terhadap eksfiltrasi skrip
+
+
   @resilience @res-log-001
   Skenario: Ketahanan UI dalam menangani respon lambat dari backend
     Ketika server autentikasi mengalami keterlambatan respon

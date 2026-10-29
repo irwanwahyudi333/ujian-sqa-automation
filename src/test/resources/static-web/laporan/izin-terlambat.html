@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="theme-color" content="#1ba0e2"/>
+  <title>HADIR - Laporan Izin Terlambat</title>
+  <meta name="viewport" content="initial-scale=1, width=device-width"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      color: rgba(0, 0, 0, 0.87);
+      font-weight: 400;
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      background-color: #fafbfb;
+      min-height: 100vh;
+    }
+    .page-container { padding: 24px 32px; max-width: 1440px; margin: 0 auto; }
+    .page-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+    .page-title { font-size: 1.75rem; font-weight: 700; color: #2b3674; }
+    .breadcrumbs { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: #718096; margin-top: 4px; }
+    .breadcrumbs a { color: #1ba0e2; text-decoration: none; }
+    .card { background: #ffffff; border-radius: 12px; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.04); padding: 20px 24px; margin-bottom: 24px; }
+    .filter-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+    .filter-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; flex: 1; }
+    .date-range-group { display: flex; align-items: center; gap: 8px; background: #f4f6f8; border: 1px solid #dee3e9; border-radius: 8px; padding: 6px 12px; }
+    .date-input-wrapper { display: flex; flex-direction: column; }
+    .date-label { font-size: 0.75rem; color: #767e89; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+    .date-input { border: none; background: transparent; outline: none; font-family: inherit; font-size: 0.875rem; color: #2b3674; font-weight: 500; cursor: pointer; }
+    .date-separator { color: #a0aec0; font-weight: 600; }
+    .search-input-wrapper { position: relative; display: flex; align-items: center; background: #f4f6f8; border: 1px solid #dee3e9; border-radius: 8px; padding: 0 12px; min-width: 240px; flex: 1; max-width: 360px; }
+    .search-input-wrapper svg { width: 18px; height: 18px; stroke: #767e89; stroke-width: 2; fill: none; margin-right: 8px; }
+    .search-input { border: none; background: transparent; outline: none; padding: 10px 0; width: 100%; font-family: inherit; font-size: 0.9rem; color: #333333; }
+    .btn-group { display: flex; align-items: center; gap: 10px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 18px; font-size: 0.875rem; font-weight: 600; font-family: inherit; border-radius: 8px; cursor: pointer; border: none; transition: all 0.2s ease; text-decoration: none; }
+    .btn svg { width: 16px; height: 16px; stroke-width: 2; stroke: currentColor; fill: none; }
+    .btn-primary { background: #1ba0e2; color: #ffffff; }
+    .btn-primary:hover { background: #1480b5; }
+    .btn-outline { background: #ffffff; color: #1ba0e2; border: 1.5px solid #1ba0e2; }
+    .btn-outline:hover { background: #f0f9ff; }
+    .btn-secondary { background: #f4f6f8; color: #555555; border: 1px solid #dee3e9; }
+    .btn-secondary:hover { background: #e2e8f0; }
+    .btn-success { background: #2e7d32; color: #ffffff; }
+    .btn-success:hover { background: #1b5e20; }
+    .btn-danger { background: #d32f2f; color: #ffffff; }
+    .btn-danger:hover { background: #b71c1c; }
+    .btn-warning { background: #f59e0b; color: #ffffff; }
+    .btn-warning:hover { background: #d97706; }
+    .table-container { overflow-x: auto; border-radius: 8px; border: 1px solid #edf2f7; }
+    .data-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.875rem; background: #ffffff; white-space: nowrap; }
+    .data-table thead th { background-color: #f8fafc; color: #4a5568; font-weight: 700; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.6px; padding: 14px 16px; border-bottom: 2px solid #edf2f7; }
+    .data-table tbody tr { border-bottom: 1px solid #edf2f7; transition: background-color 0.15s; }
+    .data-table tbody tr:hover { background-color: #f7fafc; }
+    .data-table td { padding: 12px 16px; vertical-align: middle; color: #2d3748; }
+    .avatar-wrapper { width: 44px; height: 44px; border-radius: 50%; overflow: hidden; background: #edf2f7; display: flex; align-items: center; justify-content: center; border: 2px solid #e2e8f0; }
+    .avatar-fallback { font-weight: 700; color: #1ba0e2; font-size: 0.95rem; }
+    .user-info { display: flex; flex-direction: column; }
+    .user-fullname { font-weight: 600; color: #1ba0e2; font-size: 0.925rem; }
+    .user-nik { font-size: 0.775rem; color: #718096; font-weight: 500; }
+    .dept-badge { display: inline-flex; align-items: center; gap: 6px; background: #edf8fd; color: #0b72a6; padding: 4px 10px; border-radius: 6px; font-weight: 600; font-size: 0.8rem; }
+    .badge { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 9999px; font-size: 0.775rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+    .badge-approved, .badge-verified, .badge-hadir, .badge-aktif { background-color: #def7ec; color: #03543f; }
+    .badge-pending { background-color: #fef08a; color: #854d0e; }
+    .badge-rejected, .badge-alpa { background-color: #fee2e2; color: #991b1b; }
+    .badge-returned { background-color: #fed7aa; color: #9a3412; }
+    .badge-info { background-color: #e0f2fe; color: #0369a1; }
+    .badge-purple { background-color: #ede9fe; color: #5b21b6; }
+    .action-btn-sm { padding: 6px 12px; font-size: 0.8rem; border-radius: 6px; cursor: pointer; }
+    .pagination-bar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding-top: 18px; }
+    .pagination-info { font-size: 0.875rem; color: #718096; font-weight: 500; }
+    .pagination-controls { display: flex; align-items: center; gap: 6px; }
+    .rows-select { border: 1px solid #dee3e9; border-radius: 6px; padding: 6px 10px; background: #ffffff; font-family: inherit; font-size: 0.85rem; outline: none; cursor: pointer; }
+    .page-btn { background: #ffffff; border: 1px solid #dee3e9; border-radius: 6px; padding: 6px 12px; font-size: 0.85rem; font-weight: 600; color: #4a5568; cursor: pointer; transition: all 0.15s; }
+    .page-btn:hover:not(:disabled) { background: #1ba0e2; color: #ffffff; border-color: #1ba0e2; }
+    .page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+    .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(17, 24, 39, 0.45); backdrop-filter: blur(2px); display: flex; align-items: center; justify-content: center; z-index: 1050; opacity: 0; visibility: hidden; transition: all 0.2s ease; }
+    .modal-overlay.active { opacity: 1; visibility: visible; }
+    .modal-content { background: #ffffff; border-radius: 12px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); width: 100%; max-width: 540px; max-height: 90vh; overflow: hidden; display: flex; flex-direction: column; }
+    .modal-header { padding: 18px 24px; border-bottom: 1px solid #edf2f7; display: flex; align-items: center; justify-content: space-between; }
+    .modal-title { font-size: 1.15rem; font-weight: 700; color: #2d3748; }
+    .modal-close-btn { background: transparent; border: none; cursor: pointer; color: #a0aec0; display: flex; align-items: center; justify-content: center; padding: 4px; border-radius: 6px; font-size: 1.25rem; }
+    .modal-close-btn:hover { color: #4a5568; background: #edf2f7; }
+    .modal-body { padding: 20px 24px; max-height: 70vh; overflow-y: auto; }
+    .modal-footer { padding: 16px 24px; border-top: 1px solid #edf2f7; display: flex; justify-content: flex-end; gap: 12px; background: #f8fafc; }
+    .form-group { margin-bottom: 16px; }
+    .form-label { display: block; font-size: 0.85rem; font-weight: 600; color: #4a5568; margin-bottom: 6px; }
+    .form-select, .form-input-text { width: 100%; border: 1px solid #dee3e9; border-radius: 8px; padding: 10px 12px; font-family: inherit; font-size: 0.9rem; outline: none; background: #ffffff; color: #2d3748; }
+    .form-select:focus, .form-input-text:focus { border-color: #1ba0e2; box-shadow: 0 0 0 3px rgba(27, 160, 226, 0.15); }
+    .detail-item { display: flex; flex-direction: column; gap: 4px; margin-bottom: 14px; }
+    .detail-label { font-size: 0.775rem; color: #718096; font-weight: 600; text-transform: uppercase; }
+    .detail-value { font-size: 0.925rem; color: #2d3748; font-weight: 500; }
+    .snackbar { position: fixed; bottom: 24px; left: 24px; background: #2d3748; color: #ffffff; padding: 12px 20px; border-radius: 8px; font-size: 0.875rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2); display: flex; align-items: center; gap: 12px; z-index: 2000; opacity: 0; pointer-events: none; transform: translateY(16px); transition: all 0.25s ease; }
+    .snackbar.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    .snackbar.success { background: #2e7d32; }
+    .snackbar.error { background: #d32f2f; }
+    .snackbar.info { background: #0288d1; }
+    .stat-cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 24px; }
+    .stat-card { background: #ffffff; padding: 18px 20px; border-radius: 12px; border: 1px solid #edf2f7; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
+    .stat-card-title { font-size: 0.8rem; color: #718096; font-weight: 600; text-transform: uppercase; }
+    .stat-card-value { font-size: 1.6rem; font-weight: 700; color: #2b3674; margin-top: 4px; }
+
+  </style>
+</head>
+<body>
+  <div class="page-container">
+    <div class="page-header">
+      <div>
+        <h1 class="page-title" id="page-title">Laporan Izin Terlambat</h1>
+        <div class="breadcrumbs">
+          <a href="/dashboard">Dashboard</a>
+          <span>/</span>
+          <a href="/laporan/all">Laporan</a>
+          <span>/</span>
+          <span>Izin Terlambat</span>
+        </div>
+      </div>
+      <div class="btn-group">
+        <button id="btn-export" class="btn btn-primary" title="Export Laporan Excel">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Export
+        </button>
+      </div>
+    </div>
+
+
+
+    <!-- Filter & Search Card -->
+    <div class="card filter-card">
+      <div class="filter-bar">
+        <div class="filter-controls">
+          <!-- Date Range Picker -->
+          <div class="date-range-group" id="date-range-container">
+            <div class="date-input-wrapper">
+              <label class="date-label" for="start-date">Start Date</label>
+              <input type="date" id="start-date" class="date-input"/>
+            </div>
+            <span class="date-separator">—</span>
+            <div class="date-input-wrapper">
+              <label class="date-label" for="end-date">End Date</label>
+              <input type="date" id="end-date" class="date-input"/>
+            </div>
+          </div>
+
+          <!-- Search Input -->
+          <div class="search-input-wrapper">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="search" class="search-input" placeholder="Search nama atau NIK..."/>
+          </div>
+
+          <!-- Buttons -->
+          <div class="btn-group">
+            <button id="btn-search" class="btn btn-primary" title="Cari Data">Search</button>
+            <button id="btn-reset" class="btn btn-outline" title="Reset Filter">Reset</button>
+            <button id="btn-filter" class="btn btn-secondary" title="Filter Lanjutan">
+              <svg viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+              Filter
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data Table Card -->
+    <div class="card table-card">
+      <div class="table-container">
+        <table class="data-table" id="table-laporan">
+          <thead>
+            <tr>
+            <th id="th-foto">Foto</th>
+            <th id="th-nama">Nama Karyawan</th>
+            <th id="th-departemen">Unit / Departemen</th>
+            <th id="th-tanggal">Tanggal</th>
+            <th id="th-jam-jadwal">Jam Jadwal</th>
+            <th id="th-jam-aktual">Jam Masuk</th>
+            <th id="th-selisih">Selisih Terlambat</th>
+            <th id="th-alasan">Alasan Terlambat</th>
+            <th id="th-status">Status</th>
+            <th id="th-approver">Approver</th>
+            <th id="th-aksi">Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <!-- Data dynamically populated by JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination-bar">
+        <div class="pagination-info" id="pagination-info">Menampilkan 1-10 dari 15 data</div>
+        <div class="pagination-controls">
+          <label for="rows-per-page" style="font-size:0.85rem; color:#718096; margin-right:4px;">Baris per halaman:</label>
+          <select id="rows-per-page" class="rows-select">
+            <option value="5">5</option>
+            <option value="10" selected>10</option>
+            <option value="25">25</option>
+          </select>
+          <button id="btn-first-page" class="page-btn" title="Halaman Pertama">&laquo;</button>
+          <button id="btn-prev-page" class="page-btn" title="Halaman Sebelumnya">&lsaquo;</button>
+          <button id="btn-next-page" class="page-btn" title="Halaman Berikutnya">&rsaquo;</button>
+          <button id="btn-last-page" class="page-btn" title="Halaman Terakhir">&raquo;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Filter Dialog -->
+  <div class="modal-overlay" id="filter-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Filter Laporan Izin Terlambat</h3>
+        <button class="modal-close-btn" id="btn-close-filter-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label" for="filter-departemen">Unit / Departemen</label>
+          <select id="filter-departemen" class="form-select">
+            <option value="">Semua Departemen</option>
+            <option value="Quality Assurance">Quality Assurance</option>
+            <option value="IT Development">IT Development</option>
+            <option value="Human Resources">Human Resources</option>
+            <option value="Finance & Accounting">Finance & Accounting</option>
+            <option value="Marketing & Sales">Marketing & Sales</option>
+            <option value="Operations">Operations</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="filter-status-terlambat">Status Approval</label>
+          <select id="filter-status-terlambat" class="form-select">
+            <option value="">Semua Status</option>
+            <option value="Approved">Approved</option>
+            <option value="Pending">Pending</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="btn-cancel-filter" class="btn btn-secondary">Batal</button>
+        <button id="btn-apply-filter" class="btn btn-primary">Terapkan</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Detail -->
+  <div class="modal-overlay" id="detail-modal">
+    <div class="modal-content" style="max-width: 540px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="detail-modal-title">Detail Laporan Izin Terlambat</h3>
+        <button class="modal-close-btn" id="btn-close-detail-modal">&times;</button>
+      </div>
+      <div class="modal-body" id="detail-modal-body">
+        
+      </div>
+      <div class="modal-footer">
+        <button id="btn-close-detail" class="btn btn-secondary">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification / Snackbar -->
+  <div id="snackbar" class="snackbar">
+    <span id="snackbar-message">Pesan notifikasi</span>
+  </div>
+
+  <!-- Script Logika & Mock Data -->
+  <script>
+    const tableData = [
+    {
+        "id": 1,
+        "fullname": "Irwan Wahyudi",
+        "nik": "D6240005",
+        "departement": "Quality Assurance",
+        "date": "2026-10-26",
+        "schedule_time": "08:30:00",
+        "actual_time": "08:45:12",
+        "diff_minutes": "+15 Menit",
+        "reason": "Kemacetan KRL lintas Tanah Abang",
+        "status": "Approved",
+        "category": "Approved",
+        "approver": "Adit (HR)"
+    },
+    {
+        "id": 2,
+        "fullname": "Ahmad Subagyo",
+        "nik": "D6240001",
+        "departement": "IT Development",
+        "date": "2026-10-26",
+        "schedule_time": "08:30:00",
+        "actual_time": "08:52:12",
+        "diff_minutes": "+22 Menit",
+        "reason": "Trouble motor mogok di jalan",
+        "status": "Pending",
+        "category": "Pending",
+        "approver": "Adit (HR)"
+    },
+    {
+        "id": 3,
+        "fullname": "Siti Nurhaliza",
+        "nik": "D6240002",
+        "departement": "Human Resources",
+        "date": "2026-10-26",
+        "schedule_time": "08:30:00",
+        "actual_time": "08:59:12",
+        "diff_minutes": "+29 Menit",
+        "reason": "Cuaca hujan lebat banjir lokal",
+        "status": "Approved",
+        "category": "Approved",
+        "approver": "Adit (HR)"
+    },
+    {
+        "id": 4,
+        "fullname": "Dewi Sartika",
+        "nik": "D6240003",
+        "departement": "Finance & Accounting",
+        "date": "2026-10-25",
+        "schedule_time": "08:30:00",
+        "actual_time": "08:59:12",
+        "diff_minutes": "+36 Menit",
+        "reason": "Kendala ban bocor di tol",
+        "status": "Approved",
+        "category": "Approved",
+        "approver": "Adit (HR)"
+    },
+    {
+        "id": 5,
+        "fullname": "Budi Santoso",
+        "nik": "D6240004",
+        "departement": "IT Development",
+        "date": "2026-10-25",
+        "schedule_time": "08:30:00",
+        "actual_time": "08:59:12",
+        "diff_minutes": "+43 Menit",
+        "reason": "Antrian stasiun transit padat",
+        "status": "Pending",
+        "category": "Pending",
+        "approver": "Adit (HR)"
+    },
+    {
+        "id": 6,
+        "fullname": "Rian Hidayat",
+        "nik": "D6240006",
+        "departement": "Quality Assurance",
+        "date": "2026-10-24",
+        "schedule_time": "08:30:00",
+        "actual_time": "08:59:12",
+        "diff_minutes": "+50 Menit",
+        "reason": "Kemacetan KRL lintas Tanah Abang",
+        "status": "Approved",
+        "category": "Approved",
+        "approver": "Adit (HR)"
+    },
+    {
+        "id": 7,
+        "fullname": "Citra Kirana",
+        "nik": "D6240007",
+        "departement": "Marketing & Sales",
+        "date": "2026-10-24",
+        "schedule_time": "08:30:00",
+        "actual_time": "08:59:12",
+        "diff_minutes": "+57 Menit",
+        "reason": "Trouble motor mogok di jalan",
+        "status": "Approved",
+        "category": "Approved",
+        "approver": "Adit (HR)"
+    },
+    {
+        "id": 8,
+        "fullname": "Dimas Anggara",
+        "nik": "D6240008",
+        "departement": "Operations",
+        "date": "2026-10-23",
+        "schedule_time": "08:30:00",
+        "actual_time": "08:59:12",
+        "diff_minutes": "+64 Menit",
+        "reason": "Cuaca hujan lebat banjir lokal",
+        "status": "Pending",
+        "category": "Pending",
+        "approver": "Adit (HR)"
+    },
+    {
+        "id": 9,
+        "fullname": "Eka Prasetya",
+        "nik": "D6240009",
+        "departement": "IT Development",
+        "date": "2026-10-23",
+        "schedule_time": "08:30:00",
+        "actual_time": "08:51:12",
+        "diff_minutes": "+21 Menit",
+        "reason": "Kendala ban bocor di tol",
+        "status": "Approved",
+        "category": "Approved",
+        "approver": "Adit (HR)"
+    },
+    {
+        "id": 10,
+        "fullname": "Fajar Nugraha",
+        "nik": "D6240010",
+        "departement": "Human Resources",
+        "date": "2026-10-22",
+        "schedule_time": "08:30:00",
+        "actual_time": "08:58:12",
+        "diff_minutes": "+28 Menit",
+        "reason": "Antrian stasiun transit padat",
+        "status": "Approved",
+        "category": "Approved",
+        "approver": "Adit (HR)"
+    },
+    {
+        "id": 11,
+        "fullname": "Gita Gutawa",
+        "nik": "D6240011",
+        "departement": "Finance & Accounting",
+        "date": "2026-10-22",
+        "schedule_time": "08:30:00",
+        "actual_time": "08:59:12",
+        "diff_minutes": "+35 Menit",
+        "reason": "Kemacetan KRL lintas Tanah Abang",
+        "status": "Pending",
+        "category": "Pending",
+        "approver": "Adit (HR)"
+    },
+    {
+        "id": 12,
+        "fullname": "Hadi Pranoto",
+        "nik": "D6240012",
+        "departement": "Quality Assurance",
+        "date": "2026-10-21",
+        "schedule_time": "08:30:00",
+        "actual_time": "08:59:12",
+        "diff_minutes": "+42 Menit",
+        "reason": "Trouble motor mogok di jalan",
+        "status": "Approved",
+        "category": "Approved",
+        "approver": "Adit (HR)"
+    },
+    {
+        "id": 13,
+        "fullname": "Indah Permata",
+        "nik": "D6240013",
+        "departement": "Marketing & Sales",
+        "date": "2026-10-21",
+        "schedule_time": "08:30:00",
+        "actual_time": "08:59:12",
+        "diff_minutes": "+49 Menit",
+        "reason": "Cuaca hujan lebat banjir lokal",
+        "status": "Approved",
+        "category": "Approved",
+        "approver": "Adit (HR)"
+    },
+    {
+        "id": 14,
+        "fullname": "Joko Widodo",
+        "nik": "D6240014",
+        "departement": "Operations",
+        "date": "2026-10-20",
+        "schedule_time": "08:30:00",
+        "actual_time": "08:59:12",
+        "diff_minutes": "+56 Menit",
+        "reason": "Kendala ban bocor di tol",
+        "status": "Pending",
+        "category": "Pending",
+        "approver": "Adit (HR)"
+    },
+    {
+        "id": 15,
+        "fullname": "Kartika Sari",
+        "nik": "D6240015",
+        "departement": "Human Resources",
+        "date": "2026-10-20",
+        "schedule_time": "08:30:00",
+        "actual_time": "08:59:12",
+        "diff_minutes": "+63 Menit",
+        "reason": "Antrian stasiun transit padat",
+        "status": "Approved",
+        "category": "Approved",
+        "approver": "Adit (HR)"
+    }
+];
+    let currentData = [...tableData];
+    let currentPage = 1;
+    let pageSize = 10;
+
+    function renderTable() {
+      const tableBody = document.getElementById("table-body");
+      tableBody.innerHTML = "";
+
+      if (currentData.length === 0) {
+        const tr = document.createElement("tr");
+        tr.className = "empty-state";
+        tr.innerHTML = `<td colspan="11" style="text-align:center; padding:32px; color:#a0aec0; font-weight:500;">
+          Tidak ada data yang sesuai dengan kriteria filter.
+        </td>`;
+        tableBody.appendChild(tr);
+        document.getElementById("pagination-info").innerText = "Menampilkan 0 data";
+        updatePaginationButtons();
+        return;
+      }
+
+      const totalItems = currentData.length;
+      const totalPages = Math.ceil(totalItems / pageSize);
+      if (currentPage > totalPages) currentPage = totalPages;
+      if (currentPage < 1) currentPage = 1;
+
+      const startIndex = (currentPage - 1) * pageSize;
+      const endIndex = Math.min(startIndex + pageSize, totalItems);
+      const pageSlice = currentData.slice(startIndex, endIndex);
+
+      pageSlice.forEach(item => {
+        const tr = document.createElement("tr");
+        tr.id = `row-data-${item.id}`;
+        
+        const badgeClass = item.status === 'Approved' ? 'badge-approved' : 'badge-pending';
+        tr.innerHTML = `
+          <td><div class="avatar-wrapper"><div class="avatar-fallback">${item.fullname.charAt(0)}</div></div></td>
+          <td><div class="user-info"><span class="user-fullname">${item.fullname}</span><span class="user-nik">${item.nik}</span></div></td>
+          <td><span class="dept-badge">${item.departement}</span></td>
+          <td><strong>${item.date}</strong></td>
+          <td>${item.schedule_time}</td>
+          <td><strong style="color:#d32f2f;">${item.actual_time}</strong></td>
+          <td><span class="badge badge-rejected">${item.diff_minutes}</span></td>
+          <td style="max-width:200px; overflow:hidden; text-overflow:ellipsis;">${item.reason}</td>
+          <td><span class="badge ${badgeClass}">${item.status}</span></td>
+          <td>${item.approver}</td>
+          <td><button class="btn btn-outline action-btn-sm" onclick="openDetail(${item.id})">Detail</button></td>
+        `;
+    
+        tableBody.appendChild(tr);
+      });
+
+      document.getElementById("pagination-info").innerText = `Menampilkan ${startIndex + 1}-${endIndex} dari ${totalItems} data`;
+      updatePaginationButtons();
+    }
+
+    function updatePaginationButtons() {
+      const totalPages = Math.ceil(currentData.length / pageSize) || 1;
+      document.getElementById("btn-first-page").disabled = (currentPage === 1);
+      document.getElementById("btn-prev-page").disabled = (currentPage === 1);
+      document.getElementById("btn-next-page").disabled = (currentPage >= totalPages);
+      document.getElementById("btn-last-page").disabled = (currentPage >= totalPages);
+    }
+
+    function showSnackbar(message, type = 'info') {
+      const sb = document.getElementById("snackbar");
+      const msg = document.getElementById("snackbar-message");
+      sb.className = `snackbar show ${type}`;
+      msg.innerText = message;
+      setTimeout(() => { sb.className = "snackbar"; }, 3500);
+    }
+
+    // Filter Logic
+    document.getElementById("btn-search").addEventListener("click", () => {
+      const startDate = document.getElementById("start-date").value;
+      const endDate = document.getElementById("end-date").value;
+      const keyword = document.getElementById("search").value.trim().toLowerCase();
+
+      if (startDate && endDate && startDate > endDate) {
+        showSnackbar("Start date tidak boleh melebihi end date", "error");
+        return;
+      }
+
+      currentData = tableData.filter(item => {
+        let matchDate = true;
+        const itemDate = item.date || item.start_date || item.created_at || "2026-10-25";
+        if (startDate && itemDate < startDate) matchDate = false;
+        if (endDate && itemDate > endDate) matchDate = false;
+
+        let matchSearch = true;
+        if (keyword) {
+          const name = (item.fullname || item.name || "").toLowerCase();
+          const nik = (item.nik || item.id_report || "").toLowerCase();
+          matchSearch = name.includes(keyword) || nik.includes(keyword);
+        }
+        return matchDate && matchSearch;
+      });
+
+      currentPage = 1;
+      renderTable();
+    });
+
+    document.getElementById("btn-reset").addEventListener("click", () => {
+      document.getElementById("start-date").value = "";
+      document.getElementById("end-date").value = "";
+      document.getElementById("search").value = "";
+      document.getElementById("filter-departemen").value = "";
+      const catSelect = document.getElementById("filter-status-terlambat");
+      if (catSelect) catSelect.value = "";
+      currentData = [...tableData];
+      currentPage = 1;
+      renderTable();
+      showSnackbar("Filter pencarian Laporan Izin Terlambat berhasil direset", "info");
+    });
+
+    // Modal Filter
+    const filterModal = document.getElementById("filter-modal");
+    document.getElementById("btn-filter").addEventListener("click", () => {
+      filterModal.classList.add("active");
+    });
+    document.getElementById("btn-close-filter-modal").addEventListener("click", () => {
+      filterModal.classList.remove("active");
+    });
+    document.getElementById("btn-cancel-filter").addEventListener("click", () => {
+      filterModal.classList.remove("active");
+    });
+    document.getElementById("btn-apply-filter").addEventListener("click", () => {
+      const dept = document.getElementById("filter-departemen").value;
+      const catSelect = document.getElementById("filter-status-terlambat");
+      const catVal = catSelect ? catSelect.value : "";
+
+      currentData = tableData.filter(item => {
+        let matchDept = dept ? item.departement === dept : true;
+        let matchCat = true;
+        if (catVal) {
+          const itemCat = item.category || item.status || item.type || item.shift_name || "";
+          matchCat = itemCat.toLowerCase().includes(catVal.toLowerCase());
+        }
+        return matchDept && matchCat;
+      });
+
+      currentPage = 1;
+      renderTable();
+      filterModal.classList.remove("active");
+      showSnackbar(`Menampilkan ${currentData.length} data hasil filter`, "success");
+    });
+
+    // Detail Modal Actions
+    const detailModal = document.getElementById("detail-modal");
+    window.openDetail = function(id) {
+      const item = tableData.find(d => d.id === id);
+      if (!item) return;
+      document.getElementById("detail-modal-title").innerText = `Detail - ${item.fullname || item.name || item.topic || 'Data'}`;
+      detailModal.classList.add("active");
+    };
+
+    document.getElementById("btn-close-detail-modal").addEventListener("click", () => {
+      detailModal.classList.remove("active");
+    });
+    document.getElementById("btn-close-detail").addEventListener("click", () => {
+      detailModal.classList.remove("active");
+    });
+
+    // Export button
+    document.getElementById("btn-export").addEventListener("click", () => {
+      showSnackbar("Berhasil mengekspor Laporan Izin Terlambat ke Excel (.xlsx)", "success");
+    });
+
+    // Pagination Event Listeners
+    document.getElementById("rows-per-page").addEventListener("change", (e) => {
+      pageSize = parseInt(e.target.value, 10);
+      currentPage = 1;
+      renderTable();
+    });
+    document.getElementById("btn-first-page").addEventListener("click", () => {
+      currentPage = 1;
+      renderTable();
+    });
+    document.getElementById("btn-prev-page").addEventListener("click", () => {
+      if (currentPage > 1) { currentPage--; renderTable(); }
+    });
+    document.getElementById("btn-next-page").addEventListener("click", () => {
+      const totalPages = Math.ceil(currentData.length / pageSize);
+      if (currentPage < totalPages) { currentPage++; renderTable(); }
+    });
+    document.getElementById("btn-last-page").addEventListener("click", () => {
+      currentPage = Math.ceil(currentData.length / pageSize);
+      renderTable();
+    });
+
+    
+
+    renderTable();
+  </script>
+</body>
+</html>

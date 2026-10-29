@@ -35,3 +35,9 @@ Fitur: Audit Keamanan Kebocoran Data Rahasia dan Kredensial Sisi Klien
   Skenario: TC-SEC-LEAK-06 Verifikasi ketiadaan kredensial akun dan password plaintext pada template autentikasi statis
     Ketika client menganalisis file template autentikasi login HTML
     Maka file template tidak boleh memuat kredensial akun dan password plaintext secara hardcoded
+
+  @TC-SEC-LEAK-07 @high @cwe-922 @cwe-312
+  Skenario: TC-SEC-LEAK-07 Verifikasi ketiadaan penyimpanan token autentikasi pada Web Storage sisi klien
+    Ketika client menganalisis mekanisme penyimpanan sesi pada berkas skrip autentikasi login
+    Maka skrip autentikasi tidak boleh menyimpan token akses pada localStorage atau sessionStorage
+

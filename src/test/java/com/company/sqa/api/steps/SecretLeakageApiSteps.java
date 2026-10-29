@@ -310,4 +310,46 @@ public class SecretLeakageApiSteps {
             Assert.fail("SECURITY DEFECT TERDETEKSI: Ditemukan kredensial akun administratif dan password plaintext di dalam file template login.html!");
         }
     }
+
+    // ==========================================
+    // TC-SEC-LEAK-07: Insecure Token Storage in Client Web Storage (localStorage / sessionStorage)
+    // ==========================================
+
+    @Ketika("client menganalisis mekanisme penyimpanan sesi pada berkas skrip autentikasi login")
+    public void clientMenganalisisMekanismePenyimpananSesiPadaBerkasSkripAutentikasiLogin() throws IOException {
+        logger.info("Menganalisis mekanisme penyimpanan sesi pada berkas skrip autentikasi login");
+        Path loginPath = Paths.get(STATIC_WEB_DIR, "authentication/login.html");
+        if (!Files.exists(loginPath)) {
+            loginPath = Paths.get("target/test-classes/static-web/authentication/login.html");
+        }
+
+        if (Files.exists(loginPath)) {
+            loginHtmlContent = Files.readString(loginPath, StandardCharsets.UTF_8);
+            Allure.addAttachment("Isi Script login.html untuk Audit Storage", loginHtmlContent);
+        } else {
+            loginHtmlContent = "";
+        }
+    }
+
+    @Maka("skrip autentikasi tidak boleh menyimpan token akses pada localStorage atau sessionStorage")
+    public void skripAutentikasiTidakBolehMenyimpanTokenAksesPadaLocalStorageAtauSessionStorage() {
+        boolean usesLocalStorage = loginHtmlContent.contains("localStorage.setItem('token'") || loginHtmlContent.contains("localStorage.setItem(\"token\"");
+        boolean usesSessionStorage = loginHtmlContent.contains("sessionStorage.setItem('token'") || loginHtmlContent.contains("sessionStorage.setItem(\"token\"");
+
+        if (usesLocalStorage || usesSessionStorage) {
+            String report = """
+                    TEMUAN KEAMANAN (CWE-922: Insecure Storage of Sensitive Information / CWE-312):
+                    Skrip autentikasi frontend menyimpan token akses autentikasi secara langsung pada Web Storage browser:
+                    - Bukti: localStorage.setItem('token', 'dummy-jwt-token-sqa-approved')
+                    - Bukti: sessionStorage.setItem('token', 'dummy-jwt-token-sqa-approved')
+                    Dampak: Web Storage (localStorage dan sessionStorage) tidak memiliki atribut keamanan HttpOnly,
+                    sehingga token dapat dibaca dan dieksfiltrasi oleh skrip berbahaya melalui serangan Cross-Site Scripting (XSS).
+                    Rekomendasi: Jangan simpan token autentikasi pada Web Storage. Gunakan Cookie dengan flag HttpOnly,
+                    Secure, dan SameSite=Lax/Strict untuk mengelola sesi login secara aman.
+                    """;
+            Allure.addAttachment("Defect Audit Report - Insecure Token Storage in Web Storage", report);
+            Assert.fail("SECURITY DEFECT TERDETEKSI: Skrip autentikasi menyimpan token pada localStorage/sessionStorage yang rentan terhadap XSS (CWE-922)!");
+        }
+    }
 }
+

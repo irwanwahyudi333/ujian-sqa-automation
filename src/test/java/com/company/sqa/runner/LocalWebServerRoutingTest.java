@@ -104,4 +104,17 @@ public class LocalWebServerRoutingTest {
         Assert.assertTrue(response.body().contains("modal-delete-schedule"), "HTML should contain delete modal");
     }
 
+    @Test
+    public void testLaporanActivityRoute() throws IOException, InterruptedException {
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:" + TEST_PORT + "/laporan/activity"))
+                .GET()
+                .build();
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        Assert.assertEquals(response.statusCode(), 200, "Expected HTTP 200 for /laporan/activity");
+        Assert.assertTrue(response.body().contains("HADIR - Laporan Activity"), "HTML should contain page title");
+        Assert.assertTrue(response.body().contains("table-laporan"), "HTML should contain table-laporan");
+        Assert.assertTrue(response.body().contains("btn-search"), "HTML should contain btn-search");
+    }
 }

@@ -38,10 +38,14 @@ cucumber-reports/
 .ai/
 AGENTS.md
 PANDUAN_ARSITEKTUR_SRC.md
+.agents/
 
 ### MCP Playwright ###
 .playwright-mcp/
 
 ### Allure Test ###
 .allure
+
+### FDA ###
+fda/
 
