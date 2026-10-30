@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Download Report - HADIR</title>
+  <link rel="stylesheet" href="/_next/static/css/495699d770df42cd.css">
+  <link rel="stylesheet" href="/_next/static/css/8696414957349dfe.css">
+</head>
+<body>
+  <div id="__next">
+    <div class="MuiBox-root css-10w23i8" style="width: 100%; max-width: 600px; margin: 0 auto; padding: 16px;">
+      <div class="MuiBox-root css-header" style="display: flex; align-items: center; margin-bottom: 24px;">
+        <button class="MuiButtonBase-root MuiButton-root MuiButton-text css-back-btn" tabindex="0" type="button" onclick="history.back()">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </button>
+        <h1 class="MuiTypography-root MuiTypography-h6 css-title" style="margin-left: 8px; font-size: 1.25rem; font-weight: 600;">Download Report</h1>
+      </div>
+
+      <form id="form-share-report" class="MuiBox-root css-form">
+        <div class="MuiFormControl-root MuiFormControl-fullWidth css-form-control" style="margin-bottom: 24px;">
+          <label id="type_report" class="MuiFormLabel-root MuiInputLabel-root css-label" style="color: black; margin-bottom: 8px; display: block; font-weight: 500;">Pilih tipe report</label>
+          <div class="MuiInputBase-root MuiOutlinedInput-root MuiSelect-root css-select-wrapper" style="width: 100%;">
+            <select name="share_report" id="share_report_select" class="MuiSelect-select MuiInputBase-input MuiOutlinedInput-input css-select" style="width: 100%; padding: 14px; border: 1px solid #c4c4c4; border-radius: 8px; font-size: 1rem; background-color: #fff;">
+              <option value="" disabled selected>Pilih tipe report</option>
+              <option value="day">Harian</option>
+              <option value="week">Mingguan</option>
+              <option value="month">Bulanan</option>
+            </select>
+          </div>
+          <p id="error-message" class="MuiFormHelperText-root Mui-error css-helper-text" style="color: #d32f2f; margin-left: 0; font-size: 0.75rem; display: none;">Tipe report harus dipilih!</p>
+        </div>
+
+        <div class="MuiBox-root css-submit-container" style="position: fixed; bottom: 10px; display: flex; justify-content: center; width: 100%; max-width: 600px; left: 50%; transform: translateX(-50%); padding: 0 16px;">
+          <button id="btn-download-report" class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary css-btn-submit" type="submit" style="height: 50px; width: 100%; background-color: #0d6efd; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <span class="btn-text">Download Report</span>
+            <svg class="MuiSvgIcon-root" focusable="false" aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"></path>
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="/_next/static/chunks/pages/apps/absent/reports/share_report-219f7f351d04c770.js"></script>
+</body>
+</html>
+

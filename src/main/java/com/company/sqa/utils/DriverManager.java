@@ -51,7 +51,7 @@ public class DriverManager {
 
                 // Inisialisasi dengan retry dan custom port bila PortProber gagal
                 Exception lastException = null;
-                for (int attempt = 1; attempt <= 5; attempt++) {
+                for (int attempt = 1; attempt <= 8; attempt++) {
                     try {
                         int freePort = findAvailablePort();
                         GeckoDriverService.Builder serviceBuilder = new GeckoDriverService.Builder();
@@ -68,12 +68,12 @@ public class DriverManager {
                         lastException = e;
                         logger.warn("Percobaan inisialisasi FirefoxDriver ke-{} gagal: {}", attempt, e.getMessage());
                         try {
-                            Thread.sleep(1500);
+                            Thread.sleep(2000);
                         } catch (InterruptedException ignored) {}
                     }
                 }
                 if (driver == null) {
-                    throw new RuntimeException("Gagal menginisialisasi FirefoxDriver setelah 3 percobaan", lastException);
+                    throw new RuntimeException("Gagal menginisialisasi FirefoxDriver setelah 8 percobaan", lastException);
                 }
             }
             case "chrome" -> {
@@ -105,11 +105,20 @@ public class DriverManager {
     }
 
     private static int findAvailablePort() {
+        int min = 12000;
+        int max = 19000;
+        for (int i = 0; i < 5; i++) {
+            int candidate = min + (int) (Math.random() * (max - min));
+            try (ServerSocket socket = new ServerSocket(candidate)) {
+                socket.setReuseAddress(true);
+                return candidate;
+            } catch (IOException ignored) {}
+        }
         try (ServerSocket socket = new ServerSocket(0)) {
             socket.setReuseAddress(true);
             return socket.getLocalPort();
         } catch (IOException e) {
-            return -1;
+            return 14500 + (int) (Math.random() * 2000);
         }
     }
 

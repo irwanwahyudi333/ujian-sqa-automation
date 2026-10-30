@@ -88,6 +88,18 @@ public abstract class BasePage {
         }
     }
 
+    protected boolean isDisplayed(By locator) {
+        return isElementDisplayed(locator);
+    }
+
+    protected String getAttribute(By locator, String attributeName) {
+        try {
+            return waitForVisibility(locator).getAttribute(attributeName);
+        } catch (Exception e) {
+            return driver.findElement(locator).getAttribute(attributeName);
+        }
+    }
+
     public boolean waitForUrlContains(String partialUrl) {
         try {
             return wait.until(ExpectedConditions.urlContains(partialUrl));

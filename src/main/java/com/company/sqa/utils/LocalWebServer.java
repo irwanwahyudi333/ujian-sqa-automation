@@ -161,6 +161,10 @@ public class LocalWebServer {
                 serveFile(exchange, "/absen/register.html");
                 return;
             }
+            if (uriPath.equals("/apps/absent") || uriPath.equals("/apps/absent/")) {
+                serveFile(exchange, "/apps/absent/index.html");
+                return;
+            }
             if (uriPath.equals("/management/user-v2/register") || uriPath.equals("/management/user-v2/register.html")) {
                 serveFile(exchange, "/management/user-v2/register.html");
                 return;
