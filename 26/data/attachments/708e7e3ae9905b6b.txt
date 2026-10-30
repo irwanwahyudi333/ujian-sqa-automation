@@ -1,0 +1,2 @@
+Baris Dipilih: Baris 2 (index 1) dan Baris 4 (index 3)
+Jumlah Terpilih: 2
