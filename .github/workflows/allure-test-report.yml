@@ -1,22 +1,25 @@
 name: SQA Automation & Allure Report
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  # Dinonaktifkan agar tidak otomatis berjalan setiap kali ada push atau pull request
+  # push:
+  #   branches: [ main ]
+  # pull_request:
+  #   branches: [ main ]
+
+  # Eksekusi manual melalui tab Actions di GitHub
   workflow_dispatch:
     inputs:
       test_suite:
         description: 'Pilih suite pengujian yang ingin dijalankan'
         required: true
-        default: 'all'
+        default: 'lean'
         type: choice
         options:
-          - all
           - lean
           - api
           - ui
+          - all
 
 permissions:
   contents: write
