@@ -1,0 +1,850 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Fri Oct 30 12:02:59 GMT 2026","Fri Oct 30 12:03:09 GMT 2026","10560","","Pengujian Fitur Laporan Daily Report — HADIR","","Pencarian rekaman presensi harian berdasarkan nama karyawan","","Pencarian rekaman presensi harian berdasarkan nama karyawan","  Sebagai Administrator atau Manajer Operasional Hadir
+  Saya ingin meninjau ringkasan konsolidasi presensi harian karyawan dan status kehadirannya
+  Agar audit absensi harian dapat dimonitor secara real-time dan akuntabel"
+"passed","Fri Oct 30 11:16:23 GMT 2026","Fri Oct 30 11:16:49 GMT 2026","25656","","Verifikasi Alur Kritis Antarmuka Halaman Departemens (Lean UI)","","Membuka modal tambah departemen dan membatalkannya","","Membuka modal tambah departemen dan membatalkannya","  Sebagai administrator HADIR
+  Saya ingin memastikan elemen visual dan alur kritis interaksi halaman departemen beroperasi dengan benar
+  Agar struktur unit kerja departemen dapat dikelola secara andal"
+"passed","Fri Oct 30 12:14:09 GMT 2026","Fri Oct 30 12:14:11 GMT 2026","1361","","Pengujian UI Lean Master Shifting","","Tambah data shifting baru melalui modal","","Tambah data shifting baru melalui modal","  Sebagai Administrator SQA
+  Saya ingin menguji antarmuka Master Shifting
+  Untuk memastikan render elemen visual, pencarian pola kerja, serta modal tambah/hapus berfungsi dengan baik sesuai Skema 1"
+"passed","Fri Oct 30 11:55:36 GMT 2026","Fri Oct 30 11:55:47 GMT 2026","10767","","Pengujian Fitur Laporan Izin Off — HADIR","","Penyaringan laporan multi-kriteria via modal filter departemen dan status persetujuan","","Penyaringan laporan multi-kriteria via modal filter departemen dan status persetujuan","  Sebagai Administrator atau Supervisor Tim Shift
+  Saya ingin mengelola permohonan penyesuaian jadwal libur (day-off swap) dan tanggal pengganti
+  Agar operasional rotasi shift tetap berjalan optimal dan transparan"
+"passed","Fri Oct 30 11:20:33 GMT 2026","Fri Oct 30 11:20:44 GMT 2026","10513","","Pengujian Fitur Laporan Activity (Agenda & Aktivitas Kerja) — HADIR","","Penolakan input logika tanggal terbalik (Start Date lebih besar dari End Date)","","Penolakan input logika tanggal terbalik (Start Date lebih besar dari End Date)","  Sebagai Administrator atau Tim HR/Supervisor
+  Saya ingin memantau dan memvalidasi rekaman kegiatan harian, tipe aktivitas, waktu pelaksanaan, serta mengekspor data agenda kerja karyawan
+  Agar pencatatan tugas dan produktivitas karyawan terdokumentasi rapi dan akurat"
+"passed","Fri Oct 30 12:10:51 GMT 2026","Fri Oct 30 12:11:17 GMT 2026","25685","","Verifikasi Alur Kritis Antarmuka Halaman Position (Lean UI)","","Membuka modal tambah position dan membatalkannya","","Membuka modal tambah position dan membatalkannya","  Sebagai administrator HADIR
+  Saya ingin memastikan elemen visual dan alur kritis interaksi halaman posisi/jabatan berjalan dengan benar
+  Agar jabatan posisi karyawan dapat ditetapkan dan dikelola secara terstruktur"
+"passed","Fri Oct 30 12:00:41 GMT 2026","Fri Oct 30 12:00:52 GMT 2026","10521","","Pengujian Fitur Laporan New Generate — HADIR","","Kontrol jumlah baris per halaman pada tabel riwayat template","","Kontrol jumlah baris per halaman pada tabel riwayat template","  Sebagai Administrator atau Tim Analis Data Hadir
+  Saya ingin membuat konfigurasi template laporan dinamis dan memantau riwayat berkas template yang telah dibuat
+  Agar penarikan data atribut kustom dapat dilakukan secara fleksibel dan terdokumentasi"
+"failed","Fri Oct 30 11:47:09 GMT 2026","Fri Oct 30 11:47:45 GMT 2026","35905","","Pengujian Fitur Laporan Perjalanan Dinas — HADIR","","Penolakan input logika tanggal terbalik pada perjalanan dinas","","Penolakan input logika tanggal terbalik pada perjalanan dinas","  Sebagai Administrator atau Tim Operasional Hadir
+  Saya ingin mengelola surat tugas dinas, anggaran operasional luar kantor, dan status persetujuan dinas
+  Agar akuntabilitas pelaksanaan dinas luar kota karyawan tercatat transparan"
+"passed","Fri Oct 30 11:22:39 GMT 2026","Fri Oct 30 11:22:50 GMT 2026","10487","","Pengujian Fitur Laporan Izin (Perizinan Karyawan) — HADIR","","Penolakan input logika tanggal terbalik (Start Date lebih besar dari End Date)","","Penolakan input logika tanggal terbalik (Start Date lebih besar dari End Date)","  Sebagai Administrator atau Tim HR
+  Saya ingin memantau dan memvalidasi rekaman permohonan izin, tipe izin, lampiran surat izin, dan status persetujuan
+  Agar pencatatan ketidakhadiran karyawan tertib, sah, dan terverifikasi"
+"passed","Fri Oct 30 12:14:08 GMT 2026","Fri Oct 30 12:14:09 GMT 2026","1323","","Pengujian UI Lean Master Shifting","","Buka dan batalkan modal tambah shifting","","Buka dan batalkan modal tambah shifting","  Sebagai Administrator SQA
+  Saya ingin menguji antarmuka Master Shifting
+  Untuk memastikan render elemen visual, pencarian pola kerja, serta modal tambah/hapus berfungsi dengan baik sesuai Skema 1"
+"passed","Fri Oct 30 11:18:25 GMT 2026","Fri Oct 30 11:18:26 GMT 2026","194","","Verifikasi Alur Kritis Antarmuka Halaman Departements Settings (Lean UI)","","Membuka halaman departements settings dan verifikasi elemen antarmuka","","Membuka halaman departements settings dan verifikasi elemen antarmuka","  Sebagai administrator HADIR
+  Saya ingin memastikan konfigurasi pengaturan departemen dan toggle switch status berfungsi dengan baik
+  Agar status operasional departemen dapat dikendalikan secara tepat"
+"passed","Fri Oct 30 12:00:10 GMT 2026","Fri Oct 30 12:00:20 GMT 2026","10757","","Pengujian Fitur Laporan New Generate — HADIR","","Penyaringan riwayat template via modal filter departemen dan format","","Penyaringan riwayat template via modal filter departemen dan format","  Sebagai Administrator atau Tim Analis Data Hadir
+  Saya ingin membuat konfigurasi template laporan dinamis dan memantau riwayat berkas template yang telah dibuat
+  Agar penarikan data atribut kustom dapat dilakukan secara fleksibel dan terdokumentasi"
+"passed","Fri Oct 30 11:34:32 GMT 2026","Fri Oct 30 11:34:43 GMT 2026","10780","","Pengujian Fitur Laporan Sakit — HADIR","","Penyaringan laporan multi-kriteria via modal filter departemen dan status verifikasi","","Penyaringan laporan multi-kriteria via modal filter departemen dan status verifikasi","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin memverifikasi izin sakit karyawan, validasi surat dokter, dan status konfirmasi medis
+  Agar pencatatan ketidakhadiran karena kondisi medis tercatat rapi dan akurat"
+"broken","Fri Oct 30 12:14:11 GMT 2026","Fri Oct 30 12:14:11 GMT 2026","82","","Pengujian UI Lean Master Shifting","","Buka dan batalkan modal hapus shifting","","Buka dan batalkan modal hapus shifting","  Sebagai Administrator SQA
+  Saya ingin menguji antarmuka Master Shifting
+  Untuk memastikan render elemen visual, pencarian pola kerja, serta modal tambah/hapus berfungsi dengan baik sesuai Skema 1"
+"passed","Fri Oct 30 11:52:27 GMT 2026","Fri Oct 30 11:52:38 GMT 2026","10594","","Pengujian Fitur Laporan Koreksi Absensi — HADIR","","Penolakan input logika tanggal terbalik pada koreksi absensi","","Penolakan input logika tanggal terbalik pada koreksi absensi","  Sebagai Administrator atau Atasan Langsung (Upliner)
+  Saya ingin meninjau permohonan perbaikan jam absensi dan memproses persetujuannya
+  Agar rekaman jam kerja karyawan akurat dan terdokumentasi dengan transparan"
+"passed","Fri Oct 30 11:18:26 GMT 2026","Fri Oct 30 11:18:28 GMT 2026","1281","","Verifikasi Alur Kritis Antarmuka Halaman Departements Settings (Lean UI)","","Melakukan pencarian konfigurasi departemen berdasarkan nama","","Melakukan pencarian konfigurasi departemen berdasarkan nama","  Sebagai administrator HADIR
+  Saya ingin memastikan konfigurasi pengaturan departemen dan toggle switch status berfungsi dengan baik
+  Agar status operasional departemen dapat dikendalikan secara tepat"
+"passed","Fri Oct 30 12:15:14 GMT 2026","Fri Oct 30 12:15:40 GMT 2026","25645","","Verifikasi Alur Kritis Antarmuka Halaman User Monitoring (Lean UI)","","Membuka modal tambah user monitoring dan membatalkannya","","Membuka modal tambah user monitoring dan membatalkannya","  Sebagai administrator HADIR
+  Saya ingin memastikan elemen visual dan alur kritis interaksi halaman pemantauan pengguna berfungsi dengan baik
+  Agar pengawasan keaktifan dan lokasi presensi karyawan di lapangan dapat dilakukan secara akurat"
+"passed","Fri Oct 30 11:52:17 GMT 2026","Fri Oct 30 11:52:27 GMT 2026","10585","","Pengujian Fitur Laporan Koreksi Absensi — HADIR","","Penyaringan rekaman koreksi absensi berdasarkan rentang tanggal presisi","","Penyaringan rekaman koreksi absensi berdasarkan rentang tanggal presisi","  Sebagai Administrator atau Atasan Langsung (Upliner)
+  Saya ingin meninjau permohonan perbaikan jam absensi dan memproses persetujuannya
+  Agar rekaman jam kerja karyawan akurat dan terdokumentasi dengan transparan"
+"passed","Fri Oct 30 11:46:23 GMT 2026","Fri Oct 30 11:46:33 GMT 2026","10485","","Pengujian Fitur Laporan Perjalanan Dinas — HADIR","","Penyaringan rekaman dinas berdasarkan rentang tanggal presisi","","Penyaringan rekaman dinas berdasarkan rentang tanggal presisi","  Sebagai Administrator atau Tim Operasional Hadir
+  Saya ingin mengelola surat tugas dinas, anggaran operasional luar kantor, dan status persetujuan dinas
+  Agar akuntabilitas pelaksanaan dinas luar kota karyawan tercatat transparan"
+"passed","Fri Oct 30 11:22:18 GMT 2026","Fri Oct 30 11:22:29 GMT 2026","10192","","Pengujian Fitur Laporan Izin (Perizinan Karyawan) — HADIR","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Izin","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Izin","  Sebagai Administrator atau Tim HR
+  Saya ingin memantau dan memvalidasi rekaman permohonan izin, tipe izin, lampiran surat izin, dan status persetujuan
+  Agar pencatatan ketidakhadiran karyawan tertib, sah, dan terverifikasi"
+"passed","Fri Oct 30 11:30:22 GMT 2026","Fri Oct 30 11:30:33 GMT 2026","10645","","Pengujian Fitur Laporan Cuti — HADIR","","Kontrol jumlah baris per halaman pada tabel cuti","","Kontrol jumlah baris per halaman pada tabel cuti","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin memantau dan memvalidasi permohonan hak cuti karyawan, durasi hari kerja, dan approval Client V2
+  Agar alokasi ketidakhadiran dan hak cuti tahunan karyawan terkelola dengan baik"
+"failed","Fri Oct 30 11:16:12 GMT 2026","Fri Oct 30 11:16:23 GMT 2026","10786","","Verifikasi Alur Kritis Antarmuka Halaman Departemens (Lean UI)","","Melakukan pencarian departemen berdasarkan nama","","Melakukan pencarian departemen berdasarkan nama","  Sebagai administrator HADIR
+  Saya ingin memastikan elemen visual dan alur kritis interaksi halaman departemen beroperasi dengan benar
+  Agar struktur unit kerja departemen dapat dikelola secara andal"
+"passed","Fri Oct 30 12:01:56 GMT 2026","Fri Oct 30 12:02:06 GMT 2026","10464","","Pengujian Fitur Laporan Sisa Cuti — HADIR","","Aksi sinkronisasi kuota cuti karyawan secara global","","Aksi sinkronisasi kuota cuti karyawan secara global","  Sebagai Administrator atau Tim Human Resources
+  Saya ingin memantau kuota hak cuti tahunan, cuti terpakai, dan sisa saldo berjalan karyawan
+  Agar manajemen cuti karyawan transparan dan terdata secara teratur"
+"passed","Fri Oct 30 11:20:44 GMT 2026","Fri Oct 30 11:21:25 GMT 2026","41501","","Pengujian Fitur Laporan Activity (Agenda & Aktivitas Kerja) — HADIR","","Pencarian rekaman aktivitas berdasarkan nama karyawan","","Pencarian rekaman aktivitas berdasarkan nama karyawan","  Sebagai Administrator atau Tim HR/Supervisor
+  Saya ingin memantau dan memvalidasi rekaman kegiatan harian, tipe aktivitas, waktu pelaksanaan, serta mengekspor data agenda kerja karyawan
+  Agar pencatatan tugas dan produktivitas karyawan terdokumentasi rapi dan akurat"
+"failed","Fri Oct 30 12:06:20 GMT 2026","Fri Oct 30 12:06:21 GMT 2026","771","","Verifikasi Alur Kritis Antarmuka Halaman Location Point (Lean UI)","","Melakukan pencarian titik lokasi presensi berdasarkan nama","","Melakukan pencarian titik lokasi presensi berdasarkan nama","  Sebagai administrator HADIR
+  Saya ingin memastikan elemen visual dan alur kritis interaksi halaman titik lokasi presensi geofencing berfungsi dengan baik
+  Agar batas radius presensi kehadiran karyawan dapat ditentukan secara presisi"
+"passed","Fri Oct 30 11:18:28 GMT 2026","Fri Oct 30 11:18:53 GMT 2026","25645","","Verifikasi Alur Kritis Antarmuka Halaman Departements Settings (Lean UI)","","Membuka modal tambah departemens setting dan membatalkannya","","Membuka modal tambah departemens setting dan membatalkannya","  Sebagai administrator HADIR
+  Saya ingin memastikan konfigurasi pengaturan departemen dan toggle switch status berfungsi dengan baik
+  Agar status operasional departemen dapat dikendalikan secara tepat"
+"passed","Fri Oct 30 11:45:41 GMT 2026","Fri Oct 30 11:45:51 GMT 2026","10265","","Pengujian Fitur Laporan Meeting — HADIR","","Peninjauan modal dialog detail meeting","","Peninjauan modal dialog detail meeting","  Sebagai Administrator atau Manajemen Hadir
+  Saya ingin memantau agenda rapat kerja, daftar kehadiran peserta rapat, dan ruangan/tautan meeting
+  Agar koordinasi pertemuan bisnis dan operasional terdokumentasi dengan baik"
+"passed","Fri Oct 30 12:04:23 GMT 2026","Fri Oct 30 12:04:34 GMT 2026","10504","","Pengujian Fitur Laporan Semua (Kehadiran Karyawan) — HADIR","","Penolakan input logika tanggal terbalik (Start Date lebih besar dari End Date)","","Penolakan input logika tanggal terbalik (Start Date lebih besar dari End Date)","  Sebagai Administrator atau Tim HR
+  Saya ingin memantau dan memvalidasi rekaman kehadiran, foto selfie, koordinat GPS, serta mengekspor data absensi
+  Agar pencatatan kehadiran karyawan akurat dan bebas dari manipulasi"
+"passed","Fri Oct 30 11:36:05 GMT 2026","Fri Oct 30 11:36:15 GMT 2026","10783","","Pengujian Fitur Laporan Overtime — HADIR","","Penyaringan rekaman lembur berdasarkan rentang tanggal presisi","","Penyaringan rekaman lembur berdasarkan rentang tanggal presisi","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin memantau dan memvalidasi rekaman jam kerja lembur karyawan, uraian tugas lembur, dan status persetujuan
+  Agar alokasi kompensasi lembur dan jam kerja tambahan karyawan terkelola secara adil dan transparan"
+"passed","Fri Oct 30 12:07:42 GMT 2026","Fri Oct 30 12:07:53 GMT 2026","10673","","Validasi Field Email pada Halaman Login","","Input email format valid dan terdaftar","","Input email format valid dan terdaftar","  Sebagai sistem autentikasi
+  Saya ingin memastikan format dan masukan email divalidasi dengan ketat
+  Agar integritas akun pengguna tetap terjaga dari input tidak valid"
+"passed","Fri Oct 30 11:15:56 GMT 2026","Fri Oct 30 11:15:57 GMT 2026","1215","","Pengujian UI Lean Master Day Off","","Pencarian hari libur berdasarkan kata kunci","","Pencarian hari libur berdasarkan kata kunci","  Sebagai Administrator SQA
+  Saya ingin menguji antarmuka Master Hari Libur (Day Off)
+  Untuk memastikan render tanggal hari libur, pencarian teks, dan dialog tambah/hapus sesuai Skema 1"
+"passed","Fri Oct 30 12:10:50 GMT 2026","Fri Oct 30 12:10:50 GMT 2026","211","","Verifikasi Alur Kritis Antarmuka Halaman Position (Lean UI)","","Membuka halaman position dan verifikasi elemen antarmuka","","Membuka halaman position dan verifikasi elemen antarmuka","  Sebagai administrator HADIR
+  Saya ingin memastikan elemen visual dan alur kritis interaksi halaman posisi/jabatan berjalan dengan benar
+  Agar jabatan posisi karyawan dapat ditetapkan dan dikelola secara terstruktur"
+"passed","Fri Oct 30 11:30:33 GMT 2026","Fri Oct 30 11:30:44 GMT 2026","10654","","Pengujian Fitur Laporan Cuti — HADIR","","Ekspor berkas laporan cuti ke format Excel","","Ekspor berkas laporan cuti ke format Excel","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin memantau dan memvalidasi permohonan hak cuti karyawan, durasi hari kerja, dan approval Client V2
+  Agar alokasi ketidakhadiran dan hak cuti tahunan karyawan terkelola dengan baik"
+"passed","Fri Oct 30 12:09:55 GMT 2026","Fri Oct 30 12:09:57 GMT 2026","1194","","Pengujian UI Lean Master Overtime Reason","","Tambah data alasan lembur baru melalui modal","","Tambah data alasan lembur baru melalui modal","  Sebagai Administrator SQA
+  Saya ingin menguji antarmuka Master Alasan Lembur (OT Reason)
+  Untuk memastikan render daftar alasan lembur, pencarian teks, dan dialog tambah/hapus berfungsi sesuai Skema 1"
+"passed","Fri Oct 30 12:08:35 GMT 2026","Fri Oct 30 12:08:45 GMT 2026","10664","","Pengujian Alur Bisnis dan Fungsionalitas Login HADIR","","Login berhasil dengan akun aktif yang telah disetujui (Happy Path)","","Login berhasil dengan akun aktif yang telah disetujui (Happy Path)","  Sebagai pengguna terdaftar atau peserta magang
+  Saya ingin menjalankan proses login dengan berbagai skenario alur kerja
+  Agar sistem dapat mengautentikasi dan mengarahkan hak akses dengan tepat"
+"passed","Fri Oct 30 12:15:13 GMT 2026","Fri Oct 30 12:15:14 GMT 2026","1270","","Verifikasi Alur Kritis Antarmuka Halaman User Monitoring (Lean UI)","","Melakukan pencarian user monitoring dengan nama yang valid","","Melakukan pencarian user monitoring dengan nama yang valid","  Sebagai administrator HADIR
+  Saya ingin memastikan elemen visual dan alur kritis interaksi halaman pemantauan pengguna berfungsi dengan baik
+  Agar pengawasan keaktifan dan lokasi presensi karyawan di lapangan dapat dilakukan secara akurat"
+"passed","Fri Oct 30 11:53:42 GMT 2026","Fri Oct 30 11:53:52 GMT 2026","10179","","Pengujian Fitur Laporan Izin Off — HADIR","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Izin Off","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Izin Off","  Sebagai Administrator atau Supervisor Tim Shift
+  Saya ingin mengelola permohonan penyesuaian jadwal libur (day-off swap) dan tanggal pengganti
+  Agar operasional rotasi shift tetap berjalan optimal dan transparan"
+"passed","Fri Oct 30 12:09:54 GMT 2026","Fri Oct 30 12:09:55 GMT 2026","1176","","Pengujian UI Lean Master Overtime Reason","","Buka dan batalkan modal tambah overtime reason","","Buka dan batalkan modal tambah overtime reason","  Sebagai Administrator SQA
+  Saya ingin menguji antarmuka Master Alasan Lembur (OT Reason)
+  Untuk memastikan render daftar alasan lembur, pencarian teks, dan dialog tambah/hapus berfungsi sesuai Skema 1"
+"passed","Fri Oct 30 12:12:39 GMT 2026","Fri Oct 30 12:12:53 GMT 2026","13493","","Pengujian Alur Bisnis dan Submit Formulir Pendaftaran","","Pendaftaran berhasil dengan seluruh field lengkap dan valid","","Pendaftaran berhasil dengan seluruh field lengkap dan valid","  Sebagai calon pengguna magang
+  Saya ingin mengirimkan formulir registrasi
+  Agar sistem memproses pembuatan akun sesuai aturan bisnis pendaftaran"
+"passed","Fri Oct 30 11:43:14 GMT 2026","Fri Oct 30 11:43:25 GMT 2026","10844","","Pengujian Fitur Laporan Shifting — HADIR","","Pembersihan kriteria filter dan pencarian shifting melalui tombol Reset","","Pembersihan kriteria filter dan pencarian shifting melalui tombol Reset","  Sebagai Administrator atau Tim HR Operasional Hadir
+  Saya ingin memantau kehadiran karyawan shift, kepatuhan jam kerja, dan alokasi pola shift
+  Agar operasional rotasi shift berjalan tertib dan terdata secara transparan"
+"failed","Fri Oct 30 11:16:00 GMT 2026","Fri Oct 30 11:16:01 GMT 2026","704","","Pengujian UI Lean Master Day Off","","Buka dan batalkan modal hapus hari libur","","Buka dan batalkan modal hapus hari libur","  Sebagai Administrator SQA
+  Saya ingin menguji antarmuka Master Hari Libur (Day Off)
+  Untuk memastikan render tanggal hari libur, pencarian teks, dan dialog tambah/hapus sesuai Skema 1"
+"passed","Fri Oct 30 12:09:51 GMT 2026","Fri Oct 30 12:09:51 GMT 2026","510","","Pengujian Fitur Management User — HADIR","","Alur pembatalan dan konfirmasi penghapusan karyawan","","Alur pembatalan dan konfirmasi penghapusan karyawan","  Sebagai Administrator
+  Saya ingin mengelola data direktori pengguna, status akun, dan sinkronisasi approval
+  Agar operasional kepegawaian dapat dipantau dan dikelola dengan akurat"
+"passed","Fri Oct 30 12:04:13 GMT 2026","Fri Oct 30 12:04:23 GMT 2026","10512","","Pengujian Fitur Laporan Semua (Kehadiran Karyawan) — HADIR","","Penyaringan rekaman absensi berdasarkan rentang tanggal","","Penyaringan rekaman absensi berdasarkan rentang tanggal","  Sebagai Administrator atau Tim HR
+  Saya ingin memantau dan memvalidasi rekaman kehadiran, foto selfie, koordinat GPS, serta mengekspor data absensi
+  Agar pencatatan kehadiran karyawan akurat dan bebas dari manipulasi"
+"passed","Fri Oct 30 11:55:15 GMT 2026","Fri Oct 30 11:55:25 GMT 2026","10578","","Pengujian Fitur Laporan Izin Off — HADIR","","Pencarian rekaman izin off berdasarkan nama karyawan","","Pencarian rekaman izin off berdasarkan nama karyawan","  Sebagai Administrator atau Supervisor Tim Shift
+  Saya ingin mengelola permohonan penyesuaian jadwal libur (day-off swap) dan tanggal pengganti
+  Agar operasional rotasi shift tetap berjalan optimal dan transparan"
+"passed","Fri Oct 30 11:44:59 GMT 2026","Fri Oct 30 11:45:09 GMT 2026","10487","","Pengujian Fitur Laporan Meeting — HADIR","","Penolakan input logika tanggal terbalik pada meeting","","Penolakan input logika tanggal terbalik pada meeting","  Sebagai Administrator atau Manajemen Hadir
+  Saya ingin memantau agenda rapat kerja, daftar kehadiran peserta rapat, dan ruangan/tautan meeting
+  Agar koordinasi pertemuan bisnis dan operasional terdokumentasi dengan baik"
+"passed","Fri Oct 30 12:12:27 GMT 2026","Fri Oct 30 12:12:39 GMT 2026","12244","","Validasi Password dan Berkas Upload Foto Selfie","","Validasi upload berkas format bukan gambar TXT","","Validasi upload berkas format bukan gambar TXT","  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan
+  Agar akun terproteksi dan verifikasi biometrik valid"
+"passed","Fri Oct 30 11:15:57 GMT 2026","Fri Oct 30 11:15:58 GMT 2026","1200","","Pengujian UI Lean Master Day Off","","Buka dan batalkan modal tambah hari libur","","Buka dan batalkan modal tambah hari libur","  Sebagai Administrator SQA
+  Saya ingin menguji antarmuka Master Hari Libur (Day Off)
+  Untuk memastikan render tanggal hari libur, pencarian teks, dan dialog tambah/hapus sesuai Skema 1"
+"passed","Fri Oct 30 12:12:53 GMT 2026","Fri Oct 30 12:13:03 GMT 2026","10275","","Pengujian Alur Bisnis dan Submit Formulir Pendaftaran","","Pengiriman formulir pendaftaran saat seluruh field kosong","","Pengiriman formulir pendaftaran saat seluruh field kosong","  Sebagai calon pengguna magang
+  Saya ingin mengirimkan formulir registrasi
+  Agar sistem memproses pembuatan akun sesuai aturan bisnis pendaftaran"
+"passed","Fri Oct 30 11:41:40 GMT 2026","Fri Oct 30 11:41:51 GMT 2026","10431","","Pengujian Fitur Laporan Validation Overtime — HADIR","","Kontrol jumlah baris per halaman pada tabel validation overtime","","Kontrol jumlah baris per halaman pada tabel validation overtime","  Sebagai Administrator atau Tim Verifikator Lembur Hadir
+  Saya ingin meninjau pengajuan lembur, memvalidasi tahapan persetujuan multi-level, dan memberikan aksi persetujuan
+  Agar akuntabilitas kompensasi kerja lembur karyawan tervalidasi dengan tepat"
+"passed","Fri Oct 30 11:20:22 GMT 2026","Fri Oct 30 11:20:33 GMT 2026","10500","","Pengujian Fitur Laporan Activity (Agenda & Aktivitas Kerja) — HADIR","","Penyaringan rekaman aktivitas berdasarkan rentang tanggal presisi","","Penyaringan rekaman aktivitas berdasarkan rentang tanggal presisi","  Sebagai Administrator atau Tim HR/Supervisor
+  Saya ingin memantau dan memvalidasi rekaman kegiatan harian, tipe aktivitas, waktu pelaksanaan, serta mengekspor data agenda kerja karyawan
+  Agar pencatatan tugas dan produktivitas karyawan terdokumentasi rapi dan akurat"
+"failed","Fri Oct 30 11:10:14 GMT 2026","Fri Oct 30 11:10:55 GMT 2026","41136","","Pengujian UI Lean Pengajuan Izin Sakit Client Mobile","","Verifikasi render halaman izin sakit dan daftar riwayat","","Verifikasi render halaman izin sakit dan daftar riwayat","  Sebagai Karyawan atau Administrator
+  Saya ingin mengakses modul izin sakit (/apps/absent/sick)
+  Untuk memeriksa riwayat sakit dan membuka formulir modal pengajuan izin sakit disertai unggahan berkas"
+"passed","Fri Oct 30 11:15:29 GMT 2026","Fri Oct 30 11:15:54 GMT 2026","25676","","Verifikasi Alur Kritis Antarmuka Halaman Client Upliner (Lean UI)","","Membuka modal konfirmasi hapus upliner dan membatalkan penghapusan","","Membuka modal konfirmasi hapus upliner dan membatalkan penghapusan","  Sebagai administrator HADIR
+  Saya ingin memastikan elemen visual dan alur kritis interaksi halaman client upliner berjalan dengan benar
+  Agar hierarki atasan upliner dan klien perusahaan dapat dikelola secara transparan"
+"failed","Fri Oct 30 11:01:18 GMT 2026","Fri Oct 30 11:01:53 GMT 2026","35276","","Pengujian UI Lean Dashboard Presensi Client Mobile","","Navigasi dari menu pintas ke modul riwayat presensi","","Navigasi dari menu pintas ke modul riwayat presensi","  Sebagai Karyawan atau Administrator
+  Saya ingin mengakses halaman utama presensi (/apps/absent)
+  Untuk memastikan profil, metrik kehadiran, navigasi menu cepat, riwayat, dan tombol absen tampil dengan benar"
+"passed","Fri Oct 30 11:22:50 GMT 2026","Fri Oct 30 11:23:31 GMT 2026","41508","","Pengujian Fitur Laporan Izin (Perizinan Karyawan) — HADIR","","Pencarian rekaman izin berdasarkan nama karyawan","","Pencarian rekaman izin berdasarkan nama karyawan","  Sebagai Administrator atau Tim HR
+  Saya ingin memantau dan memvalidasi rekaman permohonan izin, tipe izin, lampiran surat izin, dan status persetujuan
+  Agar pencatatan ketidakhadiran karyawan tertib, sah, dan terverifikasi"
+"passed","Fri Oct 30 11:47:45 GMT 2026","Fri Oct 30 11:48:26 GMT 2026","41504","","Pengujian Fitur Laporan Perjalanan Dinas — HADIR","","Pencarian rekaman dinas berdasarkan nama karyawan","","Pencarian rekaman dinas berdasarkan nama karyawan","  Sebagai Administrator atau Tim Operasional Hadir
+  Saya ingin mengelola surat tugas dinas, anggaran operasional luar kantor, dan status persetujuan dinas
+  Agar akuntabilitas pelaksanaan dinas luar kota karyawan tercatat transparan"
+"broken","Fri Oct 30 11:31:25 GMT 2026","Fri Oct 30 11:32:07 GMT 2026","41692","","Pengujian Fitur Laporan Cuti — HADIR","","Verifikasi ketersediaan kontrol form dan fungsi tombol Ubah Data pada modal ubah atasan cuti","","Verifikasi ketersediaan kontrol form dan fungsi tombol Ubah Data pada modal ubah atasan cuti","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin memantau dan memvalidasi permohonan hak cuti karyawan, durasi hari kerja, dan approval Client V2
+  Agar alokasi ketidakhadiran dan hak cuti tahunan karyawan terkelola dengan baik"
+"passed","Fri Oct 30 12:06:21 GMT 2026","Fri Oct 30 12:06:46 GMT 2026","25691","","Verifikasi Alur Kritis Antarmuka Halaman Location Point (Lean UI)","","Membuka modal tambah location point dan membatalkannya","","Membuka modal tambah location point dan membatalkannya","  Sebagai administrator HADIR
+  Saya ingin memastikan elemen visual dan alur kritis interaksi halaman titik lokasi presensi geofencing berfungsi dengan baik
+  Agar batas radius presensi kehadiran karyawan dapat ditentukan secara presisi"
+"passed","Fri Oct 30 11:13:42 GMT 2026","Fri Oct 30 11:13:45 GMT 2026","2810","","Pengujian UI Lean Master Calendar","","Pencarian kalender berdasarkan kata kunci","","Pencarian kalender berdasarkan kata kunci","  Sebagai Administrator SQA
+  Saya ingin menguji antarmuka Master Kalender Kerja
+  Untuk memastikan render kalender unit kerja, pencarian teks, dan dialog tambah/hapus berfungsi sesuai Skema 1"
+"passed","Fri Oct 30 11:45:30 GMT 2026","Fri Oct 30 11:45:41 GMT 2026","10704","","Pengujian Fitur Laporan Meeting — HADIR","","Penyaringan laporan multi-kriteria via modal filter departemen","","Penyaringan laporan multi-kriteria via modal filter departemen","  Sebagai Administrator atau Manajemen Hadir
+  Saya ingin memantau agenda rapat kerja, daftar kehadiran peserta rapat, dan ruangan/tautan meeting
+  Agar koordinasi pertemuan bisnis dan operasional terdokumentasi dengan baik"
+"passed","Fri Oct 30 11:25:59 GMT 2026","Fri Oct 30 11:26:09 GMT 2026","10277","","Pengujian Fitur Laporan Izin Terlambat (Keterlambatan Absensi) — HADIR","","Peninjauan modal dialog detail keterlambatan karyawan","","Peninjauan modal dialog detail keterlambatan karyawan","  Sebagai Administrator atau Tim HR/Supervisor
+  Saya ingin memantau dan memvalidasi rekaman absensi terlambat, selisih waktu, alasan keterlambatan, dan status approval
+  Agar kedisiplinan jam kerja shift karyawan terpantau dan terkelola secara adil"
+"passed","Fri Oct 30 11:45:51 GMT 2026","Fri Oct 30 11:46:02 GMT 2026","10434","","Pengujian Fitur Laporan Meeting — HADIR","","Kontrol jumlah baris per halaman pada tabel meeting","","Kontrol jumlah baris per halaman pada tabel meeting","  Sebagai Administrator atau Manajemen Hadir
+  Saya ingin memantau agenda rapat kerja, daftar kehadiran peserta rapat, dan ruangan/tautan meeting
+  Agar koordinasi pertemuan bisnis dan operasional terdokumentasi dengan baik"
+"passed","Fri Oct 30 11:28:57 GMT 2026","Fri Oct 30 11:29:08 GMT 2026","10791","","Pengujian Fitur Laporan Cuti — HADIR","","Penolakan input logika tanggal terbalik pada cuti","","Penolakan input logika tanggal terbalik pada cuti","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin memantau dan memvalidasi permohonan hak cuti karyawan, durasi hari kerja, dan approval Client V2
+  Agar alokasi ketidakhadiran dan hak cuti tahunan karyawan terkelola dengan baik"
+"failed","Fri Oct 30 11:04:20 GMT 2026","Fri Oct 30 11:05:01 GMT 2026","41126","","Pengujian UI Lean Pengajuan Lembur Client Mobile","","Verifikasi pembukaan modal formulir pengajuan lembur","","Verifikasi pembukaan modal formulir pengajuan lembur","  Sebagai Karyawan atau Administrator
+  Saya ingin mengakses modul lembur client (/apps/absent/overtime-client)
+  Untuk memeriksa antarmuka lembur dan membuka formulir modal pengajuan jam lembur"
+"passed","Fri Oct 30 11:24:03 GMT 2026","Fri Oct 30 11:24:14 GMT 2026","10471","","Pengujian Fitur Laporan Izin (Perizinan Karyawan) — HADIR","","Pengunduhan berkas rekapitulasi laporan izin","","Pengunduhan berkas rekapitulasi laporan izin","  Sebagai Administrator atau Tim HR
+  Saya ingin memantau dan memvalidasi rekaman permohonan izin, tipe izin, lampiran surat izin, dan status persetujuan
+  Agar pencatatan ketidakhadiran karyawan tertib, sah, dan terverifikasi"
+"passed","Fri Oct 30 11:39:35 GMT 2026","Fri Oct 30 11:39:45 GMT 2026","10480","","Pengujian Fitur Laporan Validation Overtime — HADIR","","Penyaringan rekaman validasi lembur berdasarkan rentang tanggal presisi","","Penyaringan rekaman validasi lembur berdasarkan rentang tanggal presisi","  Sebagai Administrator atau Tim Verifikator Lembur Hadir
+  Saya ingin meninjau pengajuan lembur, memvalidasi tahapan persetujuan multi-level, dan memberikan aksi persetujuan
+  Agar akuntabilitas kompensasi kerja lembur karyawan tervalidasi dengan tepat"
+"passed","Fri Oct 30 11:35:04 GMT 2026","Fri Oct 30 11:35:14 GMT 2026","10460","","Pengujian Fitur Laporan Sakit — HADIR","","Ekspor berkas laporan sakit ke format Excel","","Ekspor berkas laporan sakit ke format Excel","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin memverifikasi izin sakit karyawan, validasi surat dokter, dan status konfirmasi medis
+  Agar pencatatan ketidakhadiran karena kondisi medis tercatat rapi dan akurat"
+"passed","Fri Oct 30 11:52:59 GMT 2026","Fri Oct 30 11:53:10 GMT 2026","10762","","Pengujian Fitur Laporan Koreksi Absensi — HADIR","","Penyaringan laporan multi-kriteria via modal filter departemen dan tipe koreksi","","Penyaringan laporan multi-kriteria via modal filter departemen dan tipe koreksi","  Sebagai Administrator atau Atasan Langsung (Upliner)
+  Saya ingin meninjau permohonan perbaikan jam absensi dan memproses persetujuannya
+  Agar rekaman jam kerja karyawan akurat dan terdokumentasi dengan transparan"
+"passed","Fri Oct 30 11:55:58 GMT 2026","Fri Oct 30 11:56:08 GMT 2026","10526","","Pengujian Fitur Laporan Izin Off — HADIR","","Kontrol jumlah baris per halaman pada tabel izin off","","Kontrol jumlah baris per halaman pada tabel izin off","  Sebagai Administrator atau Supervisor Tim Shift
+  Saya ingin mengelola permohonan penyesuaian jadwal libur (day-off swap) dan tanggal pengganti
+  Agar operasional rotasi shift tetap berjalan optimal dan transparan"
+"passed","Fri Oct 30 12:06:19 GMT 2026","Fri Oct 30 12:06:19 GMT 2026","227","","Verifikasi Alur Kritis Antarmuka Halaman Location Point (Lean UI)","","Membuka halaman location point dan verifikasi elemen antarmuka","","Membuka halaman location point dan verifikasi elemen antarmuka","  Sebagai administrator HADIR
+  Saya ingin memastikan elemen visual dan alur kritis interaksi halaman titik lokasi presensi geofencing berfungsi dengan baik
+  Agar batas radius presensi kehadiran karyawan dapat ditentukan secara presisi"
+"passed","Fri Oct 30 12:09:48 GMT 2026","Fri Oct 30 12:09:49 GMT 2026","345","","Pengujian Fitur Management User — HADIR","","Pencarian karyawan berdasarkan Nama Lengkap","","Pencarian karyawan berdasarkan Nama Lengkap","  Sebagai Administrator
+  Saya ingin mengelola data direktori pengguna, status akun, dan sinkronisasi approval
+  Agar operasional kepegawaian dapat dipantau dan dikelola dengan akurat"
+"passed","Fri Oct 30 11:56:08 GMT 2026","Fri Oct 30 11:56:19 GMT 2026","10453","","Pengujian Fitur Laporan Izin Off — HADIR","","Ekspor berkas laporan izin off ke format Excel","","Ekspor berkas laporan izin off ke format Excel","  Sebagai Administrator atau Supervisor Tim Shift
+  Saya ingin mengelola permohonan penyesuaian jadwal libur (day-off swap) dan tanggal pengganti
+  Agar operasional rotasi shift tetap berjalan optimal dan transparan"
+"passed","Fri Oct 30 11:24:56 GMT 2026","Fri Oct 30 11:25:37 GMT 2026","41497","","Pengujian Fitur Laporan Izin Terlambat (Keterlambatan Absensi) — HADIR","","Pencarian rekaman keterlambatan berdasarkan nama karyawan","","Pencarian rekaman keterlambatan berdasarkan nama karyawan","  Sebagai Administrator atau Tim HR/Supervisor
+  Saya ingin memantau dan memvalidasi rekaman absensi terlambat, selisih waktu, alasan keterlambatan, dan status approval
+  Agar kedisiplinan jam kerja shift karyawan terpantau dan terkelola secara adil"
+"passed","Fri Oct 30 11:24:24 GMT 2026","Fri Oct 30 11:24:35 GMT 2026","10204","","Pengujian Fitur Laporan Izin Terlambat (Keterlambatan Absensi) — HADIR","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Izin Terlambat","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Izin Terlambat","  Sebagai Administrator atau Tim HR/Supervisor
+  Saya ingin memantau dan memvalidasi rekaman absensi terlambat, selisih waktu, alasan keterlambatan, dan status approval
+  Agar kedisiplinan jam kerja shift karyawan terpantau dan terkelola secara adil"
+"passed","Fri Oct 30 11:19:19 GMT 2026","Fri Oct 30 11:19:19 GMT 2026","224","","Verifikasi Alur Kritis Antarmuka Halaman Job Level (Lean UI)","","Membuka halaman job level dan verifikasi elemen antarmuka","","Membuka halaman job level dan verifikasi elemen antarmuka","  Sebagai administrator HADIR
+  Saya ingin memastikan elemen visual dan alur kritis interaksi halaman job level beroperasi dengan andal
+  Agar penjenjangan karir dan aturan waktu istirahat karyawan dapat dikelola dengan tepat"
+"passed","Fri Oct 30 11:26:51 GMT 2026","Fri Oct 30 11:27:02 GMT 2026","10489","","Pengujian Fitur Laporan Izin Pulang Cepat — HADIR","","Penolakan input logika tanggal terbalik pada izin pulang cepat","","Penolakan input logika tanggal terbalik pada izin pulang cepat","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin mengelola dan memantau rekaman karyawan yang pulang sebelum akhir jam kerja
+  Agar presensi dan kedisiplinan kerja tetap akuntabel dan transparan"
+"passed","Fri Oct 30 11:35:14 GMT 2026","Fri Oct 30 11:35:34 GMT 2026","20080","","Pengujian Fitur Laporan Sakit — HADIR","","Verifikasi integritas rendering gambar bukti sakit dan avatar pada tabel Laporan Sakit","","Verifikasi integritas rendering gambar bukti sakit dan avatar pada tabel Laporan Sakit","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin memverifikasi izin sakit karyawan, validasi surat dokter, dan status konfirmasi medis
+  Agar pencatatan ketidakhadiran karena kondisi medis tercatat rapi dan akurat"
+"failed","Fri Oct 30 11:00:02 GMT 2026","Fri Oct 30 11:00:43 GMT 2026","41058","","Pengujian UI Lean Dashboard Presensi Client Mobile","","Verifikasi ketersediaan menu navigasi cepat dan tombol absen","","Verifikasi ketersediaan menu navigasi cepat dan tombol absen","  Sebagai Karyawan atau Administrator
+  Saya ingin mengakses halaman utama presensi (/apps/absent)
+  Untuk memastikan profil, metrik kehadiran, navigasi menu cepat, riwayat, dan tombol absen tampil dengan benar"
+"passed","Fri Oct 30 11:53:31 GMT 2026","Fri Oct 30 11:53:42 GMT 2026","10460","","Pengujian Fitur Laporan Koreksi Absensi — HADIR","","Ekspor berkas laporan koreksi absensi ke format Excel","","Ekspor berkas laporan koreksi absensi ke format Excel","  Sebagai Administrator atau Atasan Langsung (Upliner)
+  Saya ingin meninjau permohonan perbaikan jam absensi dan memproses persetujuannya
+  Agar rekaman jam kerja karyawan akurat dan terdokumentasi dengan transparan"
+"passed","Fri Oct 30 12:08:14 GMT 2026","Fri Oct 30 12:08:24 GMT 2026","10165","","Validasi Field Password pada Halaman Login","","Submit saat field Password kosong","","Submit saat field Password kosong","  Sebagai sistem autentikasi
+  Saya ingin memastikan field kata sandi terlindungi dan divalidasi dengan benar
+  Agar data rahasia pengguna aman dari kebocoran dan penyalahgunaan"
+"broken","Fri Oct 30 11:51:25 GMT 2026","Fri Oct 30 11:52:06 GMT 2026","41706","","Pengujian Fitur Laporan Perjalanan Dinas — HADIR","","Verifikasi fungsionalitas eksekusi tombol konfirmasi Reject pada Laporan Perjalanan Dinas","","Verifikasi fungsionalitas eksekusi tombol konfirmasi Reject pada Laporan Perjalanan Dinas","  Sebagai Administrator atau Tim Operasional Hadir
+  Saya ingin mengelola surat tugas dinas, anggaran operasional luar kantor, dan status persetujuan dinas
+  Agar akuntabilitas pelaksanaan dinas luar kota karyawan tercatat transparan"
+"passed","Fri Oct 30 11:21:36 GMT 2026","Fri Oct 30 11:21:47 GMT 2026","10811","","Pengujian Fitur Laporan Activity (Agenda & Aktivitas Kerja) — HADIR","","Penyaringan laporan multi-kriteria via modal filter departemen dan tipe aktivitas","","Penyaringan laporan multi-kriteria via modal filter departemen dan tipe aktivitas","  Sebagai Administrator atau Tim HR/Supervisor
+  Saya ingin memantau dan memvalidasi rekaman kegiatan harian, tipe aktivitas, waktu pelaksanaan, serta mengekspor data agenda kerja karyawan
+  Agar pencatatan tugas dan produktivitas karyawan terdokumentasi rapi dan akurat"
+"passed","Fri Oct 30 12:12:14 GMT 2026","Fri Oct 30 12:12:27 GMT 2026","13449","","Validasi Format dan Nilai NIK pada Formulir Pendaftaran","","Pendaftaran orang berbeda menggunakan NIK yang sama (Alur Pending Approval Admin)","","Pendaftaran orang berbeda menggunakan NIK yang sama (Alur Pending Approval Admin)","  Sebagai sistem verifikasi pendaftaran
+  Saya ingin memastikan NIK yang diinput sesuai aturan 8 karakter alfanumerik
+  Agar integritas data identitas pengguna magang terjamin"
+"passed","Fri Oct 30 11:59:37 GMT 2026","Fri Oct 30 11:59:48 GMT 2026","10594","","Pengujian Fitur Laporan New Generate — HADIR","","Penolakan input logika tanggal terbalik pada riwayat template","","Penolakan input logika tanggal terbalik pada riwayat template","  Sebagai Administrator atau Tim Analis Data Hadir
+  Saya ingin membuat konfigurasi template laporan dinamis dan memantau riwayat berkas template yang telah dibuat
+  Agar penarikan data atribut kustom dapat dilakukan secara fleksibel dan terdokumentasi"
+"failed","Fri Oct 30 12:13:37 GMT 2026","Fri Oct 30 12:14:04 GMT 2026","26596","","Pengujian UI Lean Master Schedule","","Buka dan batalkan modal hapus schedule","","Buka dan batalkan modal hapus schedule","  Sebagai Administrator SQA
+  Saya ingin menguji antarmuka Master Jadwal Kerja (Schedule)
+  Untuk memastikan render tabel jadwal, filter pencarian, dan modal tambah/hapus berfungsi sesuai Skema 1"
+"passed","Fri Oct 30 12:13:07 GMT 2026","Fri Oct 30 12:13:09 GMT 2026","1577","","Pengujian UI Lean Master Schedule","","Buka dan batalkan modal tambah schedule","","Buka dan batalkan modal tambah schedule","  Sebagai Administrator SQA
+  Saya ingin menguji antarmuka Master Jadwal Kerja (Schedule)
+  Untuk memastikan render tabel jadwal, filter pencarian, dan modal tambah/hapus berfungsi sesuai Skema 1"
+"passed","Fri Oct 30 11:18:00 GMT 2026","Fri Oct 30 11:18:25 GMT 2026","25657","","Verifikasi Alur Kritis Antarmuka Halaman Departemens (Lean UI)","","Membuka modal konfirmasi hapus departemen dan membatalkan penghapusan","","Membuka modal konfirmasi hapus departemen dan membatalkan penghapusan","  Sebagai administrator HADIR
+  Saya ingin memastikan elemen visual dan alur kritis interaksi halaman departemen beroperasi dengan benar
+  Agar struktur unit kerja departemen dapat dikelola secara andal"
+"passed","Fri Oct 30 11:28:15 GMT 2026","Fri Oct 30 11:28:26 GMT 2026","10436","","Pengujian Fitur Laporan Izin Pulang Cepat — HADIR","","Kontrol jumlah baris per halaman pada tabel izin pulang cepat","","Kontrol jumlah baris per halaman pada tabel izin pulang cepat","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin mengelola dan memantau rekaman karyawan yang pulang sebelum akhir jam kerja
+  Agar presensi dan kedisiplinan kerja tetap akuntabel dan transparan"
+"failed","Fri Oct 30 11:11:36 GMT 2026","Fri Oct 30 11:12:18 GMT 2026","41179","","Pengujian UI Lean Pengajuan Izin Sakit Client Mobile","","Verifikasi pembukaan modal formulir pengajuan izin sakit","","Verifikasi pembukaan modal formulir pengajuan izin sakit","  Sebagai Karyawan atau Administrator
+  Saya ingin mengakses modul izin sakit (/apps/absent/sick)
+  Untuk memeriksa riwayat sakit dan membuka formulir modal pengajuan izin sakit disertai unggahan berkas"
+"passed","Fri Oct 30 12:01:23 GMT 2026","Fri Oct 30 12:01:34 GMT 2026","10569","","Pengujian Fitur Laporan Sisa Cuti — HADIR","","Pencarian rekaman sisa cuti berdasarkan nama karyawan","","Pencarian rekaman sisa cuti berdasarkan nama karyawan","  Sebagai Administrator atau Tim Human Resources
+  Saya ingin memantau kuota hak cuti tahunan, cuti terpakai, dan sisa saldo berjalan karyawan
+  Agar manajemen cuti karyawan transparan dan terdata secara teratur"
+"passed","Fri Oct 30 12:15:12 GMT 2026","Fri Oct 30 12:15:13 GMT 2026","211","","Verifikasi Alur Kritis Antarmuka Halaman User Monitoring (Lean UI)","","Membuka halaman user monitoring dan verifikasi elemen utama antarmuka","","Membuka halaman user monitoring dan verifikasi elemen utama antarmuka","  Sebagai administrator HADIR
+  Saya ingin memastikan elemen visual dan alur kritis interaksi halaman pemantauan pengguna berfungsi dengan baik
+  Agar pengawasan keaktifan dan lokasi presensi karyawan di lapangan dapat dilakukan secara akurat"
+"passed","Fri Oct 30 12:04:34 GMT 2026","Fri Oct 30 12:05:15 GMT 2026","41509","","Pengujian Fitur Laporan Semua (Kehadiran Karyawan) — HADIR","","Pencarian rekaman absensi berdasarkan nama karyawan","","Pencarian rekaman absensi berdasarkan nama karyawan","  Sebagai Administrator atau Tim HR
+  Saya ingin memantau dan memvalidasi rekaman kehadiran, foto selfie, koordinat GPS, serta mengekspor data absensi
+  Agar pencatatan kehadiran karyawan akurat dan bebas dari manipulasi"
+"passed","Fri Oct 30 11:59:06 GMT 2026","Fri Oct 30 11:59:17 GMT 2026","10545","","Pengujian Fitur Generate Report Type — HADIR","","Kontrol jumlah baris per halaman pada tabel riwayat report","","Kontrol jumlah baris per halaman pada tabel riwayat report","  Sebagai Administrator atau Manajemen Eksekutif Hadir
+  Saya ingin membuat laporan terstandardisasi dan memantau riwayat generate laporan berkala
+  Agar arsip rekapitulasi operasional dan eksekutif siap diunduh secara berkala"
+"passed","Fri Oct 30 12:09:52 GMT 2026","Fri Oct 30 12:09:53 GMT 2026","1261","","Pengujian UI Lean Master Overtime Reason","","Verifikasi render elemen utama pada halaman Overtime Reason","","Verifikasi render elemen utama pada halaman Overtime Reason","  Sebagai Administrator SQA
+  Saya ingin menguji antarmuka Master Alasan Lembur (OT Reason)
+  Untuk memastikan render daftar alasan lembur, pencarian teks, dan dialog tambah/hapus berfungsi sesuai Skema 1"
+"passed","Fri Oct 30 11:41:51 GMT 2026","Fri Oct 30 11:42:01 GMT 2026","10455","","Pengujian Fitur Laporan Validation Overtime — HADIR","","Ekspor berkas laporan validation overtime ke format Excel","","Ekspor berkas laporan validation overtime ke format Excel","  Sebagai Administrator atau Tim Verifikator Lembur Hadir
+  Saya ingin meninjau pengajuan lembur, memvalidasi tahapan persetujuan multi-level, dan memberikan aksi persetujuan
+  Agar akuntabilitas kompensasi kerja lembur karyawan tervalidasi dengan tepat"
+"passed","Fri Oct 30 11:48:58 GMT 2026","Fri Oct 30 11:49:09 GMT 2026","10435","","Pengujian Fitur Laporan Perjalanan Dinas — HADIR","","Kontrol jumlah baris per halaman pada tabel perjalanan dinas","","Kontrol jumlah baris per halaman pada tabel perjalanan dinas","  Sebagai Administrator atau Tim Operasional Hadir
+  Saya ingin mengelola surat tugas dinas, anggaran operasional luar kantor, dan status persetujuan dinas
+  Agar akuntabilitas pelaksanaan dinas luar kota karyawan tercatat transparan"
+"passed","Fri Oct 30 11:21:47 GMT 2026","Fri Oct 30 11:21:57 GMT 2026","10285","","Pengujian Fitur Laporan Activity (Agenda & Aktivitas Kerja) — HADIR","","Peninjauan modal dialog detail aktivitas kegiatan karyawan","","Peninjauan modal dialog detail aktivitas kegiatan karyawan","  Sebagai Administrator atau Tim HR/Supervisor
+  Saya ingin memantau dan memvalidasi rekaman kegiatan harian, tipe aktivitas, waktu pelaksanaan, serta mengekspor data agenda kerja karyawan
+  Agar pencatatan tugas dan produktivitas karyawan terdokumentasi rapi dan akurat"
+"passed","Fri Oct 30 11:23:53 GMT 2026","Fri Oct 30 11:24:03 GMT 2026","10254","","Pengujian Fitur Laporan Izin (Perizinan Karyawan) — HADIR","","Peninjauan modal dialog detail permohonan izin karyawan","","Peninjauan modal dialog detail permohonan izin karyawan","  Sebagai Administrator atau Tim HR
+  Saya ingin memantau dan memvalidasi rekaman permohonan izin, tipe izin, lampiran surat izin, dan status persetujuan
+  Agar pencatatan ketidakhadiran karyawan tertib, sah, dan terverifikasi"
+"passed","Fri Oct 30 11:29:50 GMT 2026","Fri Oct 30 11:30:01 GMT 2026","11450","","Pengujian Fitur Laporan Cuti — HADIR","","Pembersihan kriteria filter dan pencarian cuti melalui tombol Reset","","Pembersihan kriteria filter dan pencarian cuti melalui tombol Reset","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin memantau dan memvalidasi permohonan hak cuti karyawan, durasi hari kerja, dan approval Client V2
+  Agar alokasi ketidakhadiran dan hak cuti tahunan karyawan terkelola dengan baik"
+"passed","Fri Oct 30 12:00:31 GMT 2026","Fri Oct 30 12:00:41 GMT 2026","10460","","Pengujian Fitur Laporan New Generate — HADIR","","Pengunduhan berkas template pada baris pertama tabel riwayat","","Pengunduhan berkas template pada baris pertama tabel riwayat","  Sebagai Administrator atau Tim Analis Data Hadir
+  Saya ingin membuat konfigurasi template laporan dinamis dan memantau riwayat berkas template yang telah dibuat
+  Agar penarikan data atribut kustom dapat dilakukan secara fleksibel dan terdokumentasi"
+"passed","Fri Oct 30 12:14:05 GMT 2026","Fri Oct 30 12:14:08 GMT 2026","2968","","Pengujian UI Lean Master Shifting","","Pencarian data shifting berdasarkan kata kunci yang valid","","Pencarian data shifting berdasarkan kata kunci yang valid","  Sebagai Administrator SQA
+  Saya ingin menguji antarmuka Master Shifting
+  Untuk memastikan render elemen visual, pencarian pola kerja, serta modal tambah/hapus berfungsi dengan baik sesuai Skema 1"
+"passed","Fri Oct 30 12:00:20 GMT 2026","Fri Oct 30 12:00:31 GMT 2026","10597","","Pengujian Fitur Laporan New Generate — HADIR","","Pembuatan template laporan kustom baru melalui formulir builder","","Pembuatan template laporan kustom baru melalui formulir builder","  Sebagai Administrator atau Tim Analis Data Hadir
+  Saya ingin membuat konfigurasi template laporan dinamis dan memantau riwayat berkas template yang telah dibuat
+  Agar penarikan data atribut kustom dapat dilakukan secara fleksibel dan terdokumentasi"
+"passed","Fri Oct 30 12:03:09 GMT 2026","Fri Oct 30 12:03:20 GMT 2026","11053","","Pengujian Fitur Laporan Daily Report — HADIR","","Pembersihan kriteria filter dan pencarian daily report melalui tombol Reset","","Pembersihan kriteria filter dan pencarian daily report melalui tombol Reset","  Sebagai Administrator atau Manajer Operasional Hadir
+  Saya ingin meninjau ringkasan konsolidasi presensi harian karyawan dan status kehadirannya
+  Agar audit absensi harian dapat dimonitor secara real-time dan akuntabel"
+"passed","Fri Oct 30 11:44:27 GMT 2026","Fri Oct 30 11:44:38 GMT 2026","10461","","Pengujian Fitur Laporan Shifting — HADIR","","Ekspor berkas laporan shifting ke format Excel","","Ekspor berkas laporan shifting ke format Excel","  Sebagai Administrator atau Tim HR Operasional Hadir
+  Saya ingin memantau kehadiran karyawan shift, kepatuhan jam kerja, dan alokasi pola shift
+  Agar operasional rotasi shift berjalan tertib dan terdata secara transparan"
+"passed","Fri Oct 30 12:08:24 GMT 2026","Fri Oct 30 12:08:35 GMT 2026","10671","","Validasi Field Password pada Halaman Login","","Input password salah","","Input password salah","  Sebagai sistem autentikasi
+  Saya ingin memastikan field kata sandi terlindungi dan divalidasi dengan benar
+  Agar data rahasia pengguna aman dari kebocoran dan penyalahgunaan"
+"passed","Fri Oct 30 12:03:52 GMT 2026","Fri Oct 30 12:04:02 GMT 2026","10455","","Pengujian Fitur Laporan Daily Report — HADIR","","Ekspor berkas laporan daily report ke format Excel","","Ekspor berkas laporan daily report ke format Excel","  Sebagai Administrator atau Manajer Operasional Hadir
+  Saya ingin meninjau ringkasan konsolidasi presensi harian karyawan dan status kehadirannya
+  Agar audit absensi harian dapat dimonitor secara real-time dan akuntabel"
+"passed","Fri Oct 30 11:03:27 GMT 2026","Fri Oct 30 11:03:39 GMT 2026","11492","","Pengujian UI Lean Pengajuan Lembur Client Mobile","","Verifikasi render halaman lembur dan tombol pengajuan","","Verifikasi render halaman lembur dan tombol pengajuan","  Sebagai Karyawan atau Administrator
+  Saya ingin mengakses modul lembur client (/apps/absent/overtime-client)
+  Untuk memeriksa antarmuka lembur dan membuka formulir modal pengajuan jam lembur"
+"broken","Fri Oct 30 11:57:00 GMT 2026","Fri Oct 30 11:57:41 GMT 2026","41118","","Pengujian Fitur Laporan Izin Off — HADIR","","Verifikasi ketepatan label konteks pada menu aksi tabel Laporan Izin Off","","Verifikasi ketepatan label konteks pada menu aksi tabel Laporan Izin Off","  Sebagai Administrator atau Supervisor Tim Shift
+  Saya ingin mengelola permohonan penyesuaian jadwal libur (day-off swap) dan tanggal pengganti
+  Agar operasional rotasi shift tetap berjalan optimal dan transparan"
+"passed","Fri Oct 30 11:13:41 GMT 2026","Fri Oct 30 11:13:42 GMT 2026","1322","","Pengujian UI Lean Master Calendar","","Verifikasi render elemen utama pada halaman Calendar","","Verifikasi render elemen utama pada halaman Calendar","  Sebagai Administrator SQA
+  Saya ingin menguji antarmuka Master Kalender Kerja
+  Untuk memastikan render kalender unit kerja, pencarian teks, dan dialog tambah/hapus berfungsi sesuai Skema 1"
+"passed","Fri Oct 30 11:28:46 GMT 2026","Fri Oct 30 11:28:57 GMT 2026","10792","","Pengujian Fitur Laporan Cuti — HADIR","","Penyaringan rekaman cuti berdasarkan rentang tanggal presisi","","Penyaringan rekaman cuti berdasarkan rentang tanggal presisi","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin memantau dan memvalidasi permohonan hak cuti karyawan, durasi hari kerja, dan approval Client V2
+  Agar alokasi ketidakhadiran dan hak cuti tahunan karyawan terkelola dengan baik"
+"passed","Fri Oct 30 12:05:37 GMT 2026","Fri Oct 30 12:05:47 GMT 2026","10229","","Pengujian Fitur Laporan Semua (Kehadiran Karyawan) — HADIR","","Peninjauan preview foto selfie absensi karyawan","","Peninjauan preview foto selfie absensi karyawan","  Sebagai Administrator atau Tim HR
+  Saya ingin memantau dan memvalidasi rekaman kehadiran, foto selfie, koordinat GPS, serta mengekspor data absensi
+  Agar pencatatan kehadiran karyawan akurat dan bebas dari manipulasi"
+"passed","Fri Oct 30 12:09:51 GMT 2026","Fri Oct 30 12:09:52 GMT 2026","267","","Pengujian Fitur Management User — HADIR","","Ekspor data karyawan ke format berkas Excel","","Ekspor data karyawan ke format berkas Excel","  Sebagai Administrator
+  Saya ingin mengelola data direktori pengguna, status akun, dan sinkronisasi approval
+  Agar operasional kepegawaian dapat dipantau dan dikelola dengan akurat"
+"failed","Fri Oct 30 11:13:00 GMT 2026","Fri Oct 30 11:13:41 GMT 2026","41077","","Pengujian UI Lean Daftar Anggota Tim Client Mobile","","Verifikasi render halaman daftar staf tim","","Verifikasi render halaman daftar staf tim","  Sebagai Upliner atau Management
+  Saya ingin mengakses modul staff (/apps/absent/staff)
+  Untuk melihat daftar staf tim dan memastikan elemen halaman ter-render dengan baik"
+"passed","Fri Oct 30 11:23:31 GMT 2026","Fri Oct 30 11:23:42 GMT 2026","10845","","Pengujian Fitur Laporan Izin (Perizinan Karyawan) — HADIR","","Pembersihan kriteria filter dan pencarian melalui tombol Reset","","Pembersihan kriteria filter dan pencarian melalui tombol Reset","  Sebagai Administrator atau Tim HR
+  Saya ingin memantau dan memvalidasi rekaman permohonan izin, tipe izin, lampiran surat izin, dan status persetujuan
+  Agar pencatatan ketidakhadiran karyawan tertib, sah, dan terverifikasi"
+"passed","Fri Oct 30 12:14:15 GMT 2026","Fri Oct 30 12:14:16 GMT 2026","1162","","Pengujian UI Lean Master Unit Leave","","Buka dan batalkan modal tambah aturan cuti","","Buka dan batalkan modal tambah aturan cuti","  Sebagai Administrator SQA
+  Saya ingin menguji antarmuka Master Aturan Cuti (Unit Leave)
+  Untuk memastikan render aturan alokasi cuti, pencarian data, dan interaksi modal tambah/hapus sesuai Skema 1"
+"passed","Fri Oct 30 11:32:07 GMT 2026","Fri Oct 30 11:32:17 GMT 2026","10174","","Pengujian Fitur Laporan Sakit — HADIR","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Sakit","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Sakit","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin memverifikasi izin sakit karyawan, validasi surat dokter, dan status konfirmasi medis
+  Agar pencatatan ketidakhadiran karena kondisi medis tercatat rapi dan akurat"
+"passed","Fri Oct 30 11:23:42 GMT 2026","Fri Oct 30 11:23:53 GMT 2026","10828","","Pengujian Fitur Laporan Izin (Perizinan Karyawan) — HADIR","","Penyaringan laporan multi-kriteria via modal filter departemen dan tipe izin","","Penyaringan laporan multi-kriteria via modal filter departemen dan tipe izin","  Sebagai Administrator atau Tim HR
+  Saya ingin memantau dan memvalidasi rekaman permohonan izin, tipe izin, lampiran surat izin, dan status persetujuan
+  Agar pencatatan ketidakhadiran karyawan tertib, sah, dan terverifikasi"
+"broken","Fri Oct 30 11:38:43 GMT 2026","Fri Oct 30 11:39:24 GMT 2026","41245","","Pengujian Fitur Laporan Overtime — HADIR","","Verifikasi ketersediaan kontrol form dan fungsi tombol Ubah Data pada modal ubah atasan","","Verifikasi ketersediaan kontrol form dan fungsi tombol Ubah Data pada modal ubah atasan","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin memantau dan memvalidasi rekaman jam kerja lembur karyawan, uraian tugas lembur, dan status persetujuan
+  Agar alokasi kompensasi lembur dan jam kerja tambahan karyawan terkelola secara adil dan transparan"
+"passed","Fri Oct 30 11:27:43 GMT 2026","Fri Oct 30 11:27:54 GMT 2026","10851","","Pengujian Fitur Laporan Izin Pulang Cepat — HADIR","","Pembersihan kriteria filter dan pencarian pulang cepat melalui tombol Reset","","Pembersihan kriteria filter dan pencarian pulang cepat melalui tombol Reset","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin mengelola dan memantau rekaman karyawan yang pulang sebelum akhir jam kerja
+  Agar presensi dan kedisiplinan kerja tetap akuntabel dan transparan"
+"passed","Fri Oct 30 11:45:20 GMT 2026","Fri Oct 30 11:45:30 GMT 2026","10835","","Pengujian Fitur Laporan Meeting — HADIR","","Pembersihan kriteria filter dan pencarian meeting melalui tombol Reset","","Pembersihan kriteria filter dan pencarian meeting melalui tombol Reset","  Sebagai Administrator atau Manajemen Hadir
+  Saya ingin memantau agenda rapat kerja, daftar kehadiran peserta rapat, dan ruangan/tautan meeting
+  Agar koordinasi pertemuan bisnis dan operasional terdokumentasi dengan baik"
+"passed","Fri Oct 30 11:14:41 GMT 2026","Fri Oct 30 11:14:41 GMT 2026","231","","Verifikasi Alur Kritis Antarmuka Halaman Client Upliner (Lean UI)","","Membuka halaman client upliner dan verifikasi elemen antarmuka","","Membuka halaman client upliner dan verifikasi elemen antarmuka","  Sebagai administrator HADIR
+  Saya ingin memastikan elemen visual dan alur kritis interaksi halaman client upliner berjalan dengan benar
+  Agar hierarki atasan upliner dan klien perusahaan dapat dikelola secara transparan"
+"passed","Fri Oct 30 11:21:25 GMT 2026","Fri Oct 30 11:21:36 GMT 2026","10849","","Pengujian Fitur Laporan Activity (Agenda & Aktivitas Kerja) — HADIR","","Pembersihan kriteria filter dan pencarian melalui tombol Reset","","Pembersihan kriteria filter dan pencarian melalui tombol Reset","  Sebagai Administrator atau Tim HR/Supervisor
+  Saya ingin memantau dan memvalidasi rekaman kegiatan harian, tipe aktivitas, waktu pelaksanaan, serta mengekspor data agenda kerja karyawan
+  Agar pencatatan tugas dan produktivitas karyawan terdokumentasi rapi dan akurat"
+"passed","Fri Oct 30 11:39:45 GMT 2026","Fri Oct 30 11:39:56 GMT 2026","10484","","Pengujian Fitur Laporan Validation Overtime — HADIR","","Penolakan input logika tanggal terbalik pada validation overtime","","Penolakan input logika tanggal terbalik pada validation overtime","  Sebagai Administrator atau Tim Verifikator Lembur Hadir
+  Saya ingin meninjau pengajuan lembur, memvalidasi tahapan persetujuan multi-level, dan memberikan aksi persetujuan
+  Agar akuntabilitas kompensasi kerja lembur karyawan tervalidasi dengan tepat"
+"passed","Fri Oct 30 11:21:57 GMT 2026","Fri Oct 30 11:22:08 GMT 2026","10473","","Pengujian Fitur Laporan Activity (Agenda & Aktivitas Kerja) — HADIR","","Pengunduhan berkas rekapitulasi laporan activity","","Pengunduhan berkas rekapitulasi laporan activity","  Sebagai Administrator atau Tim HR/Supervisor
+  Saya ingin memantau dan memvalidasi rekaman kegiatan harian, tipe aktivitas, waktu pelaksanaan, serta mengekspor data agenda kerja karyawan
+  Agar pencatatan tugas dan produktivitas karyawan terdokumentasi rapi dan akurat"
+"passed","Fri Oct 30 11:09:10 GMT 2026","Fri Oct 30 11:09:21 GMT 2026","11314","","Pengujian UI Lean Modul Share Report Client Mobile","","Verifikasi akses halaman share report dengan kontrol otorisasi","","Verifikasi akses halaman share report dengan kontrol otorisasi","  Sebagai Karyawan atau Upliner
+  Saya ingin mengakses modul share report (/apps/absent/reports/share_report)
+  Untuk memverifikasi proteksi hak akses dan render komponen unduh laporan"
+"passed","Fri Oct 30 11:42:22 GMT 2026","Fri Oct 30 11:42:32 GMT 2026","10485","","Pengujian Fitur Laporan Shifting — HADIR","","Penolakan input logika tanggal terbalik pada shifting","","Penolakan input logika tanggal terbalik pada shifting","  Sebagai Administrator atau Tim HR Operasional Hadir
+  Saya ingin memantau kehadiran karyawan shift, kepatuhan jam kerja, dan alokasi pola shift
+  Agar operasional rotasi shift berjalan tertib dan terdata secara transparan"
+"passed","Fri Oct 30 11:37:19 GMT 2026","Fri Oct 30 11:37:30 GMT 2026","10885","","Pengujian Fitur Laporan Overtime — HADIR","","Penyaringan laporan multi-kriteria via modal filter departemen dan status lembur","","Penyaringan laporan multi-kriteria via modal filter departemen dan status lembur","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin memantau dan memvalidasi rekaman jam kerja lembur karyawan, uraian tugas lembur, dan status persetujuan
+  Agar alokasi kompensasi lembur dan jam kerja tambahan karyawan terkelola secara adil dan transparan"
+"passed","Fri Oct 30 11:58:12 GMT 2026","Fri Oct 30 11:58:23 GMT 2026","10568","","Pengujian Fitur Generate Report Type — HADIR","","Pencarian riwayat laporan berdasarkan ID Report","","Pencarian riwayat laporan berdasarkan ID Report","  Sebagai Administrator atau Manajemen Eksekutif Hadir
+  Saya ingin membuat laporan terstandardisasi dan memantau riwayat generate laporan berkala
+  Agar arsip rekapitulasi operasional dan eksekutif siap diunduh secara berkala"
+"passed","Fri Oct 30 12:14:04 GMT 2026","Fri Oct 30 12:14:05 GMT 2026","1300","","Pengujian UI Lean Master Shifting","","Verifikasi render elemen utama pada halaman Shifting","","Verifikasi render elemen utama pada halaman Shifting","  Sebagai Administrator SQA
+  Saya ingin menguji antarmuka Master Shifting
+  Untuk memastikan render elemen visual, pencarian pola kerja, serta modal tambah/hapus berfungsi dengan baik sesuai Skema 1"
+"passed","Fri Oct 30 11:57:51 GMT 2026","Fri Oct 30 11:58:02 GMT 2026","10586","","Pengujian Fitur Generate Report Type — HADIR","","Penyaringan rekaman riwayat laporan berdasarkan rentang tanggal presisi","","Penyaringan rekaman riwayat laporan berdasarkan rentang tanggal presisi","  Sebagai Administrator atau Manajemen Eksekutif Hadir
+  Saya ingin membuat laporan terstandardisasi dan memantau riwayat generate laporan berkala
+  Agar arsip rekapitulasi operasional dan eksekutif siap diunduh secara berkala"
+"passed","Fri Oct 30 11:18:26 GMT 2026","Fri Oct 30 11:18:26 GMT 2026","668","","Verifikasi Alur Kritis Antarmuka Halaman Departements Settings (Lean UI)","","Mengubah status aktif departemens setting via toggle switch","","Mengubah status aktif departemens setting via toggle switch","  Sebagai administrator HADIR
+  Saya ingin memastikan konfigurasi pengaturan departemen dan toggle switch status berfungsi dengan baik
+  Agar status operasional departemen dapat dikendalikan secara tepat"
+"passed","Fri Oct 30 11:19:21 GMT 2026","Fri Oct 30 11:19:46 GMT 2026","25708","","Verifikasi Alur Kritis Antarmuka Halaman Job Level (Lean UI)","","Membuka modal tambah job level dan membatalkannya","","Membuka modal tambah job level dan membatalkannya","  Sebagai administrator HADIR
+  Saya ingin memastikan elemen visual dan alur kritis interaksi halaman job level beroperasi dengan andal
+  Agar penjenjangan karir dan aturan waktu istirahat karyawan dapat dikelola dengan tepat"
+"passed","Fri Oct 30 10:56:22 GMT 2026","Fri Oct 30 10:56:34 GMT 2026","11476","","Pengujian UI Lean Koreksi Absensi Client Mobile","","Verifikasi render halaman koreksi dan tombol pengajuan","","Verifikasi render halaman koreksi dan tombol pengajuan","  Sebagai Karyawan atau Administrator
+  Saya ingin mengakses modul koreksi absensi (/apps/absent/correction)
+  Untuk memeriksa riwayat koreksi dan membuka formulir modal pengajuan koreksi jam masuk/keluar"
+"passed","Fri Oct 30 11:25:37 GMT 2026","Fri Oct 30 11:25:48 GMT 2026","10848","","Pengujian Fitur Laporan Izin Terlambat (Keterlambatan Absensi) — HADIR","","Pembersihan kriteria filter dan pencarian melalui tombol Reset","","Pembersihan kriteria filter dan pencarian melalui tombol Reset","  Sebagai Administrator atau Tim HR/Supervisor
+  Saya ingin memantau dan memvalidasi rekaman absensi terlambat, selisih waktu, alasan keterlambatan, dan status approval
+  Agar kedisiplinan jam kerja shift karyawan terpantau dan terkelola secara adil"
+"passed","Fri Oct 30 11:40:48 GMT 2026","Fri Oct 30 11:41:30 GMT 2026","41797","","Pengujian Fitur Laporan Validation Overtime — HADIR","","Penyaringan laporan multi-kriteria via modal filter departemen dan status validasi","","Penyaringan laporan multi-kriteria via modal filter departemen dan status validasi","  Sebagai Administrator atau Tim Verifikator Lembur Hadir
+  Saya ingin meninjau pengajuan lembur, memvalidasi tahapan persetujuan multi-level, dan memberikan aksi persetujuan
+  Agar akuntabilitas kompensasi kerja lembur karyawan tervalidasi dengan tepat"
+"passed","Fri Oct 30 12:11:17 GMT 2026","Fri Oct 30 12:11:43 GMT 2026","25644","","Verifikasi Alur Kritis Antarmuka Halaman Position (Lean UI)","","Membuka modal konfirmasi hapus position dan membatalkan penghapusan","","Membuka modal konfirmasi hapus position dan membatalkan penghapusan","  Sebagai administrator HADIR
+  Saya ingin memastikan elemen visual dan alur kritis interaksi halaman posisi/jabatan berjalan dengan benar
+  Agar jabatan posisi karyawan dapat ditetapkan dan dikelola secara terstruktur"
+"passed","Fri Oct 30 11:22:08 GMT 2026","Fri Oct 30 11:22:18 GMT 2026","10821","","Pengujian Fitur Laporan Activity (Agenda & Aktivitas Kerja) — HADIR","","Pengaturan jumlah baris per halaman dan navigasi paginasi","","Pengaturan jumlah baris per halaman dan navigasi paginasi","  Sebagai Administrator atau Tim HR/Supervisor
+  Saya ingin memantau dan memvalidasi rekaman kegiatan harian, tipe aktivitas, waktu pelaksanaan, serta mengekspor data agenda kerja karyawan
+  Agar pencatatan tugas dan produktivitas karyawan terdokumentasi rapi dan akurat"
+"passed","Fri Oct 30 11:53:52 GMT 2026","Fri Oct 30 11:54:03 GMT 2026","10601","","Pengujian Fitur Laporan Izin Off — HADIR","","Penyaringan rekaman izin off berdasarkan rentang tanggal presisi","","Penyaringan rekaman izin off berdasarkan rentang tanggal presisi","  Sebagai Administrator atau Supervisor Tim Shift
+  Saya ingin mengelola permohonan penyesuaian jadwal libur (day-off swap) dan tanggal pengganti
+  Agar operasional rotasi shift tetap berjalan optimal dan transparan"
+"passed","Fri Oct 30 11:19:46 GMT 2026","Fri Oct 30 11:20:12 GMT 2026","25682","","Verifikasi Alur Kritis Antarmuka Halaman Job Level (Lean UI)","","Membuka modal konfirmasi hapus job level dan membatalkan penghapusan","","Membuka modal konfirmasi hapus job level dan membatalkan penghapusan","  Sebagai administrator HADIR
+  Saya ingin memastikan elemen visual dan alur kritis interaksi halaman job level beroperasi dengan andal
+  Agar penjenjangan karir dan aturan waktu istirahat karyawan dapat dikelola dengan tepat"
+"passed","Fri Oct 30 12:03:31 GMT 2026","Fri Oct 30 12:03:41 GMT 2026","10254","","Pengujian Fitur Laporan Daily Report — HADIR","","Peninjauan modal dialog detail absensi harian karyawan","","Peninjauan modal dialog detail absensi harian karyawan","  Sebagai Administrator atau Manajer Operasional Hadir
+  Saya ingin meninjau ringkasan konsolidasi presensi harian karyawan dan status kehadirannya
+  Agar audit absensi harian dapat dimonitor secara real-time dan akuntabel"
+"passed","Fri Oct 30 12:11:43 GMT 2026","Fri Oct 30 12:11:53 GMT 2026","10287","","Pengujian Elemen UI dan Tampilan Halaman Pendaftaran","","Membuka halaman pendaftaran melalui URL yang benar","","Membuka halaman pendaftaran melalui URL yang benar","  Sebagai calon pengguna magang
+  Saya ingin memastikan seluruh elemen antarmuka pendaftaran tersedia dan berfungsi
+  Agar proses pendaftaran dapat dilakukan dengan lancar"
+"passed","Fri Oct 30 12:03:41 GMT 2026","Fri Oct 30 12:03:52 GMT 2026","10525","","Pengujian Fitur Laporan Daily Report — HADIR","","Kontrol jumlah baris per halaman pada tabel daily report","","Kontrol jumlah baris per halaman pada tabel daily report","  Sebagai Administrator atau Manajer Operasional Hadir
+  Saya ingin meninjau ringkasan konsolidasi presensi harian karyawan dan status kehadirannya
+  Agar audit absensi harian dapat dimonitor secara real-time dan akuntabel"
+"passed","Fri Oct 30 11:52:48 GMT 2026","Fri Oct 30 11:52:59 GMT 2026","11045","","Pengujian Fitur Laporan Koreksi Absensi — HADIR","","Pembersihan kriteria filter dan pencarian koreksi melalui tombol Reset","","Pembersihan kriteria filter dan pencarian koreksi melalui tombol Reset","  Sebagai Administrator atau Atasan Langsung (Upliner)
+  Saya ingin meninjau permohonan perbaikan jam absensi dan memproses persetujuannya
+  Agar rekaman jam kerja karyawan akurat dan terdokumentasi dengan transparan"
+"passed","Fri Oct 30 11:35:54 GMT 2026","Fri Oct 30 11:36:05 GMT 2026","10162","","Pengujian Fitur Laporan Overtime — HADIR","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Overtime","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Overtime","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin memantau dan memvalidasi rekaman jam kerja lembur karyawan, uraian tugas lembur, dan status persetujuan
+  Agar alokasi kompensasi lembur dan jam kerja tambahan karyawan terkelola secara adil dan transparan"
+"passed","Fri Oct 30 11:55:25 GMT 2026","Fri Oct 30 11:55:36 GMT 2026","11036","","Pengujian Fitur Laporan Izin Off — HADIR","","Pembersihan kriteria filter dan pencarian izin off melalui tombol Reset","","Pembersihan kriteria filter dan pencarian izin off melalui tombol Reset","  Sebagai Administrator atau Supervisor Tim Shift
+  Saya ingin mengelola permohonan penyesuaian jadwal libur (day-off swap) dan tanggal pengganti
+  Agar operasional rotasi shift tetap berjalan optimal dan transparan"
+"failed","Fri Oct 30 12:14:46 GMT 2026","Fri Oct 30 12:15:12 GMT 2026","26614","","Pengujian UI Lean Master Unit Leave","","Buka dan batalkan modal hapus aturan cuti","","Buka dan batalkan modal hapus aturan cuti","  Sebagai Administrator SQA
+  Saya ingin menguji antarmuka Master Aturan Cuti (Unit Leave)
+  Untuk memastikan render aturan alokasi cuti, pencarian data, dan interaksi modal tambah/hapus sesuai Skema 1"
+"passed","Fri Oct 30 12:09:48 GMT 2026","Fri Oct 30 12:09:48 GMT 2026","366","","Pengujian Fitur Management User — HADIR","","Verifikasi ketersediaan elemen utama antarmuka halaman Management User","","Verifikasi ketersediaan elemen utama antarmuka halaman Management User","  Sebagai Administrator
+  Saya ingin mengelola data direktori pengguna, status akun, dan sinkronisasi approval
+  Agar operasional kepegawaian dapat dipantau dan dikelola dengan akurat"
+"passed","Fri Oct 30 11:15:58 GMT 2026","Fri Oct 30 11:16:00 GMT 2026","1230","","Pengujian UI Lean Master Day Off","","Tambah data hari libur baru melalui modal","","Tambah data hari libur baru melalui modal","  Sebagai Administrator SQA
+  Saya ingin menguji antarmuka Master Hari Libur (Day Off)
+  Untuk memastikan render tanggal hari libur, pencarian teks, dan dialog tambah/hapus sesuai Skema 1"
+"passed","Fri Oct 30 11:18:53 GMT 2026","Fri Oct 30 11:19:19 GMT 2026","25629","","Verifikasi Alur Kritis Antarmuka Halaman Departements Settings (Lean UI)","","Membuka modal konfirmasi hapus setting dan membatalkan penghapusan","","Membuka modal konfirmasi hapus setting dan membatalkan penghapusan","  Sebagai administrator HADIR
+  Saya ingin memastikan konfigurasi pengaturan departemen dan toggle switch status berfungsi dengan baik
+  Agar status operasional departemen dapat dikendalikan secara tepat"
+"passed","Fri Oct 30 11:39:24 GMT 2026","Fri Oct 30 11:39:35 GMT 2026","10220","","Pengujian Fitur Laporan Validation Overtime — HADIR","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Validation Overtime","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Validation Overtime","  Sebagai Administrator atau Tim Verifikator Lembur Hadir
+  Saya ingin meninjau pengajuan lembur, memvalidasi tahapan persetujuan multi-level, dan memberikan aksi persetujuan
+  Agar akuntabilitas kompensasi kerja lembur karyawan tervalidasi dengan tepat"
+"passed","Fri Oct 30 11:52:38 GMT 2026","Fri Oct 30 11:52:48 GMT 2026","10577","","Pengujian Fitur Laporan Koreksi Absensi — HADIR","","Pencarian rekaman koreksi berdasarkan nama karyawan","","Pencarian rekaman koreksi berdasarkan nama karyawan","  Sebagai Administrator atau Atasan Langsung (Upliner)
+  Saya ingin meninjau permohonan perbaikan jam absensi dan memproses persetujuannya
+  Agar rekaman jam kerja karyawan akurat dan terdokumentasi dengan transparan"
+"passed","Fri Oct 30 11:48:26 GMT 2026","Fri Oct 30 11:48:37 GMT 2026","10853","","Pengujian Fitur Laporan Perjalanan Dinas — HADIR","","Pembersihan kriteria filter dan pencarian dinas melalui tombol Reset","","Pembersihan kriteria filter dan pencarian dinas melalui tombol Reset","  Sebagai Administrator atau Tim Operasional Hadir
+  Saya ingin mengelola surat tugas dinas, anggaran operasional luar kantor, dan status persetujuan dinas
+  Agar akuntabilitas pelaksanaan dinas luar kota karyawan tercatat transparan"
+"passed","Fri Oct 30 11:33:40 GMT 2026","Fri Oct 30 11:34:21 GMT 2026","41494","","Pengujian Fitur Laporan Sakit — HADIR","","Pencarian rekaman sakit berdasarkan nama karyawan","","Pencarian rekaman sakit berdasarkan nama karyawan","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin memverifikasi izin sakit karyawan, validasi surat dokter, dan status konfirmasi medis
+  Agar pencatatan ketidakhadiran karena kondisi medis tercatat rapi dan akurat"
+"passed","Fri Oct 30 12:13:03 GMT 2026","Fri Oct 30 12:13:05 GMT 2026","1275","","Pengujian UI Lean Master Schedule","","Verifikasi render elemen utama pada halaman Schedule","","Verifikasi render elemen utama pada halaman Schedule","  Sebagai Administrator SQA
+  Saya ingin menguji antarmuka Master Jadwal Kerja (Schedule)
+  Untuk memastikan render tabel jadwal, filter pencarian, dan modal tambah/hapus berfungsi sesuai Skema 1"
+"passed","Fri Oct 30 11:53:21 GMT 2026","Fri Oct 30 11:53:31 GMT 2026","10525","","Pengujian Fitur Laporan Koreksi Absensi — HADIR","","Kontrol jumlah baris per halaman pada tabel koreksi","","Kontrol jumlah baris per halaman pada tabel koreksi","  Sebagai Administrator atau Atasan Langsung (Upliner)
+  Saya ingin meninjau permohonan perbaikan jam absensi dan memproses persetujuannya
+  Agar rekaman jam kerja karyawan akurat dan terdokumentasi dengan transparan"
+"passed","Fri Oct 30 12:00:52 GMT 2026","Fri Oct 30 12:01:02 GMT 2026","10191","","Pengujian Fitur Laporan Sisa Cuti — HADIR","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Sisa Cuti","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Sisa Cuti","  Sebagai Administrator atau Tim Human Resources
+  Saya ingin memantau kuota hak cuti tahunan, cuti terpakai, dan sisa saldo berjalan karyawan
+  Agar manajemen cuti karyawan transparan dan terdata secara teratur"
+"passed","Fri Oct 30 11:37:41 GMT 2026","Fri Oct 30 11:37:51 GMT 2026","10633","","Pengujian Fitur Laporan Overtime — HADIR","","Kontrol jumlah baris per halaman pada tabel overtime","","Kontrol jumlah baris per halaman pada tabel overtime","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin memantau dan memvalidasi rekaman jam kerja lembur karyawan, uraian tugas lembur, dan status persetujuan
+  Agar alokasi kompensasi lembur dan jam kerja tambahan karyawan terkelola secara adil dan transparan"
+"passed","Fri Oct 30 12:09:06 GMT 2026","Fri Oct 30 12:09:17 GMT 2026","10672","","Pengujian Alur Bisnis dan Fungsionalitas Login HADIR","","Login dengan email terdaftar tetapi password salah","","Login dengan email terdaftar tetapi password salah","  Sebagai pengguna terdaftar atau peserta magang
+  Saya ingin menjalankan proses login dengan berbagai skenario alur kerja
+  Agar sistem dapat mengautentikasi dan mengarahkan hak akses dengan tepat"
+"passed","Fri Oct 30 11:58:45 GMT 2026","Fri Oct 30 11:58:55 GMT 2026","10650","","Pengujian Fitur Generate Report Type — HADIR","","Eksekusi generate laporan eksekutif baru melalui formulir","","Eksekusi generate laporan eksekutif baru melalui formulir","  Sebagai Administrator atau Manajemen Eksekutif Hadir
+  Saya ingin membuat laporan terstandardisasi dan memantau riwayat generate laporan berkala
+  Agar arsip rekapitulasi operasional dan eksekutif siap diunduh secara berkala"
+"passed","Fri Oct 30 11:48:37 GMT 2026","Fri Oct 30 11:48:48 GMT 2026","10796","","Pengujian Fitur Laporan Perjalanan Dinas — HADIR","","Penyaringan laporan multi-kriteria via modal filter departemen dan status approval","","Penyaringan laporan multi-kriteria via modal filter departemen dan status approval","  Sebagai Administrator atau Tim Operasional Hadir
+  Saya ingin mengelola surat tugas dinas, anggaran operasional luar kantor, dan status persetujuan dinas
+  Agar akuntabilitas pelaksanaan dinas luar kota karyawan tercatat transparan"
+"passed","Fri Oct 30 12:13:05 GMT 2026","Fri Oct 30 12:13:07 GMT 2026","2755","","Pengujian UI Lean Master Schedule","","Pencarian jadwal berdasarkan kata kunci","","Pencarian jadwal berdasarkan kata kunci","  Sebagai Administrator SQA
+  Saya ingin menguji antarmuka Master Jadwal Kerja (Schedule)
+  Untuk memastikan render tabel jadwal, filter pencarian, dan modal tambah/hapus berfungsi sesuai Skema 1"
+"passed","Fri Oct 30 11:34:21 GMT 2026","Fri Oct 30 11:34:32 GMT 2026","10846","","Pengujian Fitur Laporan Sakit — HADIR","","Pembersihan kriteria filter dan pencarian sakit melalui tombol Reset","","Pembersihan kriteria filter dan pencarian sakit melalui tombol Reset","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin memverifikasi izin sakit karyawan, validasi surat dokter, dan status konfirmasi medis
+  Agar pencatatan ketidakhadiran karena kondisi medis tercatat rapi dan akurat"
+"failed","Fri Oct 30 11:19:20 GMT 2026","Fri Oct 30 11:19:21 GMT 2026","786","","Verifikasi Alur Kritis Antarmuka Halaman Job Level (Lean UI)","","Melakukan pencarian level jabatan berdasarkan nama","","Melakukan pencarian level jabatan berdasarkan nama","  Sebagai administrator HADIR
+  Saya ingin memastikan elemen visual dan alur kritis interaksi halaman job level beroperasi dengan andal
+  Agar penjenjangan karir dan aturan waktu istirahat karyawan dapat dikelola dengan tepat"
+"passed","Fri Oct 30 12:07:53 GMT 2026","Fri Oct 30 12:08:03 GMT 2026","10162","","Validasi Field Email pada Halaman Login","","Submit saat field Email kosong","","Submit saat field Email kosong","  Sebagai sistem autentikasi
+  Saya ingin memastikan format dan masukan email divalidasi dengan ketat
+  Agar integritas akun pengguna tetap terjaga dari input tidak valid"
+"failed","Fri Oct 30 10:54:19 GMT 2026","Fri Oct 30 10:55:00 GMT 2026","41101","","Pengujian UI Lean Ubah Kata Sandi Client Mobile","","Verifikasi render halaman ubah kata sandi","","Verifikasi render halaman ubah kata sandi","  Sebagai Pengguna Client Hadir
+  Saya ingin mengakses modul ganti password (/apps/absent/change-password)
+  Untuk mengganti kata sandi akun dan memverifikasi toggle visibilitas password serta validasi form"
+"passed","Fri Oct 30 11:43:25 GMT 2026","Fri Oct 30 11:44:07 GMT 2026","41808","","Pengujian Fitur Laporan Shifting — HADIR","","Penyaringan laporan multi-kriteria via modal filter departemen dan pola shift","","Penyaringan laporan multi-kriteria via modal filter departemen dan pola shift","  Sebagai Administrator atau Tim HR Operasional Hadir
+  Saya ingin memantau kehadiran karyawan shift, kepatuhan jam kerja, dan alokasi pola shift
+  Agar operasional rotasi shift berjalan tertib dan terdata secara transparan"
+"passed","Fri Oct 30 11:58:34 GMT 2026","Fri Oct 30 11:58:45 GMT 2026","10773","","Pengujian Fitur Generate Report Type — HADIR","","Penyaringan riwayat laporan via modal filter departemen dan tipe laporan","","Penyaringan riwayat laporan via modal filter departemen dan tipe laporan","  Sebagai Administrator atau Manajemen Eksekutif Hadir
+  Saya ingin membuat laporan terstandardisasi dan memantau riwayat generate laporan berkala
+  Agar arsip rekapitulasi operasional dan eksekutif siap diunduh secara berkala"
+"failed","Fri Oct 30 10:58:39 GMT 2026","Fri Oct 30 10:59:20 GMT 2026","41083","","Pengujian UI Lean Dashboard Presensi Client Mobile","","Verifikasi render elemen profil dan statistik kehadiran utama","","Verifikasi render elemen profil dan statistik kehadiran utama","  Sebagai Karyawan atau Administrator
+  Saya ingin mengakses halaman utama presensi (/apps/absent)
+  Untuk memastikan profil, metrik kehadiran, navigasi menu cepat, riwayat, dan tombol absen tampil dengan benar"
+"passed","Fri Oct 30 12:05:15 GMT 2026","Fri Oct 30 12:05:26 GMT 2026","10866","","Pengujian Fitur Laporan Semua (Kehadiran Karyawan) — HADIR","","Pembersihan kriteria filter dan pencarian melalui tombol Reset","","Pembersihan kriteria filter dan pencarian melalui tombol Reset","  Sebagai Administrator atau Tim HR
+  Saya ingin memantau dan memvalidasi rekaman kehadiran, foto selfie, koordinat GPS, serta mengekspor data absensi
+  Agar pencatatan kehadiran karyawan akurat dan bebas dari manipulasi"
+"passed","Fri Oct 30 12:02:27 GMT 2026","Fri Oct 30 12:02:37 GMT 2026","10190","","Pengujian Fitur Laporan Daily Report — HADIR","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Daily Report","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Daily Report","  Sebagai Administrator atau Manajer Operasional Hadir
+  Saya ingin meninjau ringkasan konsolidasi presensi harian karyawan dan status kehadirannya
+  Agar audit absensi harian dapat dimonitor secara real-time dan akuntabel"
+"passed","Fri Oct 30 11:24:14 GMT 2026","Fri Oct 30 11:24:24 GMT 2026","10826","","Pengujian Fitur Laporan Izin (Perizinan Karyawan) — HADIR","","Pengaturan jumlah baris per halaman dan navigasi paginasi","","Pengaturan jumlah baris per halaman dan navigasi paginasi","  Sebagai Administrator atau Tim HR
+  Saya ingin memantau dan memvalidasi rekaman permohonan izin, tipe izin, lampiran surat izin, dan status persetujuan
+  Agar pencatatan ketidakhadiran karyawan tertib, sah, dan terverifikasi"
+"passed","Fri Oct 30 11:49:09 GMT 2026","Fri Oct 30 11:49:19 GMT 2026","10460","","Pengujian Fitur Laporan Perjalanan Dinas — HADIR","","Ekspor berkas laporan perjalanan dinas ke format Excel","","Ekspor berkas laporan perjalanan dinas ke format Excel","  Sebagai Administrator atau Tim Operasional Hadir
+  Saya ingin mengelola surat tugas dinas, anggaran operasional luar kantor, dan status persetujuan dinas
+  Agar akuntabilitas pelaksanaan dinas luar kota karyawan tercatat transparan"
+"passed","Fri Oct 30 11:45:09 GMT 2026","Fri Oct 30 11:45:20 GMT 2026","10485","","Pengujian Fitur Laporan Meeting — HADIR","","Pencarian rekaman meeting berdasarkan topik atau host","","Pencarian rekaman meeting berdasarkan topik atau host","  Sebagai Administrator atau Manajemen Hadir
+  Saya ingin memantau agenda rapat kerja, daftar kehadiran peserta rapat, dan ruangan/tautan meeting
+  Agar koordinasi pertemuan bisnis dan operasional terdokumentasi dengan baik"
+"passed","Fri Oct 30 11:26:20 GMT 2026","Fri Oct 30 11:26:30 GMT 2026","10818","","Pengujian Fitur Laporan Izin Terlambat (Keterlambatan Absensi) — HADIR","","Pengaturan jumlah baris per halaman dan navigasi paginasi","","Pengaturan jumlah baris per halaman dan navigasi paginasi","  Sebagai Administrator atau Tim HR/Supervisor
+  Saya ingin memantau dan memvalidasi rekaman absensi terlambat, selisih waktu, alasan keterlambatan, dan status approval
+  Agar kedisiplinan jam kerja shift karyawan terpantau dan terkelola secara adil"
+"passed","Fri Oct 30 11:34:43 GMT 2026","Fri Oct 30 11:34:53 GMT 2026","10267","","Pengujian Fitur Laporan Sakit — HADIR","","Peninjauan modal dialog detail izin sakit karyawan","","Peninjauan modal dialog detail izin sakit karyawan","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin memverifikasi izin sakit karyawan, validasi surat dokter, dan status konfirmasi medis
+  Agar pencatatan ketidakhadiran karena kondisi medis tercatat rapi dan akurat"
+"failed","Fri Oct 30 11:05:44 GMT 2026","Fri Oct 30 11:06:25 GMT 2026","41119","","Pengujian UI Lean Pengajuan Izin Client Mobile","","Verifikasi render halaman izin dan 3 tab kategori","","Verifikasi render halaman izin dan 3 tab kategori","  Sebagai Karyawan atau Administrator
+  Saya ingin mengakses modul pengajuan izin (/apps/absent/permit)
+  Untuk memeriksa 3 tab kategori izin dan membuka formulir modal pengajuan izin"
+"passed","Fri Oct 30 11:42:01 GMT 2026","Fri Oct 30 11:42:11 GMT 2026","10172","","Pengujian Fitur Laporan Shifting — HADIR","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Shifting","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Shifting","  Sebagai Administrator atau Tim HR Operasional Hadir
+  Saya ingin memantau kehadiran karyawan shift, kepatuhan jam kerja, dan alokasi pola shift
+  Agar operasional rotasi shift berjalan tertib dan terdata secara transparan"
+"failed","Fri Oct 30 10:52:55 GMT 2026","Fri Oct 30 10:53:37 GMT 2026","41124","","Pengujian UI Lean Riwayat Presensi Client Mobile","","Verifikasi render kartu daftar riwayat kehadiran","","Verifikasi render kartu daftar riwayat kehadiran","  Sebagai Karyawan atau Administrator
+  Saya ingin mengakses halaman riwayat presensi (/apps/absent/activity)
+  Untuk memverifikasi daftar catatan kehadiran, foto check-in, dan navigasi kembali"
+"passed","Fri Oct 30 12:01:13 GMT 2026","Fri Oct 30 12:01:23 GMT 2026","10592","","Pengujian Fitur Laporan Sisa Cuti — HADIR","","Penolakan input logika tanggal terbalik pada sisa cuti","","Penolakan input logika tanggal terbalik pada sisa cuti","  Sebagai Administrator atau Tim Human Resources
+  Saya ingin memantau kuota hak cuti tahunan, cuti terpakai, dan sisa saldo berjalan karyawan
+  Agar manajemen cuti karyawan transparan dan terdata secara teratur"
+"passed","Fri Oct 30 11:40:37 GMT 2026","Fri Oct 30 11:40:48 GMT 2026","10848","","Pengujian Fitur Laporan Validation Overtime — HADIR","","Pembersihan kriteria filter dan pencarian validation overtime melalui tombol Reset","","Pembersihan kriteria filter dan pencarian validation overtime melalui tombol Reset","  Sebagai Administrator atau Tim Verifikator Lembur Hadir
+  Saya ingin meninjau pengajuan lembur, memvalidasi tahapan persetujuan multi-level, dan memberikan aksi persetujuan
+  Agar akuntabilitas kompensasi kerja lembur karyawan tervalidasi dengan tepat"
+"passed","Fri Oct 30 12:11:53 GMT 2026","Fri Oct 30 12:12:03 GMT 2026","10315","","Pengujian Elemen UI dan Tampilan Halaman Pendaftaran","","Menampilkan password menggunakan toggle ikon mata","","Menampilkan password menggunakan toggle ikon mata","  Sebagai calon pengguna magang
+  Saya ingin memastikan seluruh elemen antarmuka pendaftaran tersedia dan berfungsi
+  Agar proses pendaftaran dapat dilakukan dengan lancar"
+"passed","Fri Oct 30 12:07:32 GMT 2026","Fri Oct 30 12:07:42 GMT 2026","10154","","Pengujian Elemen UI dan Tampilan Halaman Login","","Klik ikon mata toggle password satu kali","","Klik ikon mata toggle password satu kali","  Sebagai sistem verifikasi antarmuka
+  Saya ingin memastikan seluruh elemen formulir login tampil dengan benar
+  Agar pengguna mendapatkan pengalaman visual dan interaksi yang optimal"
+"passed","Fri Oct 30 11:46:02 GMT 2026","Fri Oct 30 11:46:12 GMT 2026","10452","","Pengujian Fitur Laporan Meeting — HADIR","","Ekspor berkas laporan meeting ke format Excel","","Ekspor berkas laporan meeting ke format Excel","  Sebagai Administrator atau Manajemen Hadir
+  Saya ingin memantau agenda rapat kerja, daftar kehadiran peserta rapat, dan ruangan/tautan meeting
+  Agar koordinasi pertemuan bisnis dan operasional terdokumentasi dengan baik"
+"failed","Fri Oct 30 11:17:24 GMT 2026","Fri Oct 30 11:18:00 GMT 2026","35507","","Verifikasi Alur Kritis Antarmuka Halaman Departemens (Lean UI)","","Membuka modal atur Virtual ID dan membatalkannya","","Membuka modal atur Virtual ID dan membatalkannya","  Sebagai administrator HADIR
+  Saya ingin memastikan elemen visual dan alur kritis interaksi halaman departemen beroperasi dengan benar
+  Agar struktur unit kerja departemen dapat dikelola secara andal"
+"passed","Fri Oct 30 11:28:05 GMT 2026","Fri Oct 30 11:28:15 GMT 2026","10260","","Pengujian Fitur Laporan Izin Pulang Cepat — HADIR","","Peninjauan modal dialog detail pulang cepat karyawan","","Peninjauan modal dialog detail pulang cepat karyawan","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin mengelola dan memantau rekaman karyawan yang pulang sebelum akhir jam kerja
+  Agar presensi dan kedisiplinan kerja tetap akuntabel dan transparan"
+"passed","Fri Oct 30 12:08:46 GMT 2026","Fri Oct 30 12:08:56 GMT 2026","10143","","Pengujian Alur Bisnis dan Fungsionalitas Login HADIR","","Submit saat seluruh field formulir kosong","","Submit saat seluruh field formulir kosong","  Sebagai pengguna terdaftar atau peserta magang
+  Saya ingin menjalankan proses login dengan berbagai skenario alur kerja
+  Agar sistem dapat mengautentikasi dan mengarahkan hak akses dengan tepat"
+"passed","Fri Oct 30 12:09:17 GMT 2026","Fri Oct 30 12:09:28 GMT 2026","10847","","Pengujian UX, Responsivitas, Kompatibilitas, dan Aksesibilitas Halaman Login","","Tampilan formulir login pada layar Ponsel 375x667","","Tampilan formulir login pada layar Ponsel 375x667","  Sebagai sistem antarmuka modern
+  Saya ingin memastikan form login responsif dan memenuhi standar aksesibilitas
+  Agar seluruh pengguna dapat menggunakan halaman login di berbagai perangkat"
+"passed","Fri Oct 30 11:13:45 GMT 2026","Fri Oct 30 11:13:46 GMT 2026","1175","","Pengujian UI Lean Master Calendar","","Buka dan batalkan modal tambah calendar","","Buka dan batalkan modal tambah calendar","  Sebagai Administrator SQA
+  Saya ingin menguji antarmuka Master Kalender Kerja
+  Untuk memastikan render kalender unit kerja, pencarian teks, dan dialog tambah/hapus berfungsi sesuai Skema 1"
+"passed","Fri Oct 30 11:59:27 GMT 2026","Fri Oct 30 11:59:37 GMT 2026","10573","","Pengujian Fitur Laporan New Generate — HADIR","","Penyaringan rekaman riwayat template berdasarkan rentang tanggal presisi","","Penyaringan rekaman riwayat template berdasarkan rentang tanggal presisi","  Sebagai Administrator atau Tim Analis Data Hadir
+  Saya ingin membuat konfigurasi template laporan dinamis dan memantau riwayat berkas template yang telah dibuat
+  Agar penarikan data atribut kustom dapat dilakukan secara fleksibel dan terdokumentasi"
+"failed","Fri Oct 30 10:57:15 GMT 2026","Fri Oct 30 10:57:56 GMT 2026","41176","","Pengujian UI Lean Koreksi Absensi Client Mobile","","Verifikasi pembukaan modal formulir pengajuan koreksi","","Verifikasi pembukaan modal formulir pengajuan koreksi","  Sebagai Karyawan atau Administrator
+  Saya ingin mengakses modul koreksi absensi (/apps/absent/correction)
+  Untuk memeriksa riwayat koreksi dan membuka formulir modal pengajuan koreksi jam masuk/keluar"
+"broken","Fri Oct 30 11:07:06 GMT 2026","Fri Oct 30 11:07:47 GMT 2026","41105","","Pengujian UI Lean Pengajuan Izin Client Mobile","","Verifikasi perpindahan tab kategori izin","","Verifikasi perpindahan tab kategori izin","  Sebagai Karyawan atau Administrator
+  Saya ingin mengakses modul pengajuan izin (/apps/absent/permit)
+  Untuk memeriksa 3 tab kategori izin dan membuka formulir modal pengajuan izin"
+"failed","Fri Oct 30 11:33:04 GMT 2026","Fri Oct 30 11:33:40 GMT 2026","35909","","Pengujian Fitur Laporan Sakit — HADIR","","Penolakan input logika tanggal terbalik pada sakit","","Penolakan input logika tanggal terbalik pada sakit","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin memverifikasi izin sakit karyawan, validasi surat dokter, dan status konfirmasi medis
+  Agar pencatatan ketidakhadiran karena kondisi medis tercatat rapi dan akurat"
+"passed","Fri Oct 30 12:06:46 GMT 2026","Fri Oct 30 12:07:12 GMT 2026","25681","","Verifikasi Alur Kritis Antarmuka Halaman Location Point (Lean UI)","","Membuka modal konfirmasi hapus lokasi dan membatalkan penghapusan","","Membuka modal konfirmasi hapus lokasi dan membatalkan penghapusan","  Sebagai administrator HADIR
+  Saya ingin memastikan elemen visual dan alur kritis interaksi halaman titik lokasi presensi geofencing berfungsi dengan baik
+  Agar batas radius presensi kehadiran karyawan dapat ditentukan secara presisi"
+"failed","Fri Oct 30 12:10:23 GMT 2026","Fri Oct 30 12:10:50 GMT 2026","26618","","Pengujian UI Lean Master Overtime Reason","","Buka dan batalkan modal hapus overtime reason","","Buka dan batalkan modal hapus overtime reason","  Sebagai Administrator SQA
+  Saya ingin menguji antarmuka Master Alasan Lembur (OT Reason)
+  Untuk memastikan render daftar alasan lembur, pencarian teks, dan dialog tambah/hapus berfungsi sesuai Skema 1"
+"passed","Fri Oct 30 11:24:35 GMT 2026","Fri Oct 30 11:24:45 GMT 2026","10485","","Pengujian Fitur Laporan Izin Terlambat (Keterlambatan Absensi) — HADIR","","Penyaringan rekaman keterlambatan berdasarkan rentang tanggal presisi","","Penyaringan rekaman keterlambatan berdasarkan rentang tanggal presisi","  Sebagai Administrator atau Tim HR/Supervisor
+  Saya ingin memantau dan memvalidasi rekaman absensi terlambat, selisih waktu, alasan keterlambatan, dan status approval
+  Agar kedisiplinan jam kerja shift karyawan terpantau dan terkelola secara adil"
+"passed","Fri Oct 30 11:44:48 GMT 2026","Fri Oct 30 11:44:59 GMT 2026","10479","","Pengujian Fitur Laporan Meeting — HADIR","","Penyaringan rekaman meeting berdasarkan rentang tanggal presisi","","Penyaringan rekaman meeting berdasarkan rentang tanggal presisi","  Sebagai Administrator atau Manajemen Hadir
+  Saya ingin memantau agenda rapat kerja, daftar kehadiran peserta rapat, dan ruangan/tautan meeting
+  Agar koordinasi pertemuan bisnis dan operasional terdokumentasi dengan baik"
+"passed","Fri Oct 30 11:27:54 GMT 2026","Fri Oct 30 11:28:05 GMT 2026","10775","","Pengujian Fitur Laporan Izin Pulang Cepat — HADIR","","Penyaringan laporan multi-kriteria via modal filter departemen dan status approval","","Penyaringan laporan multi-kriteria via modal filter departemen dan status approval","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin mengelola dan memantau rekaman karyawan yang pulang sebelum akhir jam kerja
+  Agar presensi dan kedisiplinan kerja tetap akuntabel dan transparan"
+"passed","Fri Oct 30 11:42:32 GMT 2026","Fri Oct 30 11:43:14 GMT 2026","41496","","Pengujian Fitur Laporan Shifting — HADIR","","Pencarian rekaman shift berdasarkan nama karyawan","","Pencarian rekaman shift berdasarkan nama karyawan","  Sebagai Administrator atau Tim HR Operasional Hadir
+  Saya ingin memantau kehadiran karyawan shift, kepatuhan jam kerja, dan alokasi pola shift
+  Agar operasional rotasi shift berjalan tertib dan terdata secara transparan"
+"passed","Fri Oct 30 11:25:48 GMT 2026","Fri Oct 30 11:25:59 GMT 2026","10796","","Pengujian Fitur Laporan Izin Terlambat (Keterlambatan Absensi) — HADIR","","Penyaringan laporan multi-kriteria via modal filter departemen dan status approval","","Penyaringan laporan multi-kriteria via modal filter departemen dan status approval","  Sebagai Administrator atau Tim HR/Supervisor
+  Saya ingin memantau dan memvalidasi rekaman absensi terlambat, selisih waktu, alasan keterlambatan, dan status approval
+  Agar kedisiplinan jam kerja shift karyawan terpantau dan terkelola secara adil"
+"passed","Fri Oct 30 11:59:59 GMT 2026","Fri Oct 30 12:00:10 GMT 2026","11029","","Pengujian Fitur Laporan New Generate — HADIR","","Pembersihan kriteria filter dan pencarian riwayat template melalui tombol Reset","","Pembersihan kriteria filter dan pencarian riwayat template melalui tombol Reset","  Sebagai Administrator atau Tim Analis Data Hadir
+  Saya ingin membuat konfigurasi template laporan dinamis dan memantau riwayat berkas template yang telah dibuat
+  Agar penarikan data atribut kustom dapat dilakukan secara fleksibel dan terdokumentasi"
+"passed","Fri Oct 30 12:09:50 GMT 2026","Fri Oct 30 12:09:50 GMT 2026","242","","Pengujian Fitur Management User — HADIR","","Pengubahan status keaktifan akun karyawan via switch Active","","Pengubahan status keaktifan akun karyawan via switch Active","  Sebagai Administrator
+  Saya ingin mengelola data direktori pengguna, status akun, dan sinkronisasi approval
+  Agar operasional kepegawaian dapat dipantau dan dikelola dengan akurat"
+"passed","Fri Oct 30 12:15:40 GMT 2026","Fri Oct 30 12:16:05 GMT 2026","25646","","Verifikasi Alur Kritis Antarmuka Halaman User Monitoring (Lean UI)","","Membuka modal hapus monitoring dan membatalkan penghapusan","","Membuka modal hapus monitoring dan membatalkan penghapusan","  Sebagai administrator HADIR
+  Saya ingin memastikan elemen visual dan alur kritis interaksi halaman pemantauan pengguna berfungsi dengan baik
+  Agar pengawasan keaktifan dan lokasi presensi karyawan di lapangan dapat dilakukan secara akurat"
+"passed","Fri Oct 30 12:05:47 GMT 2026","Fri Oct 30 12:05:57 GMT 2026","10237","","Pengujian Fitur Laporan Semua (Kehadiran Karyawan) — HADIR","","Peninjauan modal titik koordinat lokasi presisi","","Peninjauan modal titik koordinat lokasi presisi","  Sebagai Administrator atau Tim HR
+  Saya ingin memantau dan memvalidasi rekaman kehadiran, foto selfie, koordinat GPS, serta mengekspor data absensi
+  Agar pencatatan kehadiran karyawan akurat dan bebas dari manipulasi"
+"passed","Fri Oct 30 11:13:47 GMT 2026","Fri Oct 30 11:13:48 GMT 2026","1207","","Pengujian UI Lean Master Calendar","","Tambah data kalender unit baru melalui modal","","Tambah data kalender unit baru melalui modal","  Sebagai Administrator SQA
+  Saya ingin menguji antarmuka Master Kalender Kerja
+  Untuk memastikan render kalender unit kerja, pencarian teks, dan dialog tambah/hapus berfungsi sesuai Skema 1"
+"passed","Fri Oct 30 12:10:50 GMT 2026","Fri Oct 30 12:10:51 GMT 2026","1287","","Verifikasi Alur Kritis Antarmuka Halaman Position (Lean UI)","","Melakukan pencarian posisi kerja berdasarkan nama","","Melakukan pencarian posisi kerja berdasarkan nama","  Sebagai administrator HADIR
+  Saya ingin memastikan elemen visual dan alur kritis interaksi halaman posisi/jabatan berjalan dengan benar
+  Agar jabatan posisi karyawan dapat ditetapkan dan dikelola secara terstruktur"
+"passed","Fri Oct 30 11:16:01 GMT 2026","Fri Oct 30 11:16:01 GMT 2026","206","","Verifikasi Alur Kritis Antarmuka Halaman Departemens (Lean UI)","","Membuka halaman departemens dan verifikasi elemen antarmuka","","Membuka halaman departemens dan verifikasi elemen antarmuka","  Sebagai administrator HADIR
+  Saya ingin memastikan elemen visual dan alur kritis interaksi halaman departemen beroperasi dengan benar
+  Agar struktur unit kerja departemen dapat dikelola secara andal"
+"passed","Fri Oct 30 12:09:50 GMT 2026","Fri Oct 30 12:09:51 GMT 2026","331","","Pengujian Fitur Management User — HADIR","","Sinkronisasi alur persetujuan karyawan","","Sinkronisasi alur persetujuan karyawan","  Sebagai Administrator
+  Saya ingin mengelola data direktori pengguna, status akun, dan sinkronisasi approval
+  Agar operasional kepegawaian dapat dipantau dan dikelola dengan akurat"
+"passed","Fri Oct 30 11:58:02 GMT 2026","Fri Oct 30 11:58:12 GMT 2026","10584","","Pengujian Fitur Generate Report Type — HADIR","","Penolakan input logika tanggal terbalik pada riwayat report","","Penolakan input logika tanggal terbalik pada riwayat report","  Sebagai Administrator atau Manajemen Eksekutif Hadir
+  Saya ingin membuat laporan terstandardisasi dan memantau riwayat generate laporan berkala
+  Agar arsip rekapitulasi operasional dan eksekutif siap diunduh secara berkala"
+"passed","Fri Oct 30 12:14:12 GMT 2026","Fri Oct 30 12:14:15 GMT 2026","2765","","Pengujian UI Lean Master Unit Leave","","Pencarian aturan cuti berdasarkan kata kunci","","Pencarian aturan cuti berdasarkan kata kunci","  Sebagai Administrator SQA
+  Saya ingin menguji antarmuka Master Aturan Cuti (Unit Leave)
+  Untuk memastikan render aturan alokasi cuti, pencarian data, dan interaksi modal tambah/hapus sesuai Skema 1"
+"passed","Fri Oct 30 11:39:56 GMT 2026","Fri Oct 30 11:40:37 GMT 2026","41494","","Pengujian Fitur Laporan Validation Overtime — HADIR","","Pencarian rekaman validasi lembur berdasarkan nama karyawan","","Pencarian rekaman validasi lembur berdasarkan nama karyawan","  Sebagai Administrator atau Tim Verifikator Lembur Hadir
+  Saya ingin meninjau pengajuan lembur, memvalidasi tahapan persetujuan multi-level, dan memberikan aksi persetujuan
+  Agar akuntabilitas kompensasi kerja lembur karyawan tervalidasi dengan tepat"
+"passed","Fri Oct 30 11:37:30 GMT 2026","Fri Oct 30 11:37:41 GMT 2026","10256","","Pengujian Fitur Laporan Overtime — HADIR","","Peninjauan modal dialog detail lembur karyawan","","Peninjauan modal dialog detail lembur karyawan","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin memantau dan memvalidasi rekaman jam kerja lembur karyawan, uraian tugas lembur, dan status persetujuan
+  Agar alokasi kompensasi lembur dan jam kerja tambahan karyawan terkelola secara adil dan transparan"
+"passed","Fri Oct 30 12:02:37 GMT 2026","Fri Oct 30 12:02:48 GMT 2026","10575","","Pengujian Fitur Laporan Daily Report — HADIR","","Penyaringan rekaman presensi harian berdasarkan rentang tanggal presisi","","Penyaringan rekaman presensi harian berdasarkan rentang tanggal presisi","  Sebagai Administrator atau Manajer Operasional Hadir
+  Saya ingin meninjau ringkasan konsolidasi presensi harian karyawan dan status kehadirannya
+  Agar audit absensi harian dapat dimonitor secara real-time dan akuntabel"
+"passed","Fri Oct 30 11:27:02 GMT 2026","Fri Oct 30 11:27:43 GMT 2026","41492","","Pengujian Fitur Laporan Izin Pulang Cepat — HADIR","","Pencarian rekaman pulang cepat berdasarkan nama karyawan","","Pencarian rekaman pulang cepat berdasarkan nama karyawan","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin mengelola dan memantau rekaman karyawan yang pulang sebelum akhir jam kerja
+  Agar presensi dan kedisiplinan kerja tetap akuntabel dan transparan"
+"passed","Fri Oct 30 12:06:08 GMT 2026","Fri Oct 30 12:06:19 GMT 2026","10815","","Pengujian Fitur Laporan Semua (Kehadiran Karyawan) — HADIR","","Pengaturan jumlah baris per halaman dan navigasi paginasi","","Pengaturan jumlah baris per halaman dan navigasi paginasi","  Sebagai Administrator atau Tim HR
+  Saya ingin memantau dan memvalidasi rekaman kehadiran, foto selfie, koordinat GPS, serta mengekspor data absensi
+  Agar pencatatan kehadiran karyawan akurat dan bebas dari manipulasi"
+"passed","Fri Oct 30 12:05:26 GMT 2026","Fri Oct 30 12:05:37 GMT 2026","10824","","Pengujian Fitur Laporan Semua (Kehadiran Karyawan) — HADIR","","Penyaringan laporan multi-kriteria via modal filter departemen dan status","","Penyaringan laporan multi-kriteria via modal filter departemen dan status","  Sebagai Administrator atau Tim HR
+  Saya ingin memantau dan memvalidasi rekaman kehadiran, foto selfie, koordinat GPS, serta mengekspor data absensi
+  Agar pencatatan kehadiran karyawan akurat dan bebas dari manipulasi"
+"passed","Fri Oct 30 12:09:28 GMT 2026","Fri Oct 30 12:09:38 GMT 2026","10088","","Pengujian UX, Responsivitas, Kompatibilitas, dan Aksesibilitas Halaman Login","","Kompatibilitas formulir login pada peramban Mozilla Firefox","","Kompatibilitas formulir login pada peramban Mozilla Firefox","  Sebagai sistem antarmuka modern
+  Saya ingin memastikan form login responsif dan memenuhi standar aksesibilitas
+  Agar seluruh pengguna dapat menggunakan halaman login di berbagai perangkat"
+"passed","Fri Oct 30 12:07:22 GMT 2026","Fri Oct 30 12:07:32 GMT 2026","10058","","Pengujian Elemen UI dan Tampilan Halaman Login","","Periksa kondisi awal atribut tipe password","","Periksa kondisi awal atribut tipe password","  Sebagai sistem verifikasi antarmuka
+  Saya ingin memastikan seluruh elemen formulir login tampil dengan benar
+  Agar pengguna mendapatkan pengalaman visual dan interaksi yang optimal"
+"passed","Fri Oct 30 12:09:51 GMT 2026","Fri Oct 30 12:09:51 GMT 2026","341","","Pengujian Fitur Management User — HADIR","","Peninjauan rincian sisa cuti karyawan","","Peninjauan rincian sisa cuti karyawan","  Sebagai Administrator
+  Saya ingin mengelola data direktori pengguna, status akun, dan sinkronisasi approval
+  Agar operasional kepegawaian dapat dipantau dan dikelola dengan akurat"
+"passed","Fri Oct 30 11:37:08 GMT 2026","Fri Oct 30 11:37:19 GMT 2026","11447","","Pengujian Fitur Laporan Overtime — HADIR","","Pembersihan kriteria filter dan pencarian overtime melalui tombol Reset","","Pembersihan kriteria filter dan pencarian overtime melalui tombol Reset","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin memantau dan memvalidasi rekaman jam kerja lembur karyawan, uraian tugas lembur, dan status persetujuan
+  Agar alokasi kompensasi lembur dan jam kerja tambahan karyawan terkelola secara adil dan transparan"
+"passed","Fri Oct 30 11:55:47 GMT 2026","Fri Oct 30 11:55:58 GMT 2026","10464","","Pengujian Fitur Laporan Izin Off — HADIR","","Aksi persetujuan permohonan izin off pada baris pertama tabel","","Aksi persetujuan permohonan izin off pada baris pertama tabel","  Sebagai Administrator atau Supervisor Tim Shift
+  Saya ingin mengelola permohonan penyesuaian jadwal libur (day-off swap) dan tanggal pengganti
+  Agar operasional rotasi shift tetap berjalan optimal dan transparan"
+"passed","Fri Oct 30 12:01:45 GMT 2026","Fri Oct 30 12:01:56 GMT 2026","10716","","Pengujian Fitur Laporan Sisa Cuti — HADIR","","Penyaringan laporan multi-kriteria via modal filter departemen","","Penyaringan laporan multi-kriteria via modal filter departemen","  Sebagai Administrator atau Tim Human Resources
+  Saya ingin memantau kuota hak cuti tahunan, cuti terpakai, dan sisa saldo berjalan karyawan
+  Agar manajemen cuti karyawan transparan dan terdata secara teratur"
+"passed","Fri Oct 30 11:30:12 GMT 2026","Fri Oct 30 11:30:22 GMT 2026","10264","","Pengujian Fitur Laporan Cuti — HADIR","","Peninjauan modal dialog detail cuti karyawan","","Peninjauan modal dialog detail cuti karyawan","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin memantau dan memvalidasi permohonan hak cuti karyawan, durasi hari kerja, dan approval Client V2
+  Agar alokasi ketidakhadiran dan hak cuti tahunan karyawan terkelola dengan baik"
+"passed","Fri Oct 30 12:09:50 GMT 2026","Fri Oct 30 12:09:50 GMT 2026","218","","Pengujian Fitur Management User — HADIR","","Pengubahan status keterlibatan proyek via switch User Project","","Pengubahan status keterlibatan proyek via switch User Project","  Sebagai Administrator
+  Saya ingin mengelola data direktori pengguna, status akun, dan sinkronisasi approval
+  Agar operasional kepegawaian dapat dipantau dan dikelola dengan akurat"
+"passed","Fri Oct 30 12:05:57 GMT 2026","Fri Oct 30 12:06:08 GMT 2026","10491","","Pengujian Fitur Laporan Semua (Kehadiran Karyawan) — HADIR","","Pengunduhan berkas rekapitulasi laporan kehadiran","","Pengunduhan berkas rekapitulasi laporan kehadiran","  Sebagai Administrator atau Tim HR
+  Saya ingin memantau dan memvalidasi rekaman kehadiran, foto selfie, koordinat GPS, serta mengekspor data absensi
+  Agar pencatatan kehadiran karyawan akurat dan bebas dari manipulasi"
+"failed","Fri Oct 30 11:08:28 GMT 2026","Fri Oct 30 11:09:09 GMT 2026","41172","","Pengujian UI Lean Pengajuan Izin Client Mobile","","Verifikasi pembukaan modal formulir pengajuan izin","","Verifikasi pembukaan modal formulir pengajuan izin","  Sebagai Karyawan atau Administrator
+  Saya ingin mengakses modul pengajuan izin (/apps/absent/permit)
+  Untuk memeriksa 3 tab kategori izin dan membuka formulir modal pengajuan izin"
+"passed","Fri Oct 30 11:01:53 GMT 2026","Fri Oct 30 11:02:05 GMT 2026","11584","","Pengujian UI Lean Pengajuan Cuti Client Mobile","","Verifikasi render halaman cuti dan tombol pengajuan","","Verifikasi render halaman cuti dan tombol pengajuan","  Sebagai Karyawan atau Administrator
+  Saya ingin mengakses modul cuti client (/apps/absent/leave-client)
+  Untuk memeriksa antarmuka permohonan cuti dan membuka formulir modal pengajuan cuti"
+"passed","Fri Oct 30 12:14:11 GMT 2026","Fri Oct 30 12:14:12 GMT 2026","1299","","Pengujian UI Lean Master Unit Leave","","Verifikasi render elemen utama pada halaman Unit Leave","","Verifikasi render elemen utama pada halaman Unit Leave","  Sebagai Administrator SQA
+  Saya ingin menguji antarmuka Master Aturan Cuti (Unit Leave)
+  Untuk memastikan render aturan alokasi cuti, pencarian data, dan interaksi modal tambah/hapus sesuai Skema 1"
+"passed","Fri Oct 30 11:32:17 GMT 2026","Fri Oct 30 11:32:28 GMT 2026","10487","","Pengujian Fitur Laporan Sakit — HADIR","","Penyaringan rekaman sakit berdasarkan rentang tanggal presisi","","Penyaringan rekaman sakit berdasarkan rentang tanggal presisi","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin memverifikasi izin sakit karyawan, validasi surat dokter, dan status konfirmasi medis
+  Agar pencatatan ketidakhadiran karena kondisi medis tercatat rapi dan akurat"
+"passed","Fri Oct 30 12:02:48 GMT 2026","Fri Oct 30 12:02:59 GMT 2026","10579","","Pengujian Fitur Laporan Daily Report — HADIR","","Penolakan input logika tanggal terbalik pada daily report","","Penolakan input logika tanggal terbalik pada daily report","  Sebagai Administrator atau Manajer Operasional Hadir
+  Saya ingin meninjau ringkasan konsolidasi presensi harian karyawan dan status kehadirannya
+  Agar audit absensi harian dapat dimonitor secara real-time dan akuntabel"
+"broken","Fri Oct 30 10:55:41 GMT 2026","Fri Oct 30 10:56:22 GMT 2026","41060","","Pengujian UI Lean Ubah Kata Sandi Client Mobile","","Verifikasi fungsionalitas toggle visibilitas password","","Verifikasi fungsionalitas toggle visibilitas password","  Sebagai Pengguna Client Hadir
+  Saya ingin mengakses modul ganti password (/apps/absent/change-password)
+  Untuk mengganti kata sandi akun dan memverifikasi toggle visibilitas password serta validasi form"
+"passed","Fri Oct 30 12:04:02 GMT 2026","Fri Oct 30 12:04:13 GMT 2026","10226","","Pengujian Fitur Laporan Semua (Kehadiran Karyawan) — HADIR","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Semua","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Semua","  Sebagai Administrator atau Tim HR
+  Saya ingin memantau dan memvalidasi rekaman kehadiran, foto selfie, koordinat GPS, serta mengekspor data absensi
+  Agar pencatatan kehadiran karyawan akurat dan bebas dari manipulasi"
+"passed","Fri Oct 30 12:01:02 GMT 2026","Fri Oct 30 12:01:13 GMT 2026","10584","","Pengujian Fitur Laporan Sisa Cuti — HADIR","","Penyaringan rekaman sisa cuti berdasarkan rentang tanggal","","Penyaringan rekaman sisa cuti berdasarkan rentang tanggal","  Sebagai Administrator atau Tim Human Resources
+  Saya ingin memantau kuota hak cuti tahunan, cuti terpakai, dan sisa saldo berjalan karyawan
+  Agar manajemen cuti karyawan transparan dan terdata secara teratur"
+"passed","Fri Oct 30 11:48:48 GMT 2026","Fri Oct 30 11:48:58 GMT 2026","10269","","Pengujian Fitur Laporan Perjalanan Dinas — HADIR","","Peninjauan modal dialog detail perjalanan dinas karyawan","","Peninjauan modal dialog detail perjalanan dinas karyawan","  Sebagai Administrator atau Tim Operasional Hadir
+  Saya ingin mengelola surat tugas dinas, anggaran operasional luar kantor, dan status persetujuan dinas
+  Agar akuntabilitas pelaksanaan dinas luar kota karyawan tercatat transparan"
+"passed","Fri Oct 30 11:28:36 GMT 2026","Fri Oct 30 11:28:46 GMT 2026","10137","","Pengujian Fitur Laporan Cuti — HADIR","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Cuti","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Cuti","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin memantau dan memvalidasi permohonan hak cuti karyawan, durasi hari kerja, dan approval Client V2
+  Agar alokasi ketidakhadiran dan hak cuti tahunan karyawan terkelola dengan baik"
+"passed","Fri Oct 30 12:02:06 GMT 2026","Fri Oct 30 12:02:17 GMT 2026","10535","","Pengujian Fitur Laporan Sisa Cuti — HADIR","","Kontrol jumlah baris per halaman pada tabel sisa cuti","","Kontrol jumlah baris per halaman pada tabel sisa cuti","  Sebagai Administrator atau Tim Human Resources
+  Saya ingin memantau kuota hak cuti tahunan, cuti terpakai, dan sisa saldo berjalan karyawan
+  Agar manajemen cuti karyawan transparan dan terdata secara teratur"
+"passed","Fri Oct 30 11:44:17 GMT 2026","Fri Oct 30 11:44:27 GMT 2026","10434","","Pengujian Fitur Laporan Shifting — HADIR","","Kontrol jumlah baris per halaman pada tabel shifting","","Kontrol jumlah baris per halaman pada tabel shifting","  Sebagai Administrator atau Tim HR Operasional Hadir
+  Saya ingin memantau kehadiran karyawan shift, kepatuhan jam kerja, dan alokasi pola shift
+  Agar operasional rotasi shift berjalan tertib dan terdata secara transparan"
+"passed","Fri Oct 30 11:42:11 GMT 2026","Fri Oct 30 11:42:22 GMT 2026","10500","","Pengujian Fitur Laporan Shifting — HADIR","","Penyaringan rekaman shift berdasarkan rentang tanggal presisi","","Penyaringan rekaman shift berdasarkan rentang tanggal presisi","  Sebagai Administrator atau Tim HR Operasional Hadir
+  Saya ingin memantau kehadiran karyawan shift, kepatuhan jam kerja, dan alokasi pola shift
+  Agar operasional rotasi shift berjalan tertib dan terdata secara transparan"
+"passed","Fri Oct 30 11:36:26 GMT 2026","Fri Oct 30 11:37:08 GMT 2026","41811","","Pengujian Fitur Laporan Overtime — HADIR","","Pencarian rekaman lembur berdasarkan nama karyawan","","Pencarian rekaman lembur berdasarkan nama karyawan","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin memantau dan memvalidasi rekaman jam kerja lembur karyawan, uraian tugas lembur, dan status persetujuan
+  Agar alokasi kompensasi lembur dan jam kerja tambahan karyawan terkelola secara adil dan transparan"
+"passed","Fri Oct 30 10:51:48 GMT 2026","Fri Oct 30 10:52:14 GMT 2026","25999","","Pengujian UI Lean Riwayat Presensi Client Mobile","","Verifikasi render header dan tombol kembali riwayat absensi","","Verifikasi render header dan tombol kembali riwayat absensi","  Sebagai Karyawan atau Administrator
+  Saya ingin mengakses halaman riwayat presensi (/apps/absent/activity)
+  Untuk memverifikasi daftar catatan kehadiran, foto check-in, dan navigasi kembali"
+"passed","Fri Oct 30 11:20:12 GMT 2026","Fri Oct 30 11:20:22 GMT 2026","10303","","Pengujian Fitur Laporan Activity (Agenda & Aktivitas Kerja) — HADIR","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Activity","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Activity","  Sebagai Administrator atau Tim HR/Supervisor
+  Saya ingin memantau dan memvalidasi rekaman kegiatan harian, tipe aktivitas, waktu pelaksanaan, serta mengekspor data agenda kerja karyawan
+  Agar pencatatan tugas dan produktivitas karyawan terdokumentasi rapi dan akurat"
+"passed","Fri Oct 30 12:07:12 GMT 2026","Fri Oct 30 12:07:22 GMT 2026","10141","","Pengujian Elemen UI dan Tampilan Halaman Login","","Buka halaman Login melalui URL resmi","","Buka halaman Login melalui URL resmi","  Sebagai sistem verifikasi antarmuka
+  Saya ingin memastikan seluruh elemen formulir login tampil dengan benar
+  Agar pengguna mendapatkan pengalaman visual dan interaksi yang optimal"
+"passed","Fri Oct 30 11:53:10 GMT 2026","Fri Oct 30 11:53:21 GMT 2026","10479","","Pengujian Fitur Laporan Koreksi Absensi — HADIR","","Aksi persetujuan permohonan koreksi absensi pada baris pertama tabel","","Aksi persetujuan permohonan koreksi absensi pada baris pertama tabel","  Sebagai Administrator atau Atasan Langsung (Upliner)
+  Saya ingin meninjau permohonan perbaikan jam absensi dan memproses persetujuannya
+  Agar rekaman jam kerja karyawan akurat dan terdokumentasi dengan transparan"
+"passed","Fri Oct 30 11:46:12 GMT 2026","Fri Oct 30 11:46:23 GMT 2026","10182","","Pengujian Fitur Laporan Perjalanan Dinas — HADIR","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Perjalanan Dinas","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Perjalanan Dinas","  Sebagai Administrator atau Tim Operasional Hadir
+  Saya ingin mengelola surat tugas dinas, anggaran operasional luar kantor, dan status persetujuan dinas
+  Agar akuntabilitas pelaksanaan dinas luar kota karyawan tercatat transparan"
+"passed","Fri Oct 30 12:02:17 GMT 2026","Fri Oct 30 12:02:27 GMT 2026","10448","","Pengujian Fitur Laporan Sisa Cuti — HADIR","","Ekspor berkas laporan sisa cuti ke format Excel","","Ekspor berkas laporan sisa cuti ke format Excel","  Sebagai Administrator atau Tim Human Resources
+  Saya ingin memantau kuota hak cuti tahunan, cuti terpakai, dan sisa saldo berjalan karyawan
+  Agar manajemen cuti karyawan transparan dan terdata secara teratur"
+"passed","Fri Oct 30 11:58:23 GMT 2026","Fri Oct 30 11:58:34 GMT 2026","11040","","Pengujian Fitur Generate Report Type — HADIR","","Pembersihan kriteria filter dan pencarian riwayat laporan melalui tombol Reset","","Pembersihan kriteria filter dan pencarian riwayat laporan melalui tombol Reset","  Sebagai Administrator atau Manajemen Eksekutif Hadir
+  Saya ingin membuat laporan terstandardisasi dan memantau riwayat generate laporan berkala
+  Agar arsip rekapitulasi operasional dan eksekutif siap diunduh secara berkala"
+"passed","Fri Oct 30 12:09:38 GMT 2026","Fri Oct 30 12:09:48 GMT 2026","10042","","Pengujian Keamanan, Ketahanan, dan Resiliensi Autentikasi Login","","Pesan kesalahan generik mencegah user enumeration","","Pesan kesalahan generik mencegah user enumeration","  Sebagai sistem keamanan aplikasi
+  Saya ingin memastikan seluruh mekanisme login kebal terhadap ancaman siber
+  Agar data akun pengguna dan stabilitas server selalu terlindungi"
+"passed","Fri Oct 30 11:30:01 GMT 2026","Fri Oct 30 11:30:12 GMT 2026","10910","","Pengujian Fitur Laporan Cuti — HADIR","","Penyaringan laporan multi-kriteria via modal filter departemen dan tipe cuti","","Penyaringan laporan multi-kriteria via modal filter departemen dan tipe cuti","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin memantau dan memvalidasi permohonan hak cuti karyawan, durasi hari kerja, dan approval Client V2
+  Agar alokasi ketidakhadiran dan hak cuti tahunan karyawan terkelola dengan baik"
+"failed","Fri Oct 30 11:14:14 GMT 2026","Fri Oct 30 11:14:41 GMT 2026","26606","","Pengujian UI Lean Master Calendar","","Buka dan batalkan modal hapus calendar","","Buka dan batalkan modal hapus calendar","  Sebagai Administrator SQA
+  Saya ingin menguji antarmuka Master Kalender Kerja
+  Untuk memastikan render kalender unit kerja, pencarian teks, dan dialog tambah/hapus berfungsi sesuai Skema 1"
+"passed","Fri Oct 30 11:58:55 GMT 2026","Fri Oct 30 11:59:06 GMT 2026","10457","","Pengujian Fitur Generate Report Type — HADIR","","Pengunduhan berkas laporan pada baris pertama tabel riwayat","","Pengunduhan berkas laporan pada baris pertama tabel riwayat","  Sebagai Administrator atau Manajemen Eksekutif Hadir
+  Saya ingin membuat laporan terstandardisasi dan memantau riwayat generate laporan berkala
+  Agar arsip rekapitulasi operasional dan eksekutif siap diunduh secara berkala"
+"passed","Fri Oct 30 12:03:20 GMT 2026","Fri Oct 30 12:03:31 GMT 2026","10761","","Pengujian Fitur Laporan Daily Report — HADIR","","Penyaringan laporan multi-kriteria via modal filter departemen dan status kehadiran","","Penyaringan laporan multi-kriteria via modal filter departemen dan status kehadiran","  Sebagai Administrator atau Manajer Operasional Hadir
+  Saya ingin meninjau ringkasan konsolidasi presensi harian karyawan dan status kehadirannya
+  Agar audit absensi harian dapat dimonitor secara real-time dan akuntabel"
+"passed","Fri Oct 30 11:59:17 GMT 2026","Fri Oct 30 11:59:27 GMT 2026","10204","","Pengujian Fitur Laporan New Generate — HADIR","","Verifikasi ketersediaan elemen utama antarmuka halaman New Generate","","Verifikasi ketersediaan elemen utama antarmuka halaman New Generate","  Sebagai Administrator atau Tim Analis Data Hadir
+  Saya ingin membuat konfigurasi template laporan dinamis dan memantau riwayat berkas template yang telah dibuat
+  Agar penarikan data atribut kustom dapat dilakukan secara fleksibel dan terdokumentasi"
+"passed","Fri Oct 30 11:28:26 GMT 2026","Fri Oct 30 11:28:36 GMT 2026","10463","","Pengujian Fitur Laporan Izin Pulang Cepat — HADIR","","Ekspor berkas laporan izin pulang cepat ke format Excel","","Ekspor berkas laporan izin pulang cepat ke format Excel","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin mengelola dan memantau rekaman karyawan yang pulang sebelum akhir jam kerja
+  Agar presensi dan kedisiplinan kerja tetap akuntabel dan transparan"
+"passed","Fri Oct 30 11:15:03 GMT 2026","Fri Oct 30 11:15:29 GMT 2026","25683","","Verifikasi Alur Kritis Antarmuka Halaman Client Upliner (Lean UI)","","Membuka modal tambah client upliner dan membatalkannya","","Membuka modal tambah client upliner dan membatalkannya","  Sebagai administrator HADIR
+  Saya ingin memastikan elemen visual dan alur kritis interaksi halaman client upliner berjalan dengan benar
+  Agar hierarki atasan upliner dan klien perusahaan dapat dikelola secara transparan"
+"passed","Fri Oct 30 12:01:34 GMT 2026","Fri Oct 30 12:01:45 GMT 2026","11037","","Pengujian Fitur Laporan Sisa Cuti — HADIR","","Pembersihan kriteria filter dan pencarian sisa cuti melalui tombol Reset","","Pembersihan kriteria filter dan pencarian sisa cuti melalui tombol Reset","  Sebagai Administrator atau Tim Human Resources
+  Saya ingin memantau kuota hak cuti tahunan, cuti terpakai, dan sisa saldo berjalan karyawan
+  Agar manajemen cuti karyawan transparan dan terdata secara teratur"
+"passed","Fri Oct 30 11:15:54 GMT 2026","Fri Oct 30 11:15:56 GMT 2026","1396","","Pengujian UI Lean Master Day Off","","Verifikasi render elemen utama pada halaman Day Off","","Verifikasi render elemen utama pada halaman Day Off","  Sebagai Administrator SQA
+  Saya ingin menguji antarmuka Master Hari Libur (Day Off)
+  Untuk memastikan render tanggal hari libur, pencarian teks, dan dialog tambah/hapus sesuai Skema 1"
+"failed","Fri Oct 30 11:14:52 GMT 2026","Fri Oct 30 11:15:03 GMT 2026","10776","","Verifikasi Alur Kritis Antarmuka Halaman Client Upliner (Lean UI)","","Melakukan pencarian client upliner berdasarkan nama","","Melakukan pencarian client upliner berdasarkan nama","  Sebagai administrator HADIR
+  Saya ingin memastikan elemen visual dan alur kritis interaksi halaman client upliner berjalan dengan benar
+  Agar hierarki atasan upliner dan klien perusahaan dapat dikelola secara transparan"
+"passed","Fri Oct 30 11:09:21 GMT 2026","Fri Oct 30 11:09:31 GMT 2026","10035","","Pengujian UI Lean Modul Share Report Client Mobile","","Verifikasi formulir unduh laporan share report","","Verifikasi formulir unduh laporan share report","  Sebagai Karyawan atau Upliner
+  Saya ingin mengakses modul share report (/apps/absent/reports/share_report)
+  Untuk memverifikasi proteksi hak akses dan render komponen unduh laporan"
+"passed","Fri Oct 30 11:35:34 GMT 2026","Fri Oct 30 11:35:54 GMT 2026","20083","","Pengujian Fitur Laporan Sakit — HADIR","","Verifikasi validitas tautan unduh berkas bukti surat sakit","","Verifikasi validitas tautan unduh berkas bukti surat sakit","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin memverifikasi izin sakit karyawan, validasi surat dokter, dan status konfirmasi medis
+  Agar pencatatan ketidakhadiran karena kondisi medis tercatat rapi dan akurat"
+"passed","Fri Oct 30 11:41:30 GMT 2026","Fri Oct 30 11:41:40 GMT 2026","10463","","Pengujian Fitur Laporan Validation Overtime — HADIR","","Aksi persetujuan lembur pada baris pertama tabel validasi","","Aksi persetujuan lembur pada baris pertama tabel validasi","  Sebagai Administrator atau Tim Verifikator Lembur Hadir
+  Saya ingin meninjau pengajuan lembur, memvalidasi tahapan persetujuan multi-level, dan memberikan aksi persetujuan
+  Agar akuntabilitas kompensasi kerja lembur karyawan tervalidasi dengan tepat"
+"passed","Fri Oct 30 12:09:53 GMT 2026","Fri Oct 30 12:09:54 GMT 2026","1195","","Pengujian UI Lean Master Overtime Reason","","Pencarian alasan lembur berdasarkan kata kunci","","Pencarian alasan lembur berdasarkan kata kunci","  Sebagai Administrator SQA
+  Saya ingin menguji antarmuka Master Alasan Lembur (OT Reason)
+  Untuk memastikan render daftar alasan lembur, pencarian teks, dan dialog tambah/hapus berfungsi sesuai Skema 1"
+"passed","Fri Oct 30 11:22:29 GMT 2026","Fri Oct 30 11:22:39 GMT 2026","10499","","Pengujian Fitur Laporan Izin (Perizinan Karyawan) — HADIR","","Penyaringan rekaman perizinan berdasarkan rentang tanggal presisi","","Penyaringan rekaman perizinan berdasarkan rentang tanggal presisi","  Sebagai Administrator atau Tim HR
+  Saya ingin memantau dan memvalidasi rekaman permohonan izin, tipe izin, lampiran surat izin, dan status persetujuan
+  Agar pencatatan ketidakhadiran karyawan tertib, sah, dan terverifikasi"
+"broken","Fri Oct 30 11:50:01 GMT 2026","Fri Oct 30 11:50:43 GMT 2026","41736","","Pengujian Fitur Laporan Perjalanan Dinas — HADIR","","Verifikasi fungsionalitas eksekusi tombol konfirmasi Approval pada Laporan Perjalanan Dinas","","Verifikasi fungsionalitas eksekusi tombol konfirmasi Approval pada Laporan Perjalanan Dinas","  Sebagai Administrator atau Tim Operasional Hadir
+  Saya ingin mengelola surat tugas dinas, anggaran operasional luar kantor, dan status persetujuan dinas
+  Agar akuntabilitas pelaksanaan dinas luar kota karyawan tercatat transparan"
+"passed","Fri Oct 30 11:29:08 GMT 2026","Fri Oct 30 11:29:50 GMT 2026","41801","","Pengujian Fitur Laporan Cuti — HADIR","","Pencarian rekaman cuti berdasarkan nama karyawan","","Pencarian rekaman cuti berdasarkan nama karyawan","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin memantau dan memvalidasi permohonan hak cuti karyawan, durasi hari kerja, dan approval Client V2
+  Agar alokasi ketidakhadiran dan hak cuti tahunan karyawan terkelola dengan baik"
+"passed","Fri Oct 30 12:12:03 GMT 2026","Fri Oct 30 12:12:14 GMT 2026","10301","","Pengujian Elemen UI dan Tampilan Halaman Pendaftaran","","Navigasi ke halaman login melalui tautan masuk disini","","Navigasi ke halaman login melalui tautan masuk disini","  Sebagai calon pengguna magang
+  Saya ingin memastikan seluruh elemen antarmuka pendaftaran tersedia dan berfungsi
+  Agar proses pendaftaran dapat dilakukan dengan lancar"
+"passed","Fri Oct 30 11:26:30 GMT 2026","Fri Oct 30 11:26:41 GMT 2026","10190","","Pengujian Fitur Laporan Izin Pulang Cepat — HADIR","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Izin Pulang Cepat","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Izin Pulang Cepat","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin mengelola dan memantau rekaman karyawan yang pulang sebelum akhir jam kerja
+  Agar presensi dan kedisiplinan kerja tetap akuntabel dan transparan"
+"passed","Fri Oct 30 11:57:41 GMT 2026","Fri Oct 30 11:57:51 GMT 2026","10223","","Pengujian Fitur Generate Report Type — HADIR","","Verifikasi ketersediaan elemen utama antarmuka halaman Generate Report Type","","Verifikasi ketersediaan elemen utama antarmuka halaman Generate Report Type","  Sebagai Administrator atau Manajemen Eksekutif Hadir
+  Saya ingin membuat laporan terstandardisasi dan memantau riwayat generate laporan berkala
+  Agar arsip rekapitulasi operasional dan eksekutif siap diunduh secara berkala"
+"passed","Fri Oct 30 11:26:09 GMT 2026","Fri Oct 30 11:26:20 GMT 2026","10461","","Pengujian Fitur Laporan Izin Terlambat (Keterlambatan Absensi) — HADIR","","Pengunduhan berkas rekapitulasi laporan izin terlambat","","Pengunduhan berkas rekapitulasi laporan izin terlambat","  Sebagai Administrator atau Tim HR/Supervisor
+  Saya ingin memantau dan memvalidasi rekaman absensi terlambat, selisih waktu, alasan keterlambatan, dan status approval
+  Agar kedisiplinan jam kerja shift karyawan terpantau dan terkelola secara adil"
+"passed","Fri Oct 30 12:09:49 GMT 2026","Fri Oct 30 12:09:49 GMT 2026","453","","Pengujian Fitur Management User — HADIR","","Pencarian karyawan berdasarkan NIK dan reset pencarian","","Pencarian karyawan berdasarkan NIK dan reset pencarian","  Sebagai Administrator
+  Saya ingin mengelola data direktori pengguna, status akun, dan sinkronisasi approval
+  Agar operasional kepegawaian dapat dipantau dan dikelola dengan akurat"
+"passed","Fri Oct 30 11:24:45 GMT 2026","Fri Oct 30 11:24:56 GMT 2026","10486","","Pengujian Fitur Laporan Izin Terlambat (Keterlambatan Absensi) — HADIR","","Penolakan input logika tanggal terbalik (Start Date lebih besar dari End Date)","","Penolakan input logika tanggal terbalik (Start Date lebih besar dari End Date)","  Sebagai Administrator atau Tim HR/Supervisor
+  Saya ingin memantau dan memvalidasi rekaman absensi terlambat, selisih waktu, alasan keterlambatan, dan status approval
+  Agar kedisiplinan jam kerja shift karyawan terpantau dan terkelola secara adil"
+"failed","Fri Oct 30 11:54:39 GMT 2026","Fri Oct 30 11:55:15 GMT 2026","36007","","Pengujian Fitur Laporan Izin Off — HADIR","","Penolakan input logika tanggal terbalik pada izin off","","Penolakan input logika tanggal terbalik pada izin off","  Sebagai Administrator atau Supervisor Tim Shift
+  Saya ingin mengelola permohonan penyesuaian jadwal libur (day-off swap) dan tanggal pengganti
+  Agar operasional rotasi shift tetap berjalan optimal dan transparan"
+"failed","Fri Oct 30 12:14:18 GMT 2026","Fri Oct 30 12:14:19 GMT 2026","1314","","Pengujian UI Lean Master Unit Leave","","Tambah data aturan cuti baru melalui modal","","Tambah data aturan cuti baru melalui modal","  Sebagai Administrator SQA
+  Saya ingin menguji antarmuka Master Aturan Cuti (Unit Leave)
+  Untuk memastikan render aturan alokasi cuti, pencarian data, dan interaksi modal tambah/hapus sesuai Skema 1"
+"passed","Fri Oct 30 11:44:07 GMT 2026","Fri Oct 30 11:44:17 GMT 2026","10277","","Pengujian Fitur Laporan Shifting — HADIR","","Peninjauan modal dialog detail shifting karyawan","","Peninjauan modal dialog detail shifting karyawan","  Sebagai Administrator atau Tim HR Operasional Hadir
+  Saya ingin memantau kehadiran karyawan shift, kepatuhan jam kerja, dan alokasi pola shift
+  Agar operasional rotasi shift berjalan tertib dan terdata secara transparan"
+"passed","Fri Oct 30 11:36:15 GMT 2026","Fri Oct 30 11:36:26 GMT 2026","10793","","Pengujian Fitur Laporan Overtime — HADIR","","Penolakan input logika tanggal terbalik pada overtime","","Penolakan input logika tanggal terbalik pada overtime","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin memantau dan memvalidasi rekaman jam kerja lembur karyawan, uraian tugas lembur, dan status persetujuan
+  Agar alokasi kompensasi lembur dan jam kerja tambahan karyawan terkelola secara adil dan transparan"
+"passed","Fri Oct 30 11:37:51 GMT 2026","Fri Oct 30 11:38:02 GMT 2026","10647","","Pengujian Fitur Laporan Overtime — HADIR","","Ekspor berkas laporan overtime ke format Excel","","Ekspor berkas laporan overtime ke format Excel","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin memantau dan memvalidasi rekaman jam kerja lembur karyawan, uraian tugas lembur, dan status persetujuan
+  Agar alokasi kompensasi lembur dan jam kerja tambahan karyawan terkelola secara adil dan transparan"
+"passed","Fri Oct 30 11:44:38 GMT 2026","Fri Oct 30 11:44:48 GMT 2026","10178","","Pengujian Fitur Laporan Meeting — HADIR","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Meeting","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Meeting","  Sebagai Administrator atau Manajemen Hadir
+  Saya ingin memantau agenda rapat kerja, daftar kehadiran peserta rapat, dan ruangan/tautan meeting
+  Agar koordinasi pertemuan bisnis dan operasional terdokumentasi dengan baik"
+"passed","Fri Oct 30 12:08:03 GMT 2026","Fri Oct 30 12:08:14 GMT 2026","10654","","Validasi Field Password pada Halaman Login","","Input password yang sesuai dengan akun","","Input password yang sesuai dengan akun","  Sebagai sistem autentikasi
+  Saya ingin memastikan field kata sandi terlindungi dan divalidasi dengan benar
+  Agar data rahasia pengguna aman dari kebocoran dan penyalahgunaan"
+"failed","Fri Oct 30 11:02:46 GMT 2026","Fri Oct 30 11:03:27 GMT 2026","41124","","Pengujian UI Lean Pengajuan Cuti Client Mobile","","Verifikasi pembukaan modal formulir pengajuan cuti","","Verifikasi pembukaan modal formulir pengajuan cuti","  Sebagai Karyawan atau Administrator
+  Saya ingin mengakses modul cuti client (/apps/absent/leave-client)
+  Untuk memeriksa antarmuka permohonan cuti dan membuka formulir modal pengajuan cuti"
+"passed","Fri Oct 30 12:13:09 GMT 2026","Fri Oct 30 12:13:11 GMT 2026","1556","","Pengujian UI Lean Master Schedule","","Tambah jadwal kerja baru melalui modal","","Tambah jadwal kerja baru melalui modal","  Sebagai Administrator SQA
+  Saya ingin menguji antarmuka Master Jadwal Kerja (Schedule)
+  Untuk memastikan render tabel jadwal, filter pencarian, dan modal tambah/hapus berfungsi sesuai Skema 1"
+"passed","Fri Oct 30 11:52:06 GMT 2026","Fri Oct 30 11:52:17 GMT 2026","10205","","Pengujian Fitur Laporan Koreksi Absensi — HADIR","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Koreksi","","Verifikasi ketersediaan elemen utama antarmuka halaman Laporan Koreksi","  Sebagai Administrator atau Atasan Langsung (Upliner)
+  Saya ingin meninjau permohonan perbaikan jam absensi dan memproses persetujuannya
+  Agar rekaman jam kerja karyawan akurat dan terdokumentasi dengan transparan"
+"passed","Fri Oct 30 11:34:53 GMT 2026","Fri Oct 30 11:35:04 GMT 2026","10437","","Pengujian Fitur Laporan Sakit — HADIR","","Kontrol jumlah baris per halaman pada tabel sakit","","Kontrol jumlah baris per halaman pada tabel sakit","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin memverifikasi izin sakit karyawan, validasi surat dokter, dan status konfirmasi medis
+  Agar pencatatan ketidakhadiran karena kondisi medis tercatat rapi dan akurat"
+"passed","Fri Oct 30 11:59:48 GMT 2026","Fri Oct 30 11:59:59 GMT 2026","10564","","Pengujian Fitur Laporan New Generate — HADIR","","Pencarian riwayat template berdasarkan ID Template","","Pencarian riwayat template berdasarkan ID Template","  Sebagai Administrator atau Tim Analis Data Hadir
+  Saya ingin membuat konfigurasi template laporan dinamis dan memantau riwayat berkas template yang telah dibuat
+  Agar penarikan data atribut kustom dapat dilakukan secara fleksibel dan terdokumentasi"
+"passed","Fri Oct 30 12:08:56 GMT 2026","Fri Oct 30 12:09:06 GMT 2026","10681","","Pengujian Alur Bisnis dan Fungsionalitas Login HADIR","","Login dengan akun dalam status Pending Approval Admin","","Login dengan akun dalam status Pending Approval Admin","  Sebagai pengguna terdaftar atau peserta magang
+  Saya ingin menjalankan proses login dengan berbagai skenario alur kerja
+  Agar sistem dapat mengautentikasi dan mengarahkan hak akses dengan tepat"
+"passed","Fri Oct 30 12:09:49 GMT 2026","Fri Oct 30 12:09:50 GMT 2026","389","","Pengujian Fitur Management User — HADIR","","Penyaringan karyawan berdasarkan status aktif via modal filter","","Penyaringan karyawan berdasarkan status aktif via modal filter","  Sebagai Administrator
+  Saya ingin mengelola data direktori pengguna, status akun, dan sinkronisasi approval
+  Agar operasional kepegawaian dapat dipantau dan dikelola dengan akurat"
+"passed","Fri Oct 30 11:26:41 GMT 2026","Fri Oct 30 11:26:51 GMT 2026","10482","","Pengujian Fitur Laporan Izin Pulang Cepat — HADIR","","Penyaringan rekaman pulang cepat berdasarkan rentang tanggal presisi","","Penyaringan rekaman pulang cepat berdasarkan rentang tanggal presisi","  Sebagai Administrator atau Tim HR Hadir
+  Saya ingin mengelola dan memantau rekaman karyawan yang pulang sebelum akhir jam kerja
+  Agar presensi dan kedisiplinan kerja tetap akuntabel dan transparan"
