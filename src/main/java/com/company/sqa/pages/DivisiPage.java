@@ -1,6 +1,7 @@
 package com.company.sqa.pages;
 
 import com.company.sqa.utils.ConfigReader;
+import com.company.sqa.utils.SessionHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -22,7 +23,7 @@ import java.util.List;
 public class DivisiPage extends BasePage {
 
     // Locators - Header & Breadcrumbs
-    private final By pageTitle = By.cssSelector("h1.page-title, .page-title");
+    private final By pageTitle = By.xpath("//*[@id='page-title'] | //*[contains(@class, 'page-title')] | //h1 | //h4[contains(., 'Divisi')]");
     private final By breadcrumbs = By.cssSelector(".breadcrumbs");
 
     // Locators - Search & Action Bar
@@ -95,6 +96,9 @@ public class DivisiPage extends BasePage {
         String baseUrl = ConfigReader.getUiBaseUrl();
         String divisiUrl = baseUrl + "/management/divisi";
         logger.info("Navigating to Divisi management page: {}", divisiUrl);
+        if (divisiUrl.contains("magang.dikahadir.com")) {
+            SessionHelper.ensureAuthenticated(driver, divisiUrl);
+        }
         driver.get(divisiUrl);
         waitForVisibility(pageTitle);
     }

@@ -7,7 +7,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.GeckoDriverService;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.ServerSocket;
 import java.time.Duration;
 
 public class DriverManager {
@@ -26,7 +30,7 @@ public class DriverManager {
             return;
         }
 
-        WebDriver driver;
+        WebDriver driver = null;
         String selectedBrowser = (browser == null) ? "firefox" : browser.toLowerCase().trim();
         logger.info("Initializing WebDriver for browser: {} (headless: {})", selectedBrowser, headless);
 
@@ -39,7 +43,38 @@ public class DriverManager {
                     firefoxOptions.addArguments("--width=1920");
                     firefoxOptions.addArguments("--height=1080");
                 }
-                driver = new FirefoxDriver(firefoxOptions);
+
+                File cachedGecko = new File("/home/irwan/.cache/selenium/geckodriver/linux64/0.37.1/geckodriver");
+                if (cachedGecko.exists()) {
+                    System.setProperty("webdriver.gecko.driver", cachedGecko.getAbsolutePath());
+                }
+
+                // Inisialisasi dengan retry dan custom port bila PortProber gagal
+                Exception lastException = null;
+                for (int attempt = 1; attempt <= 5; attempt++) {
+                    try {
+                        int freePort = findAvailablePort();
+                        GeckoDriverService.Builder serviceBuilder = new GeckoDriverService.Builder();
+                        if (cachedGecko.exists()) {
+                            serviceBuilder.usingDriverExecutable(cachedGecko);
+                        }
+                        if (freePort > 0) {
+                            serviceBuilder.usingPort(freePort);
+                        }
+                        GeckoDriverService service = serviceBuilder.build();
+                        driver = new FirefoxDriver(service, firefoxOptions);
+                        break;
+                    } catch (Exception e) {
+                        lastException = e;
+                        logger.warn("Percobaan inisialisasi FirefoxDriver ke-{} gagal: {}", attempt, e.getMessage());
+                        try {
+                            Thread.sleep(1500);
+                        } catch (InterruptedException ignored) {}
+                    }
+                }
+                if (driver == null) {
+                    throw new RuntimeException("Gagal menginisialisasi FirefoxDriver setelah 3 percobaan", lastException);
+                }
             }
             case "chrome" -> {
                 ChromeOptions chromeOptions = new ChromeOptions();
@@ -58,7 +93,7 @@ public class DriverManager {
 
         int implicitWait = ConfigReader.getImplicitWait();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitWait));
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
         try {
             driver.manage().window().maximize();
         } catch (Exception e) {
@@ -67,6 +102,15 @@ public class DriverManager {
 
         driverThreadLocal.set(driver);
         logger.info("WebDriver initialized successfully for thread: {}", Thread.currentThread().getId());
+    }
+
+    private static int findAvailablePort() {
+        try (ServerSocket socket = new ServerSocket(0)) {
+            socket.setReuseAddress(true);
+            return socket.getLocalPort();
+        } catch (IOException e) {
+            return -1;
+        }
     }
 
     public static WebDriver getDriver() {

@@ -181,8 +181,60 @@ public class LocalWebServer {
                 serveFile(exchange, "/management/divisi.html");
                 return;
             }
+            if (uriPath.equals("/management/departemens") || uriPath.equals("/management/departemens/")) {
+                serveFile(exchange, "/management/departemens.html");
+                return;
+            }
+            if (uriPath.equals("/management/departements-settings") || uriPath.equals("/management/departements-settings/")) {
+                serveFile(exchange, "/management/departements-settings.html");
+                return;
+            }
+            if (uriPath.equals("/management/position") || uriPath.equals("/management/position/")) {
+                serveFile(exchange, "/management/position.html");
+                return;
+            }
+            if (uriPath.equals("/management/client-upliner") || uriPath.equals("/management/client-upliner/")) {
+                serveFile(exchange, "/management/client-upliner.html");
+                return;
+            }
+            if (uriPath.equals("/management/location-point") || uriPath.equals("/management/location-point/")) {
+                serveFile(exchange, "/management/location-point.html");
+                return;
+            }
+            if (uriPath.equals("/management/job-level") || uriPath.equals("/management/job-level/")) {
+                serveFile(exchange, "/management/job-level.html");
+                return;
+            }
+            if (uriPath.equals("/management/shifting") || uriPath.equals("/management/shifting/")) {
+                serveFile(exchange, "/management/shifting.html");
+                return;
+            }
+            if (uriPath.equals("/management/schedule") || uriPath.equals("/management/schedule/")) {
+                serveFile(exchange, "/management/schedule.html");
+                return;
+            }
+            if (uriPath.equals("/management/calendar") || uriPath.equals("/management/calendar/")) {
+                serveFile(exchange, "/management/calendar.html");
+                return;
+            }
+            if (uriPath.equals("/management/unit-leave") || uriPath.equals("/management/unit-leave/")) {
+                serveFile(exchange, "/management/unit-leave.html");
+                return;
+            }
+            if (uriPath.equals("/management/day-off") || uriPath.equals("/management/day-off/")) {
+                serveFile(exchange, "/management/day-off.html");
+                return;
+            }
             if (uriPath.equals("/management/monthly-schedule") || uriPath.equals("/management/monthly-schedule/")) {
                 serveFile(exchange, "/management/monthly-schedule.html");
+                return;
+            }
+            if (uriPath.equals("/management/user-monitoring") || uriPath.equals("/management/user-monitoring/")) {
+                serveFile(exchange, "/management/user-monitoring.html");
+                return;
+            }
+            if (uriPath.equals("/management/ot-reason") || uriPath.equals("/management/ot-reason/")) {
+                serveFile(exchange, "/management/ot-reason.html");
                 return;
             }
             if (uriPath.equals("/management/user") || uriPath.equals("/management/user/")) {
@@ -203,6 +255,9 @@ public class LocalWebServer {
 
         private void serveFile(HttpExchange exchange, String relativePath) throws IOException {
             String cleanPath = relativePath.startsWith("/") ? relativePath.substring(1) : relativePath;
+            if (cleanPath.endsWith("/")) {
+                cleanPath = cleanPath.substring(0, cleanPath.length() - 1);
+            }
             Path filePath = staticWebRoot.resolve(cleanPath).normalize();
 
             // Security check against directory traversal

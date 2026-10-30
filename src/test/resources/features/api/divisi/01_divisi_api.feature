@@ -7,13 +7,13 @@ Fitur: Pengujian Backend REST API Modul Divisi (Management Division)
 
   @API-001
   Skenario: Mendapatkan daftar seluruh divisi dengan token otorisasi valid
-    Ketika client mengirim request GET ke endpoint "/api/division" dengan token valid
+    Ketika client mengirim request GET ke endpoint divisi "/api/division" dengan token valid
     Maka response API mengembalikan status 200 OK
     Dan response API memuat array daftar divisi dan informasi total data
 
   @API-002
   Skenario: Request daftar divisi tanpa header Authorization
-    Ketika client mengirim request GET ke endpoint "/api/division" tanpa token otorisasi
+    Ketika client mengirim request GET ke endpoint divisi "/api/division" tanpa token otorisasi
     Maka response API mengembalikan status 401 Unauthorized
 
   @API-003
@@ -30,7 +30,7 @@ Fitur: Pengujian Backend REST API Modul Divisi (Management Division)
 
   @API-005
   Skenario: Membuat divisi baru dengan payload JSON yang valid
-    Ketika client mengirim request POST ke endpoint "/api/division" dengan nama "Quality Assurance"
+    Ketika client mengirim request POST ke endpoint divisi "/api/division" dengan nama "Quality Assurance"
     Maka response API divisi mengembalikan status sukses 200 atau 201
     Dan response API memuat data divisi yang baru dibuat
 
