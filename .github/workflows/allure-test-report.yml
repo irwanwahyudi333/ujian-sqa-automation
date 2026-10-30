@@ -1,11 +1,9 @@
 name: SQA Automation & Allure Report
 
 on:
-  # Dinonaktifkan agar tidak otomatis berjalan setiap kali ada push atau pull request
-  # push:
-  #   branches: [ main ]
-  # pull_request:
-  #   branches: [ main ]
+  # Berjalan otomatis HANYA ketika ada pembaruan/push ke branch 'ci-test'
+  push:
+    branches: [ ci-test ]
 
   # Eksekusi manual melalui tab Actions di GitHub
   workflow_dispatch:
@@ -56,22 +54,23 @@ jobs:
           mkdir -p target/allure-results
           mkdir -p gh-pages
 
-      - name: Run Test Suite (Full Regression by Default)
+      - name: Run Test Suite (Lean Testing Strategy by Default)
         id: run_tests
         continue-on-error: true
         run: |
-          if [ "${{ github.event.inputs.test_suite }}" = "api" ]; then
+          SUITE="${{ github.event.inputs.test_suite }}"
+          if [ "$SUITE" = "api" ]; then
             echo "Menjalankan TestRunnerApi..."
             mvn test -Dtest=TestRunnerApi
-          elif [ "${{ github.event.inputs.test_suite }}" = "ui" ]; then
+          elif [ "$SUITE" = "ui" ]; then
             echo "Menjalankan TestRunnerUi..."
             mvn test -Dtest=TestRunnerUi
-          elif [ "${{ github.event.inputs.test_suite }}" = "lean" ]; then
-            echo "Menjalankan Skema 1 (Lean Testing Strategy: @lean)..."
-            mvn test -Dcucumber.filter.tags="@lean"
-          else
+          elif [ "$SUITE" = "all" ]; then
             echo "Menjalankan seluruh Test Suite (Full Regression: UI & API)..."
             mvn test
+          else
+            echo "Menjalankan Skema 1 (Lean Testing Strategy: @lean)..."
+            mvn test -Dcucumber.filter.tags="@lean"
           fi
 
       - name: Check if gh-pages branch exists
