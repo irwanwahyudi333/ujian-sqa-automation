@@ -19,7 +19,7 @@ public class SessionHelper {
                 // If current domain is not yet on magang.dikahadir.com, navigate to login page first to set domain context
                 String currentUrl = driver.getCurrentUrl();
                 if (currentUrl == null || !currentUrl.contains("magang.dikahadir.com")) {
-                    driver.get("https://magang.dikahadir.com/authentication/login");
+                    driver.get("https://magang.dikahadir.com/robots.txt");
                 }
                 
                 // Check if cookie already exists

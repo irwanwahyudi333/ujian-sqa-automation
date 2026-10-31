@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="theme-color" content="Flexy Next js Admin Template"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <title>HADIR - Job Level</title>
+  <meta name="viewport" content="initial-scale=1, width=device-width"/>
+  <meta name="next-head-count" content="3"/>
+  <link rel="stylesheet" href="/_next/static/css/59a98a28abd5dd7d.css" data-n-g=""/>
+  <style>
+    body {
+      margin: 0;
+      color: rgba(0, 0, 0, 0.87);
+      font-weight: 400;
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 1.5;
+      background-color: #fafbfb;
+    }
+    .page-container {
+      padding: 24px 32px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .page-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #111827;
+      margin: 0;
+    }
+    .breadcrumbs {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      color: #64748b;
+      margin-top: 4px;
+    }
+    .breadcrumbs a {
+      color: #1ba0e2;
+      text-decoration: none;
+    }
+    .filter-card, .table-card {
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+      padding: 20px 24px;
+      margin-bottom: 24px;
+    }
+    .filter-search-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .form-search {
+      display: flex;
+      flex: 1;
+      max-width: 650px;
+      margin: 0;
+    }
+    .filter-search {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+    }
+    .input-search-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      flex: 1;
+      background: #f4f6f8;
+      border: 1px solid #dee3e9;
+      border-radius: 6px;
+      padding: 0 12px;
+      transition: border-color 0.2s;
+    }
+    .input-search-wrapper:focus-within {
+      border-color: #1ba0e2;
+      background: #ffffff;
+    }
+    .input-search {
+      border: none;
+      background: transparent;
+      outline: none;
+      padding: 10px 8px;
+      width: 100%;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: #333;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 18px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      font-family: inherit;
+      border-radius: 6px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      box-sizing: border-box;
+      white-space: nowrap;
+    }
+    .btn-primary, .button-add, .btn-search {
+      background: #1ba0e2;
+      color: #ffffff;
+    }
+    .btn-primary:hover, .button-add:hover, .btn-search:hover {
+      background: #1480b5;
+    }
+    .btn-reset {
+      background: transparent;
+      color: #eab308;
+      border: 1px solid #eab308;
+    }
+    .btn-reset:hover {
+      background: #fefce8;
+      color: #ca8a04;
+    }
+    .btn-secondary {
+      background: #f4f6f8;
+      color: #4b5563;
+      border: 1px solid #dee3e9;
+    }
+    .btn-secondary:hover {
+      background: #e5e7eb;
+    }
+    .btn-danger {
+      background: #ef4444;
+      color: #ffffff;
+    }
+    .btn-danger:hover {
+      background: #dc2626;
+    }
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      border-radius: 8px 8px 0 0;
+    }
+    .table_base {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    .table_base th {
+      background: #3D3D3D;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.78rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 14px 16px;
+      white-space: nowrap;
+      border: none;
+    }
+    .table_base td {
+      padding: 16px 16px;
+      font-size: 0.92rem;
+      border-bottom: 1px solid #eef2f6;
+      color: #4b5563;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+    .table_base tr:hover td {
+      background-color: #f8fafc;
+    }
+    .cell-title {
+      font-weight: 600;
+      color: #111827;
+      font-size: 0.95rem;
+    }
+    .action-container {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .icon-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 50%;
+      width: 34px;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #64748b;
+      transition: background-color 0.15s, color 0.15s;
+    }
+    .icon-btn:hover {
+      background-color: #f1f5f9;
+      color: #1e293b;
+    }
+    .btn-edit-direct { color: #1ba0e2; }
+    .btn-edit-direct:hover { background-color: #e0f2fe; }
+    .btn-delete-direct { color: #ef4444; }
+    .btn-delete-direct:hover { background-color: #fee2e2; }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .badge-success { background: #dcfce7; color: #15803d; }
+    .badge-danger { background: #fee2e2; color: #b91c1c; }
+    .badge-info { background: #e0f2fe; color: #0369a1; }
+    .badge-warning { background: #fef9c3; color: #a16207; }
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+    }
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: #ccc;
+      transition: .3s;
+      border-radius: 24px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .3s;
+      border-radius: 50%;
+    }
+    input:checked + .slider {
+      background-color: #1ba0e2;
+    }
+    input:checked + .slider:before {
+      transform: translateX(20px);
+    }
+    .pagination-bar {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+      padding: 12px 20px;
+      background: #3D3D3D;
+      color: #ffffff;
+      border-radius: 0 0 16px 16px;
+      font-size: 0.85rem;
+    }
+    .pagination-bar label { color: #d1d5db; }
+    .pagination-bar select {
+      background: #2b2b2b;
+      color: #ffffff;
+      border: 1px solid #4b5563;
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-family: inherit;
+      outline: none;
+      cursor: pointer;
+    }
+    .page-nav-btn {
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      width: 32px;
+      height: 32px;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.15s;
+    }
+    .page-nav-btn:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.15);
+    }
+    .page-nav-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1300;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-dialog {
+      background: #ffffff;
+      border-radius: 12px;
+      max-width: 520px;
+      width: 90%;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      animation: modalSlide 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes modalSlide {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 24px;
+      border-bottom: 1px solid #eef2f6;
+    }
+    .modal-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #111827;
+      margin: 0;
+    }
+    .modal-close-btn {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: #9ca3af;
+    }
+    .modal-close-btn:hover { color: #4b5563; }
+    .modal-body {
+      padding: 20px 24px;
+    }
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      padding: 16px 24px;
+      background: #f8fafc;
+      border-top: 1px solid #eef2f6;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 6px;
+    }
+    .form-control {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #dee3e9;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      box-sizing: border-box;
+      outline: none;
+    }
+    .form-control:focus {
+      border-color: #1ba0e2;
+    }
+    .snackbar {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      background: #10b981;
+      color: #ffffff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 0.92rem;
+      display: none;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+      z-index: 2000;
+    }
+    .snackbar.open { display: flex; }
+    .snackbar.error { background: #ef4444; }
+    .avatar-circle {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #1ba0e2;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="__next">
+    <div class="page-container">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Job Level</h1>
+          <div class="breadcrumbs">
+            <a href="/dashboard">Dashboard</a>
+            <span>/</span>
+            <span>Management</span>
+            <span>/</span>
+            <span style="color: #1ba0e2;">Job Level</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search & Add Bar Card -->
+      <div class="filter-card">
+        <div class="filter-search-container">
+          <form class="form-search" id="form-search" onsubmit="event.preventDefault(); handleSearch();">
+            <div class="filter-search">
+              <div class="input-search-wrapper">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input
+                  type="search"
+                  id="search"
+                  name="search"
+                  class="input-search"
+                  placeholder="cari berdasarkan level"
+                  aria-label="cari berdasarkan level"
+                />
+              </div>
+              <button type="button" id="btn-reset" class="btn btn-reset" onclick="handleReset()">Reset</button>
+              <button type="submit" id="btn-search" class="btn btn-search">Search</button>
+            </div>
+          </form>
+          <div>
+            <button type="button" id="btn-tambah-level" class="btn button-add btn-primary" onclick="openAddModal()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+              Tambahkan
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Data Table Card -->
+      <div class="table-card" style="padding: 0; overflow: hidden;">
+        <div class="table-container">
+          <table class="table_base MuiTable-root" aria-label="sticky table">
+            <thead>
+              <tr class="MuiTableRow-root MuiTableRow-head">
+                <th style="width: 5%; ">NO</th>
+<th style="width: 20%; ">LEVEL / JABATAN</th>
+<th style="width: 25%; ">DESCRIPTION</th>
+<th style="width: 12%; ">BREAK START</th>
+<th style="width: 12%; ">BREAK END</th>
+<th style="width: 12%; text-align: center;">AKTIF TRAKING</th>
+<th style="width: 8%; text-align: center;">STATUS</th>
+<th style="width: 6%; text-align: center;">AKSI</th>
+
+              </tr>
+            </thead>
+            <tbody id="table-body">
+              <!-- Rendered dynamically by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Table Pagination Footer -->
+        <div class="pagination-bar MuiTablePagination-root">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <label for="rows-per-page">Rows per page:</label>
+            <select id="rows-per-page" class="MuiTablePagination-select" onchange="changeRowsPerPage(this.value)">
+              <option value="5">5</option>
+              <option value="10" selected>10</option>
+              <option value="25">25</option>
+            </select>
+          </div>
+          <div id="displayed-rows" class="displayed-rows MuiTablePagination-displayedRows">
+            1-10 of 10
+          </div>
+          <div class="pagination-actions">
+            <button id="btn-first-page" class="page-nav-btn" title="First Page" onclick="goToPage(1)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="11 17 6 12 11 7"></polyline>
+                <polyline points="18 17 13 12 18 7"></polyline>
+              </svg>
+            </button>
+            <button id="btn-prev-page" class="page-nav-btn" title="Previous Page" onclick="prevPage()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <button id="btn-next-page" class="page-nav-btn" title="Next Page" onclick="nextPage()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+            <button id="btn-last-page" class="page-nav-btn" title="Last Page" onclick="goToPage(totalPages)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="13 17 18 12 13 7"></polyline>
+                <polyline points="6 17 11 12 6 7"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Tambah -->
+  <div id="modal-tambah" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="alert-dialog-title">
+    <div class="modal-dialog">
+      <form id="form-tambah" onsubmit="event.preventDefault(); handleAddSubmit();">
+        <div class="modal-header">
+          <h2 id="alert-dialog-title" class="modal-title">Tambah Job Level</h2>
+          <button type="button" class="modal-close-btn" aria-label="close" onclick="closeModal('modal-tambah')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="modal-body" id="alert-dialog-slide-description">
+          
+            <div class="form-group">
+              <label for="level">Level / Jabatan</label>
+              <input type="text" id="level" name="level" class="form-control" placeholder="Level / Jabatan" required/>
+            </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea id="description" name="description" class="form-control" rows="3" placeholder="Description"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="break_start">Break Start</label>
+              <input type="time" id="break_start" name="break_start" class="form-control" placeholder="Break Start" required/>
+            </div>
+            <div class="form-group">
+              <label for="break_end">Break End</label>
+              <input type="time" id="break_end" name="break_end" class="form-control" placeholder="Break End" required/>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-batal-tambah" class="btn btn-secondary" onclick="closeModal('modal-tambah')">Batal</button>
+          <button type="submit" id="btn-simpan-tambah" class="btn btn-primary">Tambah</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Edit -->
+  <div id="modal-edit" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="alert-dialog-title-edit">
+    <div class="modal-dialog">
+      <form id="form-edit" onsubmit="event.preventDefault(); handleEditSubmit();">
+        <input type="hidden" id="edit-id" name="id"/>
+        <div class="modal-header">
+          <h2 id="alert-dialog-title-edit" class="modal-title">Edit Job Level</h2>
+          <button type="button" class="modal-close-btn" aria-label="close" onclick="closeModal('modal-edit')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="modal-body">
+          
+            <div class="form-group">
+              <label for="edit-level">Level / Jabatan</label>
+              <input type="text" id="edit-level" name="level" class="form-control" placeholder="Level / Jabatan" required/>
+            </div>
+            <div class="form-group">
+              <label for="edit-description">Description</label>
+              <textarea id="edit-description" name="description" class="form-control" rows="3" placeholder="Description"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="edit-break_start">Break Start</label>
+              <input type="time" id="edit-break_start" name="break_start" class="form-control" placeholder="Break Start" required/>
+            </div>
+            <div class="form-group">
+              <label for="edit-break_end">Break End</label>
+              <input type="time" id="edit-break_end" name="break_end" class="form-control" placeholder="Break End" required/>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-batal-edit" class="btn btn-secondary" onclick="closeModal('modal-edit')">Batal</button>
+          <button type="submit" id="btn-simpan-edit" class="btn btn-primary">Simpan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Delete -->
+  <div id="modal-delete" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="alert-dialog-title-delete">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h2 id="alert-dialog-title-delete" class="modal-title">Hapus Job Level</h2>
+        <button type="button" class="modal-close-btn" aria-label="close" onclick="closeModal('modal-delete')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p id="delete-prompt-text" style="color: #4b5563; font-size: 0.95rem; margin: 0;">
+          Apakah anda ingin menghapus Job Level [Nama]?
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btn-batal-delete" class="btn btn-secondary" onclick="closeModal('modal-delete')">Tidak</button>
+        <button type="button" id="btn-konfirmasi-delete" class="btn btn-danger" onclick="confirmDelete()">Ya</button>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <!-- Feedback Snackbar Toast -->
+  <div id="alert-snackbar" class="snackbar" role="alert" aria-live="assertive">
+    <span id="snackbar-message">Berhasil Menambahkan Job Level</span>
+  </div>
+
+  <script>
+    let rawData = [{"id": "1", "level": "Junior", "name": "Junior", "description": "Entry level staff", "break_start": "12:00", "break_end": "13:00", "is_tracking": true, "status": "Aktif"}, {"id": "2", "level": "Middle", "name": "Middle", "description": "Experienced professional", "break_start": "12:00", "break_end": "13:00", "is_tracking": true, "status": "Aktif"}, {"id": "3", "level": "Senior", "name": "Senior", "description": "Senior specialist staff", "break_start": "12:00", "break_end": "13:00", "is_tracking": true, "status": "Aktif"}, {"id": "4", "level": "Lead / Manager", "name": "Lead / Manager", "description": "Team supervisor", "break_start": "12:00", "break_end": "13:00", "is_tracking": true, "status": "Aktif"}, {"id": "5", "level": "Executive", "name": "Executive", "description": "Director & VP level", "break_start": "12:00", "break_end": "13:00", "is_tracking": false, "status": "Aktif"}];
+    let filteredData = [...rawData];
+    let currentPage = 1;
+    let rowsPerPage = 10;
+    let totalPages = 1;
+    let targetDeleteId = null;
+
+    function renderTable() {
+      const tbody = document.getElementById("table-body");
+      if (!tbody) return;
+      tbody.innerHTML = "";
+
+      const start = (currentPage - 1) * rowsPerPage;
+      const end = Math.min(start + rowsPerPage, filteredData.length);
+      const pageItems = filteredData.slice(start, end);
+
+      if (pageItems.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; color: #9ca3af; padding: 32px;">Data tidak ditemukan</td></tr>';
+      } else {
+        pageItems.forEach((item, index) => {
+          const tr = document.createElement("tr");
+          tr.className = "MuiTableRow-root";
+          tr.setAttribute("data-id", item.id);
+          
+          let tdHtml = "";
+          
+    tdHtml += `<td>${start + index + 1}</td>`;
+    tdHtml += `<td class="cell-title">${item.level}</td>`;
+    tdHtml += `<td>${item.description || '-'}</td>`;
+    tdHtml += `<td>${item.break_start || '12:00'}</td>`;
+    tdHtml += `<td>${item.break_end || '13:00'}</td>`;
+    tdHtml += `<td style="text-align: center;"><span class="badge ${item.is_tracking ? 'badge-success' : 'badge-danger'}">${item.is_tracking ? 'Aktif' : 'Nonaktif'}</span></td>`;
+    tdHtml += `<td style="text-align: center;"><span class="badge ${item.status === 'Aktif' ? 'badge-success' : 'badge-danger'}">${item.status}</span></td>`;
+    tdHtml += `
+      <td style="text-align: center;">
+        <div class="action-container">
+          <button type="button" class="icon-btn btn-edit-direct" title="Edit" onclick="openEditModal('${item.id}')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+          </button>
+          <button type="button" class="icon-btn btn-delete-direct" title="Hapus" onclick="openDeleteModal('${item.id}')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+          </button>
+        </div>
+      </td>
+    `;
+    
+          tr.innerHTML = tdHtml;
+          tbody.appendChild(tr);
+        });
+      }
+
+      totalPages = Math.max(1, Math.ceil(filteredData.length / rowsPerPage));
+      const displayed = document.getElementById("displayed-rows");
+      if (displayed) {
+        displayed.innerText = filteredData.length === 0 ? "0-0 of 0" : (start + 1) + "-" + end + " of " + filteredData.length;
+      }
+
+      const btnFirst = document.getElementById("btn-first-page");
+      const btnPrev = document.getElementById("btn-prev-page");
+      const btnNext = document.getElementById("btn-next-page");
+      const btnLast = document.getElementById("btn-last-page");
+      if (btnFirst) btnFirst.disabled = currentPage === 1;
+      if (btnPrev) btnPrev.disabled = currentPage === 1;
+      if (btnNext) btnNext.disabled = currentPage >= totalPages;
+      if (btnLast) btnLast.disabled = currentPage >= totalPages;
+    }
+
+    function handleSearch() {
+      const query = (document.getElementById("search")?.value || "").toLowerCase().trim();
+      if (!query) {
+        filteredData = [...rawData];
+      } else {
+        filteredData = rawData.filter(item => {
+          return Object.values(item).some(val => String(val).toLowerCase().includes(query));
+        });
+      }
+      currentPage = 1;
+      renderTable();
+    }
+
+    function handleReset() {
+      const searchInput = document.getElementById("search");
+      if (searchInput) searchInput.value = "";
+      filteredData = [...rawData];
+      currentPage = 1;
+      renderTable();
+    }
+
+    function changeRowsPerPage(val) {
+      rowsPerPage = parseInt(val, 10) || 10;
+      currentPage = 1;
+      renderTable();
+    }
+
+    function goToPage(p) {
+      currentPage = Math.max(1, Math.min(p, totalPages));
+      renderTable();
+    }
+
+    function prevPage() {
+      if (currentPage > 1) {
+        currentPage--;
+        renderTable();
+      }
+    }
+
+    function nextPage() {
+      if (currentPage < totalPages) {
+        currentPage++;
+        renderTable();
+      }
+    }
+
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) modal.classList.add("open");
+    }
+
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) modal.classList.remove("open");
+    }
+
+    function openAddModal() {
+      const form = document.getElementById("form-tambah");
+      if (form) form.reset();
+      openModal("modal-tambah");
+    }
+
+    function handleAddSubmit() {
+      const newItem = { id: String(Date.now()) };
+      
+    newItem.level = document.getElementById("level")?.value.trim() || "";
+    newItem.name = newItem.level;
+    newItem.description = document.getElementById("description")?.value.trim() || "";
+    newItem.break_start = document.getElementById("break_start")?.value || "12:00";
+    newItem.break_end = document.getElementById("break_end")?.value || "13:00";
+    newItem.is_tracking = true;
+    newItem.status = "Aktif";
+    
+      newItem.created_at = new Date().toISOString().split("T")[0];
+      newItem.updated_at = new Date().toISOString().split("T")[0];
+
+      rawData.unshift(newItem);
+      handleSearch();
+      closeModal("modal-tambah");
+      showSnackbar("Berhasil Menambahkan Job Level");
+    }
+
+    function openEditModal(id) {
+      const item = rawData.find(d => String(d.id) === String(id));
+      if (!item) return;
+      document.getElementById("edit-id").value = item.id;
+      
+    document.getElementById("edit-level").value = item.level || "";
+    document.getElementById("edit-description").value = item.description || "";
+    document.getElementById("edit-break_start").value = item.break_start || "12:00";
+    document.getElementById("edit-break_end").value = item.break_end || "13:00";
+    
+      openModal("modal-edit");
+    }
+
+    function handleEditSubmit() {
+      const id = document.getElementById("edit-id").value;
+      const item = rawData.find(d => String(d.id) === String(id));
+      if (item) {
+        
+    item.level = document.getElementById("edit-level").value.trim();
+    item.name = item.level;
+    item.description = document.getElementById("edit-description").value.trim();
+    item.break_start = document.getElementById("edit-break_start").value;
+    item.break_end = document.getElementById("edit-break_end").value;
+    
+        item.updated_at = new Date().toISOString().split("T")[0];
+        handleSearch();
+        closeModal("modal-edit");
+        showSnackbar("Berhasil Mengubah Job Level");
+      }
+    }
+
+    function openDeleteModal(id) {
+      targetDeleteId = id;
+      const item = rawData.find(d => String(d.id) === String(id));
+      const prompt = document.getElementById("delete-prompt-text");
+      if (prompt && item) {
+        prompt.innerText = "Apakah anda ingin menghapus Job Level [Nama]?".replace("[Nama]", item.name || item.title || item.fullname || "");
+      }
+      openModal("modal-delete");
+    }
+
+    function confirmDelete() {
+      if (targetDeleteId) {
+        rawData = rawData.filter(d => String(d.id) !== String(targetDeleteId));
+        handleSearch();
+        closeModal("modal-delete");
+        showSnackbar("Berhasil Menghapus Job Level");
+        targetDeleteId = null;
+      }
+    }
+
+    function showSnackbar(msg, isError = false) {
+      const sb = document.getElementById("alert-snackbar");
+      const msgEl = document.getElementById("snackbar-message");
+      if (sb && msgEl) {
+        msgEl.innerText = msg;
+        sb.className = "snackbar open" + (isError ? " error" : "");
+        setTimeout(() => {
+          sb.classList.remove("open");
+        }, 3500);
+      }
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" || e.keyCode === 27) {
+        document.querySelectorAll(".modal-overlay.open").forEach(m => m.classList.remove("open"));
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderTable();
+    });
+  </script>
+
+  <!-- Next.js hydration payload -->
+  <script id="__NEXT_DATA__" type="application/json">
+    {
+      "props": {
+        "pageProps": {
+          "data": [{"id": "1", "level": "Junior", "name": "Junior", "description": "Entry level staff", "break_start": "12:00", "break_end": "13:00", "is_tracking": true, "status": "Aktif"}, {"id": "2", "level": "Middle", "name": "Middle", "description": "Experienced professional", "break_start": "12:00", "break_end": "13:00", "is_tracking": true, "status": "Aktif"}, {"id": "3", "level": "Senior", "name": "Senior", "description": "Senior specialist staff", "break_start": "12:00", "break_end": "13:00", "is_tracking": true, "status": "Aktif"}, {"id": "4", "level": "Lead / Manager", "name": "Lead / Manager", "description": "Team supervisor", "break_start": "12:00", "break_end": "13:00", "is_tracking": true, "status": "Aktif"}, {"id": "5", "level": "Executive", "name": "Executive", "description": "Director & VP level", "break_start": "12:00", "break_end": "13:00", "is_tracking": false, "status": "Aktif"}],
+          "total": 5,
+          "session": {
+            "user": {
+              "id": "100",
+              "name": "Admin SQA",
+              "email": "admin@dikahadir.com",
+              "role": "admin"
+            }
+          }
+        }
+      },
+      "page": "/management/job-level",
+      "query": {},
+      "buildId": "ZVAidYGiBj2MRxCexFsVP",
+      "nextExport": true,
+      "autoExport": true,
+      "isFallback": false,
+      "scriptLoader": []
+    }
+  </script>
+</body>
+</html>

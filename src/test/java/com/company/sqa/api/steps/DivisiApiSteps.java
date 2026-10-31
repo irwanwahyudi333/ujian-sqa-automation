@@ -10,7 +10,7 @@ import org.testng.Assert;
 public class DivisiApiSteps {
     private static final Logger logger = LogManager.getLogger(DivisiApiSteps.class);
 
-    @Ketika("client mengirim request GET ke endpoint {string} dengan token valid")
+    @Ketika("client mengirim request GET ke endpoint divisi {string} dengan token valid")
     public void clientMengirimRequestGetKeEndpointDenganTokenValid(String endpoint) {
         logger.info("Mengirim GET request ke: {} dengan token otorisasi valid", endpoint);
     }
@@ -25,7 +25,7 @@ public class DivisiApiSteps {
         Assert.assertTrue(true);
     }
 
-    @Ketika("client mengirim request GET ke endpoint {string} tanpa token otorisasi")
+    @Ketika("client mengirim request GET ke endpoint divisi {string} tanpa token otorisasi")
     public void clientMengirimRequestGetKeEndpointTanpaTokenOtorisasi(String endpoint) {
         logger.info("Mengirim GET request ke: {} tanpa token otorisasi", endpoint);
     }
@@ -55,7 +55,7 @@ public class DivisiApiSteps {
         Assert.assertTrue(true);
     }
 
-    @Ketika("client mengirim request POST ke endpoint {string} dengan nama {string}")
+    @Ketika("client mengirim request POST ke endpoint divisi {string} dengan nama {string}")
     public void clientMengirimRequestPostKeEndpointDenganNama(String endpoint, String divisionName) {
         logger.info("Mengirim POST request ke: {} dengan nama: {}", endpoint, divisionName);
     }

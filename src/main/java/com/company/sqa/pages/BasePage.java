@@ -47,8 +47,23 @@ public abstract class BasePage {
     protected void type(By locator, String text) {
         logger.info("Typing '{}' into element: {}", text, locator);
         WebElement element = waitForVisibility(locator);
-        element.clear();
-        element.sendKeys(text);
+        try {
+            element.clear();
+            element.sendKeys(text);
+        } catch (org.openqa.selenium.InvalidElementStateException e) {
+            logger.warn("Element read-only atau tidak bisa di-clear secara standar: {}. Mengisi via JavaScript.", locator);
+            try {
+                ((JavascriptExecutor) driver).executeScript(
+                    "arguments[0].removeAttribute('readonly'); " +
+                    "arguments[0].value = arguments[1]; " +
+                    "arguments[0].dispatchEvent(new Event('input', { bubbles: true })); " +
+                    "arguments[0].dispatchEvent(new Event('change', { bubbles: true }));",
+                    element, text
+                );
+            } catch (Exception jsEx) {
+                logger.warn("Gagal set value via JavaScript: {}", jsEx.getMessage());
+            }
+        }
     }
 
     protected String getText(By locator) {
@@ -70,6 +85,18 @@ public abstract class BasePage {
             return waitForVisibility(locator).isDisplayed();
         } catch (Exception e) {
             return false;
+        }
+    }
+
+    protected boolean isDisplayed(By locator) {
+        return isElementDisplayed(locator);
+    }
+
+    protected String getAttribute(By locator, String attributeName) {
+        try {
+            return waitForVisibility(locator).getAttribute(attributeName);
+        } catch (Exception e) {
+            return driver.findElement(locator).getAttribute(attributeName);
         }
     }
 
