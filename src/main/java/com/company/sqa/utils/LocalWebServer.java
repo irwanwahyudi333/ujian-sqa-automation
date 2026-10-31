@@ -253,6 +253,20 @@ public class LocalWebServer {
                 serveFile(exchange, "/laporan/all.html");
                 return;
             }
+            if (uriPath.startsWith("/client/") || uriPath.equals("/client")) {
+                String clientPath = uriPath.endsWith("/") ? uriPath.substring(0, uriPath.length() - 1) : uriPath;
+                if (!clientPath.endsWith(".html")) {
+                    serveFile(exchange, clientPath + ".html");
+                    return;
+                }
+            }
+            if (uriPath.startsWith("/monitoring/") || uriPath.equals("/monitoring")) {
+                String monPath = uriPath.endsWith("/") ? uriPath.substring(0, uriPath.length() - 1) : uriPath;
+                if (!monPath.endsWith(".html")) {
+                    serveFile(exchange, monPath + ".html");
+                    return;
+                }
+            }
 
             serveFile(exchange, uriPath);
         }
