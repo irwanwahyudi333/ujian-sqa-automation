@@ -227,4 +227,22 @@ public class LocalWebServerRoutingTest {
         Assert.assertTrue(response.body().contains("modal-tambah-izin-off"), "HTML should contain add modal");
         Assert.assertTrue(response.body().contains("modal-detail-izin-off"), "HTML should contain detail modal");
     }
+
+    @Test
+    public void testLeaderStaffListsRoute() throws IOException, InterruptedException {
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:" + TEST_PORT + "/leader/staff/lists"))
+                .GET()
+                .build();
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        Assert.assertEquals(response.statusCode(), 200, "Expected HTTP 200 for /leader/staff/lists");
+        Assert.assertTrue(response.body().contains("HADIR - Leader Staff Lists"), "HTML should contain page title");
+        Assert.assertTrue(response.body().contains("staff-table"), "HTML should contain staff-table");
+        Assert.assertTrue(response.body().contains("modal-tambah-staff"), "HTML should contain add staff modal");
+        Assert.assertTrue(response.body().contains("modal-edit-staff"), "HTML should contain edit staff modal");
+        Assert.assertTrue(response.body().contains("modal-detail-staff"), "HTML should contain detail staff modal");
+        Assert.assertTrue(response.body().contains("modal-delete-staff"), "HTML should contain delete staff modal");
+        Assert.assertTrue(response.body().contains("modal-filter-staff"), "HTML should contain filter staff modal");
+    }
 }
