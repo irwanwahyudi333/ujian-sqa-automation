@@ -69,8 +69,8 @@ jobs:
             echo "Menjalankan seluruh Test Suite (Full Regression: UI & API)..."
             mvn test
           else
-            echo "Menjalankan Skema 1 (Lean Testing Strategy: @lean)..."
-            mvn test -Dcucumber.filter.tags="@lean"
+            echo "Menjalankan seluruh pengujian Hybrid (UI Lean, Leader, & API)..."
+            mvn test -Dcucumber.filter.tags="@lean or @api or @leader-izin-off"
           fi
 
       - name: Check if gh-pages branch exists
