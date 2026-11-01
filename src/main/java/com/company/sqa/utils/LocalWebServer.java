@@ -97,6 +97,7 @@ public class LocalWebServer {
         logger.info("URL Divisi: http://localhost:{}/management/divisi", activePort);
         logger.info("URL Monthly Schedule: http://localhost:{}/management/monthly-schedule", activePort);
         logger.info("URL User Monitoring: http://localhost:{}/management/user-monitoring", activePort);
+        logger.info("URL Leader Izin Off: http://localhost:{}/leader/izin-off", activePort);
         logger.info("URL Management User: http://localhost:{}/management/user", activePort);
         logger.info("Serving files from: {}", staticWebRoot);
         logger.info("==========================================================");

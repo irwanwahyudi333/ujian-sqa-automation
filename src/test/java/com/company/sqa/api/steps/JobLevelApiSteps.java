@@ -57,7 +57,7 @@ public class JobLevelApiSteps {
         Assert.assertTrue(true);
     }
 
-    @Ketika("client mengirim request DELETE ke endpoint {string} dengan ID valid")
+    @Ketika("client mengirim request DELETE ke endpoint job level {string} dengan ID valid")
     public void clientMengirimRequestDeleteKeEndpointJobLevelDenganIdValid(String endpoint) {
         logger.info("Mengirim DELETE request ke: {} dengan ID valid", endpoint);
     }
