@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="theme-color" content="Flexy Next js Admin Template"/>
+  <title>HADIR - Leader Staff Lists</title>
+  <meta name="viewport" content="initial-scale=1, width=device-width"/>
+  <style>
+    body {
+      margin: 0;
+      color: rgba(0, 0, 0, 0.87);
+      font-weight: 400;
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 1.5;
+      background-color: #fafbfb;
+    }
+    .page-container {
+      padding: 24px 32px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .page-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 0 0 8px 0;
+    }
+    .breadcrumbs {
+      display: flex;
+      gap: 8px;
+      font-size: 0.875rem;
+      color: #64748b;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1);
+      margin-bottom: 24px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+    }
+    .card-body {
+      padding: 20px 24px;
+    }
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .search-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+      max-width: 850px;
+    }
+    .form-control {
+      padding: 8px 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      font-family: inherit;
+    }
+    .form-control:focus {
+      border-color: #0284c7;
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+    }
+    .input-search {
+      flex: 1;
+      background: #f8fafc;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 16px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      border: none;
+      transition: background-color 0.2s, transform 0.1s;
+      text-decoration: none;
+      font-family: inherit;
+    }
+    .btn:active {
+      transform: scale(0.98);
+    }
+    .btn-primary {
+      background-color: #0284c7;
+      color: #ffffff;
+    }
+    .btn-primary:hover {
+      background-color: #0369a1;
+    }
+    .btn-secondary {
+      background-color: #f1f5f9;
+      color: #475569;
+      border: 1px solid #cbd5e1;
+    }
+    .btn-secondary:hover {
+      background-color: #e2e8f0;
+    }
+    .btn-warning {
+      background-color: transparent;
+      color: #d97706;
+    }
+    .btn-warning:hover {
+      background-color: #fef3c7;
+    }
+    .btn-danger {
+      background-color: #ef4444;
+      color: #ffffff;
+    }
+    .btn-danger:hover {
+      background-color: #dc2626;
+    }
+    .table-container {
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    th {
+      background-color: #1e293b;
+      color: #ffffff;
+      padding: 12px 16px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid #f1f5f9;
+      font-size: 0.875rem;
+      color: #334155;
+    }
+    tr:hover td {
+      background-color: #f8fafc;
+    }
+    table.dense td {
+      padding: 6px 16px;
+    }
+    table.dense th {
+      padding: 8px 16px;
+    }
+    .avatar-wrapper {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #e0f2fe;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #0284c7;
+      overflow: hidden;
+      font-size: 0.875rem;
+    }
+    .action-cell {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .action-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .action-btn:hover {
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+    .action-btn.detail:hover {
+      background: #f0fdf4;
+      color: #16a34a;
+      border-color: #bbf7d0;
+    }
+    .action-btn.edit:hover {
+      background: #e0f2fe;
+      color: #0284c7;
+      border-color: #bae6fd;
+    }
+    .action-btn.delete:hover {
+      background: #fee2e2;
+      color: #ef4444;
+      border-color: #fecaca;
+    }
+    .badge-unit {
+      background: #e0f2fe;
+      color: #0369a1;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-weight: 500;
+      font-size: 0.8125rem;
+      display: inline-block;
+    }
+    .badge-status {
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .badge-status.aktif {
+      background: #dcfce7;
+      color: #15803d;
+    }
+    .badge-status.non-aktif {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+    .badge-status.cuti {
+      background: #fef3c7;
+      color: #b45309;
+    }
+    .pagination-bar {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+      padding: 16px 24px;
+      background: #ffffff;
+      border-top: 1px solid #f1f5f9;
+      font-size: 0.875rem;
+      color: #64748b;
+    }
+    .pagination-btn {
+      width: 32px;
+      height: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      border-radius: 4px;
+      cursor: pointer;
+      color: #334155;
+      transition: all 0.2s;
+    }
+    .pagination-btn:hover:not(:disabled) {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+    .pagination-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    /* Modal Styles */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.5);
+      backdrop-filter: blur(2px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal-backdrop.open {
+      display: flex;
+    }
+    .modal-card {
+      background: #ffffff;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 540px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      overflow: hidden;
+      animation: modalFadeIn 0.2s ease-out;
+    }
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .modal-header {
+      padding: 16px 24px;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .modal-title {
+      margin: 0;
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .modal-body {
+      padding: 24px;
+      max-height: 75vh;
+      overflow-y: auto;
+    }
+    .modal-footer {
+      padding: 16px 24px;
+      background: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #334155;
+    }
+    .detail-row {
+      display: flex;
+      padding: 8px 0;
+      border-bottom: 1px solid #f1f5f9;
+      font-size: 0.875rem;
+    }
+    .detail-label {
+      width: 140px;
+      font-weight: 600;
+      color: #64748b;
+    }
+    .detail-value {
+      flex: 1;
+      color: #1e293b;
+    }
+    /* Snackbar Toast */
+    .snackbar {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #1e293b;
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      z-index: 2000;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s;
+      opacity: 0;
+      font-size: 0.875rem;
+    }
+    .snackbar.open {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+    .snackbar.success {
+      background: #059669;
+    }
+    .snackbar.error {
+      background: #dc2626;
+    }
+    .snackbar-close {
+      cursor: pointer;
+      font-weight: bold;
+      opacity: 0.8;
+      font-size: 1.25rem;
+    }
+    .snackbar-close:hover {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-container">
+    <!-- Header & Breadcrumbs -->
+    <div class="page-header">
+      <div>
+        <h1 id="page-title" class="page-title">Daftar Staff</h1>
+        <div class="breadcrumbs">
+          <span id="breadcrumb-home">Dashboard</span>
+          <span>/</span>
+          <span id="breadcrumb-parent">Leader</span>
+          <span>/</span>
+          <span id="breadcrumb-current" style="color: #0284c7; font-weight: 600;">Staff Lists</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter & Search Card -->
+    <div class="card">
+      <div class="card-body">
+        <div class="filter-bar">
+          <form id="form-search" class="form-search search-group" onsubmit="handleSearch(event)">
+            <input 
+              type="search" 
+              id="search" 
+              name="search" 
+              class="form-control input-search" 
+              placeholder="Cari berdasarkan nama / NIK" 
+              autocomplete="off"
+            />
+            <button type="button" id="btn-filter" class="btn btn-secondary btn-filter" onclick="openFilterModal()" title="Filter Data Staff">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+              </svg>
+              Filter
+            </button>
+            <button type="button" id="btn-reset" class="btn btn-warning btn-reset" onclick="handleReset()">Reset</button>
+            <button type="submit" id="btn-search" class="btn btn-primary btn-search">Search</button>
+          </form>
+
+          <div>
+            <button type="button" id="btn-tambah" class="btn btn-primary button-add" onclick="openAddModal()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+              Tambah Staff
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Table Card -->
+    <div class="card">
+      <div class="table-container">
+        <table id="staff-table">
+          <thead>
+            <tr>
+              <th id="th-photo" style="width: 60px; text-align: center;">FOTO</th>
+              <th id="th-nik" style="width: 100px;">NIK</th>
+              <th id="th-fullname">NAMA LENGKAP</th>
+              <th id="th-email">EMAIL</th>
+              <th id="th-unit">UNIT / DEPARTEMEN</th>
+              <th id="th-position">JABATAN</th>
+              <th id="th-phone">NO. HP</th>
+              <th id="th-status" style="width: 100px; text-align: center;">STATUS</th>
+              <th id="th-action" style="width: 120px; text-align: center;">AKSI</th>
+            </tr>
+          </thead>
+          <tbody id="staff-table-body">
+            <!-- Rendered by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination Bar -->
+      <div id="pagination-container" class="pagination-bar">
+        <label for="rows-per-page" style="margin-right: 4px;">Rows per page:</label>
+        <select id="rows-per-page" class="form-control" style="width: auto; padding: 4px 8px;" onchange="changeRowsPerPage(this.value)">
+          <option value="5">5</option>
+          <option value="10" selected>10</option>
+          <option value="25">25</option>
+        </select>
+
+        <span id="displayed-rows" style="margin: 0 12px; font-weight: 500;">1-10 of 12</span>
+
+        <button type="button" id="btn-first-page" class="pagination-btn" onclick="goToFirstPage()" title="First Page">&laquo;</button>
+        <button type="button" id="btn-prev-page" class="pagination-btn" onclick="goToPrevPage()" title="Previous Page">&lsaquo;</button>
+        <button type="button" id="btn-next-page" class="pagination-btn" onclick="goToNextPage()" title="Next Page">&rsaquo;</button>
+        <button type="button" id="btn-last-page" class="pagination-btn" onclick="goToLastPage()" title="Last Page">&raquo;</button>
+
+        <div style="margin-left: 16px; border-left: 1px solid #e2e8f0; padding-left: 16px;">
+          <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+            <input type="checkbox" id="checkbox-dense" onchange="toggleDense(this.checked)"/>
+            <span>Dense padding</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Dialog: Filter Staff -->
+  <div id="modal-filter-staff" class="modal-backdrop">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="alert-dialog-title-filter" class="modal-title">Filter Data Staff</h3>
+        <button type="button" class="action-btn" onclick="closeModal('modal-filter-staff')" aria-label="close">&times;</button>
+      </div>
+      <form id="form-filter-staff" onsubmit="handleFilterSubmit(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="filter-modal-unit" class="form-label">Unit / Departemen</label>
+            <select id="filter-modal-unit" name="unit" class="form-control" style="width: 100%;">
+              <option value="">Semua Unit</option>
+              <option value="Technology">Technology</option>
+              <option value="Human Resources">Human Resources</option>
+              <option value="Finance & Accounting">Finance & Accounting</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Operations">Operations</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="filter-modal-status" class="form-label">Status Staff</label>
+            <select id="filter-modal-status" name="status" class="form-control" style="width: 100%;">
+              <option value="">Semua Status</option>
+              <option value="Aktif">Aktif</option>
+              <option value="Non-Aktif">Non-Aktif</option>
+              <option value="Cuti">Cuti</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-batal-filter" class="btn btn-secondary" onclick="closeModal('modal-filter-staff')">Batal</button>
+          <button type="submit" id="btn-terapkan-filter" class="btn btn-primary">Terapkan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Dialog: Detail Staff -->
+  <div id="modal-detail-staff" class="modal-backdrop">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="alert-dialog-title-detail" class="modal-title">Detail Informasi Staff</h3>
+        <button type="button" class="action-btn" onclick="closeModal('modal-detail-staff')" aria-label="close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="detail-row">
+          <span class="detail-label">NIK:</span>
+          <span id="detail-nik" class="detail-value">-</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Nama Lengkap:</span>
+          <span id="detail-fullname" class="detail-value">-</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Email:</span>
+          <span id="detail-email" class="detail-value">-</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Unit Kerja:</span>
+          <span id="detail-unit" class="detail-value">-</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Jabatan:</span>
+          <span id="detail-position" class="detail-value">-</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">No. Telepon:</span>
+          <span id="detail-phone" class="detail-value">-</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Status Akun:</span>
+          <span id="detail-status" class="detail-value">-</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Tanggal Bergabung:</span>
+          <span id="detail-joined-date" class="detail-value">-</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btn-close-detail" class="btn btn-secondary" onclick="closeModal('modal-detail-staff')">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Dialog: Tambah Staff -->
+  <div id="modal-tambah-staff" class="modal-backdrop">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="alert-dialog-title-add" class="modal-title">Tambah Data Staff</h3>
+        <button type="button" class="action-btn" onclick="closeModal('modal-tambah-staff')" aria-label="close">&times;</button>
+      </div>
+      <form id="form-tambah-staff" novalidate onsubmit="handleAddSubmit(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="add-nik" class="form-label">NIK Staff *</label>
+            <input type="text" id="add-nik" name="nik" class="form-control" style="width: 100%;" required placeholder="Contoh: STF-013"/>
+          </div>
+          <div class="form-group">
+            <label for="add-fullname" class="form-label">Nama Lengkap *</label>
+            <input type="text" id="add-fullname" name="fullname" class="form-control" style="width: 100%;" required placeholder="Masukkan Nama Lengkap"/>
+          </div>
+          <div class="form-group">
+            <label for="add-email" class="form-label">Email *</label>
+            <input type="email" id="add-email" name="email" class="form-control" style="width: 100%;" required placeholder="email@hadir.com"/>
+          </div>
+          <div class="form-group">
+            <label for="add-unit" class="form-label">Unit / Departemen *</label>
+            <select id="add-unit" name="unit" class="form-control" style="width: 100%;" required>
+              <option value="">Pilih Unit</option>
+              <option value="Technology">Technology</option>
+              <option value="Human Resources">Human Resources</option>
+              <option value="Finance & Accounting">Finance & Accounting</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Operations">Operations</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="add-position" class="form-label">Jabatan / Posisi *</label>
+            <input type="text" id="add-position" name="position" class="form-control" style="width: 100%;" required placeholder="Contoh: QA Engineer"/>
+          </div>
+          <div class="form-group">
+            <label for="add-phone" class="form-label">No. Telepon *</label>
+            <input type="tel" id="add-phone" name="phone" class="form-control" style="width: 100%;" required placeholder="Contoh: 081234567890"/>
+          </div>
+          <div class="form-group">
+            <label for="add-status" class="form-label">Status *</label>
+            <select id="add-status" name="status" class="form-control" style="width: 100%;" required>
+              <option value="Aktif" selected>Aktif</option>
+              <option value="Non-Aktif">Non-Aktif</option>
+              <option value="Cuti">Cuti</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-batal-tambah" class="btn btn-secondary" onclick="closeModal('modal-tambah-staff')">Batal</button>
+          <button type="submit" id="btn-simpan-tambah" class="btn btn-primary">Simpan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Dialog: Edit Staff -->
+  <div id="modal-edit-staff" class="modal-backdrop">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="alert-dialog-title-edit" class="modal-title">Edit Data Staff</h3>
+        <button type="button" class="action-btn" onclick="closeModal('modal-edit-staff')" aria-label="close">&times;</button>
+      </div>
+      <form id="form-edit-staff" novalidate onsubmit="handleEditSubmit(event)">
+        <div class="modal-body">
+          <input type="hidden" id="edit-id" name="id"/>
+          <div class="form-group">
+            <label for="edit-nik" class="form-label">NIK Staff *</label>
+            <input type="text" id="edit-nik" name="nik" class="form-control" style="width: 100%;" required/>
+          </div>
+          <div class="form-group">
+            <label for="edit-fullname" class="form-label">Nama Lengkap *</label>
+            <input type="text" id="edit-fullname" name="fullname" class="form-control" style="width: 100%;" required/>
+          </div>
+          <div class="form-group">
+            <label for="edit-email" class="form-label">Email *</label>
+            <input type="email" id="edit-email" name="email" class="form-control" style="width: 100%;" required/>
+          </div>
+          <div class="form-group">
+            <label for="edit-unit" class="form-label">Unit / Departemen *</label>
+            <select id="edit-unit" name="unit" class="form-control" style="width: 100%;" required>
+              <option value="Technology">Technology</option>
+              <option value="Human Resources">Human Resources</option>
+              <option value="Finance & Accounting">Finance & Accounting</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Operations">Operations</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="edit-position" class="form-label">Jabatan / Posisi *</label>
+            <input type="text" id="edit-position" name="position" class="form-control" style="width: 100%;" required/>
+          </div>
+          <div class="form-group">
+            <label for="edit-phone" class="form-label">No. Telepon *</label>
+            <input type="tel" id="edit-phone" name="phone" class="form-control" style="width: 100%;" required/>
+          </div>
+          <div class="form-group">
+            <label for="edit-status" class="form-label">Status *</label>
+            <select id="edit-status" name="status" class="form-control" style="width: 100%;" required>
+              <option value="Aktif">Aktif</option>
+              <option value="Non-Aktif">Non-Aktif</option>
+              <option value="Cuti">Cuti</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-batal-edit" class="btn btn-secondary" onclick="closeModal('modal-edit-staff')">Batal</button>
+          <button type="submit" id="btn-simpan-edit" class="btn btn-primary">Simpan Perubahan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Dialog: Konfirmasi Hapus Data -->
+  <div id="modal-delete-staff" class="modal-backdrop">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="alert-dialog-title-delete" class="modal-title">Hapus Staff</h3>
+        <button type="button" class="action-btn" onclick="closeModal('modal-delete-staff')" aria-label="close">&times;</button>
+      </div>
+      <form id="form-delete-staff" onsubmit="handleDeleteSubmit(event)">
+        <div class="modal-body">
+          <input type="hidden" id="delete-id"/>
+          <p id="delete-confirm-text" style="font-size: 1rem; color: #475569; margin: 0;">
+            Apakah anda yakin ingin menghapus staff ini dari daftar anggota tim leader?
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-batal-delete" class="btn btn-secondary" onclick="closeModal('modal-delete-staff')">Batal</button>
+          <button type="submit" id="btn-confirm-delete" class="btn btn-danger">Hapus</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Snackbar -->
+  <div id="alert-snackbar" class="snackbar">
+    <span id="alert-message">Notifikasi</span>
+    <span class="snackbar-close" onclick="closeSnackbar()">&times;</span>
+  </div>
+
+  <!-- Data & Script Logic -->
+  <script>
+    var staffs = window.staffs = [
+      { id: "1", nik: "STF-001", fullname: "Ahmad Fauzi", email: "ahmad.fauzi@hadir.com", unit: "Technology", position: "Frontend Developer", phone: "081234567801", status: "Aktif", joined_at: "2024-01-15" },
+      { id: "2", nik: "STF-002", fullname: "Bella Saphira", email: "bella.saphira@hadir.com", unit: "Human Resources", position: "HR Officer", phone: "081234567802", status: "Aktif", joined_at: "2024-02-10" },
+      { id: "3", nik: "STF-003", fullname: "Cahyo Nugroho", email: "cahyo.nugroho@hadir.com", unit: "Finance & Accounting", position: "Finance Analyst", phone: "081234567803", status: "Aktif", joined_at: "2024-03-01" },
+      { id: "4", nik: "STF-004", fullname: "Dewi Anggraini", email: "dewi.anggraini@hadir.com", unit: "Marketing", position: "Digital Marketer", phone: "081234567804", status: "Non-Aktif", joined_at: "2024-03-20" },
+      { id: "5", nik: "STF-005", fullname: "Eko Prasetya", email: "eko.prasetya@hadir.com", unit: "Operations", position: "Operations Staff", phone: "081234567805", status: "Aktif", joined_at: "2024-04-05" },
+      { id: "6", nik: "STF-006", fullname: "Farhan Maulana", email: "farhan.maulana@hadir.com", unit: "Technology", position: "Backend Developer", phone: "081234567806", status: "Aktif", joined_at: "2024-04-18" },
+      { id: "7", nik: "STF-007", fullname: "Gita Gutawa", email: "gita.gutawa@hadir.com", unit: "Human Resources", position: "Talent Acquisition", phone: "081234567807", status: "Cuti", joined_at: "2024-05-02" },
+      { id: "8", nik: "STF-008", fullname: "Hendra Wijaya", email: "hendra.wijaya@hadir.com", unit: "Operations", position: "Quality Control", phone: "081234567808", status: "Aktif", joined_at: "2024-05-15" },
+      { id: "9", nik: "STF-009", fullname: "Intan Permatasari", email: "intan.permatasari@hadir.com", unit: "Finance & Accounting", position: "Accounting Staff", phone: "081234567809", status: "Aktif", joined_at: "2024-06-01" },
+      { id: "10", nik: "STF-010", fullname: "Joko Anwar", email: "joko.anwar@hadir.com", unit: "Marketing", position: "Content Creator", phone: "081234567810", status: "Aktif", joined_at: "2024-06-12" },
+      { id: "11", nik: "STF-011", fullname: "Kirana Larasati", email: "kirana.larasati@hadir.com", unit: "Technology", position: "UI/UX Designer", phone: "081234567811", status: "Aktif", joined_at: "2024-07-01" },
+      { id: "12", nik: "STF-012", fullname: "Lukman Sardi", email: "lukman.sardi@hadir.com", unit: "Operations", position: "Logistics Officer", phone: "081234567812", status: "Non-Aktif", joined_at: "2024-07-20" }
+    ];
+
+    var currentPage = window.currentPage = 1;
+    var rowsPerPage = window.rowsPerPage = 10;
+    var filteredStaffs = window.filteredStaffs = [...staffs];
+    var totalPages = window.totalPages = Math.ceil(filteredStaffs.length / rowsPerPage);
+
+    var snackbarTimer = null;
+    function showSnackbar(msg, type = "success") {
+      const sb = document.getElementById("alert-snackbar");
+      const text = document.getElementById("alert-message");
+      if (sb && text) {
+        text.textContent = msg;
+        sb.className = "snackbar open " + type;
+        if (snackbarTimer) clearTimeout(snackbarTimer);
+        snackbarTimer = setTimeout(() => {
+          sb.classList.remove("open");
+        }, 15000);
+      }
+    }
+
+    function closeSnackbar() {
+      const sb = document.getElementById("alert-snackbar");
+      if (sb) sb.classList.remove("open");
+    }
+
+    window.renderTable = renderTable;
+    function renderTable() {
+      const tbody = document.getElementById("staff-table-body");
+      tbody.innerHTML = "";
+
+      totalPages = Math.ceil(filteredStaffs.length / rowsPerPage) || 1;
+      if (currentPage > totalPages) currentPage = totalPages;
+      if (currentPage < 1) currentPage = 1;
+
+      const startIdx = (currentPage - 1) * rowsPerPage;
+      const endIdx = Math.min(startIdx + rowsPerPage, filteredStaffs.length);
+      const pageData = filteredStaffs.slice(startIdx, endIdx);
+
+      if (pageData.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td id="empty-table-message" colspan="9" style="text-align: center; padding: 36px; color: #94a3b8;">
+              <b>Tidak Ada Data</b>
+            </td>
+          </tr>
+        `;
+      } else {
+        pageData.forEach((row) => {
+          const initials = row.fullname.split(" ").map(n => n[0]).slice(0, 2).join("").toUpperCase();
+          const tr = document.createElement("tr");
+          tr.id = "staff-row-" + row.id;
+
+          let statusClass = "aktif";
+          if (row.status === "Non-Aktif") statusClass = "non-aktif";
+          else if (row.status === "Cuti") statusClass = "cuti";
+
+          tr.innerHTML = `
+            <td class="cell-photo" style="text-align: center;">
+              <div class="avatar-wrapper" style="margin: 0 auto;">${initials}</div>
+            </td>
+            <td class="cell-nik" style="font-weight: 600; color: #0284c7;">${row.nik}</td>
+            <td class="cell-fullname" style="font-weight: 600; color: #0f172a;">${row.fullname}</td>
+            <td class="cell-email" style="color: #64748b;">${row.email}</td>
+            <td class="cell-unit"><span class="badge-unit">${row.unit}</span></td>
+            <td class="cell-position">${row.position}</td>
+            <td class="cell-phone" style="color: #64748b;">${row.phone}</td>
+            <td class="cell-status" style="text-align: center;">
+              <span class="badge-status ${statusClass}">${row.status}</span>
+            </td>
+            <td style="text-align: center;">
+              <div class="action-cell" style="justify-content: center;">
+                <button type="button" id="btn-detail-${row.id}" class="action-btn detail btn-detail-staff" title="Detail Staff" onclick="openDetailModal('${row.id}')">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                </button>
+                <button type="button" id="btn-edit-${row.id}" class="action-btn edit btn-edit-staff" title="Edit Staff" onclick="openEditModal('${row.id}')">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                </button>
+                <button type="button" id="btn-delete-${row.id}" class="action-btn delete btn-delete-staff" title="Hapus Staff" onclick="openDeleteModal('${row.id}')">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                </button>
+              </div>
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      document.getElementById("displayed-rows").textContent = 
+        filteredStaffs.length === 0 ? "0-0 of 0" : `${startIdx + 1}-${endIdx} of ${filteredStaffs.length}`;
+      document.getElementById("btn-first-page").disabled = currentPage <= 1;
+      document.getElementById("btn-prev-page").disabled = currentPage <= 1;
+      document.getElementById("btn-next-page").disabled = currentPage >= totalPages;
+      document.getElementById("btn-last-page").disabled = currentPage >= totalPages;
+    }
+
+    // Paginasi
+    function goToFirstPage() { currentPage = 1; renderTable(); }
+    function goToPrevPage() { if (currentPage > 1) { currentPage--; renderTable(); } }
+    function goToNextPage() { if (currentPage < totalPages) { currentPage++; renderTable(); } }
+    function goToLastPage() { currentPage = totalPages; renderTable(); }
+    function changeRowsPerPage(val) {
+      rowsPerPage = parseInt(val, 10) || 10;
+      currentPage = 1;
+      renderTable();
+    }
+
+    function toggleDense(isDense) {
+      const table = document.getElementById("staff-table");
+      if (isDense) table.classList.add("dense");
+      else table.classList.remove("dense");
+    }
+
+    // Search
+    function handleSearch(e) {
+      if (e) e.preventDefault();
+      const q = document.getElementById("search").value.trim().toLowerCase();
+      filteredStaffs = staffs.filter(s => 
+        s.fullname.toLowerCase().includes(q) || 
+        s.nik.toLowerCase().includes(q) ||
+        s.email.toLowerCase().includes(q) ||
+        s.position.toLowerCase().includes(q)
+      );
+      currentPage = 1;
+      renderTable();
+    }
+
+    // Reset
+    function handleReset() {
+      document.getElementById("search").value = "";
+      document.getElementById("filter-modal-unit").value = "";
+      document.getElementById("filter-modal-status").value = "";
+      filteredStaffs = [...staffs];
+      currentPage = 1;
+      renderTable();
+    }
+
+    // Filter Modal
+    window.openFilterModal = openFilterModal;
+    function openFilterModal() {
+      document.getElementById("modal-filter-staff").classList.add("open");
+    }
+
+    function handleFilterSubmit(e) {
+      e.preventDefault();
+      const unit = document.getElementById("filter-modal-unit").value;
+      const status = document.getElementById("filter-modal-status").value;
+
+      filteredStaffs = staffs.filter(s => {
+        const matchUnit = !unit || s.unit.toLowerCase() === unit.toLowerCase();
+        const matchStatus = !status || s.status.toLowerCase() === status.toLowerCase();
+        return matchUnit && matchStatus;
+      });
+
+      currentPage = 1;
+      closeModal("modal-filter-staff");
+      renderTable();
+      showSnackbar("Berhasil memfilter data staff", "success");
+    }
+
+    // Detail Modal
+    window.openDetailModal = openDetailModal;
+    function openDetailModal(id) {
+      const item = staffs.find(s => s.id === id);
+      if (!item) return;
+      document.getElementById("detail-nik").textContent = item.nik;
+      document.getElementById("detail-fullname").textContent = item.fullname;
+      document.getElementById("detail-email").textContent = item.email;
+      document.getElementById("detail-unit").textContent = item.unit;
+      document.getElementById("detail-position").textContent = item.position;
+      document.getElementById("detail-phone").textContent = item.phone;
+      document.getElementById("detail-status").textContent = item.status;
+      document.getElementById("detail-joined-date").textContent = item.joined_at;
+      document.getElementById("modal-detail-staff").classList.add("open");
+    }
+
+    // Add Modal
+    window.openAddModal = openAddModal;
+    function openAddModal() {
+      document.getElementById("form-tambah-staff").reset();
+      document.getElementById("modal-tambah-staff").classList.add("open");
+    }
+
+    function handleAddSubmit(e) {
+      e.preventDefault();
+      const nik = document.getElementById("add-nik").value.trim();
+      const fullname = document.getElementById("add-fullname").value.trim();
+      const email = document.getElementById("add-email").value.trim();
+      const unit = document.getElementById("add-unit").value;
+      const position = document.getElementById("add-position").value.trim();
+      const phone = document.getElementById("add-phone").value.trim();
+      const status = document.getElementById("add-status").value;
+
+      if (!nik || !fullname || !email || !unit || !position || !phone || !status) {
+        showSnackbar("Harap lengkapi semua data wajib!", "error");
+        return;
+      }
+
+      const newId = String(staffs.length + 1);
+      const today = new Date().toISOString().split("T")[0];
+      const newStaff = { id: newId, nik, fullname, email, unit, position, phone, status, joined_at: today };
+      staffs.unshift(newStaff);
+      filteredStaffs = [...staffs];
+      closeModal("modal-tambah-staff");
+      renderTable();
+      showSnackbar("Berhasil menambahkan staff", "success");
+    }
+
+    // Edit Modal
+    window.openEditModal = openEditModal;
+    function openEditModal(id) {
+      const item = staffs.find(s => s.id === id);
+      if (!item) return;
+      document.getElementById("edit-id").value = item.id;
+      document.getElementById("edit-nik").value = item.nik;
+      document.getElementById("edit-fullname").value = item.fullname;
+      document.getElementById("edit-email").value = item.email;
+      document.getElementById("edit-unit").value = item.unit;
+      document.getElementById("edit-position").value = item.position;
+      document.getElementById("edit-phone").value = item.phone;
+      document.getElementById("edit-status").value = item.status;
+      document.getElementById("modal-edit-staff").classList.add("open");
+    }
+
+    function handleEditSubmit(e) {
+      e.preventDefault();
+      const id = document.getElementById("edit-id").value;
+      const nik = document.getElementById("edit-nik").value.trim();
+      const fullname = document.getElementById("edit-fullname").value.trim();
+      const email = document.getElementById("edit-email").value.trim();
+      const unit = document.getElementById("edit-unit").value;
+      const position = document.getElementById("edit-position").value.trim();
+      const phone = document.getElementById("edit-phone").value.trim();
+      const status = document.getElementById("edit-status").value;
+
+      if (!nik || !fullname || !email || !unit || !position || !phone || !status) {
+        showSnackbar("Harap lengkapi semua data wajib!", "error");
+        return;
+      }
+
+      const item = staffs.find(s => s.id === id);
+      if (item) {
+        item.nik = nik;
+        item.fullname = fullname;
+        item.email = email;
+        item.unit = unit;
+        item.position = position;
+        item.phone = phone;
+        item.status = status;
+      }
+      closeModal("modal-edit-staff");
+      renderTable();
+      showSnackbar("Berhasil mengubah data staff", "success");
+    }
+
+    // Delete Modal
+    window.openDeleteModal = openDeleteModal;
+    function openDeleteModal(id) {
+      document.getElementById("delete-id").value = id;
+      document.getElementById("modal-delete-staff").classList.add("open");
+    }
+
+    function handleDeleteSubmit(e) {
+      e.preventDefault();
+      const id = document.getElementById("delete-id").value;
+      const idx = staffs.findIndex(s => s.id === id);
+      if (idx !== -1) {
+        staffs.splice(idx, 1);
+        filteredStaffs = filteredStaffs.filter(s => s.id !== id);
+      }
+      closeModal("modal-delete-staff");
+      renderTable();
+      showSnackbar("Berhasil menghapus staff", "success");
+    }
+
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) modal.classList.remove("open");
+    }
+
+    // Global Escape Key Listener
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" || e.keyCode === 27) {
+        closeModal("modal-filter-staff");
+        closeModal("modal-detail-staff");
+        closeModal("modal-tambah-staff");
+        closeModal("modal-edit-staff");
+        closeModal("modal-delete-staff");
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderTable();
+    });
+  </script>
+</body>
+</html>
