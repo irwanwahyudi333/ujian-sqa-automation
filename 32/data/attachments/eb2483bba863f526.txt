@@ -1,0 +1,10 @@
+TEMUAN KEAMANAN (CWE-200: Information Disclosure / CWE-798: Unrestricted Cloud API Key):
+Google Cloud Platform Maps API Key 'AIzaSyApRe1R2n-1TEgk5s0Eq0HRZDKo7WzBEWE'
+dapat diakses dan memuat seluruh SDK Maps dari domain luar/penyerang (HTTP 200 OK)!
+Header Referer yang Digunakan: https://unauthorized-attacker-domain.com
+Status Aktual: 200 OK (Google Maps SDK Berhasil Diunduh)
+Status Seharusnya: Ditolak / Forbidden jika restriction domain aktif.
+Dampak: Pihak ketiga dapat mencuri key ini dan menggunakannya secara bebas pada website
+mereka sendiri, menyedot kuota bulanan perusahaan, atau menyebabkan pembengkakan tagihan GCP.
+Rekomendasi: Buka Google Cloud Console > APIs & Services > Credentials, lalu terapkan
+'HTTP Referrer Restriction' khusus untuk domain *.dikahadir.com/*.

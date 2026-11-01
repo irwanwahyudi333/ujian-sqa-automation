@@ -1,0 +1,5 @@
+TEMUAN KEAMANAN KRITIS (CWE-312 / CWE-798 - BUG-MGMT-006):
+Modul enkripsi sesi '35594' pada bundel '1662-19023e70d608d634.js' mengekspos kata sandi:
+{ password: "qPatLEX16rTYBKQuaC1iyZk1RsGhyV9q6e", cookieName: "hadir_web_magang" }
+Dampak: Siapa pun dapat mendekripsi cookie sesi 'hadir_web_magang', memanipulasi identitas user,
+dan melakukan pemalsuan sesi login magang secara bebas.

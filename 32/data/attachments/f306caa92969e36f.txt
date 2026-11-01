@@ -1,0 +1,9 @@
+=========================================================
+TEMUAN KERENTANAN KRITIS: BOLA / IDOR PADA /users (OWASP API1)
+=========================================================
+Endpoint: GET /hadir-api-magang/users
+Status Aktual: 200 OK (Data Seluruh Karyawan Berhasil Di-Dump!)
+Seharusnya: 403 Forbidden / 401 Unauthorized
+Dampak: Siapa pun dengan token pendaftar/mobile dapat merubah
+atau mengekstrak seluruh NIK, email, nama lengkap, dan foto karyawan!
+Rekomendasi: Tambahkan otorisasi berbasis kepemilikan token pada FeathersJS hooks.
