@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Alur Pengujian Otomasi E2E - HADIR Web Platform</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    body {
+      background-color: #f1f5f9;
+      padding: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      color: #1e293b;
+    }
+    .poster-container {
+      width: 1440px;
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+      border: 1px solid #cbd5e1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Row Top: Two big panels */
+    .top-panels {
+      display: grid;
+      grid-template-columns: 500px 1fr;
+      gap: 16px;
+    }
+
+    /* Panel styles */
+    .panel-card {
+      border: 2px solid #0284c7;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+    }
+    .panel-card.purple-theme {
+      border-color: #581c87;
+    }
+    .panel-header {
+      background: #034694;
+      color: #ffffff;
+      padding: 10px 14px;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      line-height: 1.3;
+    }
+    .panel-header.purple-bg {
+      background: #3b0764;
+    }
+    .panel-body {
+      padding: 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Panel 1 (Cross-Role) Specifics */
+    .cross-role-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      position: relative;
+    }
+    .role-header-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      width: 100%;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .badge-employee {
+      background: #e0f2fe;
+      color: #0369a1;
+      border: 1px solid #bae6fd;
+    }
+    .badge-admin {
+      background: #dcfce7;
+      color: #15803d;
+      border: 1px solid #bbf7d0;
+    }
+
+    .step-column {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+
+    /* Step Item Box */
+    .step-box {
+      width: 100%;
+      border-radius: 8px;
+      padding: 7px 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      position: relative;
+    }
+    .step-box .icon-wrap {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-box .text-wrap {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+    .step-box .step-title {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
+    .step-box .step-sub {
+      font-size: 10.5px;
+      color: #64748b;
+      font-weight: 500;
+      margin-top: 1px;
+    }
+
+    /* Colors and Borders */
+    .box-blue {
+      border-color: #3b82f6;
+    }
+    .box-blue .step-title { color: #1d4ed8; }
+    .box-green {
+      border-color: #22c55e;
+    }
+    .box-green .step-title { color: #15803d; }
+    .box-orange {
+      border-color: #f59e0b;
+    }
+    .box-orange .step-title { color: #b45309; }
+    .box-purple {
+      border-color: #a855f7;
+    }
+    .box-purple .step-title { color: #6b21a8; }
+    .box-teal {
+      border-color: #14b8a6;
+    }
+    .box-teal .step-title { color: #0f766e; }
+    .box-red {
+      border-color: #ef4444;
+    }
+    .box-red .step-title { color: #b91c1c; }
+    .box-amber {
+      border-color: #d97706;
+    }
+    .box-amber .step-title { color: #92400e; }
+    .box-indigo {
+      border-color: #6366f1;
+    }
+    .box-indigo .step-title { color: #4338ca; }
+    .box-gray {
+      border-color: #64748b;
+    }
+    .box-gray .step-title { color: #334155; }
+
+    /* Vertical connector arrows */
+    .v-arrow {
+      width: 2px;
+      height: 12px;
+      background: #0284c7;
+      position: relative;
+    }
+    .v-arrow::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: -3px;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 5px solid #0284c7;
+    }
+    .v-arrow.green {
+      background: #16a34a;
+    }
+    .v-arrow.green::after {
+      border-top-color: #16a34a;
+    }
+
+    /* Cross connector line */
+    .cross-approval-line {
+      position: absolute;
+      top: 135px;
+      left: 44%;
+      width: 12%;
+      height: 2px;
+      border-top: 2px dashed #0284c7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cross-approval-label {
+      position: absolute;
+      top: -18px;
+      background: #ffffff;
+      padding: 0 4px;
+      font-size: 10px;
+      font-weight: 700;
+      color: #0f172a;
+      white-space: nowrap;
+    }
+
+    /* Note box */
+    .note-card {
+      background: #fffbeb;
+      border: 1px solid #fef08a;
+      border-radius: 6px;
+      padding: 7px 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10.5px;
+      color: #854d0e;
+      margin-top: 10px;
+    }
+
+    /* Panel 2 (Journey) Layout */
+    .journey-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      height: 100%;
+      justify-content: space-around;
+    }
+    .journey-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .journey-row.reverse {
+      flex-direction: row-reverse;
+    }
+    .journey-box {
+      flex: 1;
+      height: 58px;
+    }
+
+    /* Horizontal arrow connector */
+    .h-arrow {
+      width: 22px;
+      height: 2px;
+      background: #0284c7;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .h-arrow::after {
+      content: '';
+      position: absolute;
+      right: -4px;
+      top: -3px;
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      border-left: 6px solid #0284c7;
+    }
+    .h-arrow.left-facing::after {
+      right: auto;
+      left: -4px;
+      border-left: none;
+      border-right: 6px solid #0284c7;
+    }
+
+    /* Bottom Panel: Full Combination */
+    .panel-full {
+      border: 2px solid #1e3a8a;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+    .panel-full-header {
+      background: #1e3a8a;
+      color: #ffffff;
+      padding: 8px 14px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+    .full-flow-content {
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+    }
+    .flow-item {
+      border-radius: 6px;
+      padding: 6px 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 800;
+      white-space: nowrap;
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      flex-shrink: 0;
+    }
+    .flow-subcontainer {
+      border: 2px dashed #0284c7;
+      border-radius: 8px;
+      padding: 6px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #f8fafc;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .flow-subcontainer-title {
+      font-size: 10.5px;
+      font-weight: 800;
+      color: #0369a1;
+      margin-bottom: 3px;
+      letter-spacing: 0.4px;
+    }
+    .flow-subcontainer-steps {
+      font-size: 10.5px;
+      color: #334155;
+      font-weight: 600;
+    }
+
+    /* Legend Footer */
+    .legend-container {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 10px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .legend-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .legend-title {
+      font-size: 11px;
+      font-weight: 800;
+      color: #0f172a;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+    }
+    .legend-items-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 10px;
+      font-weight: 700;
+      color: #475569;
+    }
+
+    .footer-note {
+      background: #fffbeb;
+      border: 1px solid #fef08a;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 10px;
+      color: #713f12;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      line-height: 1.3;
+    }
+
+    svg {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="poster-container">
+    
+    <!-- TOP ROW: Panel 1 & Panel 2 -->
+    <div class="top-panels">
+      
+      <!-- 1. CROSS-ROLE E2E FLOW -->
+      <div class="panel-card">
+        <div class="panel-header">
+          1. CROSS-ROLE E2E FLOW<br>REGISTER &rarr; APPROVAL &rarr; LOGIN
+        </div>
+        <div class="panel-body">
+          <div class="cross-role-columns">
+            
+            <!-- Connector dashed line -->
+            <div class="cross-approval-line">
+              <span class="cross-approval-label">Admin Approval</span>
+            </div>
+
+            <!-- Employee Column -->
+            <div class="step-column">
+              <div class="role-header-badge badge-employee">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0369a1" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                EMPLOYEE
+              </div>
+
+              <!-- 1. Register -->
+              <div class="step-box box-blue">
+                <div class="icon-wrap" style="background:#eff6ff;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
+                <div class="text-wrap">
+                  <span class="step-title">1. REGISTER</span>
+                  <span class="step-sub">NIK + Data + Foto Wajah</span>
+                </div>
+              </div>
+              <div class="v-arrow"></div>
+
+              <!-- 2. Registration Success -->
+              <div class="step-box box-green">
+                <div class="icon-wrap" style="background:#f0fdf4;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+                <div class="text-wrap">
+                  <span class="step-title">2. REGISTRATION SUCCESS</span>
+                  <span class="step-sub">Akun Berhasil Didaftarkan</span>
+                </div>
+              </div>
+              <div class="v-arrow"></div>
+
+              <!-- 3. Waiting Approval -->
+              <div class="step-box box-orange">
+                <div class="icon-wrap" style="background:#fffbeb;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div class="text-wrap">
+                  <span class="step-title">3. WAITING APPROVAL</span>
+                  <span class="step-sub">Menunggu Verifikasi Admin</span>
+                </div>
+              </div>
+              
+              <div style="height: 48px;"></div> <!-- Gap for cross approval flow -->
+
+              <!-- 8. Employee Login -->
+              <div class="step-box box-blue">
+                <div class="icon-wrap" style="background:#eff6ff;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+                </div>
+                <div class="text-wrap">
+                  <span class="step-title">8. EMPLOYEE LOGIN</span>
+                  <span class="step-sub">Autentikasi Akun Baru</span>
+                </div>
+              </div>
+              <div class="v-arrow"></div>
+
+              <!-- 9. Dashboard -->
+              <div class="step-box box-purple">
+                <div class="icon-wrap" style="background:#faf5ff;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2.2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <div class="text-wrap">
+                  <span class="step-title">9. DASHBOARD</span>
+                  <span class="step-sub">Beranda Portal Hadir</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Admin Column -->
+            <div class="step-column">
+              <div class="role-header-badge badge-admin">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#15803d" stroke-width="2.5"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+                ADMIN / LEADER
+              </div>
+
+              <!-- 4. Admin Login -->
+              <div class="step-box box-green">
+                <div class="icon-wrap" style="background:#f0fdf4;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
+                <div class="text-wrap">
+                  <span class="step-title">4. ADMIN LOGIN</span>
+                  <span class="step-sub">Portal /management</span>
+                </div>
+              </div>
+              <div class="v-arrow green"></div>
+
+              <!-- 5. Find Pending -->
+              <div class="step-box box-green">
+                <div class="icon-wrap" style="background:#f0fdf4;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div class="text-wrap">
+                  <span class="step-title">5. FIND PENDING</span>
+                  <span class="step-sub">Cari NIK / Nama di Self-Reg</span>
+                </div>
+              </div>
+              <div class="v-arrow green"></div>
+
+              <!-- 6. Approve Account -->
+              <div class="step-box box-green">
+                <div class="icon-wrap" style="background:#f0fdf4;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                </div>
+                <div class="text-wrap">
+                  <span class="step-title">6. APPROVE ACCOUNT</span>
+                  <span class="step-sub">Setujui Permohonan Pendaftaran</span>
+                </div>
+              </div>
+              <div class="v-arrow green"></div>
+
+              <!-- 7. Admin Logout -->
+              <div class="step-box box-green">
+                <div class="icon-wrap" style="background:#f0fdf4;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                </div>
+                <div class="text-wrap">
+                  <span class="step-title">7. ADMIN LOGOUT</span>
+                  <span class="step-sub">Keluar dari Sesi Manajemen</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Bottom Note -->
+          <div class="note-card">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <span><strong>Catatan:</strong> Approval dilakukan via menu Self-Registration (/management/self-registration). Alur registrasi ke login terotomasi secara E2E pada skenario hybrid.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. EMPLOYEE E2E JOURNEY -->
+      <div class="panel-card purple-theme">
+        <div class="panel-header purple-bg">
+          2. EMPLOYEE E2E JOURNEY<br>SETELAH LOGIN & APPROVED
+        </div>
+        <div class="panel-body">
+          <div class="journey-grid">
+            
+            <!-- Row 1: 1 -> 2 -> 3 -->
+            <div class="journey-row">
+              <div class="step-box box-purple journey-box">
+                <div class="icon-wrap" style="background:#faf5ff;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2.2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div class="text-wrap">
+                  <span class="step-title">1. DASHBOARD</span>
+                  <span class="step-sub">Metrik Presensi & Shift</span>
+                </div>
+              </div>
+              <div class="h-arrow"></div>
+
+              <div class="step-box box-blue journey-box">
+                <div class="icon-wrap" style="background:#eff6ff;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <div class="text-wrap">
+                  <span class="step-title">2. ATTENDANCE</span>
+                  <span class="step-sub">Riwayat Log Absensi Harian</span>
+                </div>
+              </div>
+              <div class="h-arrow"></div>
+
+              <div class="step-box box-teal journey-box">
+                <div class="icon-wrap" style="background:#f0fdfa;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2.2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                </div>
+                <div class="text-wrap">
+                  <span class="step-title">3. CORRECTION</span>
+                  <span class="step-sub">Pengajuan Koreksi Jam Absen</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 2: 6 <- 5 <- 4 (Reverse) -->
+            <div class="journey-row reverse">
+              <div class="step-box box-orange journey-box">
+                <div class="icon-wrap" style="background:#fffbeb;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                </div>
+                <div class="text-wrap">
+                  <span class="step-title">4. PERMISSION</span>
+                  <span class="step-sub">Izin Terlambat / Pulang Cepat</span>
+                </div>
+              </div>
+              <div class="h-arrow left-facing"></div>
+
+              <div class="step-box box-red journey-box">
+                <div class="icon-wrap" style="background:#fef2f2;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div class="text-wrap">
+                  <span class="step-title">5. OVERTIME</span>
+                  <span class="step-sub">Form Lembur: Input &rarr; Validasi</span>
+                </div>
+              </div>
+              <div class="h-arrow left-facing"></div>
+
+              <div class="step-box box-amber journey-box">
+                <div class="icon-wrap" style="background:#fffbeb;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2.2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                </div>
+                <div class="text-wrap">
+                  <span class="step-title">6. LEAVE</span>
+                  <span class="step-sub">Date Picker Cuti &rarr; Kuota</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 3: 7 -> 8 -> 9 -->
+            <div class="journey-row">
+              <div class="step-box box-green journey-box">
+                <div class="icon-wrap" style="background:#f0fdf4;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
+                </div>
+                <div class="text-wrap">
+                  <span class="step-title">7. SICK</span>
+                  <span class="step-sub">Upload Surat Keterangan Sakit</span>
+                </div>
+              </div>
+              <div class="h-arrow"></div>
+
+              <div class="step-box box-blue journey-box">
+                <div class="icon-wrap" style="background:#eff6ff;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                </div>
+                <div class="text-wrap">
+                  <span class="step-title">8. DOWNLOAD REPORT</span>
+                  <span class="step-sub">Generate XLSX Rekap Tim</span>
+                </div>
+              </div>
+              <div class="h-arrow"></div>
+
+              <div class="step-box box-purple journey-box">
+                <div class="icon-wrap" style="background:#faf5ff;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div class="text-wrap">
+                  <span class="step-title">9. STAFF / MONITORING</span>
+                  <span class="step-sub">Verifikasi Direktori Karyawan</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 4: 10 -> 11 -->
+            <div class="journey-row" style="justify-content: flex-end;">
+              <div class="step-box box-amber" style="width: 230px;">
+                <div class="icon-wrap" style="background:#fffbeb;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2.2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                </div>
+                <div class="text-wrap">
+                  <span class="step-title">10. LOGOUT</span>
+                  <span class="step-sub">Keluar dari Sesi Karyawan</span>
+                </div>
+              </div>
+              <div class="h-arrow"></div>
+
+              <div class="step-box box-gray" style="width: 230px;">
+                <div class="icon-wrap" style="background:#f1f5f9;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <div class="text-wrap">
+                  <span class="step-title">11. LOGIN PAGE</span>
+                  <span class="step-sub">Redirect /login Validated</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM ROW: Panel 3 Full Combination -->
+    <div class="panel-full">
+      <div class="panel-full-header">
+        3. FULL EMPLOYEE E2E JOURNEY (COMBINATION)
+      </div>
+      <div class="full-flow-content">
+        
+        <div class="flow-item box-blue">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          REGISTER
+        </div>
+        <div class="h-arrow"></div>
+
+        <div class="flow-item box-orange">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          WAITING APPROVAL
+        </div>
+        <div class="h-arrow"></div>
+
+        <div class="flow-item box-green">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+          ADMIN APPROVAL
+        </div>
+        <div class="h-arrow"></div>
+
+        <div class="flow-item box-blue">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+          EMPLOYEE LOGIN
+        </div>
+        <div class="h-arrow"></div>
+
+        <div class="flow-item box-purple">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2.2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          DASHBOARD
+        </div>
+        <div class="h-arrow"></div>
+
+        <!-- Group Box -->
+        <div class="flow-subcontainer">
+          <span class="flow-subcontainer-title">EMPLOYEE JOURNEY (MODUL PRESENSI & PERIZINAN)</span>
+          <span class="flow-subcontainer-steps">Attendance &rarr; Correction &rarr; Permission &rarr; Overtime &rarr; Leave &rarr; Sick &rarr; Report &rarr; Staff &rarr; Logout</span>
+        </div>
+        <div class="h-arrow"></div>
+
+        <div class="flow-item box-gray">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          LOGIN PAGE
+        </div>
+
+      </div>
+    </div>
+
+    <!-- LEGEND / KETERANGAN ICON -->
+    <div class="legend-container">
+      <div class="legend-header">
+        <span class="legend-title">Keterangan Icon</span>
+        <div class="legend-items-row">
+          <div class="legend-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0369a1" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Employee</div>
+          <div class="legend-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#15803d" stroke-width="2.5"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg> Admin</div>
+          <div class="legend-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Form/Data</div>
+          <div class="legend-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Success</div>
+          <div class="legend-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Waiting</div>
+          <div class="legend-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/></svg> Login</div>
+          <div class="legend-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Search</div>
+          <div class="legend-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3z"/></svg> Approve</div>
+          <div class="legend-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/></svg> Attendance</div>
+          <div class="legend-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2.2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg> Correction</div>
+          <div class="legend-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg> Permission</div>
+          <div class="legend-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Overtime</div>
+          <div class="legend-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2.2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> Leave</div>
+          <div class="legend-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg> Sick</div>
+          <div class="legend-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/></svg> Report</div>
+          <div class="legend-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> Staff</div>
+          <div class="legend-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2.2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/></svg> Logout</div>
+        </div>
+      </div>
+
+      <div class="footer-note">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span><strong>Catatan Penting:</strong> Diagram ini menggambarkan arsitektur pengujian E2E pada aplikasi web <strong>HADIR</strong> (https://magang.dikahadir.com). Menggabungkan alur lintas peran (Cross-Role E2E: Registrasi Karyawan &rarr; Persetujuan Admin/Leader) dan siklus penuh fitur absensi, koreksi, dispensasi perizinan, cuti, lembur, serta generator rekapitulasi data.</span>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
