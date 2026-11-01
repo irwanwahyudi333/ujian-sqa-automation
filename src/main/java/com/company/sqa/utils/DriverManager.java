@@ -18,6 +18,18 @@ public class DriverManager {
     private static final Logger logger = LogManager.getLogger(DriverManager.class);
     private static final ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
 
+    static {
+        // Redam harmless exception 'Stream closed' dari thread background ExternalProcess Selenium saat driver.quit()
+        Thread.setDefaultUncaughtExceptionHandler((thread, throwable) -> {
+            if (throwable instanceof java.io.IOException && throwable.getMessage() != null
+                    && throwable.getMessage().contains("Stream closed")) {
+                logger.debug("Suppressed harmless driver process shutdown stream exception on thread {}", thread.getName());
+                return;
+            }
+            logger.error("Uncaught exception on thread {}: {}", thread.getName(), throwable.getMessage(), throwable);
+        });
+    }
+
     public static synchronized void initDriver() {
         String browser = ConfigReader.getBrowser();
         boolean headless = ConfigReader.isHeadless();
