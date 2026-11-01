@@ -245,4 +245,30 @@ public class LocalWebServerRoutingTest {
         Assert.assertTrue(response.body().contains("modal-delete-staff"), "HTML should contain delete staff modal");
         Assert.assertTrue(response.body().contains("modal-filter-staff"), "HTML should contain filter staff modal");
     }
+
+    @Test
+    public void testLeaderAllRoutes() throws IOException, InterruptedException {
+        String[] leaderRoutes = {
+                "/leader/all",
+                "/leader/kehadiran",
+                "/leader/koreksi",
+                "/leader/generate",
+                "/leader/cuti/semua",
+                "/leader/cuti/pending",
+                "/leader/lembur/semua",
+                "/leader/lembur/pending",
+                "/leader/shifting/semua",
+                "/leader/shifting/pending"
+        };
+
+        for (String route : leaderRoutes) {
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create("http://localhost:" + TEST_PORT + route))
+                    .GET()
+                    .build();
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            Assert.assertEquals(response.statusCode(), 200, "Expected HTTP 200 for " + route);
+            Assert.assertTrue(response.body().contains("HADIR - Leader"), "HTML should contain Leader page title for " + route);
+        }
+    }
 }

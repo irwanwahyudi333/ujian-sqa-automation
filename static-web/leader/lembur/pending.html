@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="theme-color" content="#1ba0e2"/>
+  <title>HADIR - Leader Lembur Pending</title>
+  <meta name="viewport" content="initial-scale=1, width=device-width"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { color: rgba(0,0,0,0.87); font-family: 'DM Sans', sans-serif; font-size: 0.95rem; background-color: #fafbfb; min-height: 100vh; }
+    .layout-wrapper { display: flex; min-height: 100vh; }
+    .sidebar { width: 260px; background: #1ba0e2; color: #ffffff; flex-shrink: 0; display: flex; flex-direction: column; }
+    .sidebar-brand { padding: 24px 20px; font-size: 1.35rem; font-weight: 700; border-bottom: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; gap: 10px; }
+    .sidebar-role-badge { background: rgba(255,255,255,0.2); font-size: 0.75rem; padding: 2px 8px; border-radius: 12px; font-weight: 600; }
+    .sidebar-menu { list-style: none; padding: 16px 0; flex: 1; }
+    .sidebar-section-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.65); padding: 12px 20px 4px 20px; font-weight: 700; }
+    .sidebar-item { margin: 2px 8px; }
+    .sidebar-link { display: flex; align-items: center; gap: 12px; padding: 10px 14px; color: rgba(255,255,255,0.9); text-decoration: none; border-radius: 8px; font-size: 0.88rem; font-weight: 500; }
+    .sidebar-link:hover, .sidebar-link.active { background: rgba(255,255,255,0.2); color: #ffffff; font-weight: 600; }
+    .main-content { flex: 1; display: flex; flex-direction: column; }
+    .page-container { padding: 24px 32px; max-width: 1400px; width: 100%; margin: 0 auto; }
+    .page-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+    .page-title { font-size: 1.7rem; font-weight: 700; color: #1e293b; }
+    .breadcrumbs { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: #64748b; margin-top: 4px; }
+    .badge-count { background: #ea580c; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.8rem; margin-left: 8px; font-weight: 700; }
+    .card { background: #ffffff; border-radius: 12px; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.04); padding: 20px 24px; margin-bottom: 24px; border: 1px solid #edf2f7; }
+    .filter-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+    .filter-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; flex: 1; }
+    .search-input-wrapper { display: flex; align-items: center; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0 12px; min-width: 240px; }
+    .search-input { border: none; background: transparent; outline: none; padding: 10px 0; width: 100%; font-family: inherit; font-size: 0.9rem; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 8px 16px; font-size: 0.85rem; font-weight: 600; border-radius: 8px; cursor: pointer; border: none; }
+    .btn-primary { background: #1ba0e2; color: #ffffff; }
+    .btn-secondary { background: #f8fafc; color: #475569; border: 1px solid #e2e8f0; }
+    .btn-success { background: #16a34a; color: #ffffff; }
+    .btn-danger { background: #dc2626; color: #ffffff; }
+    .table-container { overflow-x: auto; border-radius: 8px; border: 1px solid #edf2f7; }
+    .data-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.875rem; background: #ffffff; white-space: nowrap; }
+    .data-table thead th { background-color: #f8fafc; color: #4a5568; font-weight: 700; text-transform: uppercase; font-size: 0.75rem; padding: 14px 16px; border-bottom: 2px solid #edf2f7; }
+    .data-table tbody tr { border-bottom: 1px solid #edf2f7; }
+    .data-table td { padding: 12px 16px; vertical-align: middle; }
+    .pagination-bar { display: flex; align-items: center; justify-content: space-between; padding-top: 18px; }
+
+    /* Modal */
+    .modal-backdrop { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(15, 23, 42, 0.5); display: none; align-items: center; justify-content: center; z-index: 1050; }
+    .modal-backdrop.open { display: flex; }
+    .modal-card { background: #ffffff; border-radius: 12px; width: 100%; max-width: 500px; padding: 24px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.15); }
+    .modal-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 16px; }
+  </style>
+</head>
+<body>
+  <div class="layout-wrapper">
+    <nav class="sidebar">
+      <div class="sidebar-brand">
+        <span>HADIR LEADER</span>
+        <span class="sidebar-role-badge" id="role-indicator">Team Leader</span>
+      </div>
+      <ul class="sidebar-menu">
+        <li class="sidebar-item"><a href="/leader/staff/lists" class="sidebar-link">Staff Lists</a></li>
+        <li class="sidebar-section-title">Laporan</li>
+        <li class="sidebar-item"><a href="/leader/all" class="sidebar-link">Semua</a></li>
+        <li class="sidebar-item"><a href="/leader/kehadiran" class="sidebar-link">Kehadiran</a></li>
+        <li class="sidebar-item"><a href="/leader/koreksi" class="sidebar-link">Koreksi</a></li>
+        <li class="sidebar-item"><a href="/leader/izin-off" class="sidebar-link">Izin Off</a></li>
+        <li class="sidebar-item"><a href="/leader/generate" class="sidebar-link">Download Report</a></li>
+        <li class="sidebar-section-title">Cuti & Lembur</li>
+        <li class="sidebar-item"><a href="/leader/cuti/semua" class="sidebar-link">Cuti Semua</a></li>
+        <li class="sidebar-item"><a href="/leader/cuti/pending" class="sidebar-link">Cuti Pending</a></li>
+        <li class="sidebar-item"><a href="/leader/lembur/semua" class="sidebar-link">Lembur Semua</a></li>
+        <li class="sidebar-item"><a href="/leader/lembur/pending" class="sidebar-link active">Lembur Pending</a></li>
+      </ul>
+    </nav>
+    <main class="main-content">
+      <div class="page-container">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title" id="page-title">
+              HADIR - Leader Lembur Pending
+              <span class="badge-count" id="badge-count-pending-lembur">1</span>
+            </h1>
+            <div class="breadcrumbs">
+              <a href="/dashboard">Dashboard</a> / <a href="/leader/all">Leader</a> / <span>Lembur Pending</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card filter-card">
+          <div class="filter-bar" id="form-search">
+            <div class="filter-controls">
+              <div class="search-input-wrapper">
+                <input type="search" id="search" class="search-input" placeholder="Cari nama karyawan..." onkeyup="handleSearch()"/>
+              </div>
+            </div>
+            <div class="btn-group">
+              <button type="button" id="btn-search" class="btn btn-primary" onclick="handleSearch()">Search</button>
+              <button type="button" id="btn-reset" class="btn btn-secondary" onclick="handleReset()">Reset</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card table-card">
+          <div class="table-container">
+            <table class="data-table" id="table-leader">
+              <thead>
+                <tr>
+                  <th>NO</th>
+                  <th>NAMA KARYAWAN</th>
+                  <th>NIK</th>
+                  <th>TANGGAL LEMBUR</th>
+                  <th>DURASI</th>
+                  <th>JAM AWAL</th>
+                  <th>JAM AKHIR</th>
+                  <th>ALASAN LEMBUR</th>
+                  <th>AKSI</th>
+                </tr>
+              </thead>
+              <tbody id="table-body">
+                <tr data-id="1">
+                  <td>1</td>
+                  <td><span class="user-fullname">Ahmad Ridwan</span></td>
+                  <td>NIK-003</td>
+                  <td>01 Nov 2026</td>
+                  <td>3 Jam</td>
+                  <td>17:00</td>
+                  <td>20:00</td>
+                  <td>Bongkar muat kontainer barang masuk</td>
+                  <td>
+                    <div style="display:flex; gap:6px;">
+                      <button class="btn btn-success btn-approve-lembur" onclick="openApprovalModal(1, 'approve')">Setujui</button>
+                      <button class="btn btn-danger btn-reject-lembur" onclick="openApprovalModal(1, 'reject')">Tolak</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="pagination-bar">
+            <div id="pagination-info">Menampilkan 1-1 dari 1 data</div>
+            <select id="rows-per-page" class="rows-select"><option value="10">10</option></select>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="modal-approval-lembur">
+    <div class="modal-card">
+      <h3 class="modal-title" id="modal-title">Persetujuan Lembur Tim</h3>
+      <p style="margin-bottom: 16px; color: #475569;">Apakah Anda ingin memproses pengajuan lembur ini?</p>
+      <div id="reject-group" style="display: none; margin-bottom: 16px;">
+        <label for="reject_reason" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px;">Alasan Penolakan:</label>
+        <textarea id="reject_reason" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 6px; padding: 8px; font-family: inherit; font-size: 0.85rem;" rows="3"></textarea>
+      </div>
+      <div style="display: flex; justify-content: flex-end; gap: 10px;">
+        <button type="button" class="btn btn-secondary" onclick="closeModal()">Batal</button>
+        <button type="button" class="btn btn-primary" id="sumbit-approval-request" onclick="submitApproval()">Konfirmasi</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let activeAction = null;
+    function openApprovalModal(id, action) {
+      activeAction = action;
+      document.getElementById('modal-title').innerText = action === 'approve' ? 'Setujui Pengajuan Lembur' : 'Tolak Pengajuan Lembur';
+      document.getElementById('reject-group').style.display = action === 'reject' ? 'block' : 'none';
+      document.getElementById('modal-approval-lembur').classList.add('open');
+    }
+    function closeModal() {
+      document.getElementById('modal-approval-lembur').classList.remove('open');
+    }
+    function submitApproval() {
+      closeModal();
+      document.getElementById('table-body').innerHTML = '<tr><td colspan="9" style="text-align:center; padding: 20px; color:#64748b;">Tidak ada permohonan lembur pending</td></tr>';
+      document.getElementById('badge-count-pending-lembur').innerText = '0';
+      document.getElementById('pagination-info').innerText = 'Menampilkan 0-0 dari 0 data';
+    }
+    function handleSearch() {
+      const q = document.getElementById('search').value.toLowerCase();
+      document.querySelectorAll('#table-body tr').forEach(r => {
+        r.style.display = r.innerText.toLowerCase().includes(q) ? '' : 'none';
+      });
+    }
+    function handleReset() {
+      document.getElementById('search').value = '';
+      handleSearch();
+    }
+  </script>
+</body>
+</html>

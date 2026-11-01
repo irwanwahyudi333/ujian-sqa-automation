@@ -23,3 +23,15 @@ Fitur: Pengujian UI Lean Dashboard Presensi Client Mobile
     Ketika Pengguna menekan tautan selengkapnya pada history absensi
     Maka Pengguna harus diarahkan ke halaman history absensi
 
+  @BUG-ABS-001 @DEFECT-ABS-001 @live
+  Skenario: Verifikasi ketersediaan dan transisi tombol Absen Keluar setelah presensi masuk
+    Ketika Pengguna menyelesaikan proses Absen Masuk dengan swafoto
+    Maka Tombol aksi presensi utama harus bertransisi menjadi "Absen Keluar"
+    Dan Tombol aksi presensi tidak boleh menghilang dari layar
+
+  @BUG-ABS-002 @DEFECT-ABS-002 @live
+  Skenario: Verifikasi hak akses presensi masuk mandiri tanpa blokir koreksi absensi hari sebelumnya
+    Ketika Karyawan hendak melakukan absen masuk pada hari kerja berikutnya
+    Maka Karyawan diizinkan melakukan presensi masuk tanpa diblokir kewajiban koreksi absensi hari sebelumnya
+
+

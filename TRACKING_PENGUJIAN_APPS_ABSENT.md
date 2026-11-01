@@ -52,3 +52,18 @@ Sesuai aturan `AGENTS.md` (Skema 1 - Lean Testing Strategy `@lean`), seluruh 10 
 - `apps/absent/reports/share_report` (Download Report Upliner) — Verifikasi proteksi role otorisasi SEC-REP-001 (Server-Side Props Next.js)
 - `apps/absent/staff` (View Staff & Kuota Cuti) — Render struktur tim bawahan
 - `apps/absent/change-password` (Ubah Password) — Form ganti kata sandi & validasi toggle visibilitas password
+
+---
+
+## 4. Daftar Temuan Cacat UI & Alur Presensi (Live Defect Register - Apps Absent)
+
+Berikut adalah daftar cacat antarmuka, validasi permohonan, dan alur presensi pada role Staff yang berhasil dikodifikasikan ke dalam skenario pengujian BDD (`.feature`):
+
+| ID Defect | Modul / Halaman | Komponen Bermasalah | Deskripsi Cacat Fungsional | Severity | Status Uji | Skenario Tag |
+|---|---|---|---|---|---|---|
+| **DEFECT-ABS-001** | `/apps/absent` | Tombol CTA Presensi Utama (`div.css-qpbopa`) | Tombol aksi presensi utama hilang dari layar setelah tombol Absen Masuk ditekan dan tidak bertransisi menjadi tombol "Absen Keluar", sehingga karyawan tidak dapat melakukan presensi pulang. | 🔴 Critical | ❌ **FAILED (Product defect)** | `@BUG-ABS-001 @DEFECT-ABS-001` |
+| **DEFECT-ABS-002** | `/apps/absent` & `/apps/absent/correction` | Validasi Otorisasi Absen Masuk Hari Berikutnya | Karyawan diblokir dari melakukan presensi masuk di hari berikutnya akibat hilangnya tombol absen keluar hari sebelumnya, dan diwajibkan mengajukan koreksi absensi terlebih dahulu. | 🔴 Major | ❌ **FAILED (Product defect)** | `@BUG-ABS-002 @DEFECT-ABS-002` |
+| **DEFECT-SCK-001** | `/apps/absent/sick` | Kartu Riwayat Request Sakit (`div.css-y8pbq2`) | Entri "Dari tanggal" dan "Sampai Tanggal" pada kartu riwayat menampilkan tanggal dan jam pengajuan (timestamp halaman), bukan rentang tanggal sakit yang dipilih karyawan. | 🔴 Major | ❌ **FAILED (Product defect)** | `@BUG-SCK-001 @DEFECT-SCK-001` |
+| **DEFECT-SCK-002** | `/apps/absent/sick` | Modal Form Sakit (`sick_modal.html`) | Pengajuan izin sakit diterima oleh sistem tanpa validasi kewajiban lampiran surat dokter (`sick_photo: null`), melanggar aturan integritas pengajuan medis. | 🔴 Major | ❌ **FAILED (Product defect)** | `@BUG-SCK-002 @DEFECT-SCK-002` |
+| **DEFECT-SCK-003** | `/apps/absent/sick` | Date Range Picker & Submit Pengajuan Sakit | Pengajuan permohonan sakit tanggal lampau (backdate) diterima tanpa dialog konfirmasi peringatan kebijakan, dan langsung berstatus "Menunggu Approval". | 🟡 Medium | ❌ **FAILED (Product defect)** | `@BUG-SCK-003 @DEFECT-SCK-003` |
+

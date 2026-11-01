@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="theme-color" content="#1ba0e2"/>
+  <title>HADIR - Leader Generate Report</title>
+  <meta name="viewport" content="initial-scale=1, width=device-width"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { color: rgba(0, 0, 0, 0.87); font-family: 'DM Sans', sans-serif; font-size: 0.95rem; line-height: 1.5; background-color: #fafbfb; min-height: 100vh; }
+    .layout-wrapper { display: flex; min-height: 100vh; }
+    .sidebar { width: 260px; background: #1ba0e2; color: #ffffff; flex-shrink: 0; display: flex; flex-direction: column; }
+    .sidebar-brand { padding: 24px 20px; font-size: 1.35rem; font-weight: 700; border-bottom: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; gap: 10px; }
+    .sidebar-role-badge { background: rgba(255,255,255,0.2); font-size: 0.75rem; padding: 2px 8px; border-radius: 12px; font-weight: 600; }
+    .sidebar-menu { list-style: none; padding: 16px 0; flex: 1; }
+    .sidebar-section-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.65); padding: 12px 20px 4px 20px; font-weight: 700; }
+    .sidebar-item { margin: 2px 8px; }
+    .sidebar-link { display: flex; align-items: center; gap: 12px; padding: 10px 14px; color: rgba(255,255,255,0.9); text-decoration: none; border-radius: 8px; font-size: 0.88rem; font-weight: 500; }
+    .sidebar-link:hover, .sidebar-link.active { background: rgba(255,255,255,0.2); color: #ffffff; font-weight: 600; }
+    .main-content { flex: 1; display: flex; flex-direction: column; }
+    .page-container { padding: 24px 32px; max-width: 900px; width: 100%; margin: 0 auto; }
+    .page-header { margin-bottom: 24px; }
+    .page-title { font-size: 1.7rem; font-weight: 700; color: #1e293b; }
+    .breadcrumbs { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: #64748b; margin-top: 4px; }
+    .card { background: #ffffff; border-radius: 12px; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.04); padding: 28px 32px; margin-bottom: 24px; border: 1px solid #edf2f7; }
+    .form-group { margin-bottom: 20px; }
+    .form-label { display: block; font-size: 0.875rem; font-weight: 600; color: #334155; margin-bottom: 8px; }
+    .form-control { width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px 14px; font-family: inherit; font-size: 0.9rem; outline: none; }
+    .radio-group { display: flex; align-items: center; gap: 20px; margin-top: 8px; }
+    .radio-label { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: #334155; cursor: pointer; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 24px; font-size: 0.95rem; font-weight: 600; font-family: inherit; border-radius: 8px; cursor: pointer; border: none; }
+    .btn-primary { background: #1ba0e2; color: #ffffff; width: 100%; }
+    .btn-primary:hover { background: #1480b5; }
+    .alert { padding: 14px 18px; border-radius: 8px; font-size: 0.875rem; margin-top: 20px; display: none; }
+    .alert-success { background-color: #def7ec; color: #03543f; border: 1px solid #bcf0da; }
+  </style>
+</head>
+<body>
+  <div class="layout-wrapper">
+    <nav class="sidebar">
+      <div class="sidebar-brand">
+        <span>HADIR LEADER</span>
+        <span class="sidebar-role-badge" id="role-indicator">Team Leader</span>
+      </div>
+      <ul class="sidebar-menu">
+        <li class="sidebar-item"><a href="/leader/staff/lists" class="sidebar-link">Staff Lists</a></li>
+        <li class="sidebar-section-title">Laporan</li>
+        <li class="sidebar-item"><a href="/leader/all" class="sidebar-link">Semua</a></li>
+        <li class="sidebar-item"><a href="/leader/kehadiran" class="sidebar-link">Kehadiran</a></li>
+        <li class="sidebar-item"><a href="/leader/koreksi" class="sidebar-link">Koreksi</a></li>
+        <li class="sidebar-item"><a href="/leader/izin-off" class="sidebar-link">Izin Off</a></li>
+        <li class="sidebar-item"><a href="/leader/generate" class="sidebar-link active">Download Report</a></li>
+        <li class="sidebar-section-title">Cuti & Lembur</li>
+        <li class="sidebar-item"><a href="/leader/cuti/semua" class="sidebar-link">Cuti Semua</a></li>
+        <li class="sidebar-item"><a href="/leader/cuti/pending" class="sidebar-link">Cuti Pending</a></li>
+        <li class="sidebar-item"><a href="/leader/lembur/semua" class="sidebar-link">Lembur Semua</a></li>
+        <li class="sidebar-item"><a href="/leader/lembur/pending" class="sidebar-link">Lembur Pending</a></li>
+      </ul>
+    </nav>
+    <main class="main-content">
+      <div class="page-container">
+        <div class="page-header">
+          <h1 class="page-title" id="page-title">HADIR - Leader Generate Report</h1>
+          <div class="breadcrumbs">
+            <a href="/dashboard">Dashboard</a> / <a href="/leader/all">Leader</a> / <span>Download Report</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <form id="form-generate-leader" onsubmit="handleGenerate(event)">
+            <div class="form-group">
+              <label for="select-report-type" class="form-label">Tipe Laporan Rekapitulasi</label>
+              <select id="select-report-type" class="form-control" required>
+                <option value="kehadiran">Rekapitulasi Kehadiran Regu</option>
+                <option value="cuti">Rekapitulasi Cuti Regu</option>
+                <option value="lembur">Rekapitulasi Lembur Regu</option>
+                <option value="shifting">Rekapitulasi Shifting Regu</option>
+              </select>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;" class="form-group">
+              <div>
+                <label for="start-date-generate" class="form-label">Tanggal Mulai Periode</label>
+                <input type="date" id="start-date-generate" class="form-control" value="2026-10-01" required/>
+              </div>
+              <div>
+                <label for="end-date-generate" class="form-label">Tanggal Akhir Periode</label>
+                <input type="date" id="end-date-generate" class="form-control" value="2026-10-31" required/>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Format Dokumen Unduhan</label>
+              <div class="radio-group">
+                <label class="radio-label">
+                  <input type="radio" name="format" id="radio-format-xlsx" value="xlsx" checked/>
+                  <span>Microsoft Excel (.xlsx)</span>
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="format" id="radio-format-csv" value="csv"/>
+                  <span>Comma Separated Values (.csv)</span>
+                </label>
+              </div>
+            </div>
+
+            <button type="submit" id="btn-download-report" class="btn btn-primary">
+              Generate & Download Report
+            </button>
+          </form>
+
+          <div id="alert-download-feedback" class="alert alert-success">
+            <strong>Sukses!</strong> Laporan rekapitulasi anggota tim berhasil di-generate dan berkas sedang diunduh.
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script>
+    function handleGenerate(e) {
+      e.preventDefault();
+      const alertBox = document.getElementById('alert-download-feedback');
+      alertBox.style.display = 'block';
+      setTimeout(() => {
+        alertBox.style.display = 'none';
+      }, 5000);
+    }
+  </script>
+</body>
+</html>

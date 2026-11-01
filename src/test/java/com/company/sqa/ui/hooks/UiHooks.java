@@ -62,6 +62,14 @@ public class UiHooks {
                         }
                     }
                 } catch (Exception ignored) {}
+
+                // Bersihkan cookies dan storage browser agar antar-skenario terisolasi penuh
+                try {
+                    driver.manage().deleteAllCookies();
+                    ((org.openqa.selenium.JavascriptExecutor) driver).executeScript(
+                            "try { window.sessionStorage.clear(); } catch(e){} try { window.localStorage.clear(); } catch(e){}"
+                    );
+                } catch (Exception ignored) {}
             } catch (Exception e) {
                 logger.error("Failed during scenario teardown", e);
             }

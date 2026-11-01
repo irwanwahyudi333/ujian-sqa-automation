@@ -270,6 +270,13 @@ public class LocalWebServer {
                     return;
                 }
             }
+            if (uriPath.startsWith("/leader/") || uriPath.equals("/leader")) {
+                String leaderPath = uriPath.endsWith("/") ? uriPath.substring(0, uriPath.length() - 1) : uriPath;
+                if (!leaderPath.endsWith(".html")) {
+                    serveFile(exchange, leaderPath + ".html");
+                    return;
+                }
+            }
 
             serveFile(exchange, uriPath);
         }
