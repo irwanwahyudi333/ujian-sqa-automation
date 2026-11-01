@@ -25,6 +25,6 @@ Fitur: Pengujian Backend REST API Modul Job Level
 
   @JLVL-API-004
   Skenario: Menghapus job level dengan ID valid
-    Ketika client mengirim request DELETE ke endpoint "/api/job-levels/{id}" dengan ID valid
+    Ketika client mengirim request DELETE ke endpoint job level "/api/job-levels/{id}" dengan ID valid
     Maka response API job level mengembalikan status 200 OK
 

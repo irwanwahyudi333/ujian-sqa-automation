@@ -117,6 +117,22 @@ public class LocalWebServerRoutingTest {
         Assert.assertTrue(response.body().contains("table-laporan"), "HTML should contain table-laporan");
         Assert.assertTrue(response.body().contains("btn-search"), "HTML should contain btn-search");
     }
+    @Test
+    public void testUserMonitoringRouteWithoutExtension() throws IOException, InterruptedException {
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:" + TEST_PORT + "/management/user-monitoring"))
+                .GET()
+                .build();
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        Assert.assertEquals(response.statusCode(), 200, "Expected HTTP 200 for /management/user-monitoring");
+        Assert.assertTrue(response.body().contains("HADIR - User Monitoring"), "HTML should contain page title");
+        Assert.assertTrue(response.body().contains("user-monitoring-table"), "HTML should contain table");
+        Assert.assertTrue(response.body().contains("modal-tambah-user"), "HTML should contain add modal");
+        Assert.assertTrue(response.body().contains("modal-edit-user"), "HTML should contain edit modal");
+        Assert.assertTrue(response.body().contains("modal-delete-user"), "HTML should contain delete modal");
+        Assert.assertTrue(response.body().contains("modal-filter-user"), "HTML should contain filter modal");
+    }
 
     @Test
     public void testDepartemensRoute() throws IOException, InterruptedException {
@@ -194,5 +210,21 @@ public class LocalWebServerRoutingTest {
         Assert.assertEquals(response.statusCode(), 200, "Expected HTTP 200 for /management/ot-reason");
         Assert.assertTrue(response.body().contains("HADIR - Overtime Reason"));
         Assert.assertTrue(response.body().contains("btn-tambah-ot"));
+    }
+
+    @Test
+    public void testLeaderIzinOffRoute() throws IOException, InterruptedException {
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:" + TEST_PORT + "/leader/izin-off"))
+                .GET()
+                .build();
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        Assert.assertEquals(response.statusCode(), 200, "Expected HTTP 200 for /leader/izin-off");
+        Assert.assertTrue(response.body().contains("HADIR - Leader Izin Off"), "HTML should contain page title");
+        Assert.assertTrue(response.body().contains("table-izin-off"), "HTML should contain table");
+        Assert.assertTrue(response.body().contains("modal-approval-izin-off"), "HTML should contain approval modal");
+        Assert.assertTrue(response.body().contains("modal-tambah-izin-off"), "HTML should contain add modal");
+        Assert.assertTrue(response.body().contains("modal-detail-izin-off"), "HTML should contain detail modal");
     }
 }
