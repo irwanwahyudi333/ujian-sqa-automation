@@ -1,0 +1,8 @@
+=========================================================
+TEMUAN KEAMANAN SESI: MASA BERLAKU JWT TERLALU PANJANG (CWE-613)
+=========================================================
+Masa Berlaku Aktual: 86400000 detik (1000.0 hari)
+Batas Maksimum Aman: 86400 detik (1 hari)
+Standar OWASP ASVS: Access token seharusnya berumur 15-60 menit.
+Dampak: Token yang tercuri/bocor dapat disalahgunakan hingga 2.7 tahun
+tanpa ada mekanisme pencabutan otomatis.

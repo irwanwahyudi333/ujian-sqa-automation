@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Login — HADIR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      height: 100%;
+      width: 100%;
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: radial-gradient(circle at center, #1fa8eb 0%, #009be6 100%);
+      background-color: #00A3EF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+    }
+    .login-container {
+      width: 100%;
+      max-width: 420px;
+      padding: 40px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .login-title {
+      font-size: 2.75rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 36px;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+    }
+    .alert-banner {
+      display: none;
+      background-color: #d32f2f;
+      color: #ffffff;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 20px;
+      line-height: 1.4;
+      animation: fadeIn 0.25s ease-in-out;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .alert-banner.info {
+      background-color: #0288d1;
+    }
+    .alert-banner.success {
+      background-color: #2e7d32;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .form-group {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    .form-label {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+    .form-input {
+      width: 100%;
+      height: 48px;
+      padding: 0 16px;
+      border: 1.5px solid rgba(255, 255, 255, 0.85);
+      border-radius: 6px;
+      background: transparent;
+      color: #ffffff;
+      font-size: 1rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-input::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+    .form-input:focus {
+      border-color: #ffffff;
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.35);
+    }
+    .input-wrapper.with-icon .form-input {
+      padding-right: 48px;
+    }
+    .toggle-password-btn {
+      position: absolute;
+      right: 10px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.85);
+      transition: color 0.2s, opacity 0.2s;
+    }
+    .toggle-password-btn:hover {
+      color: #ffffff;
+      opacity: 1;
+    }
+    .toggle-password-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .submit-btn {
+      width: 100%;
+      height: 52px;
+      background-color: #ffffff;
+      color: #00A3EF;
+      border: none;
+      border-radius: 9999px;
+      font-size: 1.125rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      margin-top: 28px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+      transition: transform 0.15s, box-shadow 0.15s, background-color 0.15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .submit-btn:hover {
+      background-color: #f7f9fa;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+    }
+    .submit-btn:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    }
+    .submit-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+    @media (max-width: 480px) {
+      .login-container {
+        padding: 24px 20px;
+      }
+      .login-title {
+        font-size: 2.25rem;
+        margin-bottom: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1 class="login-title">Login</h1>
+
+    <div id="alert-banner" class="alert-banner MuiAlert-message" role="alert">
+      <span id="alert-text"></span>
+    </div>
+
+    <form id="login-form" novalidate>
+      <div class="form-group">
+        <label class="form-label" for="email">Email</label>
+        <div class="input-wrapper">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-input"
+            autocomplete="email"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="password">Password</label>
+        <div class="input-wrapper with-icon">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-input"
+            autocomplete="current-password"
+            required
+          />
+          <button
+            type="button"
+            id="toggle-password"
+            class="toggle-password-btn"
+            aria-label="Tampilkan password"
+            tabindex="0"
+          >
+            <!-- Eye Off Icon (default) -->
+            <svg id="eye-off-icon" viewBox="0 0 24 24">
+              <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+              <line x1="1" y1="1" x2="23" y2="23"></line>
+            </svg>
+            <!-- Eye Open Icon (hidden initially) -->
+            <svg id="eye-open-icon" viewBox="0 0 24 24" style="display:none;">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <button type="submit" id="submit" class="submit-btn">
+        Masuk
+      </button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('login-form');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const togglePasswordBtn = document.getElementById('toggle-password');
+    const eyeOffIcon = document.getElementById('eye-off-icon');
+    const eyeOpenIcon = document.getElementById('eye-open-icon');
+    const alertBanner = document.getElementById('alert-banner');
+    const alertText = document.getElementById('alert-text');
+    const submitBtn = document.getElementById('submit');
+
+    // Toggle password visibility
+    togglePasswordBtn.addEventListener('click', function () {
+      const isPassword = passwordInput.getAttribute('type') === 'password';
+      if (isPassword) {
+        passwordInput.setAttribute('type', 'text');
+        eyeOffIcon.style.display = 'none';
+        eyeOpenIcon.style.display = 'block';
+        togglePasswordBtn.setAttribute('aria-label', 'Sembunyikan password');
+      } else {
+        passwordInput.setAttribute('type', 'password');
+        eyeOffIcon.style.display = 'block';
+        eyeOpenIcon.style.display = 'none';
+        togglePasswordBtn.setAttribute('aria-label', 'Tampilkan password');
+      }
+    });
+
+    function showAlert(message, type = 'error') {
+      alertText.textContent = message;
+      alertBanner.className = 'alert-banner MuiAlert-message ' + type;
+      alertBanner.style.display = 'block';
+    }
+
+    function hideAlert() {
+      alertBanner.style.display = 'none';
+      alertText.textContent = '';
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      hideAlert();
+
+      const email = emailInput.value.trim().toLowerCase();
+      const rawPassword = passwordInput.value;
+      const password = rawPassword.trim();
+
+      // Validation 1: Required fields
+      if (!email && !rawPassword) {
+        showAlert('Email dan password wajib diisi');
+        return;
+      }
+      if (!email) {
+        showAlert('Email wajib diisi');
+        return;
+      }
+      if (!rawPassword || !password) {
+        showAlert('Password wajib diisi');
+        return;
+      }
+
+      // Validation 2: Email format
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        showAlert('Format email tidak valid');
+        return;
+      }
+
+      // Business Rule Simulation
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Memproses...';
+
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Masuk';
+
+        // Case 1: Account Pending Approval
+        if (email === 'raxaf58877@backyr.com' || email.includes('pending')) {
+          showAlert('Akun Anda sedang menunggu persetujuan admin', 'info');
+          return;
+        }
+
+        // Case 2: Happy Path - Approved Account
+        if (
+          (email === 'qa.approved.user@dikahadir.com' || email === 'admin@dikahadir.com') &&
+          rawPassword === 'P@ssw0rdMagang123'
+        ) {
+          showAlert('Login berhasil! Mengalihkan ke dashboard...', 'success');
+          sessionStorage.setItem('token', 'dummy-jwt-token-sqa-approved');
+          localStorage.setItem('token', 'dummy-jwt-token-sqa-approved');
+          setTimeout(() => {
+            window.location.href = '/absen/dashboard';
+          }, 300);
+          return;
+        }
+
+        // Case 3: Wrong Credentials / Unregistered
+        showAlert('Email atau kata sandi tidak cocok', 'error');
+        passwordInput.value = '';
+      }, 200);
+    });
+  </script>
+</body>
+</html>
