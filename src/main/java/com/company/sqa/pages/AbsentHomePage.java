@@ -34,6 +34,8 @@ public class AbsentHomePage extends BasePage {
     private final By historyTitle = By.xpath("//*[contains(text(), 'History Absensi')]");
     private final By historyMoreLink = By.xpath("//*[contains(text(), 'Selengkapnya')]");
     private final By btnAbsenMasuk = By.xpath("//button[contains(., 'Absen Masuk')]");
+    private final By btnAbsenKeluar = By.xpath("//button[contains(., 'Absen Keluar') or contains(., 'Absen Pulang')]");
+    private final By warningKoreksiAbsensi = By.xpath("//*[contains(text(), 'koreksi absensi') or contains(text(), 'Koreksi Absen') or contains(., 'wajib melakukan koreksi')]");
 
     public AbsentHomePage(WebDriver driver) {
         super(driver);
@@ -118,6 +120,20 @@ public class AbsentHomePage extends BasePage {
     public void clickMenuSakit() {
         logger.info("Clicking on 'Sakit' quick menu");
         click(menuSakit);
+    }
+
+    public boolean isBtnAbsenKeluarDisplayed() {
+        return isElementDisplayed(btnAbsenKeluar);
+    }
+
+    public boolean isAbsenButtonDisappearedAfterCheckIn() {
+        boolean hasMasuk = isElementDisplayed(btnAbsenMasuk);
+        boolean hasKeluar = isElementDisplayed(btnAbsenKeluar);
+        return !hasMasuk && !hasKeluar;
+    }
+
+    public boolean isKaryawanBlockedByKoreksiHariSebelumnya() {
+        return isElementDisplayed(warningKoreksiAbsensi);
     }
 }
 
