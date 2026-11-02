@@ -1,0 +1,9 @@
+=========================================================
+TEMUAN KERENTANAN KRITIS: MASS ASSIGNMENT (CWE-915)
+=========================================================
+Endpoint: POST /hadir-api-magang/users
+Payload Injeksi: {"isVerified": true}
+Status Respon: 201 Created (Akun Langsung Terverifikasi)
+Dampak: Pelamar dapat membypass alur verifikasi foto selfie
+dan persetujuan admin (Maker-Checker approval), langsung login!
+Rekomendasi: Terapkan DTO whitelisting pada controller registrasi.

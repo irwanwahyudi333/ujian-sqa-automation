@@ -1,0 +1,10 @@
+TEMUAN KEAMANAN (CWE-200: Information Disclosure / CWE-639: Authorization Bypass Through User-Controlled Key):
+Berkas foto selfie absensi dan profil karyawan dapat diunduh langsung secara publik
+tanpa menyertakan header 'Authorization: Bearer <token>'!
+URL Berkas: https://api-dev.dikahadir.com/hadir-api-magang/uploads/9650f149d622055c4b495e65e9148ebfc5e61b1bb00e83538e76afe48c496eaf.jpeg
+Status Aktual: 200 OK (Content-Type: image/jpeg)
+Status Seharusnya: 401 Unauthorized / 403 Forbidden / Presigned URL bertempo singkat.
+Dampak: Penyerang dapat mengikis (scrape) seluruh foto selfie, foto KTP, dan dokumen
+pribadi karyawan HADIR secara massal tanpa memerlukan akun atau hak akses.
+Rekomendasi: Lindungi endpoint static upload dengan token autentikasi atau gunakan presigned URL
+yang kedaluwarsa dalam 5-10 menit.

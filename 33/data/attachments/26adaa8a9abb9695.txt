@@ -1,0 +1,6 @@
+=== LAPORAN TEMUAN DEFECT: BUG-U2-003 ===
+Komponen: /management/user-v2/edit/{id} & PATCH /api/v2/users/{id}
+Akar Masalah: Form edit mengizinkan email diedit bebas tanpa pengecekan keunikan (Unique Constraint).
+Perilaku Aktual: Admin dapat mengubah email seseorang sama persis dengan email orang lain dan meloloskannya.
+Dampak: Akun pengguna asli terkunci (409 Conflict saat login), collision sesi, pembajakan reset password.
+Notifikasi Sistem: Berhasil edit user

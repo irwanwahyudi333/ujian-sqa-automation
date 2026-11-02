@@ -1,0 +1,16 @@
+=== LAPORAN TEMUAN DEFECT: BUG-U2-005 ===
+Komponen: pages/management/user-v2/edit/[id]
+URL Target: http://localhost:8085/management/user-v2/edit/78be62df-ca0e-44be-b3a1-16d3229b4317
+Pesan Galat UI: Application error: a client-side exception has occurred (see the browser console for more information).
+Akar Masalah di Console: TypeError: can't access property "name", n.job_departement is null
+Deskripsi Cacat:
+    Frontend Next.js melakukan dereferensi properti `.name` dari objek `job_departement`
+    tanpa pengecekan null safety (optional chaining `?.` / fallback value).
+    Ketika data pendaftar/karyawan baru belum memiliki departemen (`job_departement: null`),
+    mesin JavaScript melempar TypeError yang tidak tertangkap oleh React Error Boundary,
+    menyebabkan White Screen of Death (WSOD) total.
+Dampak Nyata:
+    Administrator tidak dapat melihat, memverifikasi, maupun mengedit profil karyawan/pendaftar terkait.
+Rekomendasi Perbaikan:
+    Gunakan safe navigation: `n.job_departement?.name ?? '-'`
+    dan bungkus komponen dengan React Error Boundary agar kegagalan render terisolasi.

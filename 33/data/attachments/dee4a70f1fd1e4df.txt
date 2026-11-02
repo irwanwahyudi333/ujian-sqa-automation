@@ -1,0 +1,4 @@
+iat (Issued At): 1792848231
+exp (Expiration): 1879248231
+Durasi (Detik): 86400000
+Durasi (Hari): 1000.0 hari

@@ -1,0 +1,6 @@
+=== LAPORAN TEMUAN DEFECT: BUG-U2-002 ===
+Komponen: /management/user-v2/edit/{id} & PATCH /api/v2/users/{id}
+Akar Masalah: Tidak ada validasi keunikan NIK (Uniqueness Constraint) pada form edit/approval.
+Perilaku Aktual: Admin meloloskan akun dengan NIK yang sama persis dengan user lain.
+Dampak: Kerusakan integritas basis data, risiko pemalsuan identitas, kekacauan log absensi.
+Notifikasi Sistem: Berhasil edit user

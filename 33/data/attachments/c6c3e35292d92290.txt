@@ -1,0 +1,13 @@
+=== LAPORAN TEMUAN DEFECT: BUG-UI-BATCH-001 ===
+Komponen: /management/self-registration (Bundle: self-registration-ed9e9e634c5d92cf.js)
+Akar Masalah:
+    s = i.filter((function(n, t) { return n.id === e[t] }))
+Deskripsi Cacat Logika:
+    Developer menggunakan perbandingan indeks array 'n.id === e[t]'
+    alih-alih mengecek keanggotaan elemen 'e.includes(n.id)'.
+Dampak Nyata:
+    Ketika admin memilih baris non-kontigu (contoh: baris 2 dan 4),
+    array data terfilter 's' bernilai KOSONG ([]).
+    Iterasi pengiriman patch A().patch('/api/v2/users/' + u, s[c])
+    mengirimkan body payload bernilai 'undefined'!
+Status: DEFECT DITEMUKAN PADA KODE PRODUKSI NEXT.JS HADIR

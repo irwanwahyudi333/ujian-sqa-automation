@@ -1,0 +1,8 @@
+TEMUAN KEAMANAN (CWE-922: Insecure Storage of Sensitive Information / CWE-312):
+Skrip autentikasi frontend menyimpan token akses autentikasi secara langsung pada Web Storage browser:
+- Bukti: localStorage.setItem('token', 'dummy-jwt-token-sqa-approved')
+- Bukti: sessionStorage.setItem('token', 'dummy-jwt-token-sqa-approved')
+Dampak: Web Storage (localStorage dan sessionStorage) tidak memiliki atribut keamanan HttpOnly,
+sehingga token dapat dibaca dan dieksfiltrasi oleh skrip berbahaya melalui serangan Cross-Site Scripting (XSS).
+Rekomendasi: Jangan simpan token autentikasi pada Web Storage. Gunakan Cookie dengan flag HttpOnly,
+Secure, dan SameSite=Lax/Strict untuk mengelola sesi login secara aman.
