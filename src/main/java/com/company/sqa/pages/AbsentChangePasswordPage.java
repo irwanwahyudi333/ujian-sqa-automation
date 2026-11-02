@@ -55,7 +55,12 @@ public class AbsentChangePasswordPage extends BasePage {
     public void clickToggleNewPassword() {
         List<WebElement> toggles = driver.findElements(toggleButtons);
         if (!toggles.isEmpty()) {
-            toggles.get(0).click();
+            WebElement btn = toggles.get(0);
+            try {
+                btn.click();
+            } catch (Exception e) {
+                ((org.openqa.selenium.JavascriptExecutor) driver).executeScript("arguments[0].click();", btn);
+            }
             log.info("Mengklik toggle visibilitas password baru");
         }
     }
@@ -63,7 +68,12 @@ public class AbsentChangePasswordPage extends BasePage {
     public void clickToggleConfirmPassword() {
         List<WebElement> toggles = driver.findElements(toggleButtons);
         if (toggles.size() > 1) {
-            toggles.get(1).click();
+            WebElement btn = toggles.get(1);
+            try {
+                btn.click();
+            } catch (Exception e) {
+                ((org.openqa.selenium.JavascriptExecutor) driver).executeScript("arguments[0].click();", btn);
+            }
             log.info("Mengklik toggle visibilitas konfirmasi password");
         }
     }

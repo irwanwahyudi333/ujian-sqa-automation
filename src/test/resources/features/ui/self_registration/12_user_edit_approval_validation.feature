@@ -40,3 +40,9 @@ Fitur: Validasi Halaman Edit User dan Integritas Approval Pendaftar Mandiri
     Maka modal ubah data user dichecklist terbuka
     Dan sistem memproses seluruh baris terpilih tanpa menghasilkan payload undefined
 
+  @BUG-U2-005 @resilience @null-safety @client-side-exception
+  Skenario: Verifikasi penanganan data user tanpa departemen pada form edit user-v2
+    Ketika admin mengakses halaman edit user dengan id "78be62df-ca0e-44be-b3a1-16d3229b4317"
+    Maka sistem tidak menampilkan pesan galat client-side exception
+    Dan formulir edit user berhasil dimuat dengan field departemen menampilkan opsi default atau kosong
+

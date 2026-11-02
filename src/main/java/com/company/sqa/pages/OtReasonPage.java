@@ -33,7 +33,7 @@ public class OtReasonPage extends BasePage {
 
     // Modal Delete
     private final By modalDelete = By.xpath("//div[@role='dialog' and (contains(., 'Hapus') or contains(., 'Delete') or contains(., 'Apakah'))] | //*[@id='modal-delete']");
-    private final By btnBatalDelete = By.xpath("//div[@role='dialog']//button[contains(text(), 'Tutup') or contains(text(), 'Tidak') or contains(text(), 'Batal')] | //button[@id='btn-batal-delete']");
+    private final By btnBatalDelete = By.xpath("//button[@id='btn-batal-delete'] | //*[@id='modal-delete']//button[contains(text(), 'Tidak') or contains(text(), 'Batal') or contains(text(), 'Tutup')] | //div[@role='dialog' and (contains(., 'Hapus') or contains(., 'Delete'))]//button[contains(text(), 'Tidak') or contains(text(), 'Batal') or contains(text(), 'Tutup')]");
     private final By btnKonfirmasiDelete = By.xpath("//div[@role='dialog']//button[contains(text(), 'Hapus') or contains(text(), 'Ya')] | //button[@id='btn-konfirmasi-delete']");
 
     // Action buttons in table

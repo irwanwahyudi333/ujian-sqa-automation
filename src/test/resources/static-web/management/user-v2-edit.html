@@ -192,6 +192,10 @@
             <input type="text" id="division" name="division" value="Technology" class="form-control"/>
           </div>
           <div class="form-group">
+            <label for="department">Departemen</label>
+            <input type="text" id="department" name="department" value="-" class="form-control" placeholder="Pilih Departemen"/>
+          </div>
+          <div class="form-group">
             <label for="position">Posisi Kerja</label>
             <input type="text" id="position" name="position" value="Quality Assurance" class="form-control"/>
           </div>
@@ -210,6 +214,21 @@
   </div>
 
   <script>
+    // Deteksi simulasi bug BUG-U2-005 untuk ID spesifik pengguna tanpa departemen
+    if (window.location.pathname.includes("78be62df-ca0e-44be-b3a1-16d3229b4317")) {
+      const urlParams = new URLSearchParams(window.location.search);
+      // Mode simulasi defect aktif sesuai kondisi live aktual
+      if (!urlParams.has("fix")) {
+        console.error("TypeError: can't access property \"name\", n.job_departement is null");
+        console.error("A client-side exception has occurred, see here for more info: https://nextjs.org/docs/messages/client-side-exception-occurred");
+        document.body.innerHTML = `
+          <div style="font-family: -apple-system, BlinkMacSystemFont, Roboto, sans-serif; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+            <p style="font-size: 14px; color: #000;">Application error: a client-side exception has occurred (see the browser console for more information).</p>
+          </div>
+        `;
+      }
+    }
+
     const registeredNiks = ["3201234567890002", "3201234567890003", "D6240005"];
     const registeredEmails = ["ahmad.subagyo@example.com", "siti.nurhaliza@example.com", "qa.approved.user@dikahadir.com"];
 

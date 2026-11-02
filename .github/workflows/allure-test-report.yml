@@ -11,13 +11,13 @@ on:
       test_suite:
         description: 'Pilih suite pengujian yang ingin dijalankan'
         required: true
-        default: 'lean'
+        default: 'all'
         type: choice
         options:
+          - all
           - lean
           - api
           - ui
-          - all
 
 permissions:
   contents: write
@@ -54,7 +54,7 @@ jobs:
           mkdir -p target/allure-results
           mkdir -p gh-pages
 
-      - name: Run Test Suite (Lean Testing Strategy by Default)
+      - name: Run Test Suite (Full Regression by Default)
         id: run_tests
         continue-on-error: true
         run: |
@@ -65,12 +65,12 @@ jobs:
           elif [ "$SUITE" = "ui" ]; then
             echo "Menjalankan TestRunnerUi..."
             mvn test -Dtest=TestRunnerUi
-          elif [ "$SUITE" = "all" ]; then
+          elif [ "$SUITE" = "lean" ]; then
+            echo "Menjalankan Skema 1 (Lean Testing Strategy: @lean)..."
+            mvn test -Dcucumber.filter.tags="@lean or @api or @leader-izin-off"
+          else
             echo "Menjalankan seluruh Test Suite (Full Regression: UI & API)..."
             mvn test
-          else
-            echo "Menjalankan seluruh pengujian Hybrid (UI Lean, Leader, & API)..."
-            mvn test -Dcucumber.filter.tags="@lean or @api or @leader-izin-off"
           fi
 
       - name: Check if gh-pages branch exists

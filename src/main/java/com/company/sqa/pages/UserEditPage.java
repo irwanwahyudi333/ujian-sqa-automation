@@ -35,7 +35,46 @@ public class UserEditPage extends BasePage {
         String url = baseUrl + "/management/user-v2/edit/" + userId;
         logger.info("Navigasi ke halaman edit user: {}", url);
         driver.get(url);
-        waitForVisibility(pageTitle);
+        try {
+            waitForVisibility(pageTitle);
+        } catch (Exception e) {
+            logger.warn("Title tidak segera muncul pada {}, kemungkinan terjadi client-side error: {}", url, e.getMessage());
+        }
+    }
+
+    public void navigateToUserEdit(String userId) {
+        String baseUrl = ConfigReader.getUiBaseUrl();
+        String url = baseUrl + "/management/user-v2/edit/" + userId;
+        logger.info("Navigasi langsung ke URL edit user: {}", url);
+        driver.get(url);
+        try {
+            Thread.sleep(1500); // Tunggu render Next.js / exception
+        } catch (InterruptedException ignored) {}
+    }
+
+    public boolean hasClientSideException() {
+        try {
+            String bodyText = driver.findElement(By.tagName("body")).getText();
+            if (bodyText.contains("Application error: a client-side exception has occurred")
+                    || bodyText.contains("client-side exception")) {
+                return true;
+            }
+        } catch (Exception ignored) {}
+
+        try {
+            org.openqa.selenium.logging.LogEntries logEntries = driver.manage().logs().get(org.openqa.selenium.logging.LogType.BROWSER);
+            for (org.openqa.selenium.logging.LogEntry entry : logEntries) {
+                if (entry.getMessage().contains("TypeError") && entry.getMessage().contains("job_departement")) {
+                    return true;
+                }
+            }
+        } catch (Exception ignored) {}
+
+        return false;
+    }
+
+    public boolean isFormElementsPresent() {
+        return isElementDisplayed(pageTitle) || isElementDisplayed(nikInput) || isElementDisplayed(submitBtn);
     }
 
     public boolean isPageTitleDisplayed() {

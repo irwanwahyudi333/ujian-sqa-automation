@@ -1,5 +1,5 @@
 # language: id
-@ui @leader @lean
+@ui @leader @leader-lembur @lean
 Fitur: Portal Leader - Pengelolaan dan Persetujuan Lembur Tim
   Sebagai Team Leader (isLeader: true)
   Saya ingin meninjau dan menyetujui klaim lembur staf regu

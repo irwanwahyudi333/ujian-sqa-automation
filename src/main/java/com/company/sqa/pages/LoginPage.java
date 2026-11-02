@@ -11,11 +11,11 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPage extends BasePage {
-    private final By loginTitle = By.xpath("//h1[contains(text(), 'Login')]");
+    private final By loginTitle = By.xpath("//*[self::h1 or self::p or self::div][contains(text(), 'Login')]");
     private final By emailInput = By.id("email");
     private final By passwordInput = By.id("password");
-    private final By passwordToggleBtn = By.id("toggle-password");
-    private final By submitButton = By.id("submit");
+    private final By passwordToggleBtn = By.xpath("//button[@id='toggle-password'] | //div[contains(@class, 'MuiInputAdornment')]//button | //input[@id='password']/following::button[1]");
+    private final By submitButton = By.xpath("//button[@id='submit' or @type='submit' or contains(., 'Masuk')]");
     private final By alertBanner = By.xpath("//div[@role='alert'] | //div[contains(@class, 'MuiAlert-message')] | //div[contains(@class, 'alert-banner')]");
 
     public LoginPage(WebDriver driver) {
