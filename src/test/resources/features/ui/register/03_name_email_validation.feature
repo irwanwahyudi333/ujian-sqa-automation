@@ -1,5 +1,5 @@
 # language: id
-@ui @module-name-email
+@ui @register @module-name-email
 Fitur: Validasi Field Nama Lengkap dan Email pada Formulir Pendaftaran
   Sebagai sistem verifikasi pendaftaran
   Saya ingin memastikan format nama lengkap dan alamat email yang diinput valid

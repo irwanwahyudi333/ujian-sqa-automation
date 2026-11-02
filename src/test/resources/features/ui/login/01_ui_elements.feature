@@ -1,5 +1,5 @@
 # language: id
-@ui @module-login @login-ui-elements
+@ui @login @module-login @login-ui-elements
 Fitur: Pengujian Elemen UI dan Tampilan Halaman Login
   Sebagai sistem verifikasi antarmuka
   Saya ingin memastikan seluruh elemen formulir login tampil dengan benar

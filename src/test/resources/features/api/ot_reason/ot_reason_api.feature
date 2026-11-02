@@ -1,5 +1,5 @@
 # language: id
-@api @management @ot-reason
+@api @management @ot-reason @lembur
 Fitur: Pengujian API Master Overtime Reason
   Sebagai Administrator SQA
   Saya ingin menguji API endpoint master overtime reason

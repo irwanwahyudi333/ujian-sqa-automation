@@ -32,7 +32,7 @@ Fitur: API Backend Modul Leader - Endpoint Presensi, Approval, dan Otorisasi Kea
     Ketika leader mengirim request PATCH persetujuan ke endpoint "/api/leader/leave/1/approval" dengan status disetujui
     Maka response API leader mengembalikan status 200
 
-  @tc-api-ldr-06
+  @tc-api-ldr-06 @lembur
   Skenario: Leader menyetujui pengajuan lembur anggota tim
     Ketika leader mengirim request PATCH persetujuan ke endpoint "/api/leader/overtime/1/approval" dengan status disetujui
     Maka response API leader mengembalikan status 200

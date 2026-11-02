@@ -16,7 +16,7 @@ Fitur: Modul Monitoring - Pengawasan Cuti dan Lembur Karyawan
     Ketika auditor menekan tombol reset pada monitoring
     Maka jumlah baris data tabel monitoring lebih besar dari nol
 
-  @tc-mon-ot-01 @monitoring-lembur
+  @tc-mon-ot-01 @monitoring-lembur @lembur
   Skenario: Verifikasi audit rekapitulasi jam kerja lembur karyawan
     Dengan auditor membuka halaman monitoring "/monitoring/lembur"
     Maka tabel data pemantauan terlihat pada halaman

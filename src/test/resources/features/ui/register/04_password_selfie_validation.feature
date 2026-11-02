@@ -1,5 +1,5 @@
 # language: id
-@ui @module-password-selfie
+@ui @register @module-password-selfie
 Fitur: Validasi Password dan Berkas Upload Foto Selfie
   Sebagai sistem keamanan aplikasi
   Saya ingin memastikan kata sandi dan berkas selfie yang diunggah memenuhi kriteria keamanan

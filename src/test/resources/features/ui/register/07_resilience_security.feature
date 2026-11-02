@@ -1,5 +1,5 @@
 # language: id
-@ui @module-resilience-security
+@ui @register @module-resilience-security
 Fitur: Pengujian Ketahanan (Resilience) dan Keamanan Antarmuka Pendaftaran
   Sebagai tim Quality Assurance dan Keamanan Sistem
   Saya ingin memastikan antarmuka pendaftaran tangguh menghadapi error dan menerapkan standar keamanan

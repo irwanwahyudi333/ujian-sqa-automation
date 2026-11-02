@@ -53,4 +53,36 @@ public class AbsentChangePasswordSteps {
         String actualType = getAbsentChangePasswordPage().getNewPasswordInputType();
         Assert.assertEquals(actualType, expectedType, "Tipe input password tidak sesuai!");
     }
+
+    @Ketika("Pengguna memasukkan konfirmasi password {string}")
+    public void penggunaMemasukkanKonfirmasiPassword(String confirmation) {
+        getAbsentChangePasswordPage().enterConfirmPassword(confirmation);
+    }
+
+    @Dan("Pengguna menekan toggle visibilitas konfirmasi password")
+    public void penggunaMenekanToggleVisibilitasKonfirmasiPassword() {
+        getAbsentChangePasswordPage().clickToggleConfirmPassword();
+    }
+
+    @Dan("Pengguna menekan kembali toggle visibilitas konfirmasi password")
+    public void penggunaMenekanKembaliToggleVisibilitasKonfirmasiPassword() {
+        getAbsentChangePasswordPage().clickToggleConfirmPassword();
+    }
+
+    @Maka("Tipe input konfirmasi password harus berubah menjadi {string}")
+    public void tipeInputKonfirmasiPasswordHarusBerubahMenjadi(String expectedType) {
+        String actualType = getAbsentChangePasswordPage().getConfirmPasswordInputType();
+        Assert.assertEquals(actualType, expectedType, "Tipe input konfirmasi password tidak sesuai!");
+    }
+
+    @Dan("Pengguna menekan tombol Confirm New Password")
+    public void penggunaMenekanTombolConfirmNewPassword() {
+        getAbsentChangePasswordPage().clickConfirmNewPasswordButton();
+    }
+
+    @Maka("Pesan error validasi ganti password harus ditampilkan")
+    public void pesanErrorValidasiGantiPasswordHarusDitampilkan() {
+        Assert.assertTrue(getAbsentChangePasswordPage().isErrorTextDisplayed(),
+                "Pesan error validasi ganti password tidak muncul saat submit data tidak valid!");
+    }
 }

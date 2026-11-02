@@ -99,6 +99,16 @@ public class AbsentChangePasswordPage extends BasePage {
                     return true;
                 }
             }
+            WebElement pwd = driver.findElement(inputPassword);
+            String valMsg1 = pwd.getAttribute("validationMessage");
+            if (valMsg1 != null && !valMsg1.trim().isEmpty()) {
+                return true;
+            }
+            WebElement pwdConf = driver.findElement(inputPasswordConfirmation);
+            String valMsg2 = pwdConf.getAttribute("validationMessage");
+            if (valMsg2 != null && !valMsg2.trim().isEmpty()) {
+                return true;
+            }
             return false;
         } catch (Exception e) {
             return false;

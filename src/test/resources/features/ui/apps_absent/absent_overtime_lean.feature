@@ -1,5 +1,5 @@
 # language: id
-@ui @apps-absent @absent-overtime @lean
+@ui @apps-absent @absent-overtime @lembur @lean
 Fitur: Pengujian UI Lean Pengajuan Lembur Client Mobile
   Sebagai Karyawan atau Administrator
   Saya ingin mengakses modul lembur client (/apps/absent/overtime-client)

@@ -1,5 +1,5 @@
 # language: id
-@ui @module-login @login-business-flow
+@ui @login @module-login @login-business-flow
 Fitur: Pengujian Alur Bisnis dan Fungsionalitas Login HADIR
   Sebagai pengguna terdaftar atau peserta magang
   Saya ingin menjalankan proses login dengan berbagai skenario alur kerja

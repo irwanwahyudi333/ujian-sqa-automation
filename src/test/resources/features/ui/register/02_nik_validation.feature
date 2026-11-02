@@ -1,5 +1,5 @@
 # language: id
-@ui @module-nik
+@ui @register @module-nik
 Fitur: Validasi Format dan Nilai NIK pada Formulir Pendaftaran
   Sebagai sistem verifikasi pendaftaran
   Saya ingin memastikan NIK yang diinput sesuai aturan 8 karakter alfanumerik

@@ -29,7 +29,7 @@ Dokumen ini digunakan sebagai papan kendali (*monitoring board*) pelacakan progr
 | 7 | **Sick** | `/apps/absent/sick` | Izin Sakit & Surat | 🟢 Selesai | 🟢 Selesai | 🟢 Selesai | 🟢 Selesai | 🟢 **100% PASSED** (2 Skenario) |
 | 8 | **Share Report** | `/apps/absent/reports/share_report` | Ekspor Excel Tim | 🟢 Selesai | 🟢 Selesai | 🟢 Selesai | 🟢 Selesai | 🟢 **100% PASSED** (2 Skenario) |
 | 9 | **Staff** | `/apps/absent/staff` | Direktori Tim | 🟢 Selesai | 🟢 Selesai | 🟢 Selesai | 🟢 Selesai | 🟢 **100% PASSED** (1 Skenario) |
-| 10 | **Change Password** | `/apps/absent/change-password` | Keamanan Akun | 🟢 Selesai | 🟢 Selesai | 🟢 Selesai | 🟢 Selesai | 🟢 **100% PASSED** (2 Skenario) |
+| 10 | **Change Password** | `/apps/absent/change-password` | Keamanan Akun | 🟢 Selesai | 🟢 Selesai | 🟢 Selesai | 🟢 Selesai | 🟢 **100% PASSED** (5 Skenario: UI & Validasi Error) |
 
 ---
 

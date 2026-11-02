@@ -1,5 +1,5 @@
 # language: id
-@ui @laporan @validation-overtime @lean
+@ui @laporan @validation-overtime @lembur @lean
 Fitur: Pengujian Fitur Laporan Validation Overtime — HADIR
   Sebagai Administrator atau Tim Verifikator Lembur Hadir
   Saya ingin meninjau pengajuan lembur, memvalidasi tahapan persetujuan multi-level, dan memberikan aksi persetujuan

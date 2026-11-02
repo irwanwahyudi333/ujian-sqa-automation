@@ -1,5 +1,5 @@
 # language: id
-@ui @module-login @login-ux-a11y
+@ui @login @module-login @login-ux-a11y
 Fitur: Pengujian UX, Responsivitas, Kompatibilitas, dan Aksesibilitas Halaman Login
   Sebagai sistem antarmuka modern
   Saya ingin memastikan form login responsif dan memenuhi standar aksesibilitas

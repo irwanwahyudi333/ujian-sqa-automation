@@ -1,5 +1,5 @@
 # language: id
-@ui @module-login @login-resilience-security
+@ui @login @module-login @login-resilience-security
 Fitur: Pengujian Keamanan, Ketahanan, dan Resiliensi Autentikasi Login
   Sebagai sistem keamanan aplikasi
   Saya ingin memastikan seluruh mekanisme login kebal terhadap ancaman siber

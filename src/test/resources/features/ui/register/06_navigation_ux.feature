@@ -1,5 +1,5 @@
 # language: id
-@ui @module-navigation-ux
+@ui @register @module-navigation-ux
 Fitur: Pengujian Navigasi Lanjutan dan Tampilan Responsif (UX/Compatibility)
   Sebagai pengguna aplikasi di berbagai perangkat
   Saya ingin memastikan formulir pendaftaran tampil responsif dan tautan navigasi berfungsi

@@ -1,5 +1,5 @@
 # language: id
-@api @module-approval-integrity @data-integrity
+@api @register @module-approval-integrity @data-integrity
 Fitur: Pengujian Integritas Endpoint REST API Approval dan Pembaharuan Pengguna
   Sebagai sistem backend HADIR
   Saya ingin memastikan endpoint update dan approval pengguna menegakkan keunikan NIK dan Email

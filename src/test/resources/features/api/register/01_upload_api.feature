@@ -1,5 +1,5 @@
 # language: id
-@api @module-upload-api @lean
+@api @register @module-upload-api @lean
 Fitur: Pengujian Endpoint REST API Upload Berkas Foto Selfie
   Sebagai sistem backend HADIR
   Saya ingin memvalidasi endpoint unggah foto selfie

@@ -1,5 +1,5 @@
 # language: id
-@ui @module-login @login-password-validation
+@ui @login @module-login @login-password-validation
 Fitur: Validasi Field Password pada Halaman Login
   Sebagai sistem autentikasi
   Saya ingin memastikan field kata sandi terlindungi dan divalidasi dengan benar

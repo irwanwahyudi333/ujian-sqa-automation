@@ -1,5 +1,5 @@
 # language: id
-@api @module-registration-api @lean
+@api @register @module-registration-api @lean
 Fitur: Pengujian Endpoint REST API Registrasi Pengguna Baru
   Sebagai sistem backend HADIR
   Saya ingin memvalidasi endpoint pendaftaran akun pengguna

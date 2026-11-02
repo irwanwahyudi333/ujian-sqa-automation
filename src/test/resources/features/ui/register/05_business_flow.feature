@@ -1,5 +1,5 @@
 # language: id
-@ui @module-business-flow
+@ui @register @module-business-flow
 Fitur: Pengujian Alur Bisnis dan Submit Formulir Pendaftaran
   Sebagai calon pengguna magang
   Saya ingin mengirimkan formulir registrasi

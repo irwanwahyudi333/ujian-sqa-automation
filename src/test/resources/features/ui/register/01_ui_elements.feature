@@ -1,5 +1,5 @@
 # language: id
-@ui @module-ui-elements
+@ui @register @module-ui-elements
 Fitur: Pengujian Elemen UI dan Tampilan Halaman Pendaftaran
   Sebagai calon pengguna magang
   Saya ingin memastikan seluruh elemen antarmuka pendaftaran tersedia dan berfungsi

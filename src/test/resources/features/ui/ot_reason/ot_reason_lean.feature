@@ -1,5 +1,5 @@
 # language: id
-@ui @management @ot-reason @lean
+@ui @management @ot-reason @lembur @lean
 Fitur: Pengujian UI Lean Master Overtime Reason
   Sebagai Administrator SQA
   Saya ingin menguji antarmuka Master Alasan Lembur (OT Reason)

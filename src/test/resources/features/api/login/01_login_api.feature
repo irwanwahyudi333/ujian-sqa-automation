@@ -1,5 +1,5 @@
 # language: id
-@api @module-login-api @login-api
+@api @login @module-login-api @login-api
 Fitur: Pengujian Endpoint REST API Autentikasi Pengguna (Login)
   Sebagai penyedia antarmuka backend
   Saya ingin memastikan endpoint login aman, tangguh, dan mematuhi kontrak API

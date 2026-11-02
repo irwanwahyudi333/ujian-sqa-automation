@@ -1,5 +1,5 @@
 # language: id
-@ui @laporan @overtime
+@ui @laporan @overtime @lembur
 Fitur: Pengujian Fitur Laporan Overtime — HADIR
   Sebagai Administrator atau Tim HR Hadir
   Saya ingin memantau dan memvalidasi rekaman jam kerja lembur karyawan, uraian tugas lembur, dan status persetujuan

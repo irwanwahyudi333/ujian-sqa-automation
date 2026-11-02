@@ -1,5 +1,5 @@
 # language: id
-@ui @module-login @login-email-validation
+@ui @login @module-login @login-email-validation
 Fitur: Validasi Field Email pada Halaman Login
   Sebagai sistem autentikasi
   Saya ingin memastikan format dan masukan email divalidasi dengan ketat
