@@ -1,5 +1,5 @@
 # language: id
-@ui @client @lean
+@ui @client @client-cuti @cuti @lean
 Fitur: Portal Client - Pengelolaan dan Validasi Cuti Berjenjang
   Sebagai perwakilan Client (Upliner V2 / Upliner V3)
   Saya ingin meninjau dan memvalidasi permohonan cuti staf binaan

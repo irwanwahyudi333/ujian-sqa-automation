@@ -1,5 +1,5 @@
 # language: id
-@ui @management @unit-leave @lean
+@ui @management @unit-leave @cuti @lean
 Fitur: Pengujian UI Lean Master Unit Leave
   Sebagai Administrator SQA
   Saya ingin menguji antarmuka Master Aturan Cuti (Unit Leave)

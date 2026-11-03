@@ -1,5 +1,5 @@
 # language: id
-@api @management @unit-leave
+@api @management @unit-leave @cuti
 Fitur: Pengujian API Master Unit Leave
   Sebagai Administrator SQA
   Saya ingin menguji API endpoint master aturan cuti (unit leave)

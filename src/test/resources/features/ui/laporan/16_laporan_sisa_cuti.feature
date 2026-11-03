@@ -1,5 +1,5 @@
 # language: id
-@ui @laporan @sisa-cuti @lean
+@ui @laporan @sisa-cuti @cuti @lean
 Fitur: Pengujian Fitur Laporan Sisa Cuti — HADIR
   Sebagai Administrator atau Tim Human Resources
   Saya ingin memantau kuota hak cuti tahunan, cuti terpakai, dan sisa saldo berjalan karyawan

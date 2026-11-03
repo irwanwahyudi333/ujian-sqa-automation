@@ -1,5 +1,5 @@
 # language: id
-@ui @apps-absent @absent-leave @lean
+@ui @apps-absent @absent-leave @cuti @lean
 Fitur: Pengujian UI Lean Pengajuan Cuti Client Mobile
   Sebagai Karyawan atau Administrator
   Saya ingin mengakses modul cuti client (/apps/absent/leave-client)

@@ -1,5 +1,5 @@
 # language: id
-@ui @leader @lean
+@ui @leader @leader-cuti @cuti @lean
 Fitur: Portal Leader - Pengelolaan dan Persetujuan Cuti Tim
   Sebagai Team Leader (isLeader: true)
   Saya ingin meninjau dan menyetujui pengajuan cuti anggota regu
