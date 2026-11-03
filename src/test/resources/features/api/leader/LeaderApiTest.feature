@@ -27,7 +27,7 @@ Fitur: API Backend Modul Leader - Endpoint Presensi, Approval, dan Otorisasi Kea
     Ketika leader mengirim request PATCH penolakan ke endpoint "/api/leader/corrections/1" dengan alasan "Data jam tidak sesuai"
     Maka response API leader mengembalikan status 200
 
-  @tc-api-ldr-05
+  @tc-api-ldr-05 @cuti
   Skenario: Leader menyetujui pengajuan cuti anggota tim
     Ketika leader mengirim request PATCH persetujuan ke endpoint "/api/leader/leave/1/approval" dengan status disetujui
     Maka response API leader mengembalikan status 200
