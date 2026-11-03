@@ -1,5 +1,5 @@
 # language: id
-@ui @apps-absent @absent-share-report @lean
+@ui @apps-absent @absent-share-report @absen-mobile @lean
 Fitur: Pengujian UI Lean Modul Share Report Client Mobile
   Sebagai Karyawan atau Upliner
   Saya ingin mengakses modul share report (/apps/absent/reports/share_report)

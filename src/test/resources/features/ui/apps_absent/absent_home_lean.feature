@@ -1,5 +1,5 @@
 # language: id
-@ui @apps-absent @absent-home @lean
+@ui @apps-absent @absent-home @absen-mobile @lean
 Fitur: Pengujian UI Lean Dashboard Presensi Client Mobile
   Sebagai Karyawan atau Administrator
   Saya ingin mengakses halaman utama presensi (/apps/absent)

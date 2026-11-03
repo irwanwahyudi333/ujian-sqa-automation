@@ -1,5 +1,5 @@
 # language: id
-@ui @apps-absent @absent-staff @lean
+@ui @apps-absent @absent-staff @absen-mobile @lean
 Fitur: Pengujian UI Lean Daftar Anggota Tim Client Mobile
   Sebagai Upliner atau Management
   Saya ingin mengakses modul staff (/apps/absent/staff)
