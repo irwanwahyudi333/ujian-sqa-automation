@@ -1,5 +1,5 @@
 # language: id
-@ui @apps-absent @absent-correction @absen-mobile @lean
+@ui @apps-absent @absent-correction @absen-mobile @absensi @lean
 Fitur: Pengujian UI Lean Koreksi Absensi Client Mobile
   Sebagai Karyawan atau Administrator
   Saya ingin mengakses modul koreksi absensi (/apps/absent/correction)

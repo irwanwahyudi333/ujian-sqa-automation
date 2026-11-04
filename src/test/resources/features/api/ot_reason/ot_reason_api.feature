@@ -1,5 +1,5 @@
 # language: id
-@api @management @ot-reason @lembur
+@api @management @ot-reason @lembur @lean
 Fitur: Pengujian API Master Overtime Reason
   Sebagai Administrator SQA
   Saya ingin menguji API endpoint master overtime reason
@@ -31,4 +31,9 @@ Fitur: Pengujian API Master Overtime Reason
   Skenario: Akses endpoint alasan lembur tanpa token otorisasi
     Ketika Klien mengirim request "GET" tanpa otorisasi ke endpoint ot reason "/api/ot-reason"
     Maka Response status ot reason harus 401
+
+  @SEC-OT-001 @security @rbac-bypass @lembur @lean
+  Skenario: Backend wajib menolak eskalasi atau bypass persetujuan lembur oleh pengguna non-otoritas
+    Ketika client non-otoritas mencoba melakukan mutasi persetujuan lembur langsung ke status "APPROVED"
+    Maka sistem backend harus menolak perubahan status lembur dengan status 403 Forbidden
 

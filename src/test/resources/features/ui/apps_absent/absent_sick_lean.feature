@@ -1,5 +1,5 @@
 # language: id
-@ui @apps-absent @absent-sick @lean
+@ui @apps-absent @absent-sick @sakit @lean
 Fitur: Pengujian UI Lean Pengajuan Izin Sakit Client Mobile
   Sebagai Karyawan atau Administrator
   Saya ingin mengakses modul izin sakit (/apps/absent/sick)

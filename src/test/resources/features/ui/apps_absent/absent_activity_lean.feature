@@ -1,5 +1,5 @@
 # language: id
-@ui @apps-absent @absent-activity @absen-mobile @lean
+@ui @apps-absent @absent-activity @absen-mobile @absensi @lean
 Fitur: Pengujian UI Lean Riwayat Presensi Client Mobile
   Sebagai Karyawan atau Administrator
   Saya ingin mengakses halaman riwayat presensi (/apps/absent/activity)

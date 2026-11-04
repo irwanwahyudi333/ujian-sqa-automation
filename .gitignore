@@ -37,7 +37,7 @@ cucumber-reports/
 ### AI & Internal Docs ###
 .ai/
 AGENTS.md
-PANDUAN_ARSITEKTUR_SRC.md
+docs/PANDUAN_ARSITEKTUR_SRC.md
 .agents/
 .docs/
 
@@ -46,12 +46,8 @@ PANDUAN_ARSITEKTUR_SRC.md
 
 ### Allure Test ###
 .allure
+.mvn-bin/
 
-### FDA ###
+### FDA & Internal Tracking ###
 fda/
-TRACKING_PENGUJIAN_LAPORAN.md
-TRACKING_PENGUJIAN_MANAGEMENT.md
-TRACKING_PENGUJIAN_CLIENT_UPLINER.md
-TRACKING_PENGUJIAN_MONITORING.md
-LAPORAN_DEFECT_DAN_REKOMENDASI_PERBAIKAN.md
 

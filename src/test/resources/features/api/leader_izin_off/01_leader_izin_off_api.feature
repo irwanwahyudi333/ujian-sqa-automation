@@ -1,5 +1,5 @@
 # language: id
-@api @leader-izin-off @izin-off @api-leader-izin-off
+@api @leader-izin-off @izin-off @api-leader-izin-off @izin @lean
 Fitur: Pengujian Kontrak API Backend Leader Izin Off
   Sebagai Sistem atau Pengembang
   Saya ingin memverifikasi respons endpoint API /api/off-permit/
@@ -40,3 +40,8 @@ Fitur: Pengujian Kontrak API Backend Leader Izin Off
   Skenario: Mengambil permohonan dengan parameter pagination
     Ketika client mengirim request GET leader izin off ke endpoint "/api/off-permit/?page=1&limit=5"
     Maka response API leader izin off mengembalikan status 200 OK
+
+  @SEC-IZN-001 @security @rbac-bypass @izin @lean
+  Skenario: Backend wajib menolak eskalasi approval izin off oleh staf atau client non-otoritas
+    Ketika client non-otoritas mencoba melakukan mutasi persetujuan izin off ke status "APPROVED"
+    Maka sistem backend harus menolak perubahan status izin off dengan status 403 Forbidden

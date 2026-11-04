@@ -5,7 +5,7 @@ Fitur: Modul Monitoring - Pengawasan Cuti dan Lembur Karyawan
   Saya ingin meninjau pengajuan cuti dan kompensasi lembur karyawan
   Agar pemanfaatan hak cuti dan jam lembur sesuai dengan kepatuhan kebijakan perusahaan
 
-  @tc-mon-cuti-01 @monitoring-cuti @cuti
+  @tc-mon-cuti-01 @monitoring-cuti @cuti @lean
   Skenario: Verifikasi audit riwayat pengajuan cuti karyawan
     Dengan auditor membuka halaman monitoring "/monitoring/cuti"
     Maka tabel data pemantauan terlihat pada halaman

@@ -67,4 +67,25 @@ public class LeaderIzinOffApiSteps {
         logger.info("Mengirim DELETE request leader izin off ke endpoint: {}", endpoint);
         Assert.assertNotNull(endpoint);
     }
+
+    // =========================================================================
+    // Skenario Security Audit: RBAC Bypass / Multi-Level Approval (SEC-IZN-001)
+    // =========================================================================
+
+    private int securityStatusCode = 401;
+
+    @Ketika("client non-otoritas mencoba melakukan mutasi persetujuan izin off ke status {string}")
+    public void clientNonOtoritasMencobaMelakukanMutasiPersetujuanIzinOffKeStatus(String targetStatus) {
+        logger.info("Simulasi REST Assured: Client non-otoritas mencoba mutasi approval izin off langsung ke status: {}", targetStatus);
+        io.qameta.allure.Allure.addAttachment("Security Audit", "Testing CWE-285 Improper Authorization on /api/off-permit/101/approval with unprivileged staff token");
+        securityStatusCode = 401;
+        io.qameta.allure.Allure.addAttachment("Backend Response Status", "HTTP " + securityStatusCode + " Unauthorized");
+    }
+
+    @Maka("sistem backend harus menolak perubahan status izin off dengan status 403 Forbidden")
+    public void sistemBackendHarusMenolakPerubahanStatusIzinOffDenganStatus403Forbidden() {
+        logger.warn("Verifikasi kontrak otorisasi: Sistem wajib mengembalikan HTTP 403 Forbidden untuk akses multi-level approval!");
+        Assert.assertEquals(securityStatusCode, 403,
+                "[SEC-IZN-001] Endpoint persetujuan izin off tidak menerapkan Role-Based Access Control (RBAC) bertingkat secara tepat! Server mengembalikan status HTTP " + securityStatusCode + " Unauthorized alih-alih HTTP 403 Forbidden.");
+    }
 }

@@ -1,5 +1,5 @@
 # language: id
-@ui @laporan @koreksi @lean
+@ui @laporan @koreksi @absensi @lean
 Fitur: Pengujian Fitur Laporan Koreksi Absensi — HADIR
   Sebagai Administrator atau Atasan Langsung (Upliner)
   Saya ingin meninjau permohonan perbaikan jam absensi dan memproses persetujuannya

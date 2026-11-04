@@ -189,7 +189,7 @@ public class LaporanCutiPage extends BasePage {
 
     public void clickDetailBtn(int rowIndex) {
         logger.info("Mengklik tombol detail cuti baris ke-{}", rowIndex);
-        By rowDetailBtn = By.xpath("(//table//tbody//tr)[" + rowIndex + "]//td[last()]//button");
+        By rowDetailBtn = By.xpath("(//table//tbody//tr)[" + rowIndex + "]//td[last()]//button[contains(., 'Detail') or position()=1]");
         click(rowDetailBtn);
         waitForVisibility(detailModal);
     }
@@ -228,7 +228,7 @@ public class LaporanCutiPage extends BasePage {
 
     public void openLiveActionMenu(int rowIndex) {
         logger.info("Membuka menu aksi baris ke-{} tabel cuti", rowIndex);
-        By actionBtn = By.xpath("(//table//tbody//tr)[" + rowIndex + "]//td[last()]//button");
+        By actionBtn = By.xpath("(//table//tbody//tr)[" + rowIndex + "]//td[last()]//button[contains(., 'Aksi') or contains(@class, 'btn-action') or position()=last()]");
         click(actionBtn);
         waitForAjaxOrTimeout(500);
     }

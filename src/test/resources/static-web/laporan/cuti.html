@@ -263,6 +263,36 @@
     </div>
   </div>
 
+  <!-- Modal Dialog Ubah Atasan (Live Defect Reproduction) -->
+  <div class="modal-overlay" id="ubah-atasan-dialog" role="dialog" aria-modal="true">
+    <div class="modal-content" style="max-width: 500px;">
+      <div class="modal-header">
+        <h2 class="modal-title" id="ubah-atasan-title">Ubah atasan user yang request</h2>
+        <button class="modal-close-btn" onclick="closeUbahAtasanDialog()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="color: #4a5568; margin-bottom: 12px; font-size: 0.9rem;">
+          Pilih atasan pengganti untuk menyetujui permohonan cuti karyawan ini.
+        </p>
+        <div class="form-group">
+          <label class="form-label">Atasan 2 / Atasan 3</label>
+          <!-- Cacat Sistem Live: Hanya teks statis '-' tanpa kontrol dropdown/select -->
+          <div id="atasan-statis-text" style="padding: 10px 12px; background: #edf2f7; border-radius: 6px; font-weight: 600; color: #718096;">-</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeUbahAtasanDialog()">Batal</button>
+        <button class="btn btn-primary" id="btn-ubah-data">Ubah Data</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Action Popover Menu -->
+  <div id="action-popover" class="action-popover" style="display: none; position: absolute; background: #fff; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.15); z-index: 1100; min-width: 130px; border: 1px solid #e2e8f0; padding: 4px 0;">
+    <div role="menuitem" class="MuiMenuItem-root" onclick="triggerEditMenu()" style="padding: 8px 16px; cursor: pointer; font-size: 0.85rem; font-weight: 500; color: #2d3748;">Edit</div>
+    <div role="menuitem" class="MuiMenuItem-root" onclick="triggerDetailMenu()" style="padding: 8px 16px; cursor: pointer; font-size: 0.85rem; font-weight: 500; color: #2d3748;">Detail</div>
+  </div>
+
   <!-- Toast Notification / Snackbar -->
   <div id="snackbar" class="snackbar">
     <span id="snackbar-message">Pesan notifikasi</span>
@@ -527,7 +557,7 @@
           <td style="max-width:180px; overflow:hidden; text-overflow:ellipsis;">${item.reason}</td>
           <td><span class="badge ${badgeClass}">${item.status}</span></td>
           <td>${item.approver}</td>
-          <td><button class="btn btn-outline action-btn-sm" onclick="openDetail(${item.id})">Detail</button></td>
+          <td><button class="btn btn-outline action-btn-sm" onclick="openDetail(${item.id})">Detail</button> <button class="btn btn-secondary action-btn-sm btn-action" onclick="openActionMenu(event, ${item.id})">Aksi</button></td>
         `;
     
         tableBody.appendChild(tr);
@@ -642,6 +672,43 @@
     });
     document.getElementById("btn-close-detail").addEventListener("click", () => {
       detailModal.classList.remove("active");
+    });
+
+    // Ubah Atasan Modal & Action Popover Logic
+    const ubahAtasanDialog = document.getElementById("ubah-atasan-dialog");
+    const actionPopover = document.getElementById("action-popover");
+    let selectedCutiId = null;
+
+    window.openActionMenu = function(e, id) {
+      e.stopPropagation();
+      selectedCutiId = id;
+      const rect = e.target.getBoundingClientRect();
+      actionPopover.style.top = (rect.bottom + window.scrollY + 4) + "px";
+      actionPopover.style.left = (rect.left + window.scrollX - 40) + "px";
+      actionPopover.style.display = "block";
+    };
+
+    window.triggerEditMenu = function() {
+      if (actionPopover) actionPopover.style.display = "none";
+      if (ubahAtasanDialog) ubahAtasanDialog.classList.add("active");
+    };
+
+    window.triggerDetailMenu = function() {
+      if (actionPopover) actionPopover.style.display = "none";
+      if (selectedCutiId) openDetail(selectedCutiId);
+    };
+
+    window.closeUbahAtasanDialog = function() {
+      if (ubahAtasanDialog) ubahAtasanDialog.classList.remove("active");
+    };
+
+    document.getElementById("btn-ubah-data")?.addEventListener("click", () => {
+      closeUbahAtasanDialog();
+      renderTable();
+    });
+
+    document.addEventListener("click", () => {
+      if (actionPopover) actionPopover.style.display = "none";
     });
 
     // Export button

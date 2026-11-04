@@ -188,7 +188,7 @@ public class LaporanOvertimePage extends BasePage {
 
     public void clickDetailBtn(int rowIndex) {
         logger.info("Mengklik tombol aksi/detail baris ke-{}", rowIndex);
-        By rowActionBtn = By.xpath("(//table//tbody//tr)[" + rowIndex + "]//td[last()]//button");
+        By rowActionBtn = By.xpath("(//table//tbody//tr)[" + rowIndex + "]//td[last()]//button[contains(., 'Detail')] | (//table//tbody//tr)[" + rowIndex + "]//td[last()]//button[1]");
         click(rowActionBtn);
         waitForVisibility(detailModal);
     }
@@ -227,7 +227,7 @@ public class LaporanOvertimePage extends BasePage {
 
     public void clickRowActionButton(int rowIndex) {
         logger.info("Mengklik tombol aksi pada baris ke-{} tabel overtime", rowIndex);
-        By actionBtn = By.xpath("(//table//tbody//tr)[" + rowIndex + "]//td[last()]//button");
+        By actionBtn = By.xpath("(//table//tbody//tr)[" + rowIndex + "]//td[last()]//button[contains(., 'Ubah') or contains(@class, 'btn-ubah')] | (//table//tbody//tr)[" + rowIndex + "]//td[last()]//button[last()]");
         click(actionBtn);
         waitForVisibility(ubahAtasanDialog);
     }

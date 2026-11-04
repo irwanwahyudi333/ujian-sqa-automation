@@ -1,5 +1,5 @@
 # language: id
-@ui @laporan @izin-off @lean
+@ui @laporan @izin-off @izin @lean
 Fitur: Pengujian Fitur Laporan Izin Off — HADIR
   Sebagai Administrator atau Supervisor Tim Shift
   Saya ingin mengelola permohonan penyesuaian jadwal libur (day-off swap) dan tanggal pengganti

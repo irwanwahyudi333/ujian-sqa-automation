@@ -1,5 +1,5 @@
 # language: id
-@ui @laporan @izin-pulang-cepat @lean
+@ui @laporan @izin-pulang-cepat @izin @lean
 Fitur: Pengujian Fitur Laporan Izin Pulang Cepat — HADIR
   Sebagai Administrator atau Tim HR Hadir
   Saya ingin mengelola dan memantau rekaman karyawan yang pulang sebelum akhir jam kerja

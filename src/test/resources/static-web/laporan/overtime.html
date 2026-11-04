@@ -262,6 +262,30 @@
     </div>
   </div>
 
+  <!-- Modal Dialog Ubah Atasan (Live Defect Reproduction) -->
+  <div class="modal-overlay" id="ubah-atasan-dialog" role="dialog" aria-modal="true">
+    <div class="modal-content" style="max-width: 500px;">
+      <div class="modal-header">
+        <h2 class="modal-title" id="ubah-atasan-title">Ubah atasan user yang request</h2>
+        <button class="modal-close-btn" onclick="closeUbahAtasanDialog()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="color: #4a5568; margin-bottom: 12px; font-size: 0.9rem;">
+          Pilih atasan pengganti untuk menyetujui pengajuan lembur karyawan ini.
+        </p>
+        <div class="form-group">
+          <label class="form-label">Atasan 2 / Atasan 3</label>
+          <!-- Cacat Sistem Live: Hanya teks statis '-' tanpa kontrol dropdown/select -->
+          <div id="atasan-statis-text" style="padding: 10px 12px; background: #edf2f7; border-radius: 6px; font-weight: 600; color: #718096;">-</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeUbahAtasanDialog()">Batal</button>
+        <button class="btn btn-primary" id="btn-ubah-data">Ubah Data</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Toast Notification / Snackbar -->
   <div id="snackbar" class="snackbar">
     <span id="snackbar-message">Pesan notifikasi</span>
@@ -526,7 +550,7 @@
           <td style="max-width:220px; overflow:hidden; text-overflow:ellipsis;">${item.task_desc}</td>
           <td><span class="badge ${badgeClass}">${item.status}</span></td>
           <td>${item.approver}</td>
-          <td><button class="btn btn-outline action-btn-sm" onclick="openDetail(${item.id})">Detail</button></td>
+          <td><button class="btn btn-outline action-btn-sm" onclick="openDetail(${item.id})">Detail</button> <button class="btn btn-secondary action-btn-sm btn-ubah" onclick="openUbahAtasanDialog(${item.id})">Ubah</button></td>
         `;
     
         tableBody.appendChild(tr);
@@ -641,6 +665,19 @@
     });
     document.getElementById("btn-close-detail").addEventListener("click", () => {
       detailModal.classList.remove("active");
+    });
+
+    // Ubah Atasan Modal Actions
+    const ubahAtasanDialog = document.getElementById("ubah-atasan-dialog");
+    window.openUbahAtasanDialog = function(id) {
+      if (ubahAtasanDialog) ubahAtasanDialog.classList.add("active");
+    };
+    window.closeUbahAtasanDialog = function() {
+      if (ubahAtasanDialog) ubahAtasanDialog.classList.remove("active");
+    };
+    document.getElementById("btn-ubah-data")?.addEventListener("click", () => {
+      closeUbahAtasanDialog();
+      renderTable();
     });
 
     // Export button

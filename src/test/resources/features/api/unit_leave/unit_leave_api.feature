@@ -1,8 +1,8 @@
 # language: id
-@api @management @unit-leave @cuti
-Fitur: Pengujian API Master Unit Leave
+@api @management @unit-leave @cuti @lean
+Fitur: Pengujian API Master Unit Leave & Otorisasi Cuti
   Sebagai Administrator SQA
-  Saya ingin menguji API endpoint master aturan cuti (unit leave)
+  Saya ingin menguji API endpoint master aturan cuti (unit leave) dan otorisasi persetujuan cuti
   Untuk memastikan integrasi CRUD, batasan kuota cuti, otorisasi RBAC, dan skema JSON berjalan sesuai spesifikasi
 
   Skenario: Mendapatkan daftar aturan cuti dengan otentikasi valid
@@ -40,3 +40,7 @@ Fitur: Pengujian API Master Unit Leave
     Ketika Klien mengirim request "GET" tanpa otorisasi ke endpoint unit leave "/api/unit-leave"
     Maka Response status unit leave harus 401
 
+  @SEC-CUTI-001 @security @rbac @cuti @lean
+  Skenario: Backend wajib menolak mutasi persetujuan cuti jika ditembak oleh staf non-leader tanpa hak otorisasi
+    Ketika staf non-leader mencoba menyetujui klaim cuti via API "/api/leader/leave/1/approval" tanpa hak otorisasi
+    Maka sistem backend harus menolak permohonan persetujuan dengan status 403 Forbidden

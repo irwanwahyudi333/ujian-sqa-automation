@@ -510,6 +510,7 @@
             <div class="btn-group" style="gap:4px;">
               <button class="btn btn-success action-btn-sm" id="btn-approve-off" onclick="showSnackbar('Izin off disetujui', 'success')">Approve</button>
               <button class="btn btn-danger action-btn-sm" id="btn-reject-off" onclick="showSnackbar('Izin off ditolak', 'error')">Reject</button>
+              <button class="btn btn-outline action-btn-sm MuiIconButton-root" aria-label="action" onclick="toggleActionMenu(event, ${item.id})">⋮</button>
             </div>
           </td>
         `;
@@ -657,7 +658,30 @@
 
     
 
+    function toggleActionMenu(e, id) {
+      const pop = document.getElementById("popover-menu");
+      if (pop.style.display === "block") {
+        pop.style.display = "none";
+      } else {
+        pop.style.display = "block";
+        const rect = e.target.getBoundingClientRect();
+        pop.style.top = (rect.bottom + window.scrollY) + "px";
+        pop.style.left = (rect.left + window.scrollX - 100) + "px";
+      }
+    }
+    function closeActionMenu() {
+      document.getElementById("popover-menu").style.display = "none";
+    }
+
     renderTable();
   </script>
+
+  <!-- Live Popover Action Menu Mock -->
+  <div id="popover-menu" class="MuiPopover-root MuiMenu-paper" style="display:none; position:absolute; background:#fff; border:1px solid #dee3e9; border-radius:6px; box-shadow:0 4px 12px rgba(0,0,0,0.15); z-index:2000;">
+    <ul style="list-style:none; padding:4px 0; margin:0;">
+      <li style="padding:8px 16px; cursor:pointer; font-size:0.875rem;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='#fff'" onclick="showSnackbar('Aksi Approval Koreksi', 'info'); closeActionMenu();">Approval Koreksi</li>
+      <li style="padding:8px 16px; cursor:pointer; font-size:0.875rem;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='#fff'" onclick="showSnackbar('Aksi Reject Koreksi', 'info'); closeActionMenu();">Reject Koreksi</li>
+    </ul>
+  </div>
 </body>
 </html>

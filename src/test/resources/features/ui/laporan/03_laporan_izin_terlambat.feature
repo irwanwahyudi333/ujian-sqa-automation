@@ -1,5 +1,5 @@
 # language: id
-@ui @laporan @izin-terlambat @lean
+@ui @laporan @izin-terlambat @izin @lean
 Fitur: Pengujian Fitur Laporan Izin Terlambat (Keterlambatan Absensi) — HADIR
   Sebagai Administrator atau Tim HR/Supervisor
   Saya ingin memantau dan memvalidasi rekaman absensi terlambat, selisih waktu, alasan keterlambatan, dan status approval

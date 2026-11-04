@@ -60,6 +60,11 @@ ujian-sqa-automation/
 │           │   ├── api/                     # Skenario BDD Gherkin API (@api)
 │           │   └── ui/                      # Skenario BDD Gherkin UI (@ui)
 │           └── testdata/                    # Berkas data uji eksternal (.xlsx, .json)
+├── docs/                                    # Dokumentasi proyek & katalog komponen
+│   ├── defect-reports/                      # Laporan bug defect & rekomendasi perbaikan
+│   ├── tracking/                            # Papan pelacakan progres pengujian per modul
+│   ├── COMPONENTS_*.md                      # Katalog komponen antarmuka web per modul
+│   └── PANDUAN_ARSITEKTUR_SRC.md            # Panduan teknis arsitektur folder src
 ├── testng.xml                               # Suite utama eksekusi TestNG (API & UI)
 ├── pom.xml                                  # Konfigurasi build Maven & dependensi library
 ├── .gitignore                               # Aturan pengabaian artefak target, logs, dan IDE

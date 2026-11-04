@@ -68,7 +68,7 @@ Fitur: Pengujian Fitur Laporan Overtime — HADIR
     Ketika admin menekan tombol Export overtime
     Maka sistem menampilkan notifikasi snackbar sukses overtime "Berhasil mengekspor Laporan Overtime ke Excel (.xlsx)"
 
-  @BUG-OT-001 @DEFECT-OT-001 @live
+  @BUG-OT-001 @DEFECT-OT-001 @live @lembur @lean
   Skenario: Verifikasi ketersediaan kontrol form dan fungsi tombol Ubah Data pada modal ubah atasan
     Ketika admin mengklik tombol aksi ubah data pada baris pertama tabel overtime
     Maka sistem menampilkan modal dialog ubah atasan "Ubah atasan user yang request"
